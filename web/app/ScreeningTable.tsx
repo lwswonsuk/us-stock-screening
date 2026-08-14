@@ -16,7 +16,7 @@ import StockProfileDialog, { StockProfile } from "./StockProfileDialog";
 
 type ResultRow = Record<string, string | number | null> & { profile?: StockProfile | null };
 
-const TWO_DECIMAL_RIGHT_ALIGN = new Set(["per", "pbr", "roe_3y_avg", "debt_ratio", "div_yield", "payout_ratio"]);
+const TWO_DECIMAL_RIGHT_ALIGN = new Set(["per", "pbr", "roe_3y_avg", "debt_ratio", "div_yield", "payout_ratio_pct"]);
 const FOUR_DECIMAL_RIGHT_ALIGN = new Set(["score"]);
 const RIGHT_ALIGN_ONLY = new Set(["price", "mktcap_usd"]);
 

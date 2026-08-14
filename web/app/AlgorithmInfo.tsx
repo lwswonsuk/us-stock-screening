@@ -61,6 +61,12 @@ export default function AlgorithmInfo() {
                   <li>시세/재무데이터: Financial Modeling Prep(FMP) API</li>
                   <li>대상: S&P 500 + S&P 400(중형) + S&P 600(소형) 종목</li>
                 </ul>
+                <p className="mt-2 text-muted-foreground">
+                  ROE 변동성, 매출 성장률, 순현금 비율 등 일부 세부 지표는 FMP에서 3년치
+                  히스토리를 직접 제공하지 않아 현재는 중립값으로 처리됩니다. 그만큼 랭킹은
+                  ROE 절대수준, 영업이익률, 부채비율, PER/PBR, 배당 등 실제로 확보된 지표에
+                  더 크게 의존합니다.
+                </p>
               </div>
             </CardContent>
           </Card>
