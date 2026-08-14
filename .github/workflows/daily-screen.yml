@@ -50,13 +50,13 @@ jobs:
           github.event.inputs.force_finance == 'true'
         working-directory: screening
         env:
-          FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
+          FINNHUB_API_KEY: ${{ secrets.FINNHUB_API_KEY }}
         run: python data_pipeline.py --build --force
 
       - name: 스크리닝 실행 + JSON 저장
         working-directory: screening
         env:
-          FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
+          FINNHUB_API_KEY: ${{ secrets.FINNHUB_API_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
           python us_alpha.py --run --top 50 \
