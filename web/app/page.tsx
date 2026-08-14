@@ -3,6 +3,7 @@ import path from "path";
 import ScreeningTable from "./ScreeningTable";
 import AdminGate from "./AdminGate";
 import UpdateControls from "./UpdateControls";
+import FilteredDownloadButton from "./FilteredDownloadButton";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { formatAsOfDate } from "@/lib/format";
@@ -55,6 +56,7 @@ export default function Home() {
             <Badge variant="outline">
               갱신 {data.generated_at ? new Date(data.generated_at).toLocaleString("ko-KR") : "-"}
             </Badge>
+            <FilteredDownloadButton passed={data.universe_passed} total={data.universe_total} />
           </div>
 
           <ScreeningTable columns={data.columns} labels={data.column_labels_ko} rows={data.results} />
