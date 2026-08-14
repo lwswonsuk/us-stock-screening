@@ -18,6 +18,7 @@ us_alpha.py — 4팩터 종목 선정 알고리즘 (KOSPI판 이식, S&P 500+400
 from __future__ import annotations
 
 import argparse
+import time
 from dataclasses import dataclass, field
 
 import numpy as np
@@ -233,9 +234,10 @@ def run_demo():
 # 6. 실데이터 어댑터
 # ═══════════════════════════════════════════════════════════════
 
-def get_historical_prices_batch(tickers: list[str]) -> dict[str, dict]:
+def get_historical_prices_batch(tickers: list[str], sleep_sec: float = 0.2) -> dict[str, dict]:
     """티커 리스트에 대해 (3개월수익률, 12개월수익률, 52주낙폭)을 계산해 dict로 반환한다.
-    개별 종목 조회 실패는 건너뛰고 계속 진행한다."""
+    개별 종목 조회 실패는 건너뛰고 계속 진행한다. data_pipeline.build_finance_cache와
+    동일하게 호출 사이에 sleep을 둬 FMP 요청 빈도를 제한한다."""
     import fmp_client
     from data_pipeline import compute_return_and_drawdown
 
@@ -247,6 +249,7 @@ def get_historical_prices_batch(tickers: list[str]) -> dict[str, dict]:
             out[ticker] = {"ret_3m": ret_3m, "ret_12m": ret_12m, "drawdown_52w": drawdown_52w}
         except Exception as e:
             print(f"  [WARN] {ticker} 가격 히스토리 조회 실패: {e}")
+        time.sleep(sleep_sec)
     return out
 
 
@@ -261,7 +264,10 @@ def load_real() -> pd.DataFrame:
         )
 
     universe = data_pipeline.get_full_universe()
-    universe = universe.rename(columns={"market_cap": "mktcap_usd", "avg_volume": "avg_volume_usd"})
+    universe = universe.rename(columns={"market_cap": "mktcap_usd"})
+    # FMP의 avgVolume은 주식수(거래량) 단위다. 유동성 필터(min_avg_volume_usd)는
+    # "일평균 거래대금"(달러) 기준이므로 여기서 가격을 곱해 달러 단위로 환산한다.
+    universe["avg_volume_usd"] = universe["avg_volume"] * universe["price"]
 
     fin = pd.read_parquet(data_pipeline.FINANCE_CACHE).set_index("ticker")
     df = universe.join(fin, how="inner")
@@ -285,20 +291,36 @@ def load_real() -> pd.DataFrame:
 KOR_NAMES = {
     "name": "종목명", "sector": "섹터", "mktcap_usd": "시가총액(백만$)",
     "price": "현재가", "per": "PER", "pbr": "PBR", "roe_3y_avg": "ROE(%)",
-    "debt_ratio": "부채비율(%)", "div_yield": "배당수익률(%)", "payout_ratio": "배당성향(%)",
+    "debt_ratio": "부채비율(%)", "div_yield": "배당수익률(%)", "payout_ratio_pct": "배당성향(%)",
     "score": "종합점수",
 }
+
+
+def _record_value(col: str, v) -> str | float | None:
+    """DataFrame 값을 JSON 레코드 값으로 변환한다. mktcap_usd는 헤더 단위("백만$")에
+    맞춰 이 시점에만 백만 단위로 나눈다 — 필터링/스코어링에 쓰이는 원본 DataFrame의
+    달러 단위 값은 건드리지 않는다."""
+    if col == "mktcap_usd" and not pd.isna(v):
+        v = v / 1_000_000
+    if pd.isna(v):
+        return None
+    if isinstance(v, (int, float, np.floating, np.integer)):
+        return round(float(v), 4)
+    return str(v)
 
 
 def run_real(top_n: int = 50, export_json: str | None = None, filtered_json: str | None = None) -> pd.DataFrame:
     d = load_real()
     filt = apply_hard_filters(d)
     ranked = composite(filt)
+    # payout_ratio는 score_payout 계산에 필요한 0~1 소수 그대로 두고, 화면/JSON
+    # 표시용으로만 별도 ×100 컬럼을 둔다 (라벨이 "배당성향(%)"이므로).
+    ranked["payout_ratio_pct"] = ranked["payout_ratio"] * 100
 
     print(f"유니버스 {len(d)} → 통과 {int(filt['passed'].sum())}")
 
     cols = ["name", "sector", "mktcap_usd", "price", "per", "pbr", "roe_3y_avg",
-            "debt_ratio", "div_yield", "payout_ratio", "score"]
+            "debt_ratio", "div_yield", "payout_ratio_pct", "score"]
     cols = [c for c in cols if c in ranked.columns]
 
     top = ranked[ranked["passed"]].head(top_n)[cols]
@@ -311,13 +333,7 @@ def run_real(top_n: int = 50, export_json: str | None = None, filtered_json: str
         for ticker, row in top.iterrows():
             rec = {"stock_code": str(ticker)}
             for c in cols:
-                v = row[c]
-                if pd.isna(v):
-                    rec[c] = None
-                elif isinstance(v, (int, float, np.floating, np.integer)):
-                    rec[c] = round(float(v), 4)
-                else:
-                    rec[c] = str(v)
+                rec[c] = _record_value(c, row[c])
             rec["name"] = rec["stock_code"]   # 화면에는 회사 전체명 대신 티커를 표시 (설계 결정)
             records.append(rec)
 
@@ -360,8 +376,7 @@ def run_real(top_n: int = 50, export_json: str | None = None, filtered_json: str
         for ticker, row in passed_all.iterrows():
             rec = {"stock_code": str(ticker)}
             for c in cols:
-                v = row[c]
-                rec[c] = None if pd.isna(v) else (round(float(v), 4) if isinstance(v, (int, float, np.floating, np.integer)) else str(v))
+                rec[c] = _record_value(c, row[c])
             rec["name"] = rec["stock_code"]   # 화면에는 회사 전체명 대신 티커를 표시 (설계 결정)
             records.append(rec)
 

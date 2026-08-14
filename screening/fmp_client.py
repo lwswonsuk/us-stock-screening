@@ -12,12 +12,14 @@ raw dict 그대로 반환한다 — 컬럼 매핑(FMP 필드명 → 내부 컬�
 from __future__ import annotations
 
 import os
+import warnings
 
 import pandas as pd
 import requests
 
 BASE_URL = "https://financialmodelingprep.com/api/v3"
 TIMEOUT = 30
+QUOTE_BATCH_SIZE = 100
 
 
 def _api_key() -> str:
@@ -51,16 +53,36 @@ def get_index_universe() -> pd.DataFrame:
 
 
 def get_quotes(tickers: list[str]) -> pd.DataFrame:
-    """티커 리스트의 현재가/시가총액/평균거래량을 한 번에 조회한다.
+    """티커 리스트의 현재가/시가총액/평균거래량을 조회한다.
+    FMP는 한 요청의 URL에 담을 수 있는 심볼 개수에 제한이 있으므로,
+    QUOTE_BATCH_SIZE개씩 나눠 여러 번 호출한 뒤 결과를 이어붙인다.
     index=ticker, columns=[price, market_cap, avg_volume]."""
     key = _api_key()
-    batch = ",".join(tickers)
-    r = requests.get(f"{BASE_URL}/quote/{batch}", params={"apikey": key}, timeout=TIMEOUT)
-    r.raise_for_status()
-    rows = r.json()
-    df = pd.DataFrame(rows)
+    frames = []
+    for i in range(0, len(tickers), QUOTE_BATCH_SIZE):
+        chunk = tickers[i : i + QUOTE_BATCH_SIZE]
+        batch = ",".join(chunk)
+        r = requests.get(f"{BASE_URL}/quote/{batch}", params={"apikey": key}, timeout=TIMEOUT)
+        r.raise_for_status()
+        rows = r.json()
+        if rows:
+            frames.append(pd.DataFrame(rows))
+
+    if not frames:
+        df = pd.DataFrame(columns=["symbol", "market_cap", "avg_volume", "price"])
+    else:
+        df = pd.concat(frames, ignore_index=True)
+
     df = df.rename(columns={"symbol": "ticker", "marketCap": "market_cap", "avgVolume": "avg_volume"})
-    return df.set_index("ticker")[["price", "market_cap", "avg_volume"]]
+    df = df.set_index("ticker")[["price", "market_cap", "avg_volume"]]
+
+    if len(df) < len(tickers):
+        warnings.warn(
+            f"[get_quotes] 요청 {len(tickers)}개 중 {len(df)}개만 응답받음 "
+            f"(부분 커버리지 — 나머지 {len(tickers) - len(df)}개는 시세 조회 실패 또는 미상장 가능성)"
+        )
+
+    return df
 
 
 def get_ratios_ttm(ticker: str) -> dict:
@@ -108,16 +130,3 @@ def get_historical_prices(ticker: str, days: int = 380) -> pd.DataFrame:
     df = pd.DataFrame(rows)[["date", "close"]]
     df["date"] = pd.to_datetime(df["date"])
     return df.sort_values("date").reset_index(drop=True)
-
-
-def get_dividends(ticker: str) -> list[dict]:
-    """배당 이력 raw 리스트."""
-    key = _api_key()
-    r = requests.get(
-        f"{BASE_URL}/historical-price-full/stock_dividend/{ticker}",
-        params={"apikey": key},
-        timeout=TIMEOUT,
-    )
-    r.raise_for_status()
-    payload = r.json()
-    return payload.get("historical", [])

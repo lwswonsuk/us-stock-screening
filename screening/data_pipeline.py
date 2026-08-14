@@ -77,7 +77,11 @@ def fetch_finance_one(ticker: str) -> dict:
         "roe_3y_std": np.nan,   # FMP TTM 엔드포인트는 단일 시점값만 제공 — 3개년 변동성은 계산 불가, 중립값(0.5 percentile) 처리는 score_quality의 pct_rank가 알아서 함
         "debt_ratio": None if debt_equity is None else debt_equity * 100,
         "op_margin": None if op_margin is None else op_margin * 100,
-        "op_ttm": None,   # apply_hard_filters에서 rev/op 부호 판단용 — get_quotes 이후 시총*op_margin으로 근사
+        # op_ttm: FMP TTM 엔드포인트는 영업이익 실액을 직접 제공하지 않으므로, 여기서는
+        # 실제 금액이 아니라 흑자/적자 부호 판별용 플레이스홀더만 넣는다. 최종 부호는
+        # us_alpha.load_real()에서 op_margin(영업이익률)으로 덮어써, apply_hard_filters의
+        # "적자 배제" 필터가 부호만으로 판단하게 한다 — 값 자체를 금액으로 쓰면 안 된다.
+        "op_ttm": None,
         "op_yoy": op_yoy,
         "rev_yoy": rev_yoy,
         "rev_cagr_3y": np.nan,

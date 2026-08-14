@@ -17,6 +17,9 @@ web/                 Next.js 웹사이트
 ### 1. Financial Modeling Prep(FMP) 계정 + API 키
 1. https://site.financialmodelingprep.com 접속 → 무료 회원가입
 2. 대시보드에서 API 키 복사해둔다
+3. 참고: 무료 요금제는 하루 호출 횟수 제한이 있는데, S&P 500+400+600 전체(약 1,500종목)를
+   종목당 여러 번씩 조회하는 이 스크리닝의 매일 자동 실행에는 부족할 수 있다. 매일 자동
+   갱신이 필요하다면 유료 요금제 전환을 고려한다.
 
 ### 2. Anthropic API 키 (AI 종목 프로필 카드용)
 1. https://console.anthropic.com 접속 → 계정 생성/로그인

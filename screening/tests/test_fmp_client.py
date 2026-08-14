@@ -39,6 +39,50 @@ def test_get_quotes_returns_dataframe_indexed_by_ticker(monkeypatch):
     assert df.loc["AAPL", "market_cap"] == 3_400_000_000_000
 
 
+def test_get_quotes_chunks_large_ticker_lists(monkeypatch):
+    tickers = [f"TCK{i:04d}" for i in range(250)]  # > 2 batches of 100
+    calls = []
+
+    def fake_get(url, params=None, timeout=None):
+        calls.append(url)
+        # Extract the batch of symbols requested from the URL path.
+        batch_str = url.split("quote/", 1)[1]
+        symbols = batch_str.split(",")
+        payload = [
+            {"symbol": s, "price": 1.0, "marketCap": 1_000_000, "avgVolume": 1_000}
+            for s in symbols
+        ]
+        return _FakeResponse(payload)
+
+    monkeypatch.setenv("FMP_API_KEY", "test-key")
+    monkeypatch.setattr(fmp_client.requests, "get", fake_get)
+
+    df = fmp_client.get_quotes(tickers)
+
+    assert len(calls) == 3  # 100 + 100 + 50
+    assert len(df) == 250
+    assert set(df.index) == set(tickers)
+
+
+def test_get_quotes_warns_on_partial_coverage(monkeypatch):
+    tickers = ["AAPL", "MSFT", "GOOG"]
+
+    def fake_get(url, params=None, timeout=None):
+        # Simulate FMP dropping one symbol from the response.
+        payload = [
+            {"symbol": "AAPL", "price": 1.0, "marketCap": 1_000_000, "avgVolume": 1_000},
+            {"symbol": "MSFT", "price": 2.0, "marketCap": 2_000_000, "avgVolume": 2_000},
+        ]
+        return _FakeResponse(payload)
+
+    monkeypatch.setenv("FMP_API_KEY", "test-key")
+    monkeypatch.setattr(fmp_client.requests, "get", fake_get)
+
+    with pytest.warns(UserWarning, match="부분 커버리지"):
+        df = fmp_client.get_quotes(tickers)
+    assert len(df) == 2
+
+
 def test_get_quotes_raises_without_api_key(monkeypatch):
     monkeypatch.delenv("FMP_API_KEY", raising=False)
     with pytest.raises(RuntimeError, match="FMP_API_KEY"):

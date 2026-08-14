@@ -44,3 +44,14 @@ def test_run_real_writes_expected_json_shape(monkeypatch, tmp_path):
     assert payload["results"][0]["profile"] is None
     assert "column_labels_ko" in payload
     assert "quote_text" in payload
+
+    # mktcap_usd is exported in millions to match its "시가총액(백만$)" label,
+    # while the raw-dollar value stays untouched for hard-filter comparisons.
+    assert payload["results"][0]["mktcap_usd"] == 3_500_000.0
+
+    # payout_ratio is kept as a 0-1 fraction internally (used by score_payout),
+    # but the exported/displayed column is the ×100 percent value.
+    assert "payout_ratio_pct" in payload["columns"]
+    assert "payout_ratio" not in payload["columns"]
+    assert payload["results"][0]["payout_ratio_pct"] == 15.0
+    assert payload["column_labels_ko"]["payout_ratio_pct"] == "배당성향(%)"
