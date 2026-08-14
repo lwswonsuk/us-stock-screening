@@ -1,3 +1,4 @@
+import pytest
 import pandas as pd
 
 import wiki_universe
@@ -85,3 +86,20 @@ def test_get_universe_force_refresh_ignores_cache(monkeypatch, tmp_path):
     df = wiki_universe.get_universe(force=True)
 
     assert list(df.index) == ["NEW"]
+
+
+def test_get_universe_raises_on_empty_fetch(monkeypatch, tmp_path):
+    """Verify that empty fetch result (structural regression) raises RuntimeError instead of silently continuing."""
+    def fake_fetch(url, symbol_col_candidates=None):
+        if "400" in url:
+            # Simulate structural regression: fetch returns 0 rows
+            return pd.DataFrame({"ticker": [], "name": [], "sector": []})
+        if "500" in url:
+            return pd.DataFrame({"ticker": ["AAPL", "MSFT"], "name": ["Apple Inc.", "Microsoft Corp."], "sector": ["Technology", "Technology"]})
+        return pd.DataFrame({"ticker": ["WWW"], "name": ["Www Corp"], "sector": ["Energy"]})
+
+    monkeypatch.setattr(wiki_universe, "fetch_index_table", fake_fetch)
+    monkeypatch.setattr(wiki_universe, "UNIVERSE_CACHE", tmp_path / "universe.parquet")
+
+    with pytest.raises(RuntimeError, match="fetch_index_table returned 0 rows"):
+        wiki_universe.get_universe(force=True)

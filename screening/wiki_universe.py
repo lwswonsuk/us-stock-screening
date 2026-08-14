@@ -100,7 +100,12 @@ def get_universe(force: bool = False, max_age_days: int = 7) -> pd.DataFrame:
         if age_days <= max_age_days:
             return pd.read_parquet(UNIVERSE_CACHE).set_index("ticker")
 
-    frames = [fetch_index_table(url) for url in INDEX_URLS]
+    frames = []
+    for url in INDEX_URLS:
+        df = fetch_index_table(url)
+        if len(df) == 0:
+            raise RuntimeError(f"fetch_index_table returned 0 rows for {url} — possible structural change in Wikipedia page")
+        frames.append(df)
     combined = pd.concat(frames, ignore_index=True)
     combined = combined.drop_duplicates(subset="ticker", keep="first")
 
