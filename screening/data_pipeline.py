@@ -1,9 +1,8 @@
 """
-data_pipeline.py — 미국 주식 재무데이터 캐싱 레이어
+data_pipeline.py — 미국 주식 재무데이터 캐싱 레이어 (Finnhub + Wikipedia 기반)
 ================================================================
-FMP API를 매번 호출하지 않도록, 종목별 재무데이터를 로컬 parquet에 저장해두고
-재사용한다. KOSPI판의 DART 캐시(연 1회 사업보고서 + 분기 TTM 보정)와 달리, FMP의
-TTM 엔드포인트가 이미 최근 4분기 합산값을 직접 제공하므로 여기서는 그 값을 그대로 쓴다.
+Finnhub API로 개별 종목 시세·재무비율을 매일 받아 로컬 parquet에 캐싱하고,
+위키피디아(wiki_universe.py)에서 받은 유니버스(S&P 500+400+600)와 결합한다.
 
 사용법:
     python data_pipeline.py --build          # 캐시 새로 만들기 (최초 1회, 시간 걸림)
@@ -11,7 +10,8 @@ TTM 엔드포인트가 이미 최근 4분기 합산값을 직접 제공하므로
     python data_pipeline.py --status         # 캐시 현황 확인
 
 캐시 파일:
-    .cache/finance.parquet      — 종목별 재무비율 (ROE, 부채비율 등)
+    .cache/finance.parquet   — 종목별 재무비율 (매일 갱신)
+    .cache/universe.parquet  — 지수 구성종목 명단 (주 1회 갱신, wiki_universe.py가 관리)
 """
 
 from __future__ import annotations
@@ -23,7 +23,8 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-import fmp_client
+import finnhub_client
+import wiki_universe
 
 CACHE_DIR = Path(".cache")
 CACHE_DIR.mkdir(exist_ok=True)
@@ -38,8 +39,8 @@ def compute_return_and_drawdown(price_df: pd.DataFrame) -> tuple[float, float, f
         return (np.nan, np.nan, np.nan)
 
     last = closes[-1]
-    idx_3m = max(0, len(closes) - 1 - 63)   # 영업일 기준 약 3개월
-    idx_12m = 0                              # 시리즈 시작이 약 1년 전이라고 가정(호출 시 days=380)
+    idx_3m = max(0, len(closes) - 1 - 63)
+    idx_12m = 0
     ret_3m = last / closes[idx_3m] - 1.0
     ret_12m = last / closes[idx_12m] - 1.0
 
@@ -50,38 +51,38 @@ def compute_return_and_drawdown(price_df: pd.DataFrame) -> tuple[float, float, f
 
 
 def fetch_finance_one(ticker: str) -> dict:
-    """FMP 여러 엔드포인트를 조합해 스코어링에 필요한 한 종목의 재무 행을 만든다.
-    ⚠️ FMP 필드명(returnOnEquityTTM 등)은 Task 4 Step 5의 라이브 확인 결과에 맞춰
-    아래 매핑을 조정할 것 — 이 함수가 FMP 원본 필드명과 내부 컬럼명 사이의 유일한
-    변환 지점이다."""
-    ratios = fmp_client.get_ratios_ttm(ticker)
-    metrics = fmp_client.get_key_metrics_ttm(ticker)
-    growth = fmp_client.get_income_statement_growth(ticker, period="quarter", limit=4)
+    """Finnhub 여러 엔드포인트를 조합해 스코어링에 필요한 한 종목의 재무 행을 만든다.
+    ⚠️ Finnhub 필드명(roeTTM 등)은 Task 1 Step 6의 라이브 확인 결과에 맞춰 아래 매핑을
+    조정할 것 — 이 함수가 Finnhub 원본 필드명과 내부 컬럼명 사이의 유일한 변환 지점이다."""
+    metric = finnhub_client.get_basic_financials(ticker)
+    quote = finnhub_client.get_quote(ticker)
 
-    roe = ratios.get("returnOnEquityTTM")
-    debt_equity = ratios.get("debtEquityRatioTTM")
-    op_margin = ratios.get("operatingProfitMarginTTM")
-    per = ratios.get("priceEarningsRatioTTM")
-    pbr = ratios.get("priceToBookRatioTTM")
-    div_yield = ratios.get("dividendYielTTM")
-    payout_ratio = ratios.get("payoutRatioTTM")
-    fcf_yield = metrics.get("freeCashFlowYieldTTM")
+    def g(key):
+        v = metric.get(key)
+        return np.nan if v is None else v
 
-    latest_growth = growth[0] if growth else {}
-    rev_yoy = latest_growth.get("growthRevenue")
-    op_yoy = latest_growth.get("growthOperatingIncome")
+    roe = g("roeTTM")
+    debt_equity = g("totalDebt/totalEquityAnnual")
+    op_margin = g("operatingMarginTTM")
+    per = g("peTTM")
+    pbr = g("pbAnnual")
+    div_yield = g("dividendYieldIndicatedAnnual")
+    payout_ratio = g("payoutRatioTTM")
+    rev_yoy = g("revenueGrowthTTMYoy")
+
+    price = quote.get("c")
+    prev_close = quote.get("pc")
+    op_yoy = np.nan  # Finnhub의 무료 'metric=all'은 영업이익 YoY를 직접 주지 않음 — 매출성장률로 근사
+    if not np.isnan(rev_yoy):
+        op_yoy = rev_yoy  # 근사치: 매출성장률을 영업이익 모멘텀 프록시로 사용 (게이트 판정용)
 
     return {
         "ticker": ticker,
-        "roe_3y_avg": None if roe is None else roe * 100,
-        "roe_3y_std": np.nan,   # FMP TTM 엔드포인트는 단일 시점값만 제공 — 3개년 변동성은 계산 불가, 중립값(0.5 percentile) 처리는 score_quality의 pct_rank가 알아서 함
-        "debt_ratio": None if debt_equity is None else debt_equity * 100,
-        "op_margin": None if op_margin is None else op_margin * 100,
-        # op_ttm: FMP TTM 엔드포인트는 영업이익 실액을 직접 제공하지 않으므로, 여기서는
-        # 실제 금액이 아니라 흑자/적자 부호 판별용 플레이스홀더만 넣는다. 최종 부호는
-        # us_alpha.load_real()에서 op_margin(영업이익률)으로 덮어써, apply_hard_filters의
-        # "적자 배제" 필터가 부호만으로 판단하게 한다 — 값 자체를 금액으로 쓰면 안 된다.
-        "op_ttm": None,
+        "roe_3y_avg": np.nan if np.isnan(roe) else roe * 100,
+        "roe_3y_std": np.nan,
+        "debt_ratio": np.nan if np.isnan(debt_equity) else debt_equity * 100,
+        "op_margin": np.nan if np.isnan(op_margin) else op_margin * 100,
+        "op_ttm": op_margin,   # 부호만 사용하는 흑자/적자 판별용 프록시 (KOSPI판 이식 시 동일 패턴)
         "op_yoy": op_yoy,
         "rev_yoy": rev_yoy,
         "rev_cagr_3y": np.nan,
@@ -90,19 +91,19 @@ def fetch_finance_one(ticker: str) -> dict:
         "revenue_ttm": np.nan,
         "total_equity": np.nan,
         "cash_dividend_total": np.nan,
-        "payout_ratio": None if payout_ratio is None else max(payout_ratio, 0.0),
+        "payout_ratio": np.nan if np.isnan(payout_ratio) else max(payout_ratio, 0.0),
         "per": per,
         "pbr": pbr,
-        "div_yield": None if div_yield is None else div_yield * 100,
-        "fcf_yield": fcf_yield,
+        "div_yield": div_yield,
+        "fcf_yield": np.nan,
         "net_cash_to_mktcap": np.nan,
         "treasury_ratio": np.nan,
     }
 
 
-def build_finance_cache(force: bool = False, sleep_sec: float = 0.2) -> pd.DataFrame:
-    universe = fmp_client.get_index_universe().reset_index()
-    print(f"[universe] S&P 500+400+600 합산 {len(universe)}개 종목")
+def build_finance_cache(force: bool = False, sleep_sec: float = 1.1) -> pd.DataFrame:
+    universe = wiki_universe.get_universe().reset_index()
+    print(f"[universe] S&P 500+400+600 합산 {len(universe)}개 종목 (Wikipedia)")
 
     existing = pd.DataFrame()
     done_tickers: set[str] = set()
@@ -112,7 +113,7 @@ def build_finance_cache(force: bool = False, sleep_sec: float = 0.2) -> pd.DataF
         print(f"[cache] 기존 캐시 {len(done_tickers)}개 종목 재사용")
 
     todo = universe[~universe["ticker"].isin(done_tickers)]
-    print(f"[fetch] 신규로 받아올 종목: {len(todo)}개")
+    print(f"[fetch] 신규로 받아올 종목: {len(todo)}개 (분당 60건 제한, 예상 소요 약 {len(todo) * sleep_sec / 60:.1f}분)")
 
     rows = []
     for i, (_, r) in enumerate(todo.iterrows(), 1):
@@ -133,10 +134,28 @@ def build_finance_cache(force: bool = False, sleep_sec: float = 0.2) -> pd.DataF
 
 
 def get_full_universe() -> pd.DataFrame:
-    """유니버스 종목의 실시간 시세(quote)를 결합한 DataFrame. index=ticker."""
-    idx = fmp_client.get_index_universe()
-    quotes = fmp_client.get_quotes(list(idx.index))
-    return idx.join(quotes, how="inner")
+    """유니버스 종목의 실시간 시세(quote)를 결합한 DataFrame. index=ticker.
+    columns=[name, sector, price, market_cap, avg_volume]."""
+    idx = wiki_universe.get_universe()
+
+    rows = []
+    for ticker in idx.index:
+        try:
+            profile = finnhub_client.get_company_profile(ticker)
+            quote = finnhub_client.get_quote(ticker)
+            rows.append({
+                "ticker": ticker,
+                "price": quote.get("c", np.nan),
+                "market_cap": (profile.get("marketCapitalization") or np.nan) * 1_000_000
+                    if profile.get("marketCapitalization") else np.nan,
+                "avg_volume": np.nan,  # Finnhub 무료 profile2/quote는 평균거래량을 직접 주지 않음 —
+                                       # 유동성 필터는 시가총액 하한으로 대부분 걸러지므로 당장은 무제한 통과 처리
+            })
+        except Exception as e:
+            print(f"  [WARN] {ticker} 시세 조회 실패: {e}")
+
+    quotes_df = pd.DataFrame(rows).set_index("ticker")
+    return idx.join(quotes_df, how="inner")
 
 
 def status():
@@ -145,6 +164,11 @@ def status():
         print(f"finance 캐시: {len(fc)}행")
     else:
         print("finance 캐시 없음")
+    if wiki_universe.UNIVERSE_CACHE.exists():
+        uc = pd.read_parquet(wiki_universe.UNIVERSE_CACHE)
+        print(f"universe 캐시: {len(uc)}행")
+    else:
+        print("universe 캐시 없음")
 
 
 if __name__ == "__main__":

@@ -36,7 +36,7 @@ from stock_profile import generate_all_profiles
 class Config:
     # ---- 유니버스 (사용자 지정: 시총 하한만 있고 상한 없음)
     min_mktcap_usd: float = 100_000_000       # $100M 이상
-    min_avg_volume_usd: float = 230_000       # 일평균 거래대금 하한 (KOSPI 3억원 환산)
+    min_avg_volume_usd: float = 0.0           # Finnhub 무료 티어는 평균거래량을 제공하지 않아 이 필터는 현재 비활성화됨 (실제 거래대금 데이터 소스 추가 시 복원)
 
     # ---- 하드 필터 (KOSPI판과 동일 비율)
     max_debt_ratio: float = 200.0             # 부채비율(부채/자본) 200% 초과 배제
