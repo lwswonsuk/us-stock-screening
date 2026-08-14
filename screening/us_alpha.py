@@ -234,17 +234,19 @@ def run_demo():
 # 6. 실데이터 어댑터
 # ═══════════════════════════════════════════════════════════════
 
-def get_historical_prices_batch(tickers: list[str], sleep_sec: float = 0.2) -> dict[str, dict]:
+def get_historical_prices_batch(tickers: list[str], sleep_sec: float = 1.1) -> dict[str, dict]:
     """티커 리스트에 대해 (3개월수익률, 12개월수익률, 52주낙폭)을 계산해 dict로 반환한다.
-    개별 종목 조회 실패는 건너뛰고 계속 진행한다. data_pipeline.build_finance_cache와
-    동일하게 호출 사이에 sleep을 둬 FMP 요청 빈도를 제한한다."""
-    import fmp_client
+    개별 종목 조회 실패는 건너뛰고 계속 진행한다. Finnhub 무료 티어(분당 60건) 한도를
+    지키기 위해 종목 사이에 sleep_sec만큼 대기한다."""
+    import time
+
+    import finnhub_client
     from data_pipeline import compute_return_and_drawdown
 
     out: dict[str, dict] = {}
     for ticker in tickers:
         try:
-            prices = fmp_client.get_historical_prices(ticker, days=380)
+            prices = finnhub_client.get_candles(ticker, days=380)
             ret_3m, ret_12m, drawdown_52w = compute_return_and_drawdown(prices)
             out[ticker] = {"ret_3m": ret_3m, "ret_12m": ret_12m, "drawdown_52w": drawdown_52w}
         except Exception as e:
