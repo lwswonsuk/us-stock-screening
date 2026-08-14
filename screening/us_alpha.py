@@ -215,13 +215,13 @@ def run_demo():
     ranked = composite(filt)
 
     print("=" * 78)
-    print("STEP 1 — 하드 필터")
+    print("STEP 1 - 하드 필터")
     print("=" * 78)
     print(f"유니버스 {len(df)} → 통과 {int(filt['passed'].sum())}")
     print(filt.loc[~filt["passed"], "filter_reason"].value_counts().to_string())
 
     print("\n" + "=" * 78)
-    print("STEP 2 — 종합 랭킹 상위 15")
+    print("STEP 2 - 종합 랭킹 상위 15")
     print("=" * 78)
     cols = ["name", "sector", "per", "pbr", "roe_3y_avg", "debt_ratio",
             "ret_12m", "op_yoy", "s_quality", "s_value", "s_gap", "s_payout", "score"]
