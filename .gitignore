@@ -1,0 +1,14 @@
+# Python
+__pycache__/
+*.pyc
+screening/.cache/
+screening/screening_result*.xlsx
+
+# Node / Next.js
+web/node_modules/
+web/.next/
+web/out/
+
+# 환경변수 (로컬 테스트용, 절대 커밋 금지)
+.env
+.env.local
