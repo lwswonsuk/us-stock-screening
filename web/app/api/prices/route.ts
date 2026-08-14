@@ -39,6 +39,9 @@ export async function GET(req: NextRequest) {
     for (const [ticker, price] of results) {
       if (price !== null) prices[ticker] = { price };
     }
+    if (i + BATCH_SIZE < tickers.length) {
+      await new Promise((r) => setTimeout(r, 200));
+    }
   }
 
   return Response.json({ as_of: new Date().toISOString(), prices });

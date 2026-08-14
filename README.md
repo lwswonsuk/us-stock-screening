@@ -7,7 +7,7 @@ S&P 500+400+600 종목을 4대 팩터(체력/가격/괴리/환원여력)로 매�
 ## 구조
 
 ```
-screening/          파이썬 스크리닝 엔진 (fmp_client.py, data_pipeline.py, us_alpha.py)
+screening/          파이썬 스크리닝 엔진 (finnhub_client.py, wiki_universe.py, data_pipeline.py, us_alpha.py)
 web/                 Next.js 웹사이트
 .github/workflows/   매일 자동 실행 스케줄 (workflow_dispatch로 수동/웹 실행도 가능)
 ```

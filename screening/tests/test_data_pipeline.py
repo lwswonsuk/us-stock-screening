@@ -1,8 +1,9 @@
 # screening/tests/test_data_pipeline.py
 import numpy as np
 import pandas as pd
+import pytest
 
-from data_pipeline import compute_return_and_drawdown, fetch_finance_one
+from data_pipeline import compute_return_and_drawdown, fetch_finance_one, get_full_universe
 
 
 def test_compute_return_and_drawdown_from_price_series():
@@ -34,9 +35,6 @@ def test_fetch_finance_one_computes_op_margin_and_debt_ratio(monkeypatch):
             "revenueGrowthTTMYoy": 0.08,
         },
     )
-    monkeypatch.setattr(finnhub_client, "get_quote", lambda ticker: {"c": 230.0, "pc": 225.0})
-    monkeypatch.setattr(finnhub_client, "get_company_profile", lambda ticker: {"finnhubIndustry": "Technology"})
-
     row = fetch_finance_one("AAPL")
 
     assert row["ticker"] == "AAPL"
@@ -45,3 +43,28 @@ def test_fetch_finance_one_computes_op_margin_and_debt_ratio(monkeypatch):
     assert row["op_margin"] == 22.0
     assert row["per"] == 18.0
     assert row["pbr"] == 6.0
+
+
+def test_get_full_universe_raises_when_quote_success_rate_too_low(monkeypatch):
+    import data_pipeline
+    import wiki_universe
+
+    universe = pd.DataFrame(
+        {"name": [f"Company {i}" for i in range(10)], "sector": ["Technology"] * 10},
+        index=pd.Index([f"TCK{i}" for i in range(10)], name="ticker"),
+    )
+    monkeypatch.setattr(wiki_universe, "get_universe", lambda: universe)
+
+    def flaky_get_quote(ticker):
+        if ticker == "TCK0":
+            return {"c": 100.0}
+        raise RuntimeError("429 rate limited")
+
+    monkeypatch.setattr(data_pipeline.finnhub_client, "get_quote", flaky_get_quote)
+    monkeypatch.setattr(
+        data_pipeline.finnhub_client, "get_company_profile",
+        lambda ticker: {"marketCapitalization": 1000.0},
+    )
+
+    with pytest.raises(RuntimeError, match="시세 조회 성공률"):
+        get_full_universe(sleep_sec=0)

@@ -2,6 +2,7 @@ import json
 
 import numpy as np
 import pandas as pd
+import pytest
 
 from us_alpha import run_real
 
@@ -55,3 +56,35 @@ def test_run_real_writes_expected_json_shape(monkeypatch, tmp_path):
     assert "payout_ratio" not in payload["columns"]
     assert payload["results"][0]["payout_ratio_pct"] == 15.0
     assert payload["column_labels_ko"]["payout_ratio_pct"] == "배당성향(%)"
+
+
+def test_run_real_raises_when_nothing_passes_hard_filters(monkeypatch, tmp_path):
+    import data_pipeline
+
+    universe = pd.DataFrame(
+        {"name": ["Apple Inc."], "sector": ["Technology"], "price": [230.0],
+         "market_cap": [3_500_000_000_000], "avg_volume": [50_000_000]},
+        index=pd.Index(["AAPL"], name="ticker"),
+    )
+    # debt_ratio far over the 200% hard-filter threshold -> everything gets excluded
+    finance = pd.DataFrame([{
+        "ticker": "AAPL", "roe_3y_avg": 150.0, "roe_3y_std": np.nan, "debt_ratio": 9000.0,
+        "op_margin": 30.0, "op_ttm": 100_000_000_000, "op_yoy": 0.1, "rev_yoy": 0.05,
+        "rev_cagr_3y": np.nan, "years_no_rev_decline": 0, "net_income_ttm": np.nan,
+        "revenue_ttm": np.nan, "total_equity": np.nan, "cash_dividend_total": np.nan,
+        "payout_ratio": 0.15, "per": 28.0, "pbr": 45.0, "div_yield": 0.5,
+        "fcf_yield": 0.03, "net_cash_to_mktcap": 0.02, "treasury_ratio": 0.0,
+    }])
+
+    monkeypatch.setattr(data_pipeline, "get_full_universe", lambda: universe)
+    monkeypatch.setattr(data_pipeline, "FINANCE_CACHE", tmp_path / "finance.parquet")
+    finance.to_parquet(tmp_path / "finance.parquet", index=False)
+
+    monkeypatch.setattr(
+        "us_alpha.get_historical_prices_batch",
+        lambda tickers: {"AAPL": {"ret_3m": 0.05, "ret_12m": 0.12, "drawdown_52w": 0.10}},
+    )
+    monkeypatch.delenv("ANTHROPIC_API_KEY", raising=False)
+
+    with pytest.raises(RuntimeError, match="하드 필터를 통과한 종목이 0개"):
+        run_real(top_n=10)

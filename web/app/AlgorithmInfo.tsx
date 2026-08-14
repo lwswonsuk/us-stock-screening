@@ -33,7 +33,6 @@ export default function AlgorithmInfo() {
                 <h4 className="mb-2 font-semibold text-foreground">1단계 — 하드 필터 (자동 제외 기준)</h4>
                 <ul className="list-disc space-y-1 pl-5 text-muted-foreground">
                   <li>시가총액 $100M 이상 (상한 없음)</li>
-                  <li>일평균 거래대금 하한 (유동성 필터)</li>
                   <li>부채비율(부채/자본) 200% 초과 제외</li>
                   <li>ROE 5% 미만 제외</li>
                   <li>최근 영업이익(TTM 기준) 적자 제외</li>
@@ -58,12 +57,12 @@ export default function AlgorithmInfo() {
               <div>
                 <h4 className="mb-2 font-semibold text-foreground">데이터 기준</h4>
                 <ul className="list-disc space-y-1 pl-5 text-muted-foreground">
-                  <li>시세/재무데이터: Financial Modeling Prep(FMP) API</li>
+                  <li>시세/재무데이터: Finnhub API + Wikipedia(지수 구성종목)</li>
                   <li>대상: S&P 500 + S&P 400(중형) + S&P 600(소형) 종목</li>
                 </ul>
                 <p className="mt-2 text-muted-foreground">
-                  ROE 변동성, 매출 성장률, 순현금 비율 등 일부 세부 지표는 FMP에서 3년치
-                  히스토리를 직접 제공하지 않아 현재는 중립값으로 처리됩니다. 그만큼 랭킹은
+                  ROE 변동성, 매출 성장률, 순현금 비율 등 일부 세부 지표는 Finnhub 무료
+                  티어에서 3년치 히스토리를 직접 제공하지 않아 현재는 중립값으로 처리됩니다. 그만큼 랭킹은
                   ROE 절대수준, 영업이익률, 부채비율, PER/PBR, 배당 등 실제로 확보된 지표에
                   더 크게 의존합니다.
                 </p>

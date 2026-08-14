@@ -7,11 +7,11 @@ us_alpha.py — 4팩터 종목 선정 알고리즘 (KOSPI판 이식, S&P 500+400
 
 실행:
     python us_alpha.py --demo              # 합성 데이터로 로직 검증
-    python us_alpha.py --run --top 50       # 실데이터 (FMP 필요)
+    python us_alpha.py --run --top 50       # 실데이터 (Finnhub 필요)
 
 의존:
     pip install -r requirements.txt
-    setx FMP_API_KEY "..."
+    setx FINNHUB_API_KEY "..."
     setx ANTHROPIC_API_KEY "..."   (프로필 카드용, 없으면 프로필만 생략됨)
 """
 
@@ -256,7 +256,8 @@ def get_historical_prices_batch(tickers: list[str], sleep_sec: float = 1.1) -> d
 
 
 def load_real() -> pd.DataFrame:
-    """FMP 유니버스 + 재무 캐시 + 가격히스토리를 조립해 스코어링용 DataFrame을 만든다.
+    """Finnhub 유니버스(위키피디아 종목명단 + Finnhub 시세/시총) + 재무 캐시 + 가격히스토리를
+    조립해 스코어링용 DataFrame을 만든다.
     사전 준비: python data_pipeline.py --build 로 .cache/finance.parquet 만들어둘 것."""
     import data_pipeline
 
@@ -267,8 +268,8 @@ def load_real() -> pd.DataFrame:
 
     universe = data_pipeline.get_full_universe()
     universe = universe.rename(columns={"market_cap": "mktcap_usd"})
-    # FMP의 avgVolume은 주식수(거래량) 단위다. 유동성 필터(min_avg_volume_usd)는
-    # "일평균 거래대금"(달러) 기준이므로 여기서 가격을 곱해 달러 단위로 환산한다.
+    # Finnhub 무료 티어는 평균거래량을 제공하지 않으므로 avg_volume은 항상 NaN이고,
+    # 유동성 필터(min_avg_volume_usd)는 0.0으로 비활성화되어 있다 (Config 참고).
     universe["avg_volume_usd"] = universe["avg_volume"] * universe["price"]
 
     fin = pd.read_parquet(data_pipeline.FINANCE_CACHE).set_index("ticker")
@@ -314,6 +315,10 @@ def _record_value(col: str, v) -> str | float | None:
 def run_real(top_n: int = 50, export_json: str | None = None, filtered_json: str | None = None) -> pd.DataFrame:
     d = load_real()
     filt = apply_hard_filters(d)
+    if int(filt["passed"].sum()) == 0:
+        raise RuntimeError(
+            "하드 필터를 통과한 종목이 0개입니다. 데이터 소스 응답을 확인하세요 (필드명 매핑 오류 가능성)."
+        )
     ranked = composite(filt)
     # payout_ratio는 score_payout 계산에 필요한 0~1 소수 그대로 두고, 화면/JSON
     # 표시용으로만 별도 ×100 컬럼을 둔다 (라벨이 "배당성향(%)"이므로).

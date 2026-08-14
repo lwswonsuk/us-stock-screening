@@ -55,7 +55,6 @@ def fetch_finance_one(ticker: str) -> dict:
     ⚠️ Finnhub 필드명(roeTTM 등)은 Task 1 Step 6의 라이브 확인 결과에 맞춰 아래 매핑을
     조정할 것 — 이 함수가 Finnhub 원본 필드명과 내부 컬럼명 사이의 유일한 변환 지점이다."""
     metric = finnhub_client.get_basic_financials(ticker)
-    quote = finnhub_client.get_quote(ticker)
 
     def g(key):
         v = metric.get(key)
@@ -71,18 +70,28 @@ def fetch_finance_one(ticker: str) -> dict:
     payout_ratio = g("payoutRatioTTM")
     rev_yoy = g("revenueGrowthTTMYoy")
 
-    price = quote.get("c")
-    prev_close = quote.get("pc")
     op_yoy = np.nan  # Finnhub의 무료 'metric=all'은 영업이익 YoY를 직접 주지 않음 — 매출성장률로 근사
     if not np.isnan(rev_yoy):
         op_yoy = rev_yoy  # 근사치: 매출성장률을 영업이익 모멘텀 프록시로 사용 (게이트 판정용)
 
+    roe_3y_avg = np.nan if np.isnan(roe) else roe * 100
+    debt_ratio = np.nan if np.isnan(debt_equity) else debt_equity * 100
+    op_margin_pct = np.nan if np.isnan(op_margin) else op_margin * 100
+
+    for label, val in (("debt_ratio", debt_ratio), ("roe_3y_avg", roe_3y_avg)):
+        if not np.isnan(val) and abs(val) > 1000:
+            print(
+                f"  [WARN] {ticker}: {label} 값이 비정상적으로 큽니다 ({val:.1f}). "
+                "Finnhub이 이 필드를 소수가 아닌 퍼센트로 이미 반환하고 있을 가능성이 있습니다 "
+                "(단위 불일치 의심 — × 100 변환 로직을 재검토하세요)."
+            )
+
     return {
         "ticker": ticker,
-        "roe_3y_avg": np.nan if np.isnan(roe) else roe * 100,
+        "roe_3y_avg": roe_3y_avg,
         "roe_3y_std": np.nan,
-        "debt_ratio": np.nan if np.isnan(debt_equity) else debt_equity * 100,
-        "op_margin": np.nan if np.isnan(op_margin) else op_margin * 100,
+        "debt_ratio": debt_ratio,
+        "op_margin": op_margin_pct,
         "op_ttm": op_margin,   # 부호만 사용하는 흑자/적자 판별용 프록시 (KOSPI판 이식 시 동일 패턴)
         "op_yoy": op_yoy,
         "rev_yoy": rev_yoy,
@@ -134,9 +143,11 @@ def build_finance_cache(force: bool = False, sleep_sec: float = 1.1) -> pd.DataF
     return combined
 
 
-def get_full_universe() -> pd.DataFrame:
+def get_full_universe(sleep_sec: float = 2.2) -> pd.DataFrame:
     """유니버스 종목의 실시간 시세(quote)를 결합한 DataFrame. index=ticker.
-    columns=[name, sector, price, market_cap, avg_volume]."""
+    columns=[name, sector, price, market_cap, avg_volume].
+    종목당 get_company_profile + get_quote로 2회 호출하므로, Finnhub 무료 티어(분당 60건)
+    한도를 지키기 위해 종목 사이에 sleep_sec만큼 대기한다 (기본값 2.2초 → 2콜/2.2초 ≈ 55콜/분)."""
     idx = wiki_universe.get_universe()
 
     rows = []
@@ -154,8 +165,16 @@ def get_full_universe() -> pd.DataFrame:
             })
         except Exception as e:
             print(f"  [WARN] {ticker} 시세 조회 실패: {e}")
+        time.sleep(sleep_sec)
 
     quotes_df = pd.DataFrame(rows).set_index("ticker")
+
+    if len(quotes_df) < len(idx) * 0.5:
+        raise RuntimeError(
+            f"시세 조회 성공률이 너무 낮습니다: {len(quotes_df)}/{len(idx)}. "
+            "Finnhub API 상태나 요청 속도를 확인하세요."
+        )
+
     return idx.join(quotes_df, how="inner")
 
 
