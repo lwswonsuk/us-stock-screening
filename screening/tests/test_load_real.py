@@ -1,0 +1,46 @@
+import json
+
+import numpy as np
+import pandas as pd
+
+from us_alpha import run_real
+
+
+def test_run_real_writes_expected_json_shape(monkeypatch, tmp_path):
+    import data_pipeline
+
+    universe = pd.DataFrame(
+        {"name": ["Apple Inc."], "sector": ["Technology"], "price": [230.0],
+         "market_cap": [3_500_000_000_000], "avg_volume": [50_000_000]},
+        index=pd.Index(["AAPL"], name="ticker"),
+    )
+    finance = pd.DataFrame([{
+        "ticker": "AAPL", "roe_3y_avg": 150.0, "roe_3y_std": np.nan, "debt_ratio": 180.0,
+        "op_margin": 30.0, "op_ttm": 100_000_000_000, "op_yoy": 0.1, "rev_yoy": 0.05,
+        "rev_cagr_3y": np.nan, "years_no_rev_decline": 0, "net_income_ttm": np.nan,
+        "revenue_ttm": np.nan, "total_equity": np.nan, "cash_dividend_total": np.nan,
+        "payout_ratio": 0.15, "per": 28.0, "pbr": 45.0, "div_yield": 0.5,
+        "fcf_yield": 0.03, "net_cash_to_mktcap": 0.02, "treasury_ratio": 0.0,
+    }])
+
+    monkeypatch.setattr(data_pipeline, "get_full_universe", lambda: universe)
+    monkeypatch.setattr(data_pipeline, "FINANCE_CACHE", tmp_path / "finance.parquet")
+    finance.to_parquet(tmp_path / "finance.parquet", index=False)
+
+    monkeypatch.setattr(
+        "us_alpha.get_historical_prices_batch",
+        lambda tickers: {"AAPL": {"ret_3m": 0.05, "ret_12m": 0.12, "drawdown_52w": 0.10}},
+    )
+    monkeypatch.delenv("ANTHROPIC_API_KEY", raising=False)
+
+    out_json = tmp_path / "results.json"
+    filtered_json = tmp_path / "filtered_full.json"
+
+    run_real(top_n=10, export_json=str(out_json), filtered_json=str(filtered_json))
+
+    payload = json.loads(out_json.read_text(encoding="utf-8"))
+    assert payload["universe_total"] == 1
+    assert payload["results"][0]["stock_code"] == "AAPL"
+    assert payload["results"][0]["profile"] is None
+    assert "column_labels_ko" in payload
+    assert "quote_text" in payload

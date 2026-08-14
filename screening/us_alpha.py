@@ -228,17 +228,168 @@ def run_demo():
     print(top.round(3).to_string())
 
 
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="US stock screening engine")
-    parser.add_argument("--demo", action="store_true", help="Run demo with synthetic data")
-    parser.add_argument("--run", action="store_true", help="Run with real data")
-    parser.add_argument("--top", type=int, default=50, help="Number of top stocks to show")
-    args = parser.parse_args()
 
-    if args.demo:
-        run_demo()
-    elif args.run:
-        # Placeholder for real data run (Task 8+)
-        print("Real data run not yet implemented")
+# ═══════════════════════════════════════════════════════════════
+# 6. 실데이터 어댑터
+# ═══════════════════════════════════════════════════════════════
+
+def get_historical_prices_batch(tickers: list[str]) -> dict[str, dict]:
+    """티커 리스트에 대해 (3개월수익률, 12개월수익률, 52주낙폭)을 계산해 dict로 반환한다.
+    개별 종목 조회 실패는 건너뛰고 계속 진행한다."""
+    import fmp_client
+    from data_pipeline import compute_return_and_drawdown
+
+    out: dict[str, dict] = {}
+    for ticker in tickers:
+        try:
+            prices = fmp_client.get_historical_prices(ticker, days=380)
+            ret_3m, ret_12m, drawdown_52w = compute_return_and_drawdown(prices)
+            out[ticker] = {"ret_3m": ret_3m, "ret_12m": ret_12m, "drawdown_52w": drawdown_52w}
+        except Exception as e:
+            print(f"  [WARN] {ticker} 가격 히스토리 조회 실패: {e}")
+    return out
+
+
+def load_real() -> pd.DataFrame:
+    """FMP 유니버스 + 재무 캐시 + 가격히스토리를 조립해 스코어링용 DataFrame을 만든다.
+    사전 준비: python data_pipeline.py --build 로 .cache/finance.parquet 만들어둘 것."""
+    import data_pipeline
+
+    if not data_pipeline.FINANCE_CACHE.exists():
+        raise RuntimeError(
+            "재무 캐시가 없습니다. 먼저 실행하세요: python data_pipeline.py --build"
+        )
+
+    universe = data_pipeline.get_full_universe()
+    universe = universe.rename(columns={"market_cap": "mktcap_usd", "avg_volume": "avg_volume_usd"})
+
+    fin = pd.read_parquet(data_pipeline.FINANCE_CACHE).set_index("ticker")
+    df = universe.join(fin, how="inner")
+
+    price_hist = get_historical_prices_batch(list(df.index))
+    df["ret_3m"] = df.index.map(lambda t: price_hist.get(t, {}).get("ret_3m", np.nan))
+    df["ret_12m"] = df.index.map(lambda t: price_hist.get(t, {}).get("ret_12m", np.nan))
+    df["drawdown_52w"] = df.index.map(lambda t: price_hist.get(t, {}).get("drawdown_52w", np.nan))
+
+    # op_ttm은 하드필터(적자 배제)에만 쓰이므로, 영업이익률 × 매출총계 근사가 없으면
+    # 시가총액 × 영업이익률 부호만으로 흑자/적자를 판별한다 (부호만 필요).
+    df["op_ttm"] = df["op_margin"]
+
+    return df
+
+
+# ═══════════════════════════════════════════════════════════════
+# 7. 실행 — 스크리닝 + JSON export
+# ═══════════════════════════════════════════════════════════════
+
+KOR_NAMES = {
+    "name": "종목명", "sector": "섹터", "mktcap_usd": "시가총액(백만$)",
+    "price": "현재가", "per": "PER", "pbr": "PBR", "roe_3y_avg": "ROE(%)",
+    "debt_ratio": "부채비율(%)", "div_yield": "배당수익률(%)", "payout_ratio": "배당성향(%)",
+    "score": "종합점수",
+}
+
+
+def run_real(top_n: int = 50, export_json: str | None = None, filtered_json: str | None = None) -> pd.DataFrame:
+    d = load_real()
+    filt = apply_hard_filters(d)
+    ranked = composite(filt)
+
+    print(f"유니버스 {len(d)} → 통과 {int(filt['passed'].sum())}")
+
+    cols = ["name", "sector", "mktcap_usd", "price", "per", "pbr", "roe_3y_avg",
+            "debt_ratio", "div_yield", "payout_ratio", "score"]
+    cols = [c for c in cols if c in ranked.columns]
+
+    top = ranked[ranked["passed"]].head(top_n)[cols]
+
+    if export_json:
+        import json
+        from pathlib import Path as _Path
+
+        records = []
+        for ticker, row in top.iterrows():
+            rec = {"stock_code": str(ticker)}
+            for c in cols:
+                v = row[c]
+                if pd.isna(v):
+                    rec[c] = None
+                elif isinstance(v, (int, float, np.floating, np.integer)):
+                    rec[c] = round(float(v), 4)
+                else:
+                    rec[c] = str(v)
+            rec["name"] = rec["stock_code"]   # 화면에는 회사 전체명 대신 티커를 표시 (설계 결정)
+            records.append(rec)
+
+        quote = pick_quote_for_week()
+
+        def _build_payload(recs):
+            return {
+                "as_of_date": pd.Timestamp.now("UTC").strftime("%Y%m%d"),
+                "financial_year": None,
+                "generated_at": pd.Timestamp.now("UTC").isoformat(),
+                "quote_text": quote["text"],
+                "quote_author": quote["author"],
+                "universe_total": int(len(d)),
+                "universe_passed": int(filt["passed"].sum()),
+                "columns": cols,
+                "column_labels_ko": {c: KOR_NAMES.get(c, c) for c in cols},
+                "results": recs,
+            }
+
+        out_path = _Path(export_json)
+        out_path.parent.mkdir(parents=True, exist_ok=True)
+
+        for rec in records:
+            rec["profile"] = None
+        out_path.write_text(json.dumps(_build_payload(records), ensure_ascii=False, indent=2), encoding="utf-8")
+
+        profile_map = generate_all_profiles(records)
+        for rec in records:
+            rec["profile"] = profile_map.get(rec["stock_code"])
+
+        out_path.write_text(json.dumps(_build_payload(records), ensure_ascii=False, indent=2), encoding="utf-8")
+        print(f"[export] JSON 저장 완료 → {export_json} ({len(records)}종목)")
+
+    if filtered_json:
+        import json
+        from pathlib import Path as _Path
+
+        passed_all = ranked[ranked["passed"]][cols]
+        records = []
+        for ticker, row in passed_all.iterrows():
+            rec = {"stock_code": str(ticker)}
+            for c in cols:
+                v = row[c]
+                rec[c] = None if pd.isna(v) else (round(float(v), 4) if isinstance(v, (int, float, np.floating, np.integer)) else str(v))
+            rec["name"] = rec["stock_code"]   # 화면에는 회사 전체명 대신 티커를 표시 (설계 결정)
+            records.append(rec)
+
+        payload = {
+            "as_of_date": pd.Timestamp.now("UTC").strftime("%Y%m%d"),
+            "financial_year": None,
+            "generated_at": pd.Timestamp.now("UTC").isoformat(),
+            "columns": cols,
+            "column_labels_ko": {c: KOR_NAMES.get(c, c) for c in cols},
+            "results": records,
+        }
+        out_path = _Path(filtered_json)
+        out_path.parent.mkdir(parents=True, exist_ok=True)
+        out_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+        print(f"[export] 필터통과 전체 JSON 저장 완료 → {filtered_json} ({len(records)}종목)")
+
+    return ranked
+
+
+if __name__ == "__main__":
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--demo", action="store_true")
+    ap.add_argument("--run", action="store_true")
+    ap.add_argument("--top", type=int, default=50)
+    ap.add_argument("--export-json", default="", help="예: ../web/data/results.json")
+    ap.add_argument("--filtered-json", default="", help="예: ../web/data/filtered_full.json")
+    a = ap.parse_args()
+    if a.run:
+        run_real(a.top, a.export_json if a.export_json else None, a.filtered_json if a.filtered_json else None)
     else:
-        parser.print_help()
+        run_demo()
