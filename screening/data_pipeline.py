@@ -66,6 +66,7 @@ def fetch_finance_one(ticker: str) -> dict:
     op_margin = g("operatingMarginTTM")
     per = g("peTTM")
     pbr = g("pbAnnual")
+    # div_yield: 다른 퍼센트 필드(roe_3y_avg, debt_ratio, op_margin)와 달리 × 100 변환 없음. Finnhub의 dividendYieldIndicatedAnnual이 소수(0.025) vs 퍼센트(2.5) 중 어느 형식인지 불명확 — 라이브 확인 단계에서 검증 필요.
     div_yield = g("dividendYieldIndicatedAnnual")
     payout_ratio = g("payoutRatioTTM")
     rev_yoy = g("revenueGrowthTTMYoy")
