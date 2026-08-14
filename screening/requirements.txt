@@ -4,3 +4,4 @@ requests
 pyarrow
 pytest
 anthropic
+beautifulsoup4
