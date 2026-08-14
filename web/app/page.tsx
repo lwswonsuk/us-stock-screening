@@ -1,6 +1,8 @@
 import fs from "fs";
 import path from "path";
 import ScreeningTable from "./ScreeningTable";
+import AdminGate from "./AdminGate";
+import UpdateControls from "./UpdateControls";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { formatAsOfDate } from "@/lib/format";
@@ -58,6 +60,10 @@ export default function Home() {
           <ScreeningTable columns={data.columns} labels={data.column_labels_ko} rows={data.results} />
         </>
       )}
+
+      <AdminGate>
+        <UpdateControls />
+      </AdminGate>
     </main>
   );
 }
