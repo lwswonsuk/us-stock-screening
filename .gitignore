@@ -8,6 +8,8 @@ screening/screening_result*.xlsx
 web/node_modules/
 web/.next/
 web/out/
+web/next-env.d.ts
+*.log
 
 # 환경변수 (로컬 테스트용, 절대 커밋 금지)
 .env
