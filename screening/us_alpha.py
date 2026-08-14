@@ -126,3 +126,119 @@ def score_payout(df: pd.DataFrame) -> pd.Series:
         + 0.10 * pct_rank(winsor(df["treasury_ratio"]))
     )
     return s
+
+
+# ═══════════════════════════════════════════════════════════════
+# 4. 필터 & 합성
+# ═══════════════════════════════════════════════════════════════
+
+def apply_hard_filters(df: pd.DataFrame, cfg: Config = CFG) -> pd.DataFrame:
+    m = pd.Series(True, index=df.index)
+    reasons = pd.Series("", index=df.index)
+
+    def cut(cond: pd.Series, label: str):
+        nonlocal m, reasons
+        bad = cond & m
+        reasons[bad] = label
+        m = m & ~cond
+
+    cut(df["mktcap_usd"] < cfg.min_mktcap_usd, "시총하한")
+    cut(df["avg_volume_usd"] < cfg.min_avg_volume_usd, "유동성")
+    cut(df["debt_ratio"] > cfg.max_debt_ratio, "부채과다")
+    cut(df["roe_3y_avg"] < cfg.min_roe, "ROE미달")
+    if cfg.require_positive_op:
+        cut(df["op_ttm"] <= 0, "적자")
+    cut(df["ret_3m"] > cfg.max_3m_return, "테마급등")
+
+    out = df.copy()
+    out["passed"] = m
+    out["filter_reason"] = reasons
+    return out
+
+
+def composite(df: pd.DataFrame, cfg: Config = CFG) -> pd.DataFrame:
+    d = df.copy()
+    d["s_quality"] = score_quality(d)
+    d["s_value"] = score_value(d)
+    d["s_gap"] = score_gap(d)
+    d["s_payout"] = score_payout(d)
+
+    d["score"] = (
+        cfg.w_quality * d["s_quality"]
+        + cfg.w_value * d["s_value"]
+        + cfg.w_gap * d["s_gap"]
+        + cfg.w_payout * d["s_payout"]
+    )
+    return d.sort_values("score", ascending=False)
+
+
+# ═══════════════════════════════════════════════════════════════
+# 5. 데모 — 합성 데이터로 로직 검증
+# ═══════════════════════════════════════════════════════════════
+
+def make_demo(n: int = 300, seed: int = 7) -> pd.DataFrame:
+    rng = np.random.default_rng(seed)
+    sectors = ["Technology", "Health Care", "Financials", "Industrials", "Consumer Discretionary",
+               "Consumer Staples", "Energy", "Materials", "Utilities", "Real Estate"]
+    df = pd.DataFrame(index=[f"TCK{i:04d}" for i in range(n)])
+    df["name"] = df.index
+    df["sector"] = rng.choice(sectors, n)
+    df["mktcap_usd"] = rng.lognormal(21.0, 1.5, n)
+    df["avg_volume_usd"] = rng.lognormal(13.0, 1.5, n)
+    df["roe_3y_avg"] = rng.normal(10, 8, n)
+    df["roe_3y_std"] = np.abs(rng.normal(4, 2.5, n))
+    df["op_margin"] = rng.normal(12, 8, n)
+    df["debt_ratio"] = np.abs(rng.normal(90, 60, n))
+    df["rev_cagr_3y"] = rng.normal(0.06, 0.10, n)
+    df["years_no_rev_decline"] = rng.integers(0, 6, n)
+    df["per"] = np.abs(rng.lognormal(2.6, 0.6, n))
+    df["pbr"] = np.abs(rng.lognormal(0.5, 0.7, n))
+    df["div_yield"] = np.abs(rng.normal(1.2, 1.2, n))
+    df["fcf_yield"] = rng.normal(0.04, 0.05, n)
+    df["ret_12m"] = rng.normal(0.08, 0.35, n)
+    df["ret_3m"] = rng.normal(0.02, 0.20, n)
+    df["drawdown_52w"] = np.abs(rng.normal(0.25, 0.15, n))
+    df["op_yoy"] = rng.normal(0.06, 0.30, n)
+    df["rev_yoy"] = rng.normal(0.05, 0.15, n)
+    df["op_ttm"] = rng.normal(200_000_000, 400_000_000, n)
+    df["payout_ratio"] = np.abs(rng.normal(0.20, 0.15, n))
+    df["net_cash_to_mktcap"] = rng.normal(0.05, 0.20, n)
+    df["treasury_ratio"] = np.abs(rng.normal(0.02, 0.03, n))
+    return df
+
+
+def run_demo():
+    pd.set_option("display.width", 200, "display.max_columns", 50)
+    df = make_demo()
+    filt = apply_hard_filters(df)
+    ranked = composite(filt)
+
+    print("=" * 78)
+    print("STEP 1 — 하드 필터")
+    print("=" * 78)
+    print(f"유니버스 {len(df)} → 통과 {int(filt['passed'].sum())}")
+    print(filt.loc[~filt["passed"], "filter_reason"].value_counts().to_string())
+
+    print("\n" + "=" * 78)
+    print("STEP 2 — 종합 랭킹 상위 15")
+    print("=" * 78)
+    cols = ["name", "sector", "per", "pbr", "roe_3y_avg", "debt_ratio",
+            "ret_12m", "op_yoy", "s_quality", "s_value", "s_gap", "s_payout", "score"]
+    top = ranked[ranked["passed"]].head(15)[cols]
+    print(top.round(3).to_string())
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="US stock screening engine")
+    parser.add_argument("--demo", action="store_true", help="Run demo with synthetic data")
+    parser.add_argument("--run", action="store_true", help="Run with real data")
+    parser.add_argument("--top", type=int, default=50, help="Number of top stocks to show")
+    args = parser.parse_args()
+
+    if args.demo:
+        run_demo()
+    elif args.run:
+        # Placeholder for real data run (Task 8+)
+        print("Real data run not yet implemented")
+    else:
+        parser.print_help()
