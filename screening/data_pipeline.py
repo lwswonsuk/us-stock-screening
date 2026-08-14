@@ -52,8 +52,14 @@ def compute_return_and_drawdown(price_df: pd.DataFrame) -> tuple[float, float, f
 
 def fetch_finance_one(ticker: str) -> dict:
     """Finnhub 여러 엔드포인트를 조합해 스코어링에 필요한 한 종목의 재무 행을 만든다.
-    ⚠️ Finnhub 필드명(roeTTM 등)은 Task 1 Step 6의 라이브 확인 결과에 맞춰 아래 매핑을
-    조정할 것 — 이 함수가 Finnhub 원본 필드명과 내부 컬럼명 사이의 유일한 변환 지점이다."""
+
+    ⚠️ 필드 스케일은 2026-08-14 실제 API 응답(AAPL)으로 라이브 검증 완료:
+      - roeTTM, operatingMarginTTM: 이미 퍼센트 값(예: roeTTM=137.18 → "137.18%") — × 100 하지 않음
+      - totalDebt/totalEquityAnnual: 소수(예: 1.3547 → "135.47%") — × 100 함
+      - payoutRatioTTM, revenueGrowthTTMYoy: 이미 퍼센트 값 — score_payout/score_gap이 요구하는
+        0~1 소수 스케일로 맞추기 위해 ÷ 100 함
+      - dividendYieldIndicatedAnnual, peTTM, pbAnnual: 그대로 사용 (변환 없음, 검증 완료)
+    이 함수가 Finnhub 원본 필드명과 내부 컬럼명 사이의 유일한 변환 지점이다."""
     metric = finnhub_client.get_basic_financials(ticker)
 
     def g(key):
@@ -65,25 +71,26 @@ def fetch_finance_one(ticker: str) -> dict:
     op_margin = g("operatingMarginTTM")
     per = g("peTTM")
     pbr = g("pbAnnual")
-    # div_yield: 다른 퍼센트 필드(roe_3y_avg, debt_ratio, op_margin)와 달리 × 100 변환 없음. Finnhub의 dividendYieldIndicatedAnnual이 소수(0.025) vs 퍼센트(2.5) 중 어느 형식인지 불명확 — 라이브 확인 단계에서 검증 필요.
     div_yield = g("dividendYieldIndicatedAnnual")
-    payout_ratio = g("payoutRatioTTM")
-    rev_yoy = g("revenueGrowthTTMYoy")
+    payout_ratio_pct = g("payoutRatioTTM")
+    rev_yoy_pct = g("revenueGrowthTTMYoy")
+
+    roe_3y_avg = roe                      # 이미 퍼센트
+    debt_ratio = np.nan if np.isnan(debt_equity) else debt_equity * 100   # 소수 → 퍼센트
+    op_margin_pct = op_margin             # 이미 퍼센트
+    rev_yoy = np.nan if np.isnan(rev_yoy_pct) else rev_yoy_pct / 100      # 퍼센트 → 소수
+    payout_ratio = np.nan if np.isnan(payout_ratio_pct) else max(payout_ratio_pct / 100, 0.0)  # 퍼센트 → 소수
 
     op_yoy = np.nan  # Finnhub의 무료 'metric=all'은 영업이익 YoY를 직접 주지 않음 — 매출성장률로 근사
     if not np.isnan(rev_yoy):
-        op_yoy = rev_yoy  # 근사치: 매출성장률을 영업이익 모멘텀 프록시로 사용 (게이트 판정용)
+        op_yoy = rev_yoy  # 근사치: 매출성장률을 영업이익 모멘텀 프록시로 사용 (게이트 판정용, 소수 스케일)
 
-    roe_3y_avg = np.nan if np.isnan(roe) else roe * 100
-    debt_ratio = np.nan if np.isnan(debt_equity) else debt_equity * 100
-    op_margin_pct = np.nan if np.isnan(op_margin) else op_margin * 100
-
-    for label, val in (("debt_ratio", debt_ratio), ("roe_3y_avg", roe_3y_avg)):
+    for label, val in (("debt_ratio", debt_ratio), ("roe_3y_avg", roe_3y_avg), ("op_margin", op_margin_pct)):
         if not np.isnan(val) and abs(val) > 1000:
             print(
                 f"  [WARN] {ticker}: {label} 값이 비정상적으로 큽니다 ({val:.1f}). "
-                "Finnhub이 이 필드를 소수가 아닌 퍼센트로 이미 반환하고 있을 가능성이 있습니다 "
-                "(단위 불일치 의심 — × 100 변환 로직을 재검토하세요)."
+                "Finnhub 필드 스케일이 바뀌었을 가능성이 있습니다 — data_pipeline.fetch_finance_one()의 "
+                "스케일 변환 로직을 재검토하세요."
             )
 
     return {
@@ -101,7 +108,7 @@ def fetch_finance_one(ticker: str) -> dict:
         "revenue_ttm": np.nan,
         "total_equity": np.nan,
         "cash_dividend_total": np.nan,
-        "payout_ratio": np.nan if np.isnan(payout_ratio) else max(payout_ratio, 0.0),
+        "payout_ratio": payout_ratio,
         "per": per,
         "pbr": pbr,
         "div_yield": div_yield,

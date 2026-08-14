@@ -20,19 +20,22 @@ def test_compute_return_and_drawdown_from_price_series():
 
 
 def test_fetch_finance_one_computes_op_margin_and_debt_ratio(monkeypatch):
+    """필드 값은 2026-08-14 실제 Finnhub API 응답(AAPL)으로 검증된 실제 스케일을 반영한다:
+    roeTTM/operatingMarginTTM/payoutRatioTTM/revenueGrowthTTMYoy는 이미 퍼센트 값이고,
+    totalDebt/totalEquityAnnual만 소수다."""
     import finnhub_client
 
     monkeypatch.setattr(
         finnhub_client, "get_basic_financials",
         lambda ticker: {
-            "roeTTM": 0.15,
-            "totalDebt/totalEquityAnnual": 0.8,
-            "operatingMarginTTM": 0.22,
+            "roeTTM": 15.0,                          # 이미 퍼센트
+            "totalDebt/totalEquityAnnual": 0.8,        # 소수
+            "operatingMarginTTM": 22.0,               # 이미 퍼센트
             "peTTM": 18.0,
             "pbAnnual": 6.0,
             "dividendYieldIndicatedAnnual": 0.5,
-            "payoutRatioTTM": 0.15,
-            "revenueGrowthTTMYoy": 0.08,
+            "payoutRatioTTM": 15.0,                   # 이미 퍼센트
+            "revenueGrowthTTMYoy": 8.0,                # 이미 퍼센트
         },
     )
     row = fetch_finance_one("AAPL")
@@ -43,6 +46,9 @@ def test_fetch_finance_one_computes_op_margin_and_debt_ratio(monkeypatch):
     assert row["op_margin"] == 22.0
     assert row["per"] == 18.0
     assert row["pbr"] == 6.0
+    assert row["payout_ratio"] == pytest.approx(0.15)
+    assert row["rev_yoy"] == pytest.approx(0.08)
+    assert row["op_yoy"] == pytest.approx(0.08)
 
 
 def test_get_full_universe_raises_when_quote_success_rate_too_low(monkeypatch):
