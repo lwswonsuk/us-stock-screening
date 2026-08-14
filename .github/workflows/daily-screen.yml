@@ -1,0 +1,72 @@
+name: 일일 스크리닝 (미국 주식)
+
+permissions:
+  contents: write   # 워크플로우가 결과 파일을 저장소에 다시 커밋할 수 있도록 쓰기 권한 부여
+
+on:
+  schedule:
+    # 매일 미국 동부시간(ET) 장마감 후 오후 6시 = UTC 22:00 (서머타임 기준, 표준시엔 23:00과 1h 차이 발생 가능 — 오차 허용)
+    - cron: "0 22 * * 2-6"   # 화~토 UTC (=월~금 미국장 마감 다음)
+    # 분기 실적시즌 재무 강제갱신 (10-Q/10-K 몰림 시기 다음날) — 대략적 기준, 필요시 조정
+    - cron: "0 12 20 2,5,8,11 *"
+  workflow_dispatch:
+    inputs:
+      force_finance:
+        description: "재무데이터를 캐시 무시하고 강제로 새로 받기"
+        type: boolean
+        default: false
+
+jobs:
+  screen:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 저장소 체크아웃
+        uses: actions/checkout@v4
+
+      - name: Python 설치
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: 패키지 설치
+        run: pip install -r screening/requirements.txt
+
+      - name: 주차(연도-주) 계산
+        id: week
+        run: echo "value=$(date +%G-W%V)" >> "$GITHUB_OUTPUT"
+
+      - name: 재무데이터 캐시 복원 (주 단위)
+        uses: actions/cache@v4
+        id: finance-cache
+        with:
+          path: screening/.cache
+          key: finance-cache-us-v1-${{ steps.week.outputs.value }}
+          restore-keys: |
+            finance-cache-us-v1-
+
+      - name: 재무데이터 없거나 강제갱신 요청 시 새로 받기
+        if: >-
+          steps.finance-cache.outputs.cache-hit != 'true' ||
+          github.event.inputs.force_finance == 'true'
+        working-directory: screening
+        env:
+          FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
+        run: python data_pipeline.py --build --force
+
+      - name: 스크리닝 실행 + JSON 저장
+        working-directory: screening
+        env:
+          FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          python us_alpha.py --run --top 50 \
+            --export-json "../web/data/results.json" \
+            --filtered-json "../web/data/filtered_full.json"
+
+      - name: 결과를 저장소에 커밋 (→ Vercel 자동 재배포 트리거)
+        run: |
+          git config user.name "screening-bot"
+          git config user.email "screening-bot@users.noreply.github.com"
+          git add web/data/results.json web/data/filtered_full.json
+          git diff --cached --quiet || git commit -m "chore: 스크리닝 결과 자동 갱신 $(date +%Y-%m-%d)"
+          git push
