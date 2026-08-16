@@ -234,19 +234,23 @@ def run_demo():
 # 6. 실데이터 어댑터
 # ═══════════════════════════════════════════════════════════════
 
-def get_historical_prices_batch(tickers: list[str], sleep_sec: float = 1.1) -> dict[str, dict]:
+def get_historical_prices_batch(tickers: list[str], sleep_sec: float = 0.3) -> dict[str, dict]:
     """티커 리스트에 대해 (3개월수익률, 12개월수익률, 52주낙폭)을 계산해 dict로 반환한다.
-    개별 종목 조회 실패는 건너뛰고 계속 진행한다. Finnhub 무료 티어(분당 60건) 한도를
-    지키기 위해 종목 사이에 sleep_sec만큼 대기한다."""
+    개별 종목 조회 실패는 건너뛰고 계속 진행한다.
+
+    Finnhub 무료 티어는 미국 주식 캔들(과거시세) 조회를 유료로 전환해서(2026-08-15 라이브
+    확인: 전종목 403 Forbidden), 과거시세는 Yahoo Finance 비공식 API(yahoo_client)로 받는다.
+    공식 문서화된 속도 제한은 없지만 과도한 요청은 일시 차단될 수 있어 예의상 sleep_sec만큼
+    대기한다."""
     import time
 
-    import finnhub_client
+    import yahoo_client
     from data_pipeline import compute_return_and_drawdown
 
     out: dict[str, dict] = {}
     for ticker in tickers:
         try:
-            prices = finnhub_client.get_candles(ticker, days=380)
+            prices = yahoo_client.get_daily_prices(ticker, days=380)
             ret_3m, ret_12m, drawdown_52w = compute_return_and_drawdown(prices)
             out[ticker] = {"ret_3m": ret_3m, "ret_12m": ret_12m, "drawdown_52w": drawdown_52w}
         except Exception as e:
