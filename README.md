@@ -100,3 +100,5 @@ ADMIN_PASSWORD=원하는비밀번호
   각 종목의 시가, 재무비율 등 상세 데이터는 Finnhub에서 수집(무료, 일 단위 갱신)됨.
   자세한 내용은 `docs/superpowers/specs/2026-08-14-us-stock-screening-design.md` §10 참고.
 - 하드 필터/팩터 가중치의 상세 근거는 `docs/superpowers/specs/2026-08-14-us-stock-screening-design.md` 참고.
+- 과거 12개월 시세(3개월/12개월 수익률, 52주 낙폭 계산용)는 Finnhub 무료 티어가 유료로
+  전환해서 Yahoo Finance 비공식 API로 대체함 (API 키 불필요).
