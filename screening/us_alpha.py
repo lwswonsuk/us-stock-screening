@@ -288,6 +288,10 @@ def load_real() -> pd.DataFrame:
     # 시가총액 × 영업이익률 부호만으로 흑자/적자를 판별한다 (부호만 필요).
     df["op_ttm"] = df["op_margin"]
 
+    # "name"은 이후 export 단계에서 티커로 덮어써지므로(설계 결정: 화면엔 티커 표시),
+    # 위키피디아 원본 회사명은 별도 컬럼에 미리 보존해둔다 — 섹터 대신 화면에 노출할 용도.
+    df["company_name"] = df["name"]
+
     return df
 
 
@@ -296,7 +300,7 @@ def load_real() -> pd.DataFrame:
 # ═══════════════════════════════════════════════════════════════
 
 KOR_NAMES = {
-    "name": "종목명", "sector": "섹터", "mktcap_usd": "시가총액(백만$)",
+    "name": "종목명", "company_name": "회사명", "mktcap_usd": "시가총액(백만$)",
     "price": "현재가", "per": "PER", "pbr": "PBR", "roe_3y_avg": "ROE(%)",
     "debt_ratio": "부채비율(%)", "div_yield": "배당수익률(%)", "payout_ratio_pct": "배당성향(%)",
     "score": "종합점수",
@@ -330,7 +334,7 @@ def run_real(top_n: int = 50, export_json: str | None = None, filtered_json: str
 
     print(f"유니버스 {len(d)} → 통과 {int(filt['passed'].sum())}")
 
-    cols = ["name", "sector", "mktcap_usd", "price", "per", "pbr", "roe_3y_avg",
+    cols = ["name", "company_name", "mktcap_usd", "price", "per", "pbr", "roe_3y_avg",
             "debt_ratio", "div_yield", "payout_ratio_pct", "score"]
     cols = [c for c in cols if c in ranked.columns]
 

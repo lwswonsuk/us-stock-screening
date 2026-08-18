@@ -57,6 +57,15 @@ def test_run_real_writes_expected_json_shape(monkeypatch, tmp_path):
     assert payload["results"][0]["payout_ratio_pct"] == 15.0
     assert payload["column_labels_ko"]["payout_ratio_pct"] == "배당성향(%)"
 
+    # "name" is overwritten with the ticker for on-screen display (design decision),
+    # but the real Wikipedia company name survives separately as "company_name" —
+    # it replaces the old (unreliable) "sector" column in the exported table.
+    assert payload["results"][0]["name"] == "AAPL"
+    assert payload["results"][0]["company_name"] == "Apple Inc."
+    assert "sector" not in payload["columns"]
+    assert "company_name" in payload["columns"]
+    assert payload["column_labels_ko"]["company_name"] == "회사명"
+
 
 def test_run_real_raises_when_nothing_passes_hard_filters(monkeypatch, tmp_path):
     import data_pipeline
