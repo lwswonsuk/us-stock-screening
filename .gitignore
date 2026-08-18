@@ -14,3 +14,5 @@ web/next-env.d.ts
 # 환경변수 (로컬 테스트용, 절대 커밋 금지)
 .env
 .env.local
+Keys.txt
+*.keys.txt
