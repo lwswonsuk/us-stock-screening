@@ -4,8 +4,8 @@ finnhub_client.py — Finnhub API 래퍼
 FMP를 대체하는 개별 종목 시세·재무데이터 소스. Finnhub 무료 티어는 하루 총량 상한이 아니라
 분당 60건 속도 제한이므로, 호출 빈도만 조절하면 S&P 500+400+600 전체를 매일 무료로 처리할 수 있다.
 
-이 모듈은 quote/candle만 최소 가공(pandas화)하고, 나머지 재무데이터(company_basic_financials)는
-raw dict 그대로 반환한다 — FMP 때와 동일하게, 필드명 매핑은 data_pipeline.py에서 전담해 Finnhub가
+이 모듈은 Finnhub 응답을 raw dict 그대로 반환한다 — FMP 때와 동일하게, 필드명 매핑은
+data_pipeline.py에서 전담해 Finnhub가
 필드명을 바꿔도 이 파일이 아니라 매핑 지점 하나만 고치면 되게 한다.
 
 사전 준비: setx FINNHUB_API_KEY "..." (Windows) 또는 export FINNHUB_API_KEY=...
@@ -20,7 +20,6 @@ from __future__ import annotations
 
 import os
 
-import pandas as pd
 import requests
 
 BASE_URL = "https://finnhub.io/api/v1"
@@ -64,27 +63,3 @@ def get_company_profile(ticker: str) -> dict:
     r = requests.get(f"{BASE_URL}/stock/profile2", params={"symbol": ticker, "token": key}, timeout=TIMEOUT)
     r.raise_for_status()
     return r.json()
-
-
-def get_candles(ticker: str, days: int = 380) -> pd.DataFrame:
-    """최근 daily close를 오름차순(과거→최근)으로 정렬해 반환한다. columns=[date, close].
-    데이터가 없으면(s != "ok") 빈 DataFrame(같은 컬럼 스키마)을 반환한다."""
-    import time as _time
-
-    key = _api_key()
-    now = int(_time.time())
-    frm = now - days * 86400
-    r = requests.get(
-        f"{BASE_URL}/stock/candle",
-        params={"symbol": ticker, "resolution": "D", "from": frm, "to": now, "token": key},
-        timeout=TIMEOUT,
-    )
-    r.raise_for_status()
-    payload = r.json()
-    if payload.get("s") != "ok" or not payload.get("t"):
-        return pd.DataFrame(columns=["date", "close"])
-    df = pd.DataFrame({
-        "date": pd.to_datetime(payload["t"], unit="s"),
-        "close": payload["c"],
-    })
-    return df.sort_values("date").reset_index(drop=True)

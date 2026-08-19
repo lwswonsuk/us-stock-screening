@@ -1,7 +1,7 @@
 """
 data_pipeline.py — 미국 주식 재무데이터 캐싱 레이어 (Finnhub + Wikipedia 기반)
 ================================================================
-Finnhub API로 개별 종목 시세·재무비율을 매일 받아 로컬 parquet에 캐싱하고,
+Finnhub API로 개별 종목 재무비율·발행주식수를 분기별 로컬 parquet에 캐싱하고,
 위키피디아(wiki_universe.py)에서 받은 유니버스(S&P 500+400+600)와 결합한다.
 
 사용법:
@@ -10,7 +10,7 @@ Finnhub API로 개별 종목 시세·재무비율을 매일 받아 로컬 parque
     python data_pipeline.py --status         # 캐시 현황 확인
 
 캐시 파일:
-    .cache/finance.parquet   — 종목별 재무비율 (매일 갱신)
+    .cache/finance.parquet   — 종목별 재무비율·발행주식수 (분기별 갱신)
     .cache/universe.parquet  — 지수 구성종목 명단 (주 1회 갱신, wiki_universe.py가 관리)
 """
 
@@ -61,6 +61,7 @@ def fetch_finance_one(ticker: str) -> dict:
       - dividendYieldIndicatedAnnual, peTTM, pbAnnual: 그대로 사용 (변환 없음, 검증 완료)
     이 함수가 Finnhub 원본 필드명과 내부 컬럼명 사이의 유일한 변환 지점이다."""
     metric = finnhub_client.get_basic_financials(ticker)
+    profile = finnhub_client.get_company_profile(ticker)
 
     def g(key):
         v = metric.get(key)
@@ -95,6 +96,7 @@ def fetch_finance_one(ticker: str) -> dict:
 
     return {
         "ticker": ticker,
+        "share_outstanding": profile.get("shareOutstanding") or np.nan,
         "roe_3y_avg": roe_3y_avg,
         "roe_3y_std": np.nan,
         "debt_ratio": debt_ratio,
@@ -118,7 +120,7 @@ def fetch_finance_one(ticker: str) -> dict:
     }
 
 
-def build_finance_cache(force: bool = False, sleep_sec: float = 1.1) -> pd.DataFrame:
+def build_finance_cache(force: bool = False, sleep_sec: float = 2.2) -> pd.DataFrame:
     universe = wiki_universe.get_universe().reset_index()
     print(f"[universe] S&P 500+400+600 합산 {len(universe)}개 종목 (Wikipedia)")
 
@@ -126,7 +128,8 @@ def build_finance_cache(force: bool = False, sleep_sec: float = 1.1) -> pd.DataF
     done_tickers: set[str] = set()
     if FINANCE_CACHE.exists() and not force:
         existing = pd.read_parquet(FINANCE_CACHE)
-        done_tickers = set(existing["ticker"]) if "ticker" in existing.columns else set()
+        if "ticker" in existing.columns and "share_outstanding" in existing.columns:
+            done_tickers = set(existing.loc[existing["share_outstanding"].notna(), "ticker"])
         print(f"[cache] 기존 캐시 {len(done_tickers)}개 종목 재사용")
 
     todo = universe[~universe["ticker"].isin(done_tickers)]
@@ -150,23 +153,26 @@ def build_finance_cache(force: bool = False, sleep_sec: float = 1.1) -> pd.DataF
     return combined
 
 
-def get_full_universe(sleep_sec: float = 2.2) -> pd.DataFrame:
+def get_full_universe(sleep_sec: float = 1.1) -> pd.DataFrame:
     """유니버스 종목의 실시간 시세(quote)를 결합한 DataFrame. index=ticker.
     columns=[name, sector, price, market_cap, avg_volume].
-    종목당 get_company_profile + get_quote로 2회 호출하므로, Finnhub 무료 티어(분당 60건)
-    한도를 지키기 위해 종목 사이에 sleep_sec만큼 대기한다 (기본값 2.2초 → 2콜/2.2초 ≈ 55콜/분)."""
+    시가총액은 분기 재무 캐시의 발행주식수(백만 주) × 당일 현재가로 계산한다.
+    종목당 get_quote 1회만 호출하므로 Finnhub 무료 티어(분당 60건) 한도를 지키기 위해
+    종목 사이에 sleep_sec만큼 대기한다 (기본값 1.1초 → 약 55콜/분)."""
     idx = wiki_universe.get_universe()
+    finance = pd.read_parquet(FINANCE_CACHE).set_index("ticker")
+    shares_outstanding = finance["share_outstanding"]
 
     rows = []
     for ticker in idx.index:
         try:
-            profile = finnhub_client.get_company_profile(ticker)
             quote = finnhub_client.get_quote(ticker)
+            price = quote.get("c", np.nan)
+            shares = shares_outstanding.get(ticker, np.nan)
             rows.append({
                 "ticker": ticker,
-                "price": quote.get("c", np.nan),
-                "market_cap": (profile.get("marketCapitalization") or np.nan) * 1_000_000
-                    if profile.get("marketCapitalization") else np.nan,
+                "price": price,
+                "market_cap": price * shares * 1_000_000,
                 "avg_volume": np.nan,  # Finnhub 무료 profile2/quote는 평균거래량을 직접 주지 않음 —
                                        # 유동성 필터는 시가총액 하한으로 대부분 걸러지므로 당장은 무제한 통과 처리
             })

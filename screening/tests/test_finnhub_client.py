@@ -77,35 +77,3 @@ def test_get_company_profile_returns_raw_dict(monkeypatch):
 
     result = finnhub_client.get_company_profile("AAPL")
     assert result["finnhubIndustry"] == "Technology"
-
-
-def test_get_candles_returns_dataframe_sorted_ascending(monkeypatch):
-    payload = {
-        "s": "ok",
-        "t": [1755000000, 1755086400],
-        "c": [228.0, 230.0],
-    }
-
-    def fake_get(url, params=None, timeout=None):
-        assert url.endswith("/stock/candle")
-        assert params["resolution"] == "D"
-        return _FakeResponse(payload)
-
-    monkeypatch.setenv("FINNHUB_API_KEY", "test-key")
-    monkeypatch.setattr(finnhub_client.requests, "get", fake_get)
-
-    df = finnhub_client.get_candles("AAPL", days=2)
-    assert list(df["close"]) == [228.0, 230.0]
-    assert list(df.columns) == ["date", "close"]
-
-
-def test_get_candles_returns_empty_dataframe_when_no_data(monkeypatch):
-    def fake_get(url, params=None, timeout=None):
-        return _FakeResponse({"s": "no_data"})
-
-    monkeypatch.setenv("FINNHUB_API_KEY", "test-key")
-    monkeypatch.setattr(finnhub_client.requests, "get", fake_get)
-
-    df = finnhub_client.get_candles("ZZZZ")
-    assert df.empty
-    assert list(df.columns) == ["date", "close"]

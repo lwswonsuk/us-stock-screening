@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from data_pipeline import compute_return_and_drawdown, fetch_finance_one, get_full_universe
+from data_pipeline import build_finance_cache, compute_return_and_drawdown, fetch_finance_one, get_full_universe
 
 
 def test_compute_return_and_drawdown_from_price_series():
@@ -25,6 +25,10 @@ def test_fetch_finance_one_computes_op_margin_and_debt_ratio(monkeypatch):
     totalDebt/totalEquityAnnual만 소수다."""
     import finnhub_client
 
+    monkeypatch.setattr(
+        finnhub_client, "get_company_profile",
+        lambda ticker: {"shareOutstanding": 15_200.0},
+    )
     monkeypatch.setattr(
         finnhub_client, "get_basic_financials",
         lambda ticker: {
@@ -49,9 +53,79 @@ def test_fetch_finance_one_computes_op_margin_and_debt_ratio(monkeypatch):
     assert row["payout_ratio"] == pytest.approx(0.15)
     assert row["rev_yoy"] == pytest.approx(0.08)
     assert row["op_yoy"] == pytest.approx(0.08)
+    assert row["share_outstanding"] == 15_200.0
 
 
-def test_get_full_universe_raises_when_quote_success_rate_too_low(monkeypatch):
+def test_build_finance_cache_reuses_cached_share_outstanding(monkeypatch, tmp_path):
+    import data_pipeline
+    import wiki_universe
+
+    cache_path = tmp_path / "finance.parquet"
+    pd.DataFrame([{"ticker": "AAPL", "share_outstanding": 15_200.0}]).to_parquet(cache_path, index=False)
+    universe = pd.DataFrame(
+        {"name": ["Apple Inc."], "sector": ["Technology"]},
+        index=pd.Index(["AAPL"], name="ticker"),
+    )
+    monkeypatch.setattr(data_pipeline, "FINANCE_CACHE", cache_path)
+    monkeypatch.setattr(wiki_universe, "get_universe", lambda: universe)
+    monkeypatch.setattr(
+        data_pipeline, "fetch_finance_one",
+        lambda ticker: pytest.fail("fresh profile data should not be fetched on a cache hit"),
+    )
+
+    result = build_finance_cache(sleep_sec=0)
+
+    assert result.loc[result["ticker"] == "AAPL", "share_outstanding"].item() == 15_200.0
+
+
+def test_build_finance_cache_refreshes_row_missing_share_outstanding(monkeypatch, tmp_path):
+    import data_pipeline
+    import wiki_universe
+
+    cache_path = tmp_path / "finance.parquet"
+    pd.DataFrame([{"ticker": "AAPL", "roe_3y_avg": 15.0}]).to_parquet(cache_path, index=False)
+    universe = pd.DataFrame(
+        {"name": ["Apple Inc."], "sector": ["Technology"]},
+        index=pd.Index(["AAPL"], name="ticker"),
+    )
+    monkeypatch.setattr(data_pipeline, "FINANCE_CACHE", cache_path)
+    monkeypatch.setattr(wiki_universe, "get_universe", lambda: universe)
+    monkeypatch.setattr(
+        data_pipeline, "fetch_finance_one",
+        lambda ticker: {"ticker": ticker, "roe_3y_avg": 16.0, "share_outstanding": 15_300.0},
+    )
+
+    result = build_finance_cache(sleep_sec=0)
+
+    row = result.set_index("ticker").loc["AAPL"]
+    assert row["roe_3y_avg"] == 16.0
+    assert row["share_outstanding"] == 15_300.0
+
+
+def test_get_full_universe_computes_market_cap_from_quote_and_cached_shares(monkeypatch, tmp_path):
+    import data_pipeline
+    import wiki_universe
+
+    universe = pd.DataFrame(
+        {"name": ["Apple Inc."], "sector": ["Technology"]},
+        index=pd.Index(["AAPL"], name="ticker"),
+    )
+    cache_path = tmp_path / "finance.parquet"
+    pd.DataFrame([{"ticker": "AAPL", "share_outstanding": 15_200.0}]).to_parquet(cache_path, index=False)
+    monkeypatch.setattr(data_pipeline, "FINANCE_CACHE", cache_path)
+    monkeypatch.setattr(wiki_universe, "get_universe", lambda: universe)
+    monkeypatch.setattr(data_pipeline.finnhub_client, "get_quote", lambda ticker: {"c": 200.0})
+    monkeypatch.setattr(
+        data_pipeline.finnhub_client, "get_company_profile",
+        lambda ticker: pytest.fail("daily universe loading must not fetch company profiles"),
+    )
+
+    result = get_full_universe(sleep_sec=0)
+
+    assert result.loc["AAPL", "market_cap"] == 3_040_000_000_000.0
+
+
+def test_get_full_universe_raises_when_quote_success_rate_too_low(monkeypatch, tmp_path):
     import data_pipeline
     import wiki_universe
 
@@ -67,10 +141,11 @@ def test_get_full_universe_raises_when_quote_success_rate_too_low(monkeypatch):
         raise RuntimeError("429 rate limited")
 
     monkeypatch.setattr(data_pipeline.finnhub_client, "get_quote", flaky_get_quote)
-    monkeypatch.setattr(
-        data_pipeline.finnhub_client, "get_company_profile",
-        lambda ticker: {"marketCapitalization": 1000.0},
+    cache_path = tmp_path / "finance.parquet"
+    pd.DataFrame({"ticker": universe.index, "share_outstanding": [10.0] * len(universe)}).to_parquet(
+        cache_path, index=False,
     )
+    monkeypatch.setattr(data_pipeline, "FINANCE_CACHE", cache_path)
 
     with pytest.raises(RuntimeError, match="시세 조회 성공률"):
         get_full_universe(sleep_sec=0)

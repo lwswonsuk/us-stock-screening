@@ -320,6 +320,17 @@ def _record_value(col: str, v) -> str | float | None:
     return str(v)
 
 
+def _build_records(df: pd.DataFrame, cols: list[str]) -> list[dict]:
+    records = []
+    for ticker, row in df.iterrows():
+        rec = {"stock_code": str(ticker)}
+        for c in cols:
+            rec[c] = _record_value(c, row[c])
+        rec["name"] = rec["stock_code"]
+        records.append(rec)
+    return records
+
+
 def run_real(top_n: int = 50, export_json: str | None = None, filtered_json: str | None = None) -> pd.DataFrame:
     d = load_real()
     filt = apply_hard_filters(d)
@@ -344,13 +355,7 @@ def run_real(top_n: int = 50, export_json: str | None = None, filtered_json: str
         import json
         from pathlib import Path as _Path
 
-        records = []
-        for ticker, row in top.iterrows():
-            rec = {"stock_code": str(ticker)}
-            for c in cols:
-                rec[c] = _record_value(c, row[c])
-            rec["name"] = rec["stock_code"]   # 화면에는 회사 전체명 대신 티커를 표시 (설계 결정)
-            records.append(rec)
+        records = _build_records(top, cols)
 
         quote = pick_quote_for_week()
 
@@ -387,13 +392,7 @@ def run_real(top_n: int = 50, export_json: str | None = None, filtered_json: str
         from pathlib import Path as _Path
 
         passed_all = ranked[ranked["passed"]][cols]
-        records = []
-        for ticker, row in passed_all.iterrows():
-            rec = {"stock_code": str(ticker)}
-            for c in cols:
-                rec[c] = _record_value(c, row[c])
-            rec["name"] = rec["stock_code"]   # 화면에는 회사 전체명 대신 티커를 표시 (설계 결정)
-            records.append(rec)
+        records = _build_records(passed_all, cols)
 
         payload = {
             "as_of_date": pd.Timestamp.now("UTC").strftime("%Y%m%d"),

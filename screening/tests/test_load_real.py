@@ -4,7 +4,23 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from us_alpha import run_real
+from us_alpha import _build_records, run_real
+
+
+def test_build_records_preserves_export_conversions_and_ticker_name():
+    df = pd.DataFrame(
+        [{"name": "Apple Inc.", "mktcap_usd": 3_500_000_000_000.0, "score": np.nan}],
+        index=pd.Index(["AAPL"], name="ticker"),
+    )
+
+    records = _build_records(df, ["name", "mktcap_usd", "score"])
+
+    assert records == [{
+        "stock_code": "AAPL",
+        "name": "AAPL",
+        "mktcap_usd": 3_500_000.0,
+        "score": None,
+    }]
 
 
 def test_run_real_writes_expected_json_shape(monkeypatch, tmp_path):
