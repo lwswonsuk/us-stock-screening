@@ -262,12 +262,19 @@ def get_historical_prices_batch(tickers: list[str], sleep_sec: float = 0.3) -> d
 def load_real() -> pd.DataFrame:
     """Finnhub 유니버스(위키피디아 종목명단 + Finnhub 시세/시총) + 재무 캐시 + 가격히스토리를
     조립해 스코어링용 DataFrame을 만든다.
-    사전 준비: python data_pipeline.py --build 로 .cache/finance.parquet 만들어둘 것."""
+    사전 준비: python data_pipeline.py --build --force 로 .cache/finance.parquet 만들어둘 것."""
     import data_pipeline
 
     if not data_pipeline.FINANCE_CACHE.exists():
         raise RuntimeError(
             "재무 캐시가 없습니다. 먼저 실행하세요: python data_pipeline.py --build"
+        )
+
+    fin = pd.read_parquet(data_pipeline.FINANCE_CACHE).set_index("ticker")
+    if "share_outstanding" not in fin.columns:
+        raise RuntimeError(
+            "재무 캐시에 share_outstanding 컬럼이 없습니다. "
+            "먼저 실행하세요: python data_pipeline.py --build --force"
         )
 
     universe = data_pipeline.get_full_universe()
@@ -276,7 +283,6 @@ def load_real() -> pd.DataFrame:
     # 유동성 필터(min_avg_volume_usd)는 0.0으로 비활성화되어 있다 (Config 참고).
     universe["avg_volume_usd"] = universe["avg_volume"] * universe["price"]
 
-    fin = pd.read_parquet(data_pipeline.FINANCE_CACHE).set_index("ticker")
     df = universe.join(fin, how="inner")
 
     price_hist = get_historical_prices_batch(list(df.index))

@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from us_alpha import _build_records, run_real
+from us_alpha import _build_records, load_real, run_real
 
 
 def test_build_records_preserves_export_conversions_and_ticker_name():
@@ -23,6 +23,22 @@ def test_build_records_preserves_export_conversions_and_ticker_name():
     }]
 
 
+def test_load_real_rejects_legacy_finance_cache_before_fetching_quotes(monkeypatch, tmp_path):
+    import data_pipeline
+
+    cache_path = tmp_path / "finance.parquet"
+    pd.DataFrame([{"ticker": "AAPL", "roe_3y_avg": 15.0}]).to_parquet(cache_path, index=False)
+    monkeypatch.setattr(data_pipeline, "FINANCE_CACHE", cache_path)
+    monkeypatch.setattr(
+        data_pipeline,
+        "get_full_universe",
+        lambda: pytest.fail("quotes must not be fetched for an incompatible finance cache"),
+    )
+
+    with pytest.raises(RuntimeError, match=r"share_outstanding.*python data_pipeline\.py --build --force"):
+        load_real()
+
+
 def test_run_real_writes_expected_json_shape(monkeypatch, tmp_path):
     import data_pipeline
 
@@ -32,7 +48,8 @@ def test_run_real_writes_expected_json_shape(monkeypatch, tmp_path):
         index=pd.Index(["AAPL"], name="ticker"),
     )
     finance = pd.DataFrame([{
-        "ticker": "AAPL", "roe_3y_avg": 150.0, "roe_3y_std": np.nan, "debt_ratio": 180.0,
+        "ticker": "AAPL", "share_outstanding": 15_200.0,
+        "roe_3y_avg": 150.0, "roe_3y_std": np.nan, "debt_ratio": 180.0,
         "op_margin": 30.0, "op_ttm": 100_000_000_000, "op_yoy": 0.1, "rev_yoy": 0.05,
         "rev_cagr_3y": np.nan, "years_no_rev_decline": 0, "net_income_ttm": np.nan,
         "revenue_ttm": np.nan, "total_equity": np.nan, "cash_dividend_total": np.nan,
@@ -93,7 +110,8 @@ def test_run_real_raises_when_nothing_passes_hard_filters(monkeypatch, tmp_path)
     )
     # debt_ratio far over the 200% hard-filter threshold -> everything gets excluded
     finance = pd.DataFrame([{
-        "ticker": "AAPL", "roe_3y_avg": 150.0, "roe_3y_std": np.nan, "debt_ratio": 9000.0,
+        "ticker": "AAPL", "share_outstanding": 15_200.0,
+        "roe_3y_avg": 150.0, "roe_3y_std": np.nan, "debt_ratio": 9000.0,
         "op_margin": 30.0, "op_ttm": 100_000_000_000, "op_yoy": 0.1, "rev_yoy": 0.05,
         "rev_cagr_3y": np.nan, "years_no_rev_decline": 0, "net_income_ttm": np.nan,
         "revenue_ttm": np.nan, "total_equity": np.nan, "cash_dividend_total": np.nan,
