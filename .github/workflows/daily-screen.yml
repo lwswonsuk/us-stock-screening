@@ -31,23 +31,34 @@ jobs:
       - name: 패키지 설치
         run: pip install -r screening/requirements.txt
 
-      - name: 주차(연도-주) 계산
-        id: week
-        run: echo "value=$(date +%G-W%V)" >> "$GITHUB_OUTPUT"
+      - name: 분기(연도-분기) 계산
+        id: quarter
+        run: |
+          Q=$(( ($(date +%-m) - 1) / 3 + 1 ))
+          echo "value=$(date +%Y)-Q${Q}" >> "$GITHUB_OUTPUT"
 
-      - name: 재무데이터 캐시 복원 (주 단위)
+      - name: 재무데이터 캐시 복원 (분기 단위 — 분기 중엔 재사용, 분기 바뀌면 새로 받음)
         uses: actions/cache@v4
         id: finance-cache
         with:
           path: screening/.cache
-          key: finance-cache-us-v1-${{ steps.week.outputs.value }}
+          key: finance-cache-us-v1-${{ steps.quarter.outputs.value }}
           restore-keys: |
             finance-cache-us-v1-
+
+      - name: 강제갱신 필요 여부 판단 (분기 실적시즌 크론이거나 수동 요청 시)
+        id: force-check
+        run: |
+          if [ "${{ github.event.schedule }}" = "0 12 20 2,5,8,11 *" ] || [ "${{ github.event.inputs.force_finance }}" = "true" ]; then
+            echo "force=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "force=false" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: 재무데이터 없거나 강제갱신 요청 시 새로 받기
         if: >-
           steps.finance-cache.outputs.cache-hit != 'true' ||
-          github.event.inputs.force_finance == 'true'
+          steps.force-check.outputs.force == 'true'
         working-directory: screening
         env:
           FINNHUB_API_KEY: ${{ secrets.FINNHUB_API_KEY }}
