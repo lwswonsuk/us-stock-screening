@@ -1,7 +1,7 @@
 {
-  "as_of_date": "20260821",
+  "as_of_date": "20260822",
   "financial_year": null,
-  "generated_at": "2026-08-21T23:35:25.482861+00:00",
+  "generated_at": "2026-08-22T23:33:49.160996+00:00",
   "columns": [
     "name",
     "company_name",
@@ -8976,20 +8976,6 @@
       "score": 0.4883
     },
     {
-      "stock_code": "NVT",
-      "name": "NVT",
-      "company_name": "nVent Electricplc",
-      "mktcap_usd": 24578.2056,
-      "price": 151.98,
-      "per": 46.5879,
-      "pbr": 4.411,
-      "roe_3y_avg": 15.8,
-      "debt_ratio": 42.29,
-      "div_yield": 1.2937,
-      "payout_ratio_pct": 22.21,
-      "score": 0.488
-    },
-    {
       "stock_code": "CTAS",
       "name": "CTAS",
       "company_name": "Cintas",
@@ -9001,6 +8987,20 @@
       "debt_ratio": 47.24,
       "div_yield": 0.9731,
       "payout_ratio_pct": 35.07,
+      "score": 0.488
+    },
+    {
+      "stock_code": "NVT",
+      "name": "NVT",
+      "company_name": "nVent Electricplc",
+      "mktcap_usd": 24578.2056,
+      "price": 151.98,
+      "per": 46.5879,
+      "pbr": 4.411,
+      "roe_3y_avg": 15.8,
+      "debt_ratio": 42.29,
+      "div_yield": 1.2937,
+      "payout_ratio_pct": 22.21,
       "score": 0.488
     },
     {
@@ -12966,11 +12966,11 @@
       "score": 0.4056
     },
     {
-      "stock_code": "MRP",
-      "name": "MRP",
-      "company_name": "Millrose Properties, Inc.",
-      "mktcap_usd": 5044.74,
-      "price": 30.39,
+      "stock_code": "ADIG",
+      "name": "ADIG",
+      "company_name": "ADI Global Distribution",
+      "mktcap_usd": null,
+      "price": 21.12,
       "per": null,
       "pbr": null,
       "roe_3y_avg": null,
@@ -12980,11 +12980,11 @@
       "score": 0.4055
     },
     {
-      "stock_code": "ADIG",
-      "name": "ADIG",
-      "company_name": "ADI Global Distribution",
-      "mktcap_usd": null,
-      "price": 21.12,
+      "stock_code": "MRP",
+      "name": "MRP",
+      "company_name": "Millrose Properties, Inc.",
+      "mktcap_usd": 5044.74,
+      "price": 30.39,
       "per": null,
       "pbr": null,
       "roe_3y_avg": null,

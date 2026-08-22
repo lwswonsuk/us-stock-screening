@@ -1,7 +1,7 @@
 {
-  "as_of_date": "20260821",
+  "as_of_date": "20260822",
   "financial_year": null,
-  "generated_at": "2026-08-21T23:35:25.439527+00:00",
+  "generated_at": "2026-08-22T23:33:49.082377+00:00",
   "quote_text": "가격은 당신이 지불하는 것이고, 가치는 당신이 얻는 것이다.",
   "quote_author": "Warren Buffett",
   "universe_total": 1506,
@@ -47,13 +47,13 @@
       "payout_ratio_pct": 0.44,
       "score": 0.7262,
       "profile": {
-        "business": "GPOR(Gulfport Energy)은 미국의 석유 및 천연가스 탐사 및 생산 회사입니다. 주로 멕시코만과 육상 지역에서 석유와 천연가스를 채굴하여 판매합니다.",
-        "sector": "에너지/석유·가스",
-        "products": "원유(Crude Oil), 천연가스(Natural Gas)",
+        "business": "Gulfport Energy Corporation은 미국의 독립적인 석유 및 천연가스 탐사 및 생산 회사입니다. 미시시피 캐년과 온쇼어 지역에서 석유, 천연가스, 천연가스액을 생산합니다.",
+        "sector": "에너지/석유가스",
+        "products": "원유, 천연가스, 천연가스액(NGL)",
         "competitors": [
-          "EOG Resources",
           "Pioneer Natural Resources",
-          "Devon Energy"
+          "EOG Resources",
+          "Murphy Oil"
         ]
       }
     },
@@ -71,13 +71,13 @@
       "payout_ratio_pct": 19.6,
       "score": 0.7075,
       "profile": {
-        "business": "WAL은 미국의 소매 유통 기업입니다. 의류, 신발, 액세서리 등 다양한 패션 및 생활용품을 판매하는 소매점을 운영하고 있습니다.",
-        "sector": "소비재/소매",
-        "products": "의류, 신발, 액세서리",
+        "business": "WAL은 미국의 소매 유통 기업으로, 일반 소비재와 생활용품을 판매하는 디스카운트 소매점을 운영합니다. 오프라인 매장과 온라인 채널을 통해 고객에게 저가의 상품을 제공합니다.",
+        "sector": "소매업(Retail)",
+        "products": "의류, 신발, 액세서리, 생활용품 등 디스카운트 상품",
         "competitors": [
-          "TJX Companies",
-          "Foot Locker",
-          "Dick's Sporting Goods"
+          "Ross Stores (ROST)",
+          "TJX Companies (TJX)",
+          "Big Lots (BIG)"
         ]
       }
     },
@@ -95,13 +95,13 @@
       "payout_ratio_pct": 25.96,
       "score": 0.705,
       "profile": {
-        "business": "FIS(Fidelity National Information Services)는 금융 서비스 산업을 위한 기술 솔루션 및 결제 처리 서비스를 제공하는 글로벌 기업입니다. 은행, 보험사, 투자사 등 금융기관들을 대상으로 소프트웨어, 데이터 처리, 거래 시스템 등을 공급합니다.",
-        "sector": "금융 기술 (Fintech) / 소프트웨어 & IT 서비스",
-        "products": "CoreLiquidity, Premise, DNA(결제 플랫폼), eSpeed(결제 게이트웨이)",
+        "business": "FIS(Fiserv)는 금융서비스 기업들을 위한 기술 솔루션 및 결제 처리 서비스를 제공합니다. 은행, 보험사, 자본시장 기관들에게 소프트웨어, 서비스, 아웃소싱 솔루션을 공급합니다.",
+        "sector": "금융 기술(FinTech) / 금융 서비스 소프트웨어",
+        "products": "결제 처리 시스템, 핀테크 솔루션, 은행 및 보험 소프트웨어, 클라우드 기반 서비스",
         "competitors": [
+          "Jack Henry & Associates",
           "SS&C Technologies",
-          "FT Systems",
-          "Jack Henry & Associates"
+          "Temenos"
         ]
       }
     },
@@ -119,13 +119,13 @@
       "payout_ratio_pct": 31.66,
       "score": 0.7027,
       "profile": {
-        "business": "OZK(오자크스)는 미국의 지역 은행 회사로, 주로 중소기업과 개인 고객을 대상으로 대출, 예금, 투자 서비스 등 전통적인 은행업을 영위하고 있습니다. 미국 내 다수의 지점을 통해 커뮤니티 기반의 금융 서비스를 제공합니다.",
-        "sector": "금융 / 은행",
-        "products": "기업대출, 소비자대출, 예금상품, 투자자문 서비스",
+        "business": "OZK는 미국의 지역 금융기관으로, 주로 상업용 부동산 대출과 금융서비스를 제공합니다. 중소 및 중견 기업을 대상으로 한 대출 포트폴리오가 주력입니다.",
+        "sector": "금융/은행",
+        "products": "상업용 부동산 대출, 기업 대출, 저축예금 상품",
         "competitors": [
-          "Regions Financial",
-          "Comerica",
-          "KeyCorp"
+          "KeyCorp",
+          "Zions Bancorporation",
+          "Huntington Bancshares"
         ]
       }
     },
@@ -143,13 +143,13 @@
       "payout_ratio_pct": 12.45,
       "score": 0.7025,
       "profile": {
-        "business": "LNC는 미국의 주요 생명보험 회사입니다. 생명보험, 장기요양보험, 연금 상품 등을 개인 고객과 기관 고객에게 제공하고 있습니다.",
+        "business": "생명보험 및 연금 관련 금융 서비스를 제공하는 보험회사입니다. 개인 및 기관 고객을 대상으로 다양한 보험상품과 자산관리 서비스를 운영합니다.",
         "sector": "금융/보험",
-        "products": "생명보험, 장기요양보험(LTC), 연금 상품, 투자 관련 상품",
+        "products": "생명보험, 연금보험, 변액보험, 자산관리 서비스",
         "competitors": [
-          "MetLife(MET)",
-          "Prudential Financial(PFG)",
-          "Assurant(AIZ)"
+          "MetLife",
+          "Prudential Financial",
+          "Hartford Financial Services"
         ]
       }
     },
@@ -167,13 +167,13 @@
       "payout_ratio_pct": 6.67,
       "score": 0.6973,
       "profile": {
-        "business": "HCI는 보험 및 재보험 사업을 영위하는 회사입니다. 재산보험, 배배상보험 등 다양한 보험 상품을 제공합니다.",
+        "business": "HCI는 보험 관련 사업을 영위하는 미국 상장사입니다. 손해보험, 건강보험 등 다양한 보험 상품을 제공하며 미국 보험시장에서 활동하고 있습니다.",
         "sector": "금융/보험",
-        "products": "재산보험, 배상책임보험, 기타 손해보험 상품",
+        "products": "손해보험, 건강보험, 자동차보험 등 보험 상품",
         "competitors": [
           "Berkshire Hathaway",
-          "Allstate",
-          "Progressive"
+          "Progressive",
+          "Allstate"
         ]
       }
     },
@@ -191,10 +191,12 @@
       "payout_ratio_pct": null,
       "score": 0.6965,
       "profile": {
-        "business": "INVA는 구체적인 사업 내용을 파악하기 어렵습니다. 일반적인 수준에서 미국 상장 기업으로 운영 중인 것으로 알려져 있습니다.",
+        "business": "INVA는 구체적인 사업 내용을 확인하기 어려운 종목입니다. 일반적으로 낮은 PER과 높은 ROE를 보이는 기업은 가치주 또는 특수 목적 기업일 수 있습니다.",
         "sector": "확인 필요",
         "products": "확인 필요",
         "competitors": [
+          "확인 필요",
+          "확인 필요",
           "확인 필요"
         ]
       }
@@ -213,13 +215,11 @@
       "payout_ratio_pct": 27.51,
       "score": 0.693,
       "profile": {
-        "business": "EXE는 엔지니어링, 조달 및 건설(EPC) 서비스를 제공하는 회사입니다. 석유, 가스, 화학 및 인프라 산업을 중심으로 프로젝트 관리 및 기술 솔루션을 제공합니다.",
-        "sector": "산업용 서비스 및 엔지니어링",
-        "products": "EPC 솔루션, 프로젝트 관리, 기술 컨설팅, 조달 및 건설 관리",
+        "business": "EXE(Execute Capital)는 미국의 금융 및 자본 운용 회사입니다. 구체적인 사업 내용은 제한된 정보로 인해 정확히 파악하기 어렵습니다.",
+        "sector": "금융",
+        "products": "알려진 정보 부족",
         "competitors": [
-          "Fluor Corporation",
-          "Jacobs Engineering",
-          "Worley Limited"
+          "알려진 정보 부족"
         ]
       }
     },
@@ -237,13 +237,13 @@
       "payout_ratio_pct": 22.4519,
       "score": 0.692,
       "profile": {
-        "business": "CRK(Comstock Resources Inc.)는 미국의 석유 및 천연가스 탐사·개발 업체입니다. 주로 텍사스와 루이지애나 등 미국 내 셰일가스 및 유전 자산을 보유하고 운영하고 있습니다.",
-        "sector": "에너지 - 석유·가스 탐사 및 생산",
-        "products": "천연가스, 석유, 천연액화가스(NGL)",
+        "business": "CRK(Comstock Resources Inc.)는 미국의 석유 및 천연가스 탐사 및 생산 회사입니다. 주로 텍사스와 루이지애나 주의 유전과 가스전을 개발·운영하며 석유와 천연가스를 생산하여 판매합니다.",
+        "sector": "에너지 - 석유 및 천연가스",
+        "products": "원유, 천연가스",
         "competitors": [
-          "EQT Corporation",
-          "CNX Resources",
-          "Coterra Energy"
+          "EOG Resources",
+          "Pioneer Natural Resources",
+          "ConocoPhillips"
         ]
       }
     },
@@ -261,13 +261,13 @@
       "payout_ratio_pct": null,
       "score": 0.6848,
       "profile": {
-        "business": "Duolingo는 게임화된 언어학습 플랫폼을 제공하는 교육 기술 기업입니다. 모바일 앱과 웹 기반 서비스를 통해 전 세계 사용자들에게 재미있고 접근 가능한 언어 학습 경험을 제공합니다.",
-        "sector": "교육 기술(EdTech)",
-        "products": "Duolingo 언어학습 앱, Duolingo English Test",
+        "business": "Duolingo는 게임화된 언어 학습 플랫폼을 제공하는 교육 기술 회사입니다. 모바일 앱과 웹 기반 서비스를 통해 사용자들이 재미있게 언어를 배울 수 있도록 합니다.",
+        "sector": "교육 기술 (EdTech)",
+        "products": "Duolingo 앱, Duolingo English Test",
         "competitors": [
           "Babbel",
           "Rosetta Stone",
-          "Coursera"
+          "Memrise"
         ]
       }
     },
@@ -285,13 +285,13 @@
       "payout_ratio_pct": 28.01,
       "score": 0.6838,
       "profile": {
-        "business": "IBOC는 미국의 은행 지주회사입니다. 커뮤니티 뱅킹 서비스를 중심으로 개인고객과 중소기업을 대상으로 대출, 예금, 투자 상품 등 금융 서비스를 제공합니다.",
-        "sector": "금융/은행업",
-        "products": "개인 대출, 기업 대출, 예금 상품, 투자 상품",
+        "business": "IBOC는 미국의 은행 지주회사입니다. 커뮤니티 기반 금융 서비스를 제공하는 금융 기관입니다.",
+        "sector": "금융/은행",
+        "products": "예금, 대출, 자산관리 등 일반 은행 서비스",
         "competitors": [
-          "Cullen/Frost Bankers",
-          "Texas Capital Bancshares",
-          "Independent Bank Group"
+          "JPMorgan Chase",
+          "Bank of America",
+          "Wells Fargo"
         ]
       }
     },
@@ -309,13 +309,13 @@
       "payout_ratio_pct": 45.35,
       "score": 0.6827,
       "profile": {
-        "business": "FHB는 미국의 지역 커뮤니티 은행입니다. 전통적인 예금 수수 및 대출 사업을 중심으로 개인 및 중소기업 고객에게 금융 서비스를 제공합니다.",
+        "business": "FHB는 미국의 지역 금융기관으로, 주로 은행 및 금융 서비스를 제공합니다. 대출, 예금, 투자 상품 등 전통적인 뱅킹 서비스를 통해 수익을 창출합니다.",
         "sector": "금융/은행",
-        "products": "예금 상품, 대출 상품, 신용카드, 기타 은행 서비스",
+        "products": "예금상품, 대출상품, 투자 및 자산관리 서비스",
         "competitors": [
-          "Fifth Third Bancorp",
-          "Comerica",
-          "Zions Bancorporation"
+          "JPMorgan Chase",
+          "Bank of America",
+          "Wells Fargo"
         ]
       }
     },
@@ -333,13 +333,13 @@
       "payout_ratio_pct": 25.6,
       "score": 0.6815,
       "profile": {
-        "business": "BANF는 미국의 금융 서비스 회사입니다. 은행 및 금융 관련 사업을 영위하고 있습니다.",
+        "business": "BanF(Bancorp 관련 금융회사)는 은행 또는 금융 서비스 기업입니다. 대출, 예금, 투자 상품 등 종합 금융 서비스를 제공합니다.",
         "sector": "금융/은행",
-        "products": "은행 서비스, 대출, 예금 상품",
+        "products": "예금 상품, 대출 상품, 투자 서비스",
         "competitors": [
-          "JPM",
-          "BAC",
-          "WFC"
+          "JPMorgan Chase",
+          "Bank of America",
+          "Wells Fargo"
         ]
       }
     },
@@ -357,13 +357,13 @@
       "payout_ratio_pct": 2.38,
       "score": 0.6786,
       "profile": {
-        "business": "CASH는 온라인 결제 및 핀테크 솔루션을 제공하는 기업입니다. 디지털 결제 플랫폼과 금융 기술 서비스를 통해 소비자와 기업 간의 거래를 지원합니다.",
-        "sector": "금융/핀테크",
-        "products": "온라인 결제 플랫폼, 결제 게이트웨이",
+        "business": "CASH는 금융 서비스 및 결제 솔루션 관련 사업을 영위하는 기업입니다. 디지털 결제, 금융 기술 솔루션 등을 제공합니다.",
+        "sector": "금융 서비스/핀테크",
+        "products": "결제 솔루션, 금융 기술 서비스",
         "competitors": [
-          "PayPal",
           "Square",
-          "Block"
+          "PayPal",
+          "Stripe"
         ]
       }
     },
@@ -381,13 +381,13 @@
       "payout_ratio_pct": null,
       "score": 0.6749,
       "profile": {
-        "business": "PTC는 제품 라이프사이클 관리(PLM) 및 산업용 IoT 소프트웨어를 제공하는 기업입니다. 제조업체들이 제품 설계, 개발, 생산 과정을 디지털화하고 최적화하도록 지원합니다.",
-        "sector": "소프트웨어/IT",
-        "products": "Windchill, Creo, Thingworx, Arena",
+        "business": "PTC는 제품 생명주기 관리(PLM) 및 산업용 IoT 소프트웨어를 개발하는 기업입니다. 제조, 엔지니어링, 기술 서비스 분야에서 기업 고객들을 대상으로 클라우드 기반 솔루션을 제공합니다.",
+        "sector": "소프트웨어 및 IT 서비스",
+        "products": "Windchill PLM, Creo CAD, ThingWorx IoT 플랫폼, Onshape",
         "competitors": [
-          "Dassault Systèmes",
-          "Siemens (Teamcenter)",
-          "Autodesk"
+          "Siemens PLM Software",
+          "Autodesk",
+          "Dassault Systèmes"
         ]
       }
     },
@@ -405,13 +405,13 @@
       "payout_ratio_pct": 27.91,
       "score": 0.6747,
       "profile": {
-        "business": "PFBC는 펜실베이니아 지역을 중심으로 영업하는 지역 은행입니다. 개인 및 중소기업을 대상으로 예금, 대출, 금융 서비스를 제공합니다.",
-        "sector": "금융 / 지역은행",
-        "products": "개인 예금, 기업 대출, 모기지, 신용카드, 금융 상품",
+        "business": "PFBC(Preferred Bank)는 캘리포니아 지역을 중심으로 운영하는 커뮤니티 기반 상업은행입니다. 소상공인, 중소기업 및 개인 고객을 대상으로 대출, 예금 및 기타 금융 서비스를 제공합니다.",
+        "sector": "금융/은행",
+        "products": "상업대출, 부동산대출, 예금상품, 중소기업금융",
         "competitors": [
-          "WAFD",
-          "BANR",
-          "NWLI"
+          "SVB Financial Group",
+          "Western Alliance Bancorporation",
+          "Pacific Valley Bank"
         ]
       }
     },
@@ -429,9 +429,9 @@
       "payout_ratio_pct": null,
       "score": 0.674,
       "profile": {
-        "business": "ADMA는 혈액 기반 치료제를 개발하고 제조하는 바이오제약 회사입니다. 주로 면역글로불린 및 알부민 기반의 특수 의약품을 생산하며, 희귀 질환 및 면역 관련 질환 치료에 중점을 두고 있습니다.",
-        "sector": "바이오제약 (Biopharmaceutical)",
-        "products": "면역글로불린 제제, 알부민 기반 치료제",
+        "business": "ADMA는 혈액 기반 생물의약품을 개발하고 상용화하는 바이오제약 회사입니다. 주로 면역글로불린 치료제와 알부민 기반 치료제를 생산하며, 희귀질환 및 면역결핍증 치료에 중점을 두고 있습니다.",
+        "sector": "의료/바이오제약",
+        "products": "면역글로불린(Ig), 알부민 기반 의약품, BIVIGAM, NABI-HB",
         "competitors": [
           "CSL Limited",
           "Grifols",
@@ -453,13 +453,13 @@
       "payout_ratio_pct": null,
       "score": 0.6739,
       "profile": {
-        "business": "TBBK는 Texas-based 지역 금융기관으로, 커뮤니티 중심의 은행 서비스를 제공합니다. 대출, 예금, 자산관리 등 전통적인 뱅킹 상품을 중심으로 사업을 영위하고 있습니다.",
-        "sector": "금융/은행업",
-        "products": "상업대출, 소비자대출, 예금상품, 자산관리 서비스",
+        "business": "TBBK는 지역사회 기반의 은행으로, 개인고객과 중소 기업에 대한 대출, 예금 및 기타 금융 서비스를 제공합니다. 전통적인 커뮤니티 뱅킹 모델을 기반으로 지역 경제를 지원합니다.",
+        "sector": "금융 서비스 / 은행업",
+        "products": "예금, 대출, 신용카드, 투자 서비스",
         "competitors": [
-          "Cullen/Frost Bankers",
-          "Prosperity Bancshares",
-          "Comerica"
+          "M&T Bank",
+          "KeyCorp",
+          "Synovus Financial"
         ]
       }
     },
@@ -477,13 +477,13 @@
       "payout_ratio_pct": 17.77,
       "score": 0.6727,
       "profile": {
-        "business": "KMT(Kennametal)는 절삭공구, 초경 부품, 엔지니어링 솔루션을 제조 및 판매하는 글로벌 기업입니다. 자동차, 항공우주, 에너지, 의료기기 등 다양한 산업의 가공 및 제조업체들에게 공구와 솔루션을 공급합니다.",
-        "sector": "산업용 기계 및 공구 / 제조업",
-        "products": "초경 절삭공구, 엔드밀, 드릴, 탭, 초경 부품",
+        "business": "KMT(Kennametal Inc.)는 금속 절삭 공구, 초경합금 제품, 엔지니어링 솔루션을 제조 및 공급하는 글로벌 기업입니다. 자동차, 항공우주, 에너지, 의료 기기 등 다양한 산업의 제조업체에 고부가가치 공구와 솔루션을 제공합니다.",
+        "sector": "산업재료/공구 제조",
+        "products": "초경합금 절삭 공구, 나노코팅 제품, 엔지니어링 솔루션",
         "competitors": [
           "Sandvik",
           "Iscar",
-          "Mitsubishi Materials"
+          "OSG Corporation"
         ]
       }
     },
@@ -501,13 +501,13 @@
       "payout_ratio_pct": 2.61,
       "score": 0.6724,
       "profile": {
-        "business": "SPNT(Spherent Technologies)는 정보통신 및 엔터프라이즈 소프트웨어 솔루션을 제공하는 기업입니다. 클라우드 기반 서비스와 IT 인프라 솔루션을 주력으로 하고 있습니다.",
-        "sector": "정보기술(Information Technology)",
-        "products": "클라우드 솔루션, 엔터프라이즈 소프트웨어",
+        "business": "SPNT(Sprout Social)는 소셜 미디어 관리 및 분석 플랫폼을 제공하는 소프트웨어 기업입니다. 기업들이 여러 소셜 미디어 채널을 통합하여 관리하고 고객 참여를 분석할 수 있는 클라우드 기반 솔루션을 제공합니다.",
+        "sector": "소프트웨어/SaaS",
+        "products": "Sprout Social Platform (소셜 미디어 관리 및 분석 플랫폼)",
         "competitors": [
-          "마이크로소프트",
-          "아마존",
-          "오라클"
+          "Hootsuite",
+          "Buffer",
+          "Meta Business Suite"
         ]
       }
     },
@@ -525,13 +525,13 @@
       "payout_ratio_pct": 46.72,
       "score": 0.6717,
       "profile": {
-        "business": "Lakeland Bancorp는 뉴저지 지역을 중심으로 운영하는 지역 은행 및 금융 서비스 제공업체입니다. 상업대출, 소비자대출, 예금 상품 등 전통적인 은행 서비스를 제공합니다.",
-        "sector": "금융 / 지역 은행",
-        "products": "상업대출, 소비자대출, 예금, 개인 금융 서비스",
+        "business": "Lakeland Financial Corporation은 미국 중서부를 중심으로 하는 지역 은행 회사입니다. 상업 및 소비자 금융 서비스를 통해 개인고객과 기업고객을 대상으로 사업을 영위합니다.",
+        "sector": "금융/은행",
+        "products": "예금 상품, 대출 상품, 투자 자문 서비스",
         "competitors": [
-          "Valley National Bancorp",
-          "Kearny Financial Corp",
-          "Investors Bancorp"
+          "First Merchants Corporation",
+          "Old National Bancorp",
+          "German American Bancorp"
         ]
       }
     },
@@ -549,13 +549,13 @@
       "payout_ratio_pct": 7.88,
       "score": 0.6717,
       "profile": {
-        "business": "메타는 페이스북, 인스타그램, 왓츠앱 등 소셜 미디어 플랫폼을 운영하며 디지털 광고를 주요 수익원으로 하고 있습니다. 최근 메타버스와 인공지능 기술 개발에 적극 투자하고 있습니다.",
-        "sector": "정보기술 / 인터넷 및 디지털 미디어",
-        "products": "Facebook, Instagram, WhatsApp, Threads, Ray-Ban 스마트 안경",
+        "business": "Meta는 페이스북, 인스타그램, WhatsApp 등 소셜 미디어 플랫폼을 운영하며 광고 수익을 창출합니다. 메타버스 구축 및 AI 기술 개발에도 적극 투자하고 있습니다.",
+        "sector": "기술/소셜미디어",
+        "products": "Facebook, Instagram, WhatsApp, Threads, Meta Quest",
         "competitors": [
-          "Alphabet (Google)",
-          "Amazon",
-          "TikTok (ByteDance)"
+          "Alphabet",
+          "TikTok/ByteDance",
+          "Amazon"
         ]
       }
     },
@@ -573,13 +573,13 @@
       "payout_ratio_pct": 27.15,
       "score": 0.6684,
       "profile": {
-        "business": "FG는 금융 서비스 및 금융 기술 관련 사업을 영위하는 기업입니다. 다양한 금융 상품과 서비스를 제공하며 글로벌 시장에서 활동하고 있습니다.",
-        "sector": "금융/금융기술",
-        "products": "금융 서비스 상품 및 솔루션",
+        "business": "FG는 금융서비스 및 보험 관련 사업을 영위하는 미국 상장사입니다. 주로 재산보험, 상해보험 등 다양한 보험상품을 제공합니다.",
+        "sector": "금융/보험",
+        "products": "재산보험, 상해보험, 자동차보험 등",
         "competitors": [
-          "JPM",
-          "BAC",
-          "WFC"
+          "Allstate",
+          "Progressive",
+          "State Farm"
         ]
       }
     },
@@ -597,13 +597,13 @@
       "payout_ratio_pct": 20.14,
       "score": 0.6674,
       "profile": {
-        "business": "Everi Holdings Inc.는 게이밍 및 카지노 기술 솔루션을 제공하는 기업입니다. 슬롯머신, 게이밍 소프트웨어, 그리고 카지노 운영 시스템을 개발하고 공급합니다.",
-        "sector": "게이밍 및 엔터테인먼트",
-        "products": "슬롯머신, 게이밍 머신, 카지노 관리 시스템, 게이밍 소프트웨어",
+        "business": "EVR은 에너지 및 환경 관련 기술 솔루션을 제공하는 기업입니다. 재생에너지와 에너지 효율화 분야에서 사업을 영위하고 있습니다.",
+        "sector": "에너지/청정기술",
+        "products": "재생에너지 솔루션, 에너지 관리 시스템",
         "competitors": [
-          "IGT (International Game Technology)",
-          "Scientific Games",
-          "Playtech"
+          "넥스트에라에너지",
+          "듀크에너지",
+          "도미니언에너지"
         ]
       }
     },
@@ -621,11 +621,13 @@
       "payout_ratio_pct": 4.82,
       "score": 0.6672,
       "profile": {
-        "business": "CUBI는 Cuba, Inc.로 알려진 기업입니다. 정확한 사업 내용에 대해 확실하지 않으므로 구체적인 설명을 드리기 어렵습니다.",
-        "sector": "확인 필요",
-        "products": "확인 필요",
+        "business": "CUBI는 커뮤니티 은행으로 소규모 및 중견 기업, 개인 고객을 대상으로 전통적인 은행 서비스를 제공합니다. 미국 내 여러 지역에서 소매 및 상업 금융 서비스를 운영합니다.",
+        "sector": "금융(Finance) / 지역 커뮤니티 은행(Regional Banks)",
+        "products": "예금, 대출, 모기지, 신용대출, 상업금융 서비스",
         "competitors": [
-          "확인 필요"
+          "WAFD",
+          "FFBC",
+          "BANR"
         ]
       }
     },
@@ -643,13 +645,13 @@
       "payout_ratio_pct": 22.29,
       "score": 0.6663,
       "profile": {
-        "business": "PRDO는 의료기기 및 제약 분야에서 활동하는 기업입니다. 주로 생식 건강 및 여성 건강 관련 의료 솔루션을 제공합니다.",
-        "sector": "의료기기/제약",
-        "products": "생식 건강 관련 의료기기 및 솔루션",
+        "business": "PRDO는 의료기기 및 정형외과 솔루션을 제공하는 기업입니다. 척추 수술, 정형외과 임플란트 및 관련 의료기기를 주력 사업으로 영위하고 있습니다.",
+        "sector": "의료기기/헬스케어",
+        "products": "척추 임플란트, 정형외과 임플란트, 수술용 기기",
         "competitors": [
-          "Cooper Companies",
-          "Carl Zeiss Meditec",
-          "EyePoint Pharmaceuticals"
+          "Zimmer Biomet",
+          "Stryker",
+          "DePuy Synthes"
         ]
       }
     },
@@ -667,13 +669,13 @@
       "payout_ratio_pct": 29.38,
       "score": 0.6652,
       "profile": {
-        "business": "NFG(National Fuel Gas Company)는 미국의 통합 에너지 기업으로, 천연가스 유통, 파이프라인 운영, 그리고 석유 및 가스 탐사 생산 사업을 영위하고 있습니다. 펜실베이니아와 뉴욕을 중심으로 동북부 지역에서 주요 사업을 운영하고 있습니다.",
-        "sector": "유틸리티(Utilities) / 에너지",
-        "products": "천연가스 유통, 파이프라인 서비스, 석유 및 천연가스 생산",
+        "business": "NFG는 미국 북동부 지역에서 천연가스를 공급하는 유틸리티 회사입니다. 가정, 상업용 건물, 산업시설 등에 천연가스 배급 서비스를 제공합니다.",
+        "sector": "에너지/유틸리티",
+        "products": "천연가스 배급 서비스",
         "competitors": [
-          "Equitable Gas",
-          "Piedmont Natural Gas",
-          "Dominion Energy"
+          "Consolidated Edison (ED)",
+          "Dominion Energy (D)",
+          "WEC Energy Group (WEC)"
         ]
       }
     },
@@ -691,9 +693,9 @@
       "payout_ratio_pct": null,
       "score": 0.663,
       "profile": {
-        "business": "럴레몬(Lululemon)은 요가, 필라테스, 운동 등을 위한 프리미엄 애슬레틱웨어 및 스포츠용품을 설계, 생산, 판매하는 기업입니다. 직영점과 온라인을 통해 고급 운동복과 액세서리를 판매하며, 라이프스타일 브랜드로서 피트니스 커뮤니티와 깊은 연결을 유지하고 있습니다.",
-        "sector": "Consumer Discretionary - Apparel & Accessories",
-        "products": "요가팬츠(Align), 반바지, 스포츠 브래, 메타콘(Meta-Con) 운동화, 가방 등",
+        "business": "럴레몬(Lululemon)은 요가, 필라테스, 운동 등 활동적인 라이프스타일을 위한 프리미엄 애슬레틱 의류 및 액세서리를 설계·판매합니다. 직영점, 온라인, 라이선스 채널을 통해 고급 운동복 및 관련 상품을 제공합니다.",
+        "sector": "소비재 - 의류/액세서리",
+        "products": "요가복, 운동 레깅스, 재킷, 가방 등 애슬레틱 의류 및 액세서리",
         "competitors": [
           "Nike",
           "Adidas",
@@ -715,12 +717,12 @@
       "payout_ratio_pct": 15.03,
       "score": 0.6623,
       "profile": {
-        "business": "EQT는 미국의 대형 천연가스 생산 및 탐사 회사입니다. 애팔래치아 지역의 마르셀루스 셰일 가스전을 중심으로 천연가스와 석유를 채굴하여 판매합니다.",
-        "sector": "에너지 - 석유 및 가스 탐사 및 생산",
-        "products": "천연가스, 석유, 천연가스액(NGL)",
+        "business": "EQT는 미국의 천연가스 생산 및 판매를 주요 사업으로 하는 에너지 기업입니다. 애팔래치아 지역의 셰일가스 채굴과 생산에 집중하고 있습니다.",
+        "sector": "에너지 (천연가스)",
+        "products": "천연가스, 천연가스 액체(NGL)",
         "competitors": [
-          "Cabot Oil & Gas",
           "Range Resources",
+          "EQT Midstream Partners",
           "CNX Resources"
         ]
       }
@@ -739,13 +741,13 @@
       "payout_ratio_pct": null,
       "score": 0.661,
       "profile": {
-        "business": "Alliance MMA는 혼합격투기(MMA) 경기 프로모션 및 관련 엔터테인먼트 서비스를 제공하는 회사입니다. 라이브 이벤트 개최, 미디어 배급, 선수 관리 등 MMA 산업 전반에 걸쳐 사업을 영위합니다.",
-        "sector": "엔터테인먼트/스포츠",
-        "products": "MMA 라이브 경기 이벤트, 미디어 콘텐츠 배급",
+        "business": "액스(AX)는 미국의 철강 및 철강 제품 제조 회사입니다. 자동차, 건설, 에너지 등 다양한 산업 분야에 강철 제품과 부품을 공급합니다.",
+        "sector": "재료/철강",
+        "products": "강철 제품, 철강 부품, 구조용 강재",
         "competitors": [
-          "UFC (The Ultimate Fighting Championship)",
-          "Bellator MMA",
-          "PFL (Professional Fighters League)"
+          "U.S. Steel(X)",
+          "Nucor(NUE)",
+          "Steel Dynamics(STLD)"
         ]
       }
     },
@@ -763,13 +765,13 @@
       "payout_ratio_pct": 16.32,
       "score": 0.6607,
       "profile": {
-        "business": "CINF(Cincinnati Financial Corporation)는 미국의 주요 재산보험 및 손해보험 회사입니다. 개인, 상업, 농업 부문에 걸쳐 자동차보험, 주택보험, 상해보험 등 다양한 보험 상품을 제공합니다.",
+        "business": "CINF는 미국의 주요 재산보험 및 손해보험 회사입니다. 자동차보험, 주택보험, 상업보험 등 다양한 보험상품을 제공하며, 보험 인수와 투자 수익을 통해 수익을 창출합니다.",
         "sector": "금융/보험",
-        "products": "자동차보험, 주택보험, 상업보험, 농업보험, 생명보험",
+        "products": "자동차보험, 주택보험, 상업보험, 특수보험",
         "competitors": [
-          "State Auto Financial",
-          "Hanover Insurance Group",
-          "American Financial Group"
+          "Progressive Corporation",
+          "State Farm",
+          "Allstate"
         ]
       }
     },
@@ -787,13 +789,13 @@
       "payout_ratio_pct": 7.12,
       "score": 0.6604,
       "profile": {
-        "business": "TCBI(Texas Capital Bancshares)는 미국 텍사스를 중심으로 한 지역 은행 지주회사입니다. 상업용 부동산 대출과 중소기업 금융을 주요 사업으로 영위하고 있습니다.",
+        "business": "TCBI(Texas Capital Bancshares)는 텍사스를 중심으로 한 지역 상업은행입니다. 기업 및 중소기업 고객을 대상으로 대출, 예금, 자금관리 등의 금융서비스를 제공합니다.",
         "sector": "금융/은행",
-        "products": "기업 대출, 상업용 부동산 대출, 예금 및 저축 상품",
+        "products": "상업대출, 기업금융, 예금상품, 자산관리",
         "competitors": [
-          "Comerica",
           "Cullen/Frost Bankers",
-          "Prosperity Bancshares"
+          "Comerica",
+          "SVB Financial Group"
         ]
       }
     },
@@ -811,13 +813,13 @@
       "payout_ratio_pct": 26.77,
       "score": 0.6601,
       "profile": {
-        "business": "ONB는 미국의 지역 커뮤니티 은행으로, 개인 고객과 소규모 기업을 대상으로 예금, 대출, 투자 등 전통적인 은행 서비스를 제공합니다. 주로 지역 경제에 밀착하여 지역 사회의 금융 수요를 충족하는 것을 중심으로 운영됩니다.",
+        "business": "ONB는 미국의 지역 금융기관으로 은행 서비스를 제공합니다. 커뮤니티 기반의 금융 상품과 서비스를 통해 개인 및 기업 고객을 지원합니다.",
         "sector": "금융/은행",
-        "products": "예금, 대출, 투자 상품, 소비자금융, 소상공인 금융",
+        "products": "예금, 대출, 신용카드, 투자 서비스",
         "competitors": [
-          "Citizens Financial Group",
-          "Regional bank competitors",
-          "Community bank networks"
+          "KeyCorp",
+          "Zions Bancorporation",
+          "Comerica"
         ]
       }
     },
@@ -835,13 +837,13 @@
       "payout_ratio_pct": 32.62,
       "score": 0.6579,
       "profile": {
-        "business": "HeartBeam Inc.는 심장 질환 진단 및 모니터링을 위한 의료기기를 개발하는 회사입니다. 휴대용 심전도 장치 등 심혈관 질환 진단 솔루션을 제공합니다.",
-        "sector": "헬스케어/의료기기",
-        "products": "심전도 모니터링 장치, 심혈관 진단 솔루션",
+        "business": "HeartLand Express는 미국의 지역 단거리 트럭 운송 회사입니다. LTL(Less Than Truckload) 화물 운송 서비스를 주로 제공하며, 중소 규모 화물을 효율적으로 배송합니다.",
+        "sector": "운송/물류",
+        "products": "LTL 화물 운송, 지역 배송 서비스",
         "competitors": [
-          "iRhythm Technologies",
-          "Medtronic",
-          "GE Healthcare"
+          "XPO Logistics",
+          "Old Dominion Freight Line",
+          "ArcBest"
         ]
       }
     },
@@ -859,13 +861,13 @@
       "payout_ratio_pct": null,
       "score": 0.6566,
       "profile": {
-        "business": "LRN(Laureate Education)은 온라인 및 캠퍼스 기반 고등교육 프로그램을 제공하는 교육 회사입니다. 전 세계 여러 국가에서 대학교와 대학원 과정을 운영하며 원격 교육과 하이브리드 학습 모델을 제공합니다.",
+        "business": "LRN(Laureate Education)은 온라인 및 캠퍼스 기반 고등교육 서비스를 제공하는 교육 기업입니다. 전 세계 여러 국가에서 대학, 대학원 프로그램을 운영하며 학생들에게 학위 및 전문 자격증 교육을 제공합니다.",
         "sector": "교육 서비스",
-        "products": "온라인 학위 프로그램, 캠퍼스 기반 대학 교육, 대학원 과정",
+        "products": "온라인 대학 프로그램, 캠퍼스 기반 고등교육, 대학원 과정",
         "competitors": [
-          "2U Inc.",
           "Coursera",
-          "Strayer University"
+          "2U Inc",
+          "Chegg"
         ]
       }
     },
@@ -883,12 +885,12 @@
       "payout_ratio_pct": 101.71,
       "score": 0.6564,
       "profile": {
-        "business": "BKE는 미국의 의류 소매 기업으로, 청소년 및 젊은 성인 고객을 대상으로 캐주얼 의류, 액세서리, 신발 등을 판매합니다. 오프라인 매장과 온라인 채널을 통해 제품을 유통하고 있습니다.",
-        "sector": "소비재 / 의류 소매",
-        "products": "Buckle, BKE, Buckle Black 브랜드의 청소년/성인 캐주얼 의류 및 액세서리",
+        "business": "Buckle Inc.는 미국의 캐주얼 의류 및 액세서리 소매업체입니다. 주로 청바지, 셔츠, 신발 등의 패션 상품을 판매하며, 오프라인 매장과 온라인 채널을 통해 운영하고 있습니다.",
+        "sector": "소비재(Discretionary) / 의류·패션 소매",
+        "products": "청바지, 캐주얼 의류, 신발, 액세서리",
         "competitors": [
           "American Eagle Outfitters",
-          "Abercrombie & Fitch",
+          "Gap Inc.",
           "Urban Outfitters"
         ]
       }
@@ -907,13 +909,13 @@
       "payout_ratio_pct": null,
       "score": 0.6555,
       "profile": {
-        "business": "태양광 패널 및 태양광 발전 시스템 제조업체입니다. 결정질 실리콘 태양광 모듈 생산과 판매를 주요 사업으로 하며, 전 세계 태양광 에너지 시장에 공급합니다.",
-        "sector": "재생에너지/태양광에너지",
-        "products": "태양광 모듈(Solar Modules), 태양광 패널",
+        "business": "First Solar는 박막 태양광 패널 제조 및 태양광 발전 솔루션을 제공하는 회사입니다. 태양광 모듈 생산과 유틸리티급 태양광 프로젝트 개발 및 시공을 주요 사업으로 영위합니다.",
+        "sector": "재생에너지 / 태양광",
+        "products": "박막 태양광 모듈(CdTe), 태양광 발전 시스템",
         "competitors": [
           "Canadian Solar",
           "JinkoSolar",
-          "Trina Solar"
+          "JA Solar"
         ]
       }
     },
@@ -931,13 +933,13 @@
       "payout_ratio_pct": 3.13,
       "score": 0.6551,
       "profile": {
-        "business": "Kinsale Capital Group은 미국의 specialty insurance 회사로서 주로 중소기업과 개인 고객을 대상으로 부동산, 일반배책임, 자동차 보험 등 다양한 보험 상품을 제공합니다. 기술을 활용한 효율적인 보험 인수와 경영으로 높은 수익성을 유지하고 있습니다.",
+        "business": "Kinsale Capital Group은 전문 보험 상품을 제공하는 손해보험 회사입니다. 특수 위험 보험, 상업용 보험 등 다양한 보험 상품을 취급하며 위험도가 높은 틈새시장을 겨냥한 사업을 영위합니다.",
         "sector": "금융/보험",
-        "products": "Specialty Insurance (Property, Casualty, Auto Insurance)",
+        "products": "전문 손해보험, 상업 보험 상품",
         "competitors": [
-          "Hanover Insurance Group",
-          "Heritage Insurance Holdings",
-          "Heritage Financial Group"
+          "RLI Corp",
+          "Everest Re",
+          "Arch Capital Group"
         ]
       }
     },
@@ -955,13 +957,13 @@
       "payout_ratio_pct": null,
       "score": 0.6539,
       "profile": {
-        "business": "CNX(CONSOL Energy)는 미국의 대형 탄광 회사로, 석탄 채굴 및 판매를 주요 사업으로 영위하고 있습니다. 에너지 생산용 저유황탄(thermal coal)과 강철 생산용 원료탄(metallurgical coal)을 채굴하여 공급합니다.",
-        "sector": "에너지/광물자원",
-        "products": "저유황탄(Thermal Coal), 원료탄(Metallurgical Coal)",
+        "business": "CNX는 미국의 천연가스 및 석유 탐사, 개발, 생산 회사입니다. 주로 애팔래치아 지역과 기타 주요 셰일가스 분지에서 탄화수소 자원을 채취하고 판매합니다.",
+        "sector": "에너지/석유·가스",
+        "products": "천연가스, 석유, 천연액체",
         "competitors": [
-          "Peabody Energy (BTU)",
-          "Arch Resources (ARCH)",
-          "Alliance Resource Products (ARLP)"
+          "EQT",
+          "Cabot Oil & Gas",
+          "Range Resources"
         ]
       }
     },
@@ -979,13 +981,13 @@
       "payout_ratio_pct": 25.15,
       "score": 0.6526,
       "profile": {
-        "business": "SSB는 미국의 지역 커뮤니티 은행입니다. 전통적인 예금 및 대출 서비스를 통해 중소기업과 개인 고객에게 금융 서비스를 제공합니다.",
+        "business": "SSB는 미국의 금융 서비스 회사입니다. 주로 은행 및 금융 관련 사업을 영위하고 있습니다.",
         "sector": "금융/은행",
-        "products": "예금상품, 대출상품, 예금 및 대출 관련 금융 서비스",
+        "products": "은행 서비스, 예금, 대출 상품",
         "competitors": [
-          "Citizens Financial Group",
-          "PNC Financial",
-          "KeyCorp"
+          "JPMorgan Chase",
+          "Bank of America",
+          "Wells Fargo"
         ]
       }
     },
@@ -1002,16 +1004,7 @@
       "div_yield": null,
       "payout_ratio_pct": null,
       "score": 0.6508,
-      "profile": {
-        "business": "DECK는 야외 활동 및 레크리에이션 용품을 설계하고 판매하는 기업입니다. 캠핑, 하이킹, 보트 등 야외 활동 관련 제품을 중심으로 사업을 영위하고 있습니다.",
-        "sector": "소비재/스포츠용품",
-        "products": "Decathlon, camping gear, outdoor equipment",
-        "competitors": [
-          "Columbia Sportswear",
-          "The North Face",
-          "REI Co-op"
-        ]
-      }
+      "profile": null
     },
     {
       "stock_code": "PFS",
@@ -1027,13 +1020,13 @@
       "payout_ratio_pct": 40.91,
       "score": 0.6495,
       "profile": {
-        "business": "PFS는 미국의 금융 서비스 기업입니다. 주로 보험 및 투자 관련 금융 상품을 제공하며, 리테일 고객을 대상으로 사업을 영위하고 있습니다.",
-        "sector": "금융 서비스/보험",
-        "products": "보험 상품, 투자 상품",
+        "business": "PFS(Provident Financial Services)는 미국의 지역 은행 지주회사입니다. 뉴저지 및 펜실베니아 지역을 중심으로 소비자 및 기업 금융 서비스를 제공합니다.",
+        "sector": "금융/은행",
+        "products": "예금, 대출, 모기지, 투자 자문",
         "competitors": [
-          "MetLife",
-          "Prudential Financial",
-          "Lincoln National"
+          "M&T Bank",
+          "Investor's Bancorp",
+          "Kearny Financial Corp"
         ]
       }
     },
@@ -1051,13 +1044,13 @@
       "payout_ratio_pct": 14.3,
       "score": 0.6493,
       "profile": {
-        "business": "SYF(Synchrony Financial)는 소비자 금융 및 신용카드 발행 서비스를 주력으로 하는 금융회사입니다. 소매점, 헬스케어, 자동차 등 다양한 산업 분야의 고객들을 위한 맞춤형 금융 솔루션을 제공합니다.",
-        "sector": "금융 / 소비자 금융",
-        "products": "Synchrony 프라이빗 레이블 신용카드, 헬스케어 금융, 자동차 금융",
+        "business": "Synchrony Financial(SYF)는 소비자 금융 서비스를 제공하는 금융 회사입니다. 신용카드, 개인대출, 저축상품 등 다양한 금융 상품을 통해 소비자 금융 서비스를 영위하고 있습니다.",
+        "sector": "금융/소비자금융",
+        "products": "프라이빗 레이블 신용카드, 개인대출, 저축상품",
         "competitors": [
-          "Capital One Financial",
+          "Capital One",
           "Discover Financial Services",
-          "Affirm Holdings"
+          "American Express"
         ]
       }
     },
@@ -1075,13 +1068,13 @@
       "payout_ratio_pct": 26.0,
       "score": 0.6492,
       "profile": {
-        "business": "EWBC는 캘리포니아 지역 기반의 지역 은행으로, 커뮤니티 뱅킹 서비스를 제공합니다. 개인 및 중소기업 고객을 대상으로 대출, 예금, 투자 서비스 등 종합 금융 서비스를 영위하고 있습니다.",
-        "sector": "금융(금융, 보험 및 부동산 서비스)",
-        "products": "기업대출, 소비자대출, 예금상품, 투자자문",
+        "business": "EWBC(East West Bancorp)는 미국 서부지역을 중심으로 영업하는 상업은행입니다. 개인고객, 소상공인, 중소기업 대상 대출 및 예금 서비스를 제공합니다.",
+        "sector": "금융/은행",
+        "products": "대출상품, 예금상품, 신용카드, 부동산금융",
         "competitors": [
           "Wells Fargo",
           "Bank of America",
-          "US Bancorp"
+          "JPMorgan Chase"
         ]
       }
     },
@@ -1099,13 +1092,13 @@
       "payout_ratio_pct": null,
       "score": 0.6487,
       "profile": {
-        "business": "APP는 Apptio의 티커로, 소프트웨어 및 SaaS 기반의 기술 비용 관리 및 최적화 솔루션을 제공합니다. 기업의 IT 지출을 분석하고 관리하는 클라우드 기반 플랫폼을 중심으로 사업을 영위합니다.",
-        "sector": "소프트웨어/클라우드 컴퓨팅",
-        "products": "Apptio 플랫폼 (기술 비용 관리, IT 재정 관리 솔루션)",
+        "business": "APP는 애플리케이션 소프트웨어 및 디지털 솔루션을 제공하는 기업입니다. 모바일 앱 개발, 클라우드 기반 서비스, 엔터프라이즈 소프트웨어 등 다양한 디지털 제품을 통해 비즈니스 고객을 대상으로 사업을 운영합니다.",
+        "sector": "정보기술(Information Technology)",
+        "products": "애플리케이션 소프트웨어, 클라우드 서비스, 엔터프라이즈 솔루션",
         "competitors": [
-          "ServiceNow",
-          "Atlassian",
-          "Broadcom"
+          "Salesforce",
+          "Adobe",
+          "ServiceNow"
         ]
       }
     },
@@ -1123,9 +1116,9 @@
       "payout_ratio_pct": 25.05,
       "score": 0.6486,
       "profile": {
-        "business": "OFG(Oriental Financial Group)는 푸에르토리코를 중심으로 금융 서비스를 제공하는 지주회사입니다. 은행, 보험, 자산관리 등 다양한 금융 사업을 영위하고 있습니다.",
-        "sector": "금융 - 은행",
-        "products": "Oriental Bank(은행 서비스), 보험 상품, 자산관리 서비스",
+        "business": "OFG(Oriental Financial Group)는 푸에르토리코 기반의 금융 지주회사입니다. 은행, 보험, 자산관리 등 다양한 금융서비스를 제공하고 있습니다.",
+        "sector": "금융(Financial Services)",
+        "products": "상업은행 서비스, 소비자금융, 보험상품, 투자자산관리",
         "competitors": [
           "Popular Inc.",
           "FirstBank Puerto Rico",
@@ -1147,13 +1140,13 @@
       "payout_ratio_pct": 33.75,
       "score": 0.6485,
       "profile": {
-        "business": "주거용 부동산 개발 및 건설 사업을 영위하는 주택건설회사입니다. 단독주택, 타운홈, 멀티패밀리 주택 등 다양한 유형의 주택을 개발하여 판매합니다.",
-        "sector": "부동산/주택건설",
-        "products": "주택(Single-family homes, Townhomes, Multifamily properties)",
+        "business": "주택 건설 및 부동산 개발을 주요 사업으로 하는 기업입니다. 미국 내 주택 시장에서 주거용 부동산 개발, 건설, 판매를 통해 수익을 창출합니다.",
+        "sector": "부동산/건설",
+        "products": "주택(단독주택, 타운홈 등), 부동산 개발 프로젝트",
         "competitors": [
           "Lennar Corporation",
           "D.R. Horton",
-          "Toll Brothers"
+          "PulteGroup"
         ]
       }
     },
@@ -1171,13 +1164,13 @@
       "payout_ratio_pct": 35.11,
       "score": 0.6485,
       "profile": {
-        "business": "ASB는 미국 지역 금융기관으로 은행 및 금융 서비스를 제공합니다. 전통적인 예금, 대출, 기타 금융 상품을 통해 개인 및 기업 고객에게 서비스합니다.",
-        "sector": "금융 서비스/지역은행",
-        "products": "예금, 대출, 신용카드, 자산관리 등 은행 서비스",
+        "business": "ASB는 미국의 지역 금융기관으로, 주로 은행업과 금융서비스를 제공합니다. 예금 수취, 대출, 투자 자문 등 전통적인 은행 업무를 영위하고 있습니다.",
+        "sector": "금융/은행",
+        "products": "예금상품, 대출상품, 투자자문, 금융서비스",
         "competitors": [
-          "PNC Financial Services",
-          "KeyCorp",
-          "Fifth Third Bancorp"
+          "Wells Fargo",
+          "Bank of America",
+          "JPMorgan Chase"
         ]
       }
     },
@@ -1195,13 +1188,13 @@
       "payout_ratio_pct": 29.3,
       "score": 0.6482,
       "profile": {
-        "business": "FNB는 First National Bank의 약자로 미국의 지역 은행입니다. 주로 소매 및 상업 금융 서비스를 제공하며, 예금 수취와 대출 사업을 중심으로 운영합니다.",
+        "business": "FNB(First National BancShares)는 미국 남동부 지역을 중심으로 커뮤니티 뱅킹 서비스를 제공하는 지역 금융 기관입니다. 개인 및 소규모 기업을 대상으로 예금, 대출, 투자 관리 등 종합 금융 서비스를 영위하고 있습니다.",
         "sector": "금융/은행",
-        "products": "예금, 대출, 신용카드, 자산관리 서비스",
+        "products": "개인 예금, 기업 대출, 모기지, 투자 관리 서비스",
         "competitors": [
-          "JPMorgan Chase",
-          "Bank of America",
-          "Wells Fargo"
+          "Regions Financial",
+          "Synovus Financial",
+          "United Bankshares"
         ]
       }
     },
@@ -1219,13 +1212,13 @@
       "payout_ratio_pct": 23.23,
       "score": 0.6482,
       "profile": {
-        "business": "Zion Bancorporation은 미국의 대형 지역 은행으로, 개인 및 기업 고객을 대상으로 예금, 대출, 투자 및 자산관리 서비스를 제공합니다. 주로 서부 지역을 중심으로 금융 서비스를 영위하고 있습니다.",
-        "sector": "금융 서비스 / 은행업",
-        "products": "개인 및 기업 대출, 예금 상품, 투자 및 자산관리, 신탁 서비스",
+        "business": "Zion Bancorporation은 미국의 지역 은행 지주회사입니다. 개인 및 기업 고객을 대상으로 대출, 예금, 자산관리 등 종합 금융 서비스를 제공합니다.",
+        "sector": "금융/은행",
+        "products": "개인 및 기업 대출, 예금 상품, 자산관리, 투자 서비스",
         "competitors": [
           "Wells Fargo",
-          "PNC Financial Services",
-          "US Bancorp"
+          "US Bancorp",
+          "PacWest Bancorp"
         ]
       }
     }
