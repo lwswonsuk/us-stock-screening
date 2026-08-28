@@ -39,7 +39,7 @@ class Config:
     min_avg_volume_usd: float = 0.0           # Finnhub 무료 티어는 평균거래량을 제공하지 않아 이 필터는 현재 비활성화됨 (실제 거래대금 데이터 소스 추가 시 복원)
 
     # ---- 하드 필터 (KOSPI판과 동일 비율)
-    max_debt_ratio: float = 200.0             # 부채비율(부채/자본) 200% 초과 배제
+    # 부채비율 하드필터는 제거됨 — 부채 건전성은 이자보상배율로 랭킹에만 반영 (score_quality 참고)
     min_roe: float = 5.0                      # ROE 5% 미만 배제
     require_positive_op: bool = True          # 최근 4분기 누적 영업이익 > 0
     max_3m_return: float = 0.60               # 3개월 +60% 이상 = 테마 급등 → 신규진입 금지
@@ -78,12 +78,13 @@ def winsor(s: pd.Series, lo=0.01, hi=0.99) -> pd.Series:
 # ═══════════════════════════════════════════════════════════════
 
 def score_quality(df: pd.DataFrame) -> pd.Series:
-    """체력. ROE 수준·안정성, 영업이익률, 부채비율, 매출 성장."""
+    """체력. ROE 수준·안정성, 영업이익률, 이자보상배율(부채 건전성), 매출 성장.
+    이자보상배율(영업이익/이자비용)이 높을수록 부채 상환 여력이 좋다 — 값이 클수록 고득점."""
     s = (
         0.30 * pct_rank(winsor(df["roe_3y_avg"]))
         + 0.20 * pct_rank(-winsor(df["roe_3y_std"]))
         + 0.20 * pct_rank(winsor(df["op_margin"]))
-        + 0.20 * pct_rank(-winsor(df["debt_ratio"]))
+        + 0.20 * pct_rank(winsor(df["interest_coverage"]))
         + 0.10 * pct_rank(winsor(df["rev_cagr_3y"]))
     )
     s = s + 0.05 * df["years_no_rev_decline"].clip(0, 5) / 5
@@ -105,26 +106,28 @@ def score_value(df: pd.DataFrame) -> pd.Series:
 
 def score_gap(df: pd.DataFrame) -> pd.Series:
     """★ 핵심 팩터: '실적-주가 괴리'. 이익 모멘텀 양호 + 주가 모멘텀 부진일수록 고득점.
+    52주 낙폭(drawdown_52w)이 더 중요한 신호로 작동하도록 비중을 확대함(0.25→0.40).
     영업이익 YoY가 -10% 미만이면 게이트로 차단(펀더멘털 훼손과 구분)."""
     gate = (df["op_yoy"] > -0.10).astype(float)
 
     s = (
-        0.35 * pct_rank(-winsor(df["ret_12m"]))
-        + 0.25 * pct_rank(winsor(df["drawdown_52w"]))
-        + 0.25 * pct_rank(winsor(df["op_yoy"]))
-        + 0.15 * pct_rank(winsor(df["rev_yoy"]))
+        0.30 * pct_rank(-winsor(df["ret_12m"]))
+        + 0.40 * pct_rank(winsor(df["drawdown_52w"]))
+        + 0.20 * pct_rank(winsor(df["op_yoy"]))
+        + 0.10 * pct_rank(winsor(df["rev_yoy"]))
     )
     return s * gate + (1 - gate) * 0.15
 
 
 def score_payout(df: pd.DataFrame) -> pd.Series:
-    """주주환원 여력. '이미 많이 주는 회사'가 아니라 '줄 여력이 있는데 안 주는 회사'가 정답."""
+    """주주환원 여력. '이미 많이 주는 회사'가 아니라 '줄 여력이 있는데 안 주는 회사'가 정답.
+    자사주 매입(buyback_rate)이 배당과 함께 중요한 환원 지표이므로 비중을 확대함(0.10→0.35)."""
     room = (0.50 - df["payout_ratio"]).clip(lower=0)
     s = (
-        0.40 * pct_rank(winsor(room))
-        + 0.30 * pct_rank(winsor(df["net_cash_to_mktcap"]))
-        + 0.20 * pct_rank(winsor(df["roe_3y_avg"]))
-        + 0.10 * pct_rank(winsor(df["treasury_ratio"]))
+        0.30 * pct_rank(winsor(room))
+        + 0.20 * pct_rank(winsor(df["net_cash_to_mktcap"]))
+        + 0.15 * pct_rank(winsor(df["roe_3y_avg"]))
+        + 0.35 * pct_rank(winsor(df["buyback_rate"]))
     )
     return s
 
@@ -145,7 +148,6 @@ def apply_hard_filters(df: pd.DataFrame, cfg: Config = CFG) -> pd.DataFrame:
 
     cut(df["mktcap_usd"] < cfg.min_mktcap_usd, "시총하한")
     cut(df["avg_volume_usd"] < cfg.min_avg_volume_usd, "유동성")
-    cut(df["debt_ratio"] > cfg.max_debt_ratio, "부채과다")
     cut(df["roe_3y_avg"] < cfg.min_roe, "ROE미달")
     if cfg.require_positive_op:
         cut(df["op_ttm"] <= 0, "적자")
@@ -189,7 +191,7 @@ def make_demo(n: int = 300, seed: int = 7) -> pd.DataFrame:
     df["roe_3y_avg"] = rng.normal(10, 8, n)
     df["roe_3y_std"] = np.abs(rng.normal(4, 2.5, n))
     df["op_margin"] = rng.normal(12, 8, n)
-    df["debt_ratio"] = np.abs(rng.normal(90, 60, n))
+    df["interest_coverage"] = np.abs(rng.normal(8, 6, n))
     df["rev_cagr_3y"] = rng.normal(0.06, 0.10, n)
     df["years_no_rev_decline"] = rng.integers(0, 6, n)
     df["per"] = np.abs(rng.lognormal(2.6, 0.6, n))
@@ -199,12 +201,13 @@ def make_demo(n: int = 300, seed: int = 7) -> pd.DataFrame:
     df["ret_12m"] = rng.normal(0.08, 0.35, n)
     df["ret_3m"] = rng.normal(0.02, 0.20, n)
     df["drawdown_52w"] = np.abs(rng.normal(0.25, 0.15, n))
+    df["pct_above_52w_low"] = np.abs(rng.normal(0.20, 0.20, n))
     df["op_yoy"] = rng.normal(0.06, 0.30, n)
     df["rev_yoy"] = rng.normal(0.05, 0.15, n)
     df["op_ttm"] = rng.normal(200_000_000, 400_000_000, n)
     df["payout_ratio"] = np.abs(rng.normal(0.20, 0.15, n))
     df["net_cash_to_mktcap"] = rng.normal(0.05, 0.20, n)
-    df["treasury_ratio"] = np.abs(rng.normal(0.02, 0.03, n))
+    df["buyback_rate"] = rng.normal(0.01, 0.02, n)
     return df
 
 
@@ -223,7 +226,7 @@ def run_demo():
     print("\n" + "=" * 78)
     print("STEP 2 - 종합 랭킹 상위 15")
     print("=" * 78)
-    cols = ["name", "sector", "per", "pbr", "roe_3y_avg", "debt_ratio",
+    cols = ["name", "sector", "per", "pbr", "roe_3y_avg", "interest_coverage",
             "ret_12m", "op_yoy", "s_quality", "s_value", "s_gap", "s_payout", "score"]
     top = ranked[ranked["passed"]].head(15)[cols]
     print(top.round(3).to_string())
@@ -251,8 +254,11 @@ def get_historical_prices_batch(tickers: list[str], sleep_sec: float = 0.3) -> d
     for ticker in tickers:
         try:
             prices = yahoo_client.get_daily_prices(ticker, days=380)
-            ret_3m, ret_12m, drawdown_52w = compute_return_and_drawdown(prices)
-            out[ticker] = {"ret_3m": ret_3m, "ret_12m": ret_12m, "drawdown_52w": drawdown_52w}
+            ret_3m, ret_12m, drawdown_52w, pct_above_52w_low = compute_return_and_drawdown(prices)
+            out[ticker] = {
+                "ret_3m": ret_3m, "ret_12m": ret_12m, "drawdown_52w": drawdown_52w,
+                "pct_above_52w_low": pct_above_52w_low,
+            }
         except Exception as e:
             print(f"  [WARN] {ticker} 가격 히스토리 조회 실패: {e}")
         time.sleep(sleep_sec)
@@ -271,9 +277,11 @@ def load_real() -> pd.DataFrame:
         )
 
     fin = pd.read_parquet(data_pipeline.FINANCE_CACHE).set_index("ticker")
-    if "share_outstanding" not in fin.columns:
+    required_cols = ("share_outstanding", "interest_coverage", "buyback_rate")
+    missing = [c for c in required_cols if c not in fin.columns]
+    if missing:
         raise RuntimeError(
-            "재무 캐시에 share_outstanding 컬럼이 없습니다. "
+            f"재무 캐시에 {', '.join(missing)} 컬럼이 없습니다(구버전 캐시). "
             "먼저 실행하세요: python data_pipeline.py --build --force"
         )
 
@@ -289,6 +297,7 @@ def load_real() -> pd.DataFrame:
     df["ret_3m"] = df.index.map(lambda t: price_hist.get(t, {}).get("ret_3m", np.nan))
     df["ret_12m"] = df.index.map(lambda t: price_hist.get(t, {}).get("ret_12m", np.nan))
     df["drawdown_52w"] = df.index.map(lambda t: price_hist.get(t, {}).get("drawdown_52w", np.nan))
+    df["pct_above_52w_low"] = df.index.map(lambda t: price_hist.get(t, {}).get("pct_above_52w_low", np.nan))
 
     # op_ttm은 하드필터(적자 배제)에만 쓰이므로, 영업이익률 × 매출총계 근사가 없으면
     # 시가총액 × 영업이익률 부호만으로 흑자/적자를 판별한다 (부호만 필요).
@@ -308,7 +317,9 @@ def load_real() -> pd.DataFrame:
 KOR_NAMES = {
     "name": "종목명", "company_name": "회사명", "mktcap_usd": "시가총액(백만$)",
     "price": "현재가", "per": "PER", "pbr": "PBR", "roe_3y_avg": "ROE(%)",
-    "debt_ratio": "부채비율(%)", "div_yield": "배당수익률(%)", "payout_ratio_pct": "배당성향(%)",
+    "interest_coverage": "이자보상배율(배)", "buyback_rate_pct": "자사주매입률(%)",
+    "div_yield": "배당수익률(%)", "payout_ratio_pct": "배당성향(%)",
+    "pct_above_52w_low_pct": "52주 저점대비(%)",
     "score": "종합점수",
 }
 
@@ -345,14 +356,17 @@ def run_real(top_n: int = 50, export_json: str | None = None, filtered_json: str
             "하드 필터를 통과한 종목이 0개입니다. 데이터 소스 응답을 확인하세요 (필드명 매핑 오류 가능성)."
         )
     ranked = composite(filt)
-    # payout_ratio는 score_payout 계산에 필요한 0~1 소수 그대로 두고, 화면/JSON
-    # 표시용으로만 별도 ×100 컬럼을 둔다 (라벨이 "배당성향(%)"이므로).
+    # payout_ratio/buyback_rate/pct_above_52w_low는 스코어링에 필요한 소수 스케일 그대로 두고,
+    # 화면/JSON 표시용으로만 별도 ×100 컬럼을 둔다 (라벨이 "...%"이므로).
     ranked["payout_ratio_pct"] = ranked["payout_ratio"] * 100
+    ranked["buyback_rate_pct"] = ranked["buyback_rate"] * 100
+    ranked["pct_above_52w_low_pct"] = ranked["pct_above_52w_low"] * 100
 
     print(f"유니버스 {len(d)} → 통과 {int(filt['passed'].sum())}")
 
     cols = ["name", "company_name", "mktcap_usd", "price", "per", "pbr", "roe_3y_avg",
-            "debt_ratio", "div_yield", "payout_ratio_pct", "score"]
+            "interest_coverage", "buyback_rate_pct", "div_yield", "payout_ratio_pct",
+            "pct_above_52w_low_pct", "score"]
     cols = [c for c in cols if c in ranked.columns]
 
     top = ranked[ranked["passed"]].head(top_n)[cols]
@@ -363,9 +377,16 @@ def run_real(top_n: int = 50, export_json: str | None = None, filtered_json: str
 
         records = _build_records(top, cols)
 
+        # 52주 신저가 근접 종목: 하드필터 통과 종목 중 pct_above_52w_low(52주 저점 대비 상승률)가
+        # 낮은(=저점에 가까운) 순으로 별도 추출한 리스트. score와 무관하게 저점 근접도로만 정렬한다.
+        near_low_n = min(30, top_n)
+        near_low_src = ranked[ranked["passed"]].dropna(subset=["pct_above_52w_low"]) \
+            .sort_values("pct_above_52w_low").head(near_low_n)
+        near_low_records = _build_records(near_low_src[cols], cols)
+
         quote = pick_quote_for_week()
 
-        def _build_payload(recs):
+        def _build_payload(recs, near_low_recs):
             return {
                 "as_of_date": pd.Timestamp.now("UTC").strftime("%Y%m%d"),
                 "financial_year": None,
@@ -377,6 +398,7 @@ def run_real(top_n: int = 50, export_json: str | None = None, filtered_json: str
                 "columns": cols,
                 "column_labels_ko": {c: KOR_NAMES.get(c, c) for c in cols},
                 "results": recs,
+                "near_52w_low": near_low_recs,
             }
 
         out_path = _Path(export_json)
@@ -384,14 +406,22 @@ def run_real(top_n: int = 50, export_json: str | None = None, filtered_json: str
 
         for rec in records:
             rec["profile"] = None
-        out_path.write_text(json.dumps(_build_payload(records), ensure_ascii=False, indent=2), encoding="utf-8")
+        for rec in near_low_records:
+            rec["profile"] = None
+        out_path.write_text(
+            json.dumps(_build_payload(records, near_low_records), ensure_ascii=False, indent=2), encoding="utf-8",
+        )
 
         profile_map = generate_all_profiles(records)
         for rec in records:
             rec["profile"] = profile_map.get(rec["stock_code"])
+        for rec in near_low_records:
+            rec["profile"] = profile_map.get(rec["stock_code"])
 
-        out_path.write_text(json.dumps(_build_payload(records), ensure_ascii=False, indent=2), encoding="utf-8")
-        print(f"[export] JSON 저장 완료 → {export_json} ({len(records)}종목)")
+        out_path.write_text(
+            json.dumps(_build_payload(records, near_low_records), ensure_ascii=False, indent=2), encoding="utf-8",
+        )
+        print(f"[export] JSON 저장 완료 → {export_json} ({len(records)}종목, 52주저점근접 {len(near_low_records)}종목)")
 
     if filtered_json:
         import json

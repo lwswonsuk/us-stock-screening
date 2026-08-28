@@ -24,6 +24,7 @@ interface ResultsPayload {
   columns: string[];
   column_labels_ko: Record<string, string>;
   results: ResultRow[];
+  near_52w_low: ResultRow[];
 }
 
 function loadResults(): ResultsPayload {
@@ -63,6 +64,22 @@ export default function Home() {
           <AlgorithmInfo />
 
           <ScreeningTable columns={data.columns} labels={data.column_labels_ko} rows={data.results} />
+
+          {data.near_52w_low && data.near_52w_low.length > 0 && (
+            <div className="mt-10">
+              <h2 className="text-lg font-semibold tracking-tight">52주 신저가 근접 종목</h2>
+              <p className="mt-1 mb-4 text-sm text-muted-foreground">
+                하드 필터를 통과한 종목 중 52주 저점에 가장 가까운 순서로 별도 추출한 목록입니다.
+              </p>
+              <ScreeningTable
+                columns={data.columns}
+                labels={data.column_labels_ko}
+                rows={data.near_52w_low}
+                defaultSortKey="pct_above_52w_low_pct"
+                defaultSortDir="asc"
+              />
+            </div>
+          )}
         </>
       )}
 

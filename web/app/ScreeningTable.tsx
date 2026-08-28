@@ -16,7 +16,10 @@ import StockProfileDialog, { StockProfile } from "./StockProfileDialog";
 
 type ResultRow = Record<string, string | number | null> & { profile?: StockProfile | null };
 
-const TWO_DECIMAL_RIGHT_ALIGN = new Set(["per", "pbr", "roe_3y_avg", "debt_ratio", "div_yield", "payout_ratio_pct"]);
+const TWO_DECIMAL_RIGHT_ALIGN = new Set([
+  "per", "pbr", "roe_3y_avg", "interest_coverage", "buyback_rate_pct",
+  "div_yield", "payout_ratio_pct", "pct_above_52w_low_pct",
+]);
 const FOUR_DECIMAL_RIGHT_ALIGN = new Set(["score"]);
 const RIGHT_ALIGN_ONLY = new Set(["price", "mktcap_usd"]);
 
@@ -24,13 +27,17 @@ export default function ScreeningTable({
   columns,
   labels,
   rows,
+  defaultSortKey = "score",
+  defaultSortDir = "desc",
 }: {
   columns: string[];
   labels: Record<string, string>;
   rows: ResultRow[];
+  defaultSortKey?: string;
+  defaultSortDir?: "asc" | "desc";
 }) {
-  const [sortKey, setSortKey] = useState<string>("score");
-  const [sortDir, setSortDir] = useState<"asc" | "desc">("desc");
+  const [sortKey, setSortKey] = useState<string>(defaultSortKey);
+  const [sortDir, setSortDir] = useState<"asc" | "desc">(defaultSortDir);
   const [liveRows, setLiveRows] = useState<ResultRow[]>(rows);
   const [priceAsOf, setPriceAsOf] = useState<string | null>(null);
   const [priceLoading, setPriceLoading] = useState(false);

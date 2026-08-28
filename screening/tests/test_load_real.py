@@ -50,11 +50,12 @@ def test_run_real_writes_expected_json_shape(monkeypatch, tmp_path):
     finance = pd.DataFrame([{
         "ticker": "AAPL", "share_outstanding": 15_200.0,
         "roe_3y_avg": 150.0, "roe_3y_std": np.nan, "debt_ratio": 180.0,
+        "interest_coverage": 12.0,
         "op_margin": 30.0, "op_ttm": 100_000_000_000, "op_yoy": 0.1, "rev_yoy": 0.05,
         "rev_cagr_3y": np.nan, "years_no_rev_decline": 0, "net_income_ttm": np.nan,
         "revenue_ttm": np.nan, "total_equity": np.nan, "cash_dividend_total": np.nan,
         "payout_ratio": 0.15, "per": 28.0, "pbr": 45.0, "div_yield": 0.5,
-        "fcf_yield": 0.03, "net_cash_to_mktcap": 0.02, "treasury_ratio": 0.0,
+        "fcf_yield": 0.03, "net_cash_to_mktcap": 0.02, "buyback_rate": 0.01,
     }])
 
     monkeypatch.setattr(data_pipeline, "get_full_universe", lambda: universe)
@@ -63,7 +64,9 @@ def test_run_real_writes_expected_json_shape(monkeypatch, tmp_path):
 
     monkeypatch.setattr(
         "us_alpha.get_historical_prices_batch",
-        lambda tickers: {"AAPL": {"ret_3m": 0.05, "ret_12m": 0.12, "drawdown_52w": 0.10}},
+        lambda tickers: {
+            "AAPL": {"ret_3m": 0.05, "ret_12m": 0.12, "drawdown_52w": 0.10, "pct_above_52w_low": 0.20},
+        },
     )
     monkeypatch.delenv("ANTHROPIC_API_KEY", raising=False)
 
@@ -99,6 +102,21 @@ def test_run_real_writes_expected_json_shape(monkeypatch, tmp_path):
     assert "company_name" in payload["columns"]
     assert payload["column_labels_ko"]["company_name"] == "회사명"
 
+    # 부채비율 하드필터는 제거됨 -> 화면엔 이자보상배율이 표시되고 debt_ratio는 노출되지 않는다.
+    assert "interest_coverage" in payload["columns"]
+    assert "debt_ratio" not in payload["columns"]
+    assert payload["column_labels_ko"]["interest_coverage"] == "이자보상배율(배)"
+
+    # 자사주매입률·52주 저점대비 컬럼도 새로 노출된다.
+    assert "buyback_rate_pct" in payload["columns"]
+    assert payload["results"][0]["buyback_rate_pct"] == pytest.approx(1.0)
+    assert "pct_above_52w_low_pct" in payload["columns"]
+    assert payload["results"][0]["pct_above_52w_low_pct"] == pytest.approx(20.0)
+
+    # 52주 신저가 근접 종목 리스트가 별도로 export된다.
+    assert "near_52w_low" in payload
+    assert payload["near_52w_low"][0]["stock_code"] == "AAPL"
+
 
 def test_run_real_raises_when_nothing_passes_hard_filters(monkeypatch, tmp_path):
     import data_pipeline
@@ -108,15 +126,16 @@ def test_run_real_raises_when_nothing_passes_hard_filters(monkeypatch, tmp_path)
          "market_cap": [3_500_000_000_000], "avg_volume": [50_000_000]},
         index=pd.Index(["AAPL"], name="ticker"),
     )
-    # debt_ratio far over the 200% hard-filter threshold -> everything gets excluded
+    # ROE가 하드필터 하한(5.0) 밑으로 -> 유일한 종목이 배제되어 통과 0개
     finance = pd.DataFrame([{
         "ticker": "AAPL", "share_outstanding": 15_200.0,
-        "roe_3y_avg": 150.0, "roe_3y_std": np.nan, "debt_ratio": 9000.0,
+        "roe_3y_avg": 1.0, "roe_3y_std": np.nan, "debt_ratio": 80.0,
+        "interest_coverage": 12.0,
         "op_margin": 30.0, "op_ttm": 100_000_000_000, "op_yoy": 0.1, "rev_yoy": 0.05,
         "rev_cagr_3y": np.nan, "years_no_rev_decline": 0, "net_income_ttm": np.nan,
         "revenue_ttm": np.nan, "total_equity": np.nan, "cash_dividend_total": np.nan,
         "payout_ratio": 0.15, "per": 28.0, "pbr": 45.0, "div_yield": 0.5,
-        "fcf_yield": 0.03, "net_cash_to_mktcap": 0.02, "treasury_ratio": 0.0,
+        "fcf_yield": 0.03, "net_cash_to_mktcap": 0.02, "buyback_rate": 0.01,
     }])
 
     monkeypatch.setattr(data_pipeline, "get_full_universe", lambda: universe)
@@ -125,7 +144,9 @@ def test_run_real_raises_when_nothing_passes_hard_filters(monkeypatch, tmp_path)
 
     monkeypatch.setattr(
         "us_alpha.get_historical_prices_batch",
-        lambda tickers: {"AAPL": {"ret_3m": 0.05, "ret_12m": 0.12, "drawdown_52w": 0.10}},
+        lambda tickers: {
+            "AAPL": {"ret_3m": 0.05, "ret_12m": 0.12, "drawdown_52w": 0.10, "pct_above_52w_low": 0.20},
+        },
     )
     monkeypatch.delenv("ANTHROPIC_API_KEY", raising=False)
 

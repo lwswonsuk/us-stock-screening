@@ -12,7 +12,7 @@ def test_lower_payout_ratio_scores_higher_on_s_payout():
             "payout_ratio": [0.05, 0.40],
             "net_cash_to_mktcap": [0.10, 0.10],
             "roe_3y_avg": [10.0, 10.0],
-            "treasury_ratio": [0.02, 0.02],
+            "buyback_rate": [0.02, 0.02],
         },
         index=["low_payout", "high_payout"],
     )

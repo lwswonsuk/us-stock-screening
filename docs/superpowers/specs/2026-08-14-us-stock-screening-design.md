@@ -137,6 +137,42 @@ S&P 500 하나만 스크리닝해도 매일 자동 실행이 불가능하다는 
 `README.md`의 1번 단계(FMP 가입)를 Finnhub 가입으로 교체. 알고리즘(4대 팩터, 하드필터, 가중치)과
 웹 UI/기능은 변경 없음 — 순수 데이터 소스 교체.
 
+## 11. 애드엔덤 (2026-08-28) — 부채 건전성·자사주매입 지표 교체, 52주 신저가 리스트 추가
+
+사용자 요청: "부채비율보다 이자보상배율이 부채 건전성 지표로 더 낫다", "부채비율 하드필터는
+없애라", "자사주매입을 새 지표로 추가하라(주주환원에서 중요)", "52주 신저가 종목을 별도로
+뽑아달라", "자사주매입과 52주 낙폭이 더 중요한 지표로 작동하게 하라".
+
+### 결정
+- **부채비율 하드필터 폐지**: `Config.max_debt_ratio`와 `apply_hard_filters()`의 "부채과다"
+  컷을 제거. 부채가 많다고 무조건 배제하지 않고, 대신 랭킹에서 감점 요인으로만 반영한다.
+- **체력(quality) 팩터에서 부채비율 → 이자보상배율(interest_coverage) 교체**: Finnhub
+  `netInterestCoverageTTM`(영업이익/이자비용 배수, 변환 불필요) 사용. 값이 높을수록 고득점.
+- **환원여력(payout) 팩터에서 죽은 필드였던 treasury_ratio → 자사주매입률(buyback_rate)
+  교체 + 비중 확대(0.10→0.35)**: Finnhub가 자사주매입 데이터를 직접 제공하지 않아, 이전
+  분기 캐시 대비 발행주식수 감소율로 근사한다. 최초 도입 분기는 비교 기준이 없어 중립(NaN)
+  처리됨. `data_pipeline.build_finance_cache()`가 `--force` 여부와 무관하게 이전 캐시의
+  발행주식수를 먼저 읽어둔 뒤 새 값과 비교해 계산한다.
+- **괴리(gap) 팩터에서 52주 낙폭(drawdown_52w) 비중 확대(0.25→0.40)**, 나머지 하위 가중치는
+  비례 축소.
+- **52주 신저가 근접 종목 별도 리스트 추가**: `data_pipeline.compute_return_and_drawdown()`가
+  `pct_above_52w_low`(저점 대비 상승률, 0에 가까울수록 신저가 근접)를 추가로 계산·반환하고,
+  `us_alpha.run_real()`이 하드필터 통과 종목 중 이 값이 가장 낮은 상위 30개를 종합점수와
+  무관하게 별도 정렬해 `results.json`의 `near_52w_low` 키로 export한다. 웹에서는 기존
+  `ScreeningTable`을 재사용해 별도 섹션으로 노출.
+- 4대 팩터 간 최상위 가중치(체력30/가격28/괴리27/환원여력15)는 변경 없음 — 조정은 각 팩터
+  내부의 하위 가중치에서만 이루어짐.
+
+### 영향받는 범위
+`screening/us_alpha.py`(Config·4개 score_* 함수·apply_hard_filters·load_real·run_real·
+make_demo·KOR_NAMES), `screening/data_pipeline.py`(fetch_finance_one·build_finance_cache·
+compute_return_and_drawdown), `screening/stock_profile.py`(AI 프로필 프롬프트용 지표 라벨),
+`web/app/AlgorithmInfo.tsx`·`web/app/ScreeningTable.tsx`·`web/app/page.tsx`(52주 신저가
+섹션), `.github/workflows/daily-screen.yml`(재무캐시 키 v2→v3, 신규 필드가 채워진 캐시로
+강제 갱신). 재무 캐시 스키마가 바뀌므로(신규 컬럼 필수) `load_real()`은 `share_outstanding`과
+함께 `interest_coverage`/`buyback_rate` 컬럼 존재 여부도 검사해 구버전 캐시를 명확한 오류로
+거부한다(기존 `share_outstanding` 가드와 동일 패턴).
+
 ### 미검증 사항 (구현 중 확인 필요)
 Finnhub의 `company_basic_financials`(metric=all) 응답 필드명(ROE, 부채비율, PER/PBR, 배당수익률,
 배당성향, 매출성장률에 해당하는 정확한 키 이름)은 실시간 문서 접근이 막혀 있어 완전히 확정하지

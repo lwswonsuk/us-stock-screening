@@ -31,12 +31,13 @@ CACHE_DIR.mkdir(exist_ok=True)
 FINANCE_CACHE = CACHE_DIR / "finance.parquet"
 
 
-def compute_return_and_drawdown(price_df: pd.DataFrame) -> tuple[float, float, float]:
+def compute_return_and_drawdown(price_df: pd.DataFrame) -> tuple[float, float, float, float]:
     """price_df: columns=[date, close], 오름차순(과거→최근) 정렬됨.
-    반환: (3개월 수익률, 12개월 수익률, 52주 고점 대비 낙폭[양수=고점보다 낮음])."""
+    반환: (3개월 수익률, 12개월 수익률, 52주 고점 대비 낙폭[양수=고점보다 낮음],
+           52주 저점 대비 상승률[양수=저점보다 높음, 0에 가까울수록 신저가 근접])."""
     closes = price_df["close"].to_numpy()
     if len(closes) < 2:
-        return (np.nan, np.nan, np.nan)
+        return (np.nan, np.nan, np.nan, np.nan)
 
     last = closes[-1]
     idx_3m = max(0, len(closes) - 1 - 63)
@@ -47,7 +48,10 @@ def compute_return_and_drawdown(price_df: pd.DataFrame) -> tuple[float, float, f
     peak_52w = closes.max()
     drawdown_52w = (peak_52w - last) / peak_52w if peak_52w > 0 else np.nan
 
-    return (float(ret_3m), float(ret_12m), float(drawdown_52w))
+    low_52w = closes.min()
+    pct_above_52w_low = (last - low_52w) / low_52w if low_52w > 0 else np.nan
+
+    return (float(ret_3m), float(ret_12m), float(drawdown_52w), float(pct_above_52w_low))
 
 
 def fetch_finance_one(ticker: str) -> dict:
@@ -75,9 +79,10 @@ def fetch_finance_one(ticker: str) -> dict:
     div_yield = g("dividendYieldIndicatedAnnual")
     payout_ratio_pct = g("payoutRatioTTM")
     rev_yoy_pct = g("revenueGrowthTTMYoy")
+    interest_coverage = g("netInterestCoverageTTM")   # 배수(예: 12.5) — 변환 불필요, 값이 클수록 부채 상환여력 좋음
 
     roe_3y_avg = roe                      # 이미 퍼센트
-    debt_ratio = np.nan if np.isnan(debt_equity) else debt_equity * 100   # 소수 → 퍼센트
+    debt_ratio = np.nan if np.isnan(debt_equity) else debt_equity * 100   # 소수 → 퍼센트 (참고용, 스코어링엔 미사용)
     op_margin_pct = op_margin             # 이미 퍼센트
     rev_yoy = np.nan if np.isnan(rev_yoy_pct) else rev_yoy_pct / 100      # 퍼센트 → 소수
     payout_ratio = np.nan if np.isnan(payout_ratio_pct) else max(payout_ratio_pct / 100, 0.0)  # 퍼센트 → 소수
@@ -100,6 +105,7 @@ def fetch_finance_one(ticker: str) -> dict:
         "roe_3y_avg": roe_3y_avg,
         "roe_3y_std": np.nan,
         "debt_ratio": debt_ratio,
+        "interest_coverage": interest_coverage,
         "op_margin": op_margin_pct,
         "op_ttm": op_margin,   # 부호만 사용하는 흑자/적자 판별용 프록시 (KOSPI판 이식 시 동일 패턴)
         "op_yoy": op_yoy,
@@ -116,13 +122,32 @@ def fetch_finance_one(ticker: str) -> dict:
         "div_yield": div_yield,
         "fcf_yield": np.nan,
         "net_cash_to_mktcap": np.nan,
-        "treasury_ratio": np.nan,
+        # buyback_rate는 여기서 계산할 수 없음(직전 분기 발행주식수가 필요) —
+        # build_finance_cache()가 이전 캐시와 비교해 채워넣는다. 최초 1회는 NaN(중립) 처리됨.
+        "buyback_rate": np.nan,
     }
+
+
+def _compute_buyback_rate(shares: float, prev_shares: float) -> float:
+    """직전 캐시 대비 발행주식수 감소율. 감소(자사주매입)면 양수, 증가(신주발행)면 음수.
+    직전 값이 없거나 0 이하면 비교 불가 → NaN(중립 처리)."""
+    if prev_shares is None or np.isnan(prev_shares) or prev_shares <= 0 or np.isnan(shares):
+        return np.nan
+    return (prev_shares - shares) / prev_shares
 
 
 def build_finance_cache(force: bool = False, sleep_sec: float = 2.2) -> pd.DataFrame:
     universe = wiki_universe.get_universe().reset_index()
     print(f"[universe] S&P 500+400+600 합산 {len(universe)}개 종목 (Wikipedia)")
+
+    # buyback_rate 계산용: force 여부와 무관하게 "이전 캐시에 있던 발행주식수"는 항상 먼저 읽어둔다.
+    # (force=True로 전량 재조회하더라도 직전 분기 대비 자사주매입률은 비교할 수 있어야 하므로,
+    # done_tickers 판정과는 별개로 분리한다.)
+    prev_shares: dict[str, float] = {}
+    if FINANCE_CACHE.exists():
+        prior = pd.read_parquet(FINANCE_CACHE)
+        if "ticker" in prior.columns and "share_outstanding" in prior.columns:
+            prev_shares = prior.set_index("ticker")["share_outstanding"].to_dict()
 
     existing = pd.DataFrame()
     done_tickers: set[str] = set()
@@ -138,7 +163,9 @@ def build_finance_cache(force: bool = False, sleep_sec: float = 2.2) -> pd.DataF
     rows = []
     for i, (_, r) in enumerate(todo.iterrows(), 1):
         try:
-            rows.append(fetch_finance_one(r["ticker"]))
+            row = fetch_finance_one(r["ticker"])
+            row["buyback_rate"] = _compute_buyback_rate(row["share_outstanding"], prev_shares.get(r["ticker"]))
+            rows.append(row)
         except Exception as e:
             print(f"  [WARN] {r['ticker']} 재무데이터 조회 실패: {e}")
         if i % 50 == 0:

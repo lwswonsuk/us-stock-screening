@@ -53,9 +53,9 @@ jobs:
         id: finance-cache
         with:
           path: screening/.cache
-          key: finance-cache-us-v2-${{ steps.quarter.outputs.value }}-${{ github.run_id }}
+          key: finance-cache-us-v3-${{ steps.quarter.outputs.value }}-${{ github.run_id }}
           restore-keys: |
-            finance-cache-us-v2-${{ steps.quarter.outputs.value }}-
+            finance-cache-us-v3-${{ steps.quarter.outputs.value }}-
 
       - name: 재무데이터 없거나 강제갱신 요청 시 새로 받기
         if: >-
@@ -73,7 +73,7 @@ jobs:
         uses: actions/cache/save@v4
         with:
           path: screening/.cache
-          key: finance-cache-us-v2-${{ steps.quarter.outputs.value }}-${{ github.run_id }}
+          key: finance-cache-us-v3-${{ steps.quarter.outputs.value }}-${{ github.run_id }}
 
       - name: 스크리닝 실행 + JSON 저장
         working-directory: screening
