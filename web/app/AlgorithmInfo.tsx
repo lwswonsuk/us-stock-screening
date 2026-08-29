@@ -36,10 +36,15 @@ export default function AlgorithmInfo() {
                   <li>ROE 5% 미만 제외</li>
                   <li>최근 영업이익(TTM 기준) 적자 제외</li>
                   <li>최근 3개월 수익률 +60% 이상인 테마 급등 종목 제외</li>
+                  <li><b className="text-foreground">52주 저점 대비 10% 이내</b>인 종목만 통과</li>
+                  <li><b className="text-foreground">5년 전보다 EPS(주당순이익)가 늘어난</b> 종목만 통과</li>
+                  <li><b className="text-foreground">REIT(리츠)·ETF 제외</b> (GICS 서브섹터에 "REIT"가 포함된 종목 배제, 지수 구성종목 특성상 ETF는 애초에 유니버스에 없음)</li>
                 </ul>
                 <p className="mt-2 text-muted-foreground">
                   ※ 부채비율 하드 필터는 폐지되었습니다. 부채 건전성은 이자보상배율로 바꿔
-                  아래 체력 점수의 랭킹 요소로만 반영됩니다(하드 배제는 하지 않음).
+                  아래 체력 점수의 랭킹 요소로만 반영됩니다(하드 배제는 하지 않음). 대신 52주 저점
+                  근접도·이익 증가 여부·REIT 제외가 새 하드 필터로 추가되어, 최종 목록은 "저점 근처에서
+                  실적은 꾸준히 늘어난 종목"만 남습니다.
                 </p>
               </div>
 
@@ -69,14 +74,6 @@ export default function AlgorithmInfo() {
                   ROE 절대수준, 영업이익률, 이자보상배율, PER/PBR, 배당, 자사주매입률 등 실제로 확보된
                   지표에 더 크게 의존합니다. 자사주매입률은 직전 분기 대비 발행주식수 감소율로 추정한
                   값이라 데이터가 처음 쌓이는 한 분기 동안은 중립값(신규 종목)으로 처리됩니다.
-                </p>
-              </div>
-
-              <div>
-                <h4 className="mb-2 font-semibold text-foreground">52주 신저가 근접 종목</h4>
-                <p className="text-muted-foreground">
-                  하드 필터를 통과한 종목 중 52주 저점에 가장 가까운 종목만 별도로 추려
-                  표 하단에 따로 보여줍니다. 종합점수 랭킹과 무관하게 저점 근접도만으로 정렬됩니다.
                 </p>
               </div>
             </CardContent>

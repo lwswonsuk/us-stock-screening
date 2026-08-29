@@ -43,6 +43,8 @@ class Config:
     min_roe: float = 5.0                      # ROE 5% 미만 배제
     require_positive_op: bool = True          # 최근 4분기 누적 영업이익 > 0
     max_3m_return: float = 0.60               # 3개월 +60% 이상 = 테마 급등 → 신규진입 금지
+    max_pct_above_52w_low: float = 0.10       # 52주 저점 대비 10% 초과 상승한 종목 배제 (저점 10% 이내만 통과)
+    min_eps_growth_5y: float = 0.0            # 5년 전보다 EPS가 늘지 않은(성장률 0% 이하) 종목 배제
 
     # ---- 4대 팩터 가중치 (KOSPI판과 동일)
     w_quality: float = 0.30
@@ -152,6 +154,11 @@ def apply_hard_filters(df: pd.DataFrame, cfg: Config = CFG) -> pd.DataFrame:
     if cfg.require_positive_op:
         cut(df["op_ttm"] <= 0, "적자")
     cut(df["ret_3m"] > cfg.max_3m_return, "테마급등")
+    # ~~ 52주 저점 근접 + 5년전보다 이익 증가 + REIT 제외 (3가지 조건 모두 충족해야 통과) ~~
+    # NaN(데이터 없음)은 조건 충족 여부를 알 수 없으므로 보수적으로 배제 처리한다.
+    cut(~(df["pct_above_52w_low"] <= cfg.max_pct_above_52w_low), "52주저점근접아님")
+    cut(~(df["eps_growth_5y"] > cfg.min_eps_growth_5y), "5년전보다이익감소")
+    cut(df["sub_industry"].str.contains("REIT", case=False, na=False), "REIT제외")
 
     out = df.copy()
     out["passed"] = m
@@ -186,6 +193,10 @@ def make_demo(n: int = 300, seed: int = 7) -> pd.DataFrame:
     df = pd.DataFrame(index=[f"TCK{i:04d}" for i in range(n)])
     df["name"] = df.index
     df["sector"] = rng.choice(sectors, n)
+    is_real_estate = df["sector"] == "Real Estate"
+    df["sub_industry"] = np.where(
+        is_real_estate & (rng.random(n) < 0.6), "Retail REITs", df["sector"],
+    )
     df["mktcap_usd"] = rng.lognormal(21.0, 1.5, n)
     df["avg_volume_usd"] = rng.lognormal(13.0, 1.5, n)
     df["roe_3y_avg"] = rng.normal(10, 8, n)
@@ -208,6 +219,7 @@ def make_demo(n: int = 300, seed: int = 7) -> pd.DataFrame:
     df["payout_ratio"] = np.abs(rng.normal(0.20, 0.15, n))
     df["net_cash_to_mktcap"] = rng.normal(0.05, 0.20, n)
     df["buyback_rate"] = rng.normal(0.01, 0.02, n)
+    df["eps_growth_5y"] = rng.normal(5.0, 15.0, n)
     return df
 
 
@@ -277,7 +289,7 @@ def load_real() -> pd.DataFrame:
         )
 
     fin = pd.read_parquet(data_pipeline.FINANCE_CACHE).set_index("ticker")
-    required_cols = ("share_outstanding", "interest_coverage", "buyback_rate")
+    required_cols = ("share_outstanding", "interest_coverage", "buyback_rate", "eps_growth_5y")
     missing = [c for c in required_cols if c not in fin.columns]
     if missing:
         raise RuntimeError(
@@ -286,6 +298,11 @@ def load_real() -> pd.DataFrame:
         )
 
     universe = data_pipeline.get_full_universe()
+    if "sub_industry" not in universe.columns:
+        raise RuntimeError(
+            "유니버스 캐시에 sub_industry 컬럼이 없습니다(구버전 캐시, REIT 판별 불가). "
+            "먼저 실행하세요: python -c \"import wiki_universe; wiki_universe.get_universe(force=True)\""
+        )
     universe = universe.rename(columns={"market_cap": "mktcap_usd"})
     # Finnhub 무료 티어는 평균거래량을 제공하지 않으므로 avg_volume은 항상 NaN이고,
     # 유동성 필터(min_avg_volume_usd)는 0.0으로 비활성화되어 있다 (Config 참고).
@@ -377,16 +394,9 @@ def run_real(top_n: int = 50, export_json: str | None = None, filtered_json: str
 
         records = _build_records(top, cols)
 
-        # 52주 신저가 근접 종목: 하드필터 통과 종목 중 pct_above_52w_low(52주 저점 대비 상승률)가
-        # 낮은(=저점에 가까운) 순으로 별도 추출한 리스트. score와 무관하게 저점 근접도로만 정렬한다.
-        near_low_n = min(30, top_n)
-        near_low_src = ranked[ranked["passed"]].dropna(subset=["pct_above_52w_low"]) \
-            .sort_values("pct_above_52w_low").head(near_low_n)
-        near_low_records = _build_records(near_low_src[cols], cols)
-
         quote = pick_quote_for_week()
 
-        def _build_payload(recs, near_low_recs):
+        def _build_payload(recs):
             return {
                 "as_of_date": pd.Timestamp.now("UTC").strftime("%Y%m%d"),
                 "financial_year": None,
@@ -398,7 +408,6 @@ def run_real(top_n: int = 50, export_json: str | None = None, filtered_json: str
                 "columns": cols,
                 "column_labels_ko": {c: KOR_NAMES.get(c, c) for c in cols},
                 "results": recs,
-                "near_52w_low": near_low_recs,
             }
 
         out_path = _Path(export_json)
@@ -406,22 +415,14 @@ def run_real(top_n: int = 50, export_json: str | None = None, filtered_json: str
 
         for rec in records:
             rec["profile"] = None
-        for rec in near_low_records:
-            rec["profile"] = None
-        out_path.write_text(
-            json.dumps(_build_payload(records, near_low_records), ensure_ascii=False, indent=2), encoding="utf-8",
-        )
+        out_path.write_text(json.dumps(_build_payload(records), ensure_ascii=False, indent=2), encoding="utf-8")
 
         profile_map = generate_all_profiles(records)
         for rec in records:
             rec["profile"] = profile_map.get(rec["stock_code"])
-        for rec in near_low_records:
-            rec["profile"] = profile_map.get(rec["stock_code"])
 
-        out_path.write_text(
-            json.dumps(_build_payload(records, near_low_records), ensure_ascii=False, indent=2), encoding="utf-8",
-        )
-        print(f"[export] JSON 저장 완료 → {export_json} ({len(records)}종목, 52주저점근접 {len(near_low_records)}종목)")
+        out_path.write_text(json.dumps(_build_payload(records), ensure_ascii=False, indent=2), encoding="utf-8")
+        print(f"[export] JSON 저장 완료 → {export_json} ({len(records)}종목)")
 
     if filtered_json:
         import json

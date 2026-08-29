@@ -177,3 +177,46 @@ compute_return_and_drawdown), `screening/stock_profile.py`(AI 프로필 프롬�
 Finnhub의 `company_basic_financials`(metric=all) 응답 필드명(ROE, 부채비율, PER/PBR, 배당수익률,
 배당성향, 매출성장률에 해당하는 정확한 키 이름)은 실시간 문서 접근이 막혀 있어 완전히 확정하지
 못했다. 구현 시 실제 API 키로 한 번 호출해 응답을 직접 확인하고 필드 매핑을 맞출 것.
+
+## 12. 애드엔덤 (2026-08-29) — 52주 신저가 리스트를 메인 목록의 하드필터로 전환
+
+§11에서 추가한 "52주 신저가 근접 종목" 별도 리스트(`near_52w_low`)를 폐지하고, 그 취지를
+메인 스크리닝 목록 자체의 하드필터로 흡수한다. 사용자 요청: "52주 신저가 근접 종목 섹션을
+삭제해달라", "대신 목록을 (1) 52주 저점 10% 이내, (2) 5년 전보다 이익 증가, (3) REIT·ETF
+제외라는 3가지 조건으로 한 번 더 필터링해달라". 적용 범위는 AskUserQuestion으로 확인받음
+(메인 목록에 하드필터로 추가 — 별도 섹션 유지 아님).
+
+### 결정
+- **`apply_hard_filters()`에 3개 컷 추가**: `Config.max_pct_above_52w_low`(기본 0.10, 즉
+  52주 저점 대비 +10% 초과 시 배제), `Config.min_eps_growth_5y`(기본 0.0, 5년 EPS CAGR이
+  0% 이하면 배제), REIT 배제(GICS Sub-Industry에 "REIT" 포함 시 배제). 세 조건 모두
+  결측(NaN)이면 "충족 여부를 알 수 없다"는 원칙으로 보수적으로 배제 처리한다(통과 조건이 아니라
+  배제 조건으로 코딩 — `~(cond)` 형태).
+- **ETF 제외는 별도 로직 없이 자연히 충족됨**: 유니버스가 위키피디아 S&P 500/400/600
+  "구성종목(constituents)" 표 기반이라 애초에 지수 편입 종목(주식)만 존재하고 ETF는
+  포함되지 않는다. 죽은 코드를 추가하지 않기 위해 이 사실만 UI 설명에 문서화하고 별도
+  필터 로직은 두지 않았다.
+- **5년 EPS 성장률 데이터**: Finnhub `epsGrowth5Y`(5년 EPS CAGR, %) 필드를 라이브 API
+  호출로 실측 확인 후 사용(예: AAPL epsGrowth5Y=17.91). "5년 전보다 이익 증가"를 CAGR
+  부호(> 0)로 근사 판정한다 — 정확한 5년전 단일시점 EPS 대비 비교가 아니라 5년 추세의
+  방향성 근사치임을 알아둘 것.
+- **REIT 판별을 위해 `wiki_universe.py`에 GICS Sub-Industry 컬럼 신규 파싱**: 기존
+  `sector`(GICS Sector, 예: "Real Estate")만으로는 REIT과 일반 부동산관리회사를 구분할 수
+  없어, 더 세분화된 GICS Sub-Industry(예: "Retail REITs", "Office REITs")를 별도
+  `sub_industry` 컬럼으로 추가 파싱했다. 라이브 확인 결과 S&P 500/400/600 위키 표 3개 모두
+  "GICS Sub-Industry" 헤더로 일관되게 존재.
+- **"52주 신저가 근접 종목" 별도 섹션은 완전히 삭제**: `run_real()`의 `near_52w_low` export,
+  `web/app/page.tsx`의 두 번째 `ScreeningTable` 섹션, `ScreeningTable`의
+  `defaultSortKey`/`defaultSortDir` prop을 모두 되돌렸다. 이제 메인 목록 자체가 "저점 근처 +
+  이익 성장 + REIT 제외" 조건을 만족하는 종목만 담는다.
+
+### 영향받는 범위
+`screening/us_alpha.py`(Config에 필드 2개 추가, `apply_hard_filters`에 컷 3개 추가,
+`load_real`의 캐시 스키마 가드에 `eps_growth_5y`/`sub_industry` 추가, `run_real`에서
+`near_52w_low` export 제거, `make_demo`에 대응 합성 컬럼 추가), `screening/data_pipeline.py`
+(`fetch_finance_one`에 `eps_growth_5y` 필드 추가), `screening/wiki_universe.py`
+(`sub_industry` 컬럼 신규 파싱), `screening/stock_profile.py`(AI 프로필 프롬프트 라벨),
+`web/app/AlgorithmInfo.tsx`·`web/app/page.tsx`·`web/app/ScreeningTable.tsx`,
+`.github/workflows/daily-screen.yml`(재무+유니버스 캐시 키 v3→v4, 신규 스키마로 강제
+재구축). 재무 캐시뿐 아니라 유니버스 캐시도 스키마가 바뀌므로(`sub_industry` 신규 컬럼)
+`load_real()`은 두 캐시 모두에 대해 구버전 거부 가드를 둔다.

@@ -27,17 +27,13 @@ export default function ScreeningTable({
   columns,
   labels,
   rows,
-  defaultSortKey = "score",
-  defaultSortDir = "desc",
 }: {
   columns: string[];
   labels: Record<string, string>;
   rows: ResultRow[];
-  defaultSortKey?: string;
-  defaultSortDir?: "asc" | "desc";
 }) {
-  const [sortKey, setSortKey] = useState<string>(defaultSortKey);
-  const [sortDir, setSortDir] = useState<"asc" | "desc">(defaultSortDir);
+  const [sortKey, setSortKey] = useState<string>("score");
+  const [sortDir, setSortDir] = useState<"asc" | "desc">("desc");
   const [liveRows, setLiveRows] = useState<ResultRow[]>(rows);
   const [priceAsOf, setPriceAsOf] = useState<string | null>(null);
   const [priceLoading, setPriceLoading] = useState(false);

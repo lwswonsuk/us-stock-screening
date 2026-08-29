@@ -7,11 +7,12 @@ import wiki_universe
 _FAKE_HTML = """
 <html><body>
 <table class="wikitable sortable" id="constituents">
-<thead><tr><th>Symbol</th><th>Security</th><th>GICS Sector</th></tr></thead>
+<thead><tr><th>Symbol</th><th>Security</th><th>GICS Sector</th><th>GICS Sub-Industry</th></tr></thead>
 <tbody>
-<tr><td>AAPL</td><td>Apple Inc.</td><td>Information Technology</td></tr>
-<tr><td>MSFT</td><td>Microsoft Corp.</td><td>Information Technology</td></tr>
-<tr><td>BRK.B</td><td>Berkshire Hathaway</td><td>Financials</td></tr>
+<tr><td>AAPL</td><td>Apple Inc.</td><td>Information Technology</td><td>Technology Hardware</td></tr>
+<tr><td>MSFT</td><td>Microsoft Corp.</td><td>Information Technology</td><td>Systems Software</td></tr>
+<tr><td>BRK.B</td><td>Berkshire Hathaway</td><td>Financials</td><td>Multi-line Insurance</td></tr>
+<tr><td>O</td><td>Realty Income</td><td>Real Estate</td><td>Retail REITs</td></tr>
 </tbody>
 </table>
 </body></html>
@@ -34,9 +35,11 @@ def test_fetch_index_table_parses_wikitable(monkeypatch):
 
     df = wiki_universe.fetch_index_table("https://en.wikipedia.org/wiki/fake")
 
-    assert list(df["ticker"]) == ["AAPL", "MSFT", "BRK.B"]
+    assert list(df["ticker"]) == ["AAPL", "MSFT", "BRK.B", "O"]
     assert "name" in df.columns
     assert df.loc[df["ticker"] == "AAPL", "name"].iloc[0] == "Apple Inc."
+    assert "sub_industry" in df.columns
+    assert df.loc[df["ticker"] == "O", "sub_industry"].iloc[0] == "Retail REITs"
 
 
 def test_get_universe_combines_and_dedupes(monkeypatch, tmp_path):

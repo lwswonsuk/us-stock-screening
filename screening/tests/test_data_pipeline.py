@@ -57,6 +57,7 @@ def test_fetch_finance_one_computes_op_margin_and_debt_ratio(monkeypatch):
             "payoutRatioTTM": 15.0,                   # 이미 퍼센트
             "revenueGrowthTTMYoy": 8.0,                # 이미 퍼센트
             "netInterestCoverageTTM": 12.5,            # 배수, 변환 불필요
+            "epsGrowth5Y": 17.91,                      # 5년 EPS CAGR(%), 변환 불필요
         },
     )
     row = fetch_finance_one("AAPL")
@@ -65,6 +66,7 @@ def test_fetch_finance_one_computes_op_margin_and_debt_ratio(monkeypatch):
     assert row["roe_3y_avg"] == 15.0
     assert row["debt_ratio"] == 80.0
     assert row["interest_coverage"] == 12.5
+    assert row["eps_growth_5y"] == 17.91
     assert row["op_margin"] == 22.0
     assert row["per"] == 18.0
     assert row["pbr"] == 6.0

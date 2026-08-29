@@ -32,7 +32,7 @@ _METRIC_LABELS = {
     "per": "PER", "pbr": "PBR", "roe_3y_avg": "ROE(3년평균%)",
     "interest_coverage": "이자보상배율(배)", "div_yield": "배당수익률(%)",
     "payout_ratio_pct": "배당성향(%)", "buyback_rate_pct": "자사주매입률(%)",
-    "score": "종합점수",
+    "pct_above_52w_low_pct": "52주 저점대비(%)", "score": "종합점수",
 }
 
 MAX_ATTEMPTS = 2

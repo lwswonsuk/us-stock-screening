@@ -12,7 +12,8 @@ def _base_row(**overrides):
         "ret_12m": 0.05, "drawdown_52w": 0.15, "op_yoy": 0.08, "rev_yoy": 0.05,
         "rev_cagr_3y": 0.06, "years_no_rev_decline": 3,
         "payout_ratio": 0.20, "net_cash_to_mktcap": 0.05, "buyback_rate": 0.01,
-        "sector": "Technology",
+        "sector": "Technology", "sub_industry": "Application Software",
+        "pct_above_52w_low": 0.05, "eps_growth_5y": 10.0,
     }
     row.update(overrides)
     return row
@@ -44,6 +45,40 @@ def test_apply_hard_filters_passes_healthy_stock():
     df = pd.DataFrame([_base_row()], index=["OK"])
     out = apply_hard_filters(df, Config())
     assert out.loc["OK", "passed"] == True
+
+
+def test_apply_hard_filters_excludes_stock_far_from_52w_low():
+    df = pd.DataFrame([_base_row(pct_above_52w_low=0.35)], index=["FAR"])
+    out = apply_hard_filters(df, Config())
+    assert out.loc["FAR", "passed"] == False
+    assert out.loc["FAR", "filter_reason"] == "52주저점근접아님"
+
+
+def test_apply_hard_filters_excludes_stock_earning_less_than_5y_ago():
+    df = pd.DataFrame([_base_row(eps_growth_5y=-5.0)], index=["SHRINKING"])
+    out = apply_hard_filters(df, Config())
+    assert out.loc["SHRINKING", "passed"] == False
+    assert out.loc["SHRINKING", "filter_reason"] == "5년전보다이익감소"
+
+
+def test_apply_hard_filters_excludes_reit():
+    df = pd.DataFrame([_base_row(sub_industry="Retail REITs")], index=["REIT"])
+    out = apply_hard_filters(df, Config())
+    assert out.loc["REIT", "passed"] == False
+    assert out.loc["REIT", "filter_reason"] == "REIT제외"
+
+
+def test_apply_hard_filters_excludes_missing_52w_low_and_eps_growth_data():
+    """결측(NaN)은 조건 충족 여부를 알 수 없으므로 보수적으로 배제한다."""
+    import numpy as np
+
+    df = pd.DataFrame([_base_row(pct_above_52w_low=np.nan)], index=["NO_PRICE_HIST"])
+    out = apply_hard_filters(df, Config())
+    assert out.loc["NO_PRICE_HIST", "passed"] == False
+
+    df2 = pd.DataFrame([_base_row(eps_growth_5y=np.nan)], index=["NO_EPS_HIST"])
+    out2 = apply_hard_filters(df2, Config())
+    assert out2.loc["NO_EPS_HIST", "passed"] == False
 
 
 def test_composite_ranks_higher_quality_stock_first():

@@ -29,14 +29,17 @@ _HEADERS = {"User-Agent": "Mozilla/5.0 (screening-bot; contact: repo-owner)"}
 
 
 def fetch_index_table(url: str, symbol_col_candidates: list[str] | None = None) -> pd.DataFrame:
-    """위키피디아 구성종목 표를 파싱해 [ticker, name, sector] DataFrame으로 반환한다.
-    표 헤더 열 이름은 문서마다 조금씩 다를 수 있어 후보 목록 중 첫 매치를 사용한다."""
+    """위키피디아 구성종목 표를 파싱해 [ticker, name, sector, sub_industry] DataFrame으로 반환한다.
+    표 헤더 열 이름은 문서마다 조금씩 다를 수 있어 후보 목록 중 첫 매치를 사용한다.
+    sub_industry(GICS Sub-Industry)는 REIT 여부 판별용 — GICS Sector(예: "Real Estate")만으로는
+    REIT과 일반 부동산 관리·개발회사를 구분할 수 없어 더 세분화된 컬럼이 필요하다."""
     from bs4 import BeautifulSoup
 
     if symbol_col_candidates is None:
         symbol_col_candidates = ["Symbol", "Ticker symbol", "Ticker"]
     name_col_candidates = ["Security", "Company", "Name"]
-    sector_col_candidates = ["GICS Sector", "GICSSector", "GICS Sub-Industry", "Sector"]
+    sector_col_candidates = ["GICS Sector", "GICSSector", "Sector"]
+    sub_industry_col_candidates = ["GICS Sub-Industry", "GICS Sub Industry"]
 
     r = requests.get(url, timeout=30, headers=_HEADERS)
     r.raise_for_status()
@@ -70,6 +73,7 @@ def fetch_index_table(url: str, symbol_col_candidates: list[str] | None = None) 
     sym_idx = pick(symbol_col_candidates)
     name_idx = pick(name_col_candidates)
     sector_idx = pick(sector_col_candidates)
+    sub_industry_idx = pick(sub_industry_col_candidates)
     if sym_idx is None:
         raise RuntimeError(f"티커 컬럼을 찾지 못했습니다 (헤더: {headers})")
 
@@ -85,14 +89,18 @@ def fetch_index_table(url: str, symbol_col_candidates: list[str] | None = None) 
         ticker = cells[sym_idx].get_text(strip=True)
         name = cells[name_idx].get_text(strip=True) if name_idx is not None and len(cells) > name_idx else ""
         sector = cells[sector_idx].get_text(strip=True) if sector_idx is not None and len(cells) > sector_idx else ""
+        sub_industry = (
+            cells[sub_industry_idx].get_text(strip=True)
+            if sub_industry_idx is not None and len(cells) > sub_industry_idx else ""
+        )
         if ticker:
-            rows.append({"ticker": ticker, "name": name, "sector": sector})
+            rows.append({"ticker": ticker, "name": name, "sector": sector, "sub_industry": sub_industry})
 
     return pd.DataFrame(rows)
 
 
 def get_universe(force: bool = False, max_age_days: int = 7) -> pd.DataFrame:
-    """S&P 500+400+600 합산 유니버스를 반환한다. index=ticker, columns=[name, sector].
+    """S&P 500+400+600 합산 유니버스를 반환한다. index=ticker, columns=[name, sector, sub_industry].
     캐시가 max_age_days 이내로 신선하면 재사용, 아니면(또는 force=True) 3개 위키피디아
     문서를 다시 파싱해 캐시를 갱신한다."""
     if not force and UNIVERSE_CACHE.exists():

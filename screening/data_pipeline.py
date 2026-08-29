@@ -80,6 +80,7 @@ def fetch_finance_one(ticker: str) -> dict:
     payout_ratio_pct = g("payoutRatioTTM")
     rev_yoy_pct = g("revenueGrowthTTMYoy")
     interest_coverage = g("netInterestCoverageTTM")   # 배수(예: 12.5) — 변환 불필요, 값이 클수록 부채 상환여력 좋음
+    eps_growth_5y = g("epsGrowth5Y")   # 5년 EPS CAGR(%, 예: 17.91) — 양수면 "5년 전보다 이익 증가"로 판정
 
     roe_3y_avg = roe                      # 이미 퍼센트
     debt_ratio = np.nan if np.isnan(debt_equity) else debt_equity * 100   # 소수 → 퍼센트 (참고용, 스코어링엔 미사용)
@@ -106,6 +107,7 @@ def fetch_finance_one(ticker: str) -> dict:
         "roe_3y_std": np.nan,
         "debt_ratio": debt_ratio,
         "interest_coverage": interest_coverage,
+        "eps_growth_5y": eps_growth_5y,
         "op_margin": op_margin_pct,
         "op_ttm": op_margin,   # 부호만 사용하는 흑자/적자 판별용 프록시 (KOSPI판 이식 시 동일 패턴)
         "op_yoy": op_yoy,
@@ -182,7 +184,7 @@ def build_finance_cache(force: bool = False, sleep_sec: float = 2.2) -> pd.DataF
 
 def get_full_universe(sleep_sec: float = 1.1) -> pd.DataFrame:
     """유니버스 종목의 실시간 시세(quote)를 결합한 DataFrame. index=ticker.
-    columns=[name, sector, price, market_cap, avg_volume].
+    columns=[name, sector, sub_industry, price, market_cap, avg_volume].
     시가총액은 분기 재무 캐시의 발행주식수(백만 주) × 당일 현재가로 계산한다.
     종목당 get_quote 1회만 호출하므로 Finnhub 무료 티어(분당 60건) 한도를 지키기 위해
     종목 사이에 sleep_sec만큼 대기한다 (기본값 1.1초 → 약 55콜/분)."""
