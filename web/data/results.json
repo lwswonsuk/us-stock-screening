@@ -1,7 +1,7 @@
 {
-  "as_of_date": "20261010",
+  "as_of_date": "20261011",
   "financial_year": null,
-  "generated_at": "2026-10-10T02:06:34.869665+00:00",
+  "generated_at": "2026-10-11T01:21:33.027034+00:00",
   "quote_text": "훌륭한 경영진이 이끄는 성장 기업을 찾아, 오래 보유하라.",
   "quote_author": "Philip Fisher",
   "universe_total": 1501,
@@ -53,13 +53,13 @@
       "pct_above_52w_low_pct": 4.9322,
       "score": 0.7427,
       "profile": {
-        "business": "FIS는 금융 서비스 산업을 위한 기술 솔루션과 소프트웨어를 제공하는 글로벌 기업입니다. 결제 처리, 뱅킹 시스템, 자본시장 솔루션 등 다양한 금융 IT 서비스를 은행, 증권사, 보험사 등에 공급합니다.",
-        "sector": "금융 정보기술(Financial Technology/Software)",
-        "products": "결제 처리 플랫폼, 뱅킹 소프트웨어, 자본시장 솔루션, 사이버보안 서비스",
+        "business": "FIS(Fidelity National Information Services)는 금융 서비스 업계를 위한 기술 솔루션과 결제 처리 서비스를 제공하는 글로벌 기업입니다. 은행, 보험, 투자 회사 등을 대상으로 소프트웨어, IT 아웃소싱, 결제 시스템 등을 공급합니다.",
+        "sector": "금융 기술(FinTech) / 금융 서비스 소프트웨어",
+        "products": "Core banking systems, Payment processing, Digital banking solutions, Fraud detection systems",
         "competitors": [
           "SS&C Technologies",
-          "Temenos",
-          "ACI Worldwide"
+          "Jack Henry & Associates",
+          "Temenos"
         ]
       }
     },
@@ -79,13 +79,13 @@
       "pct_above_52w_low_pct": 0.2493,
       "score": 0.7148,
       "profile": {
-        "business": "TBBK(The Bancorp, Inc.)는 미국의 지역 금융 회사입니다. 주로 상업 및 소비자 대출, 예금 등 일반적인 은행 업무를 영위하고 있습니다.",
-        "sector": "금융 / 은행",
-        "products": "상업대출, 소비자대출, 저축예금, 기타 은행 금융 상품",
+        "business": "TBBK는 미국의 지역 커뮤니티 은행으로, 소비자 및 기업 고객을 대상으로 예금, 대출, 금융 서비스를 제공합니다. 주로 지역 시장에 중점을 두고 전통적인 은행 서비스를 영위합니다.",
+        "sector": "금융/은행",
+        "products": "예금, 대출, 모기지, 기업금융 서비스",
         "competitors": [
-          "Axial Bancorp",
-          "Republic Bancorp",
-          "WSFS Financial Corporation"
+          "비정상적인 ROE와 PER을 고려할 때 지역 은행 경쟁사들",
+          "KB Financial Group 유사 규모의 커뮤니티 뱅크",
+          "지역 금융기관"
         ]
       }
     },
@@ -105,13 +105,13 @@
       "pct_above_52w_low_pct": 3.3176,
       "score": 0.7031,
       "profile": {
-        "business": "First Solar는 태양광 발전 솔루션을 개발하고 제조하는 기업입니다. 박막형 태양전지(Thin-film photovoltaic) 기술을 기반으로 태양광 모듈과 시스템을 생산하며, 대규모 태양광 발전소 프로젝트를 개발합니다.",
-        "sector": "재생에너지/청정에너지",
-        "products": "박막형 태양광 모듈(CdTe 기술)",
+        "business": "First Solar는 태양광 발전 솔루션을 개발하고 제조하는 신재생에너지 회사입니다. 박막 태양광 모듈 생산과 태양광 발전소 프로젝트 개발 및 운영을 주요 사업으로 합니다.",
+        "sector": "신재생에너지/태양광",
+        "products": "박막 태양광 모듈, 태양광 발전 시스템",
         "competitors": [
+          "NextEra Energy Resources",
           "Canadian Solar",
-          "JinkoSolar",
-          "JA Solar"
+          "JinkoSolar"
         ]
       }
     },
@@ -131,9 +131,9 @@
       "pct_above_52w_low_pct": 7.4412,
       "score": 0.6831,
       "profile": {
-        "business": "EIX(Edison International)는 Southern California Edison을 통해 캘리포니아 남부 지역에 전기와 가스를 공급하는 유틸리티 회사입니다. 규제된 에너지 공급 사업을 주력으로 하며, 재생에너지 전환과 전력망 현대화에 투자하고 있습니다.",
-        "sector": "유틸리티(Utilities) - 전기/가스",
-        "products": "전기, 천연가스, 에너지 관련 서비스",
+        "business": "EIX(Edison International)는 남부 캘리포니아를 중심으로 전력 및 가스 유틸리티 서비스를 제공하는 에너지 회사입니다. 주로 Southern California Edison(SCE)을 통해 주거, 상업, 산업 고객에게 전기와 천연가스를 공급합니다.",
+        "sector": "유틸리티(전력/에너지)",
+        "products": "전력(전기), 천연가스",
         "competitors": [
           "NextEra Energy",
           "Duke Energy",
@@ -157,12 +157,12 @@
       "pct_above_52w_low_pct": 4.151,
       "score": 0.6753,
       "profile": {
-        "business": "OZK(즉, Bank of the Ozarks)는 미국의 지역 중심 상업은행입니다. 주로 중소기업 대출, 상업용 부동산 금융, 소비자 금융 등을 제공합니다.",
+        "business": "OZK(Ozark Bancshares)는 미국 중부 지역 중심의 지역 은행입니다. 예금 수취, 대출, 금융 서비스 등 전통적인 은행 업무를 영위하고 있습니다.",
         "sector": "금융/은행",
-        "products": "상업대출, 부동산담보대출, 소비자금융, 예금상품",
+        "products": "예금 상품, 대출 상품, 투자 서비스, 재산 관리",
         "competitors": [
-          "Synovus Financial Corp",
-          "Zions Bancorporation",
+          "Regional Management Corp",
+          "Umpqua Holdings Corporation",
           "Cullen/Frost Bankers"
         ]
       }
@@ -183,9 +183,9 @@
       "pct_above_52w_low_pct": 5.8109,
       "score": 0.6701,
       "profile": {
-        "business": "EVR(Evercore Inc.)은 투자은행, 자산관리, 컨설팅 서비스를 제공하는 금융 서비스 회사입니다. 기관투자자와 기업 클라이언트를 대상으로 M&A 자문, 자본시장 중개, 부의 관리 등 다양한 금융 서비스를 영위하고 있습니다.",
-        "sector": "금융 서비스(Financial Services)",
-        "products": "투자은행 자문, 자산관리, 증권 중개, 기업 금융 컨설팅",
+        "business": "Evercore Inc.는 독립적인 투자은행 및 자산관리 회사입니다. 기업 자문, 인수합병(M&A) 중개, 자산관리 서비스를 주요 사업으로 영위하고 있습니다.",
+        "sector": "금융 서비스 / 투자은행",
+        "products": "M&A 자문, 인수합병 중개, 자산관리, 기업 재무 자문",
         "competitors": [
           "Goldman Sachs",
           "Morgan Stanley",
@@ -209,9 +209,9 @@
       "pct_above_52w_low_pct": 0.0,
       "score": 0.6653,
       "profile": {
-        "business": "미국 최대 규모의 케이블 통신 회사로 인터넷, TV, 전화 등 통신 서비스를 제공합니다. 광범위한 네트워크 인프라를 통해 주거 및 상업 고객에게 브로드밴드 및 엔터테인먼트 서비스를 제공합니다.",
-        "sector": "통신/미디어",
-        "products": "Spectrum 인터넷, Spectrum TV, Spectrum 모바일",
+        "business": "CHTR(Charter Communications)는 미국의 주요 케이블 통신 회사로 인터넷, TV, 전화 서비스를 제공합니다. Spectrum 브랜드로 가정 및 기업용 브로드밴드 서비스를 운영하고 있습니다.",
+        "sector": "통신",
+        "products": "Spectrum(인터넷, TV, 전화 서비스)",
         "competitors": [
           "Comcast",
           "AT&T",
@@ -235,13 +235,13 @@
       "pct_above_52w_low_pct": 0.0,
       "score": 0.6643,
       "profile": {
-        "business": "APAM(Artisan Partners Asset Management)은 독립적인 투자 운용사로 기관투자자, 개인투자자를 위한 자산운용 서비스를 제공합니다. 뮤추얼펀드, ETF, 별도계정(SMA) 등 다양한 투자상품을 운용하고 있습니다.",
-        "sector": "금융서비스/자산운용",
-        "products": "뮤추얼펀드, ETF, 별도계정관리(SMA)",
+        "business": "APAM은 아랍에미리트 기반의 글로벌 자산운용사입니다. 중동, 아시아, 유럽 등 다양한 지역에서 자산관리 및 투자 운용 서비스를 제공합니다.",
+        "sector": "금융/자산운용",
+        "products": "자산운용, 투자펀드, 자산관리 서비스",
         "competitors": [
-          "Invesco",
-          "Federated Hermes",
-          "Virtus Investment Partners"
+          "Blackstone",
+          "KKR",
+          "Apollo Global Management"
         ]
       }
     },
@@ -261,13 +261,13 @@
       "pct_above_52w_low_pct": 5.7492,
       "score": 0.6636,
       "profile": {
-        "business": "WAFD(Washington Federal)는 미국 태평양 북서부를 중심으로 한 지역 은행입니다. 주로 개인 및 중소기업 고객을 대상으로 예금, 대출, 모기지 등 전통적인 은행 서비스를 제공합니다.",
-        "sector": "금융/은행",
-        "products": "예금, 대출, 모기지, 신용카드",
+        "business": "WAFD(Washington Federal)는 미국 태평양 북서부를 중심으로 영업하는 지역 은행 회사입니다. 개인 및 기업 고객을 대상으로 예금, 대출, 금융 서비스를 제공합니다.",
+        "sector": "금융 / 은행",
+        "products": "저축 계좌, 예금, 주택담보대출, 상업대출, 소비자 금융",
         "competitors": [
           "U.S. Bancorp",
-          "Wells Fargo",
-          "Zions Bancorporation"
+          "Zions Bancorporation",
+          "Umpqua Holdings"
         ]
       }
     },
@@ -287,12 +287,12 @@
       "pct_above_52w_low_pct": 1.5179,
       "score": 0.6594,
       "profile": {
-        "business": "McCormick은 세계 최대 규모의 향신료, 조미료, 향료 제조 및 유통 회사입니다. 식품 제조업체, 외식업체, 소비자 등 다양한 고객에게 제품을 공급하고 있습니다.",
-        "sector": "Consumer Staples / Food Products",
-        "products": "McCormick 향신료, French's 소스, Frank's RedHot, Lawry's 양념, Zatarain's 조미료",
+        "business": "McCormick & Company는 향신료, 조미료, 식품 첨가물을 제조 및 판매하는 글로벌 식품 기업입니다. 소비자용 향신료 제품부터 산업용 식품 재료까지 다양한 포트폴리오를 보유하고 있습니다.",
+        "sector": "Consumer Staples - Food Manufacturing",
+        "products": "McCormick 향신료, French's 머스터드, Frank's RedHot 소스, Lawry's 조미료, Zatarain's 크리올 음식",
         "competitors": [
           "Mondelez International",
-          "Nestlé",
+          "General Mills",
           "Conagra Brands"
         ]
       }
@@ -313,13 +313,13 @@
       "pct_above_52w_low_pct": 8.124,
       "score": 0.6577,
       "profile": {
-        "business": "CASH는 금융 서비스 및 결제 솔루션을 제공하는 핀테크 기업입니다. 디지털 결제, 송금, 자금 관리 등 다양한 금융 서비스를 제공합니다.",
-        "sector": "금융 서비스 / 핀테크",
-        "products": "디지털 결제 플랫폼, 송금 서비스, 자금 관리 솔루션",
+        "business": "CASH는 온라인 카지노 및 게임 플랫폼을 운영하는 기업입니다. 인터넷 기반의 도박 및 엔터테인먼트 서비스를 제공합니다.",
+        "sector": "온라인 게임/도박",
+        "products": "온라인 카지노 플랫폼",
         "competitors": [
-          "Square",
-          "PayPal",
-          "Block Inc."
+          "Draft Kings",
+          "Penn Entertainment",
+          "Sportech PLC"
         ]
       }
     },
@@ -339,14 +339,14 @@
       "pct_above_52w_low_pct": 6.941,
       "score": 0.6571,
       "profile": {
-        "business": "Deckers Brands는 프리미엄 풋웨어 및 의류 제품을 설계, 마케팅, 판매하는 글로벌 라이프스타일 회사입니다. 직소유 소매점, 온라인 채널, 도매업체를 통해 다양한 브랜드의 제품을 고객에게 공급합니다.",
-        "sector": "Consumer Discretionary - Footwear & Apparel",
+        "business": "Deckers Brands는 프리미엄 풋웨어 및 의류를 디자인, 마케팅, 유통하는 기업입니다. 주로 라이선스 및 자체 브랜드를 통해 고급 신발과 액세서리를 판매하고 있습니다.",
+        "sector": "Consumer Discretionary / Footwear & Apparel",
         "products": "UGG, HOKA, Teva, Sanuk",
         "competitors": [
           "Nike",
           "Adidas",
-          "VF Corporation",
-          "Crocs"
+          "Skechers",
+          "Wolverine World Wide"
         ]
       }
     },
@@ -366,13 +366,13 @@
       "pct_above_52w_low_pct": 0.0,
       "score": 0.6551,
       "profile": {
-        "business": "BOOT는 The Timberland Company의 모기업인 Wolverine World Wide의 자회사로, 프리미엄 신발 및 부츠를 전문으로 하는 풋웨어 기업입니다. 영국을 중심으로 유럽 시장에서 강한 입지를 가지고 있으며, 온라인 및 소매점을 통해 전 세계적으로 판매합니다.",
-        "sector": "Consumer Discretionary / Footwear",
-        "products": "부츠, 캐주얼 슈즈, 신발",
+        "business": "미국의 신발 및 부츠 소매 기업입니다. 전문 부츠와 워크웨어 제품을 판매하며 오프라인 매장과 온라인 채널을 통해 운영됩니다.",
+        "sector": "소비자 재량(Consumer Discretionary) / 소매(Retail)",
+        "products": "BOOT 브랜드 부츠, 워크부츠, 캐주얼 부츠",
         "competitors": [
-          "Nike",
-          "Adidas",
-          "Dr. Martens"
+          "Wolverine Worldwide",
+          "Rocky Brands",
+          "Red Wing Shoes"
         ]
       }
     },
@@ -392,13 +392,13 @@
       "pct_above_52w_low_pct": 4.8315,
       "score": 0.6473,
       "profile": {
-        "business": "Netflix는 구독 기반의 스트리밍 비디오 온디맨드(SVOD) 서비스를 제공하는 글로벌 엔터테인먼트 기업입니다. 영화, 드라마, 다큐멘터리 등 다양한 콘텐츠를 자체 제작하고 라이선싱하여 전 세계 고객들에게 제공합니다.",
-        "sector": "엔터테인먼트/미디어",
-        "products": "Netflix 스트리밍 플랫폼",
+        "business": "Netflix는 구독 기반의 온라인 스트리밍 서비스를 제공하는 엔터테인먼트 플랫폼입니다. 영화, TV 시리즈, 다큐멘터리 등 다양한 콘텐츠를 제공하며, 자체 제작 콘텐츠(오리지널)에 투자하고 있습니다.",
+        "sector": "미디어 및 엔터테인먼트",
+        "products": "Netflix 스트리밍 플랫폼 (기본, 표준, 프리미엄 구독 플랜)",
         "competitors": [
           "Disney+",
           "Amazon Prime Video",
-          "HBO Max"
+          "Max (구 HBO Max)"
         ]
       }
     },
@@ -418,13 +418,13 @@
       "pct_above_52w_low_pct": 7.9265,
       "score": 0.6442,
       "profile": {
-        "business": "CINF는 Cincinnati Financial Corporation으로, 미국 중서부와 남동부를 중심으로 재산보험, 상해보험 및 생명보험을 제공하는 지역 보험회사입니다. 개인고객과 기업고객을 대상으로 자동차보험, 주택보험, 배상책임보험 등 다양한 보험상품을 제공합니다.",
-        "sector": "보험(Insurance)",
-        "products": "자동차보험, 주택보험, 배상책임보험, 생명보험",
+        "business": "Cincinnati Financial Corporation(CINF)는 재산보험, 손해보험, 생명보험 등을 제공하는 종합 보험회사입니다. 미국 중서부를 중심으로 개인 및 소규모 사업체를 대상으로 보험상품을 판매하고 있습니다.",
+        "sector": "금융/보험",
+        "products": "Cincinnati Insurance, The Cincinnati Insurance Company",
         "competitors": [
-          "State Auto Financial",
-          "Hanover Insurance Group",
-          "Heritage Insurance Holdings"
+          "Allstate Corporation (ALL)",
+          "Progressive Corporation (PGR)",
+          "Travelers Companies (TRV)"
         ]
       }
     },
@@ -444,13 +444,13 @@
       "pct_above_52w_low_pct": 8.2634,
       "score": 0.6434,
       "profile": {
-        "business": "동물 건강 및 의약품 제조업체로, 반려동물과 축산동물을 위한 의약품, 백신, 진단 제품 등을 개발·생산·판매합니다. 수의학 서비스 및 관련 기술 솔루션도 제공합니다.",
-        "sector": "헬스케어/제약/수의학",
-        "products": "반려동물 의약품, 축산동물 백신, 수의학 진단 제품 및 기기",
+        "business": "동물 건강 관리 솔루션을 제공하는 글로벌 기업입니다. 반려동물 의약품, 백신, 진단용 제품 및 기타 동물 의료 제품을 개발·제조·판매합니다.",
+        "sector": "헬스케어 / 동물 의약품",
+        "products": "심장사상충 예방약, 백신, 진단 기기, 동물용 의약품",
         "competitors": [
-          "Merck Animal Health",
           "Boehringer Ingelheim",
-          "Elanco Animal Health"
+          "Merck Animal Health",
+          "Elanco"
         ]
       }
     },
@@ -470,13 +470,13 @@
       "pct_above_52w_low_pct": 8.4321,
       "score": 0.6429,
       "profile": {
-        "business": "FHB는 플로리다 지역을 기반으로 하는 지역 은행으로, 개인 및 소규모 기업을 대상으로 예금, 대출, 투자 등의 전통적인 뱅킹 서비스를 제공합니다. 지역 커뮤니티 중심의 은행 영업을 전개하고 있습니다.",
+        "business": "FHB는 플로리다 지역 기반의 지역 은행으로, 개인 및 중소기업 고객을 대상으로 예금, 대출, 기타 금융 서비스를 제공합니다. 지역 커뮤니티에 밀착한 은행 업무를 중심으로 영위하고 있습니다.",
         "sector": "금융/은행",
-        "products": "예금 상품, 개인대출, 중소기업대출, 투자 서비스",
+        "products": "예금, 대출, 체크 계좌, 저축 상품, 신용 서비스",
         "competitors": [
-          "BB&T",
-          "SunTrust Banks",
-          "Regions Financial"
+          "Flushing Bank",
+          "Sterling Bancorp",
+          "Eastern Bank"
         ]
       }
     },
@@ -496,13 +496,13 @@
       "pct_above_52w_low_pct": 1.9973,
       "score": 0.6382,
       "profile": {
-        "business": "HBAN(Huntington Bancshares)은 미국 중서부와 동부 지역을 중심으로 영업하는 지역 은행 지주회사입니다. 상업금융, 소비자금융, 투자 서비스 등 종합 금융 서비스를 제공합니다.",
+        "business": "HBAN(Huntington Bancshares)은 미국 중서부를 중심으로 한 지역 은행 지주회사입니다. 상업금융, 소비자금융, 자산관리 등 종합적인 금융서비스를 제공합니다.",
         "sector": "금융/은행",
-        "products": "예금, 대출, 모기지, 신용카드, 투자 자문",
+        "products": "예금, 대출, 신용카드, 모기지, 투자자문, 자산관리",
         "competitors": [
+          "PNC Financial Services",
           "KeyCorp",
-          "Fifth Third Bancorp",
-          "PNC Financial Services"
+          "Fifth Third Bancorp"
         ]
       }
     },
@@ -522,13 +522,13 @@
       "pct_above_52w_low_pct": 4.2407,
       "score": 0.6377,
       "profile": {
-        "business": "SFM(Sprouts Farmers Market)은 자연식, 유기농, 건강식품을 전문으로 하는 소매 체인점입니다. 신선한 농산물, 식료품, 건강 보조제 등을 판매하며 건강 지향적 소비자를 대상으로 합니다.",
-        "sector": "소매업(Retail) / 식품소매",
-        "products": "유기농 농산물, 자연식품, 건강식품, 비타민/보충제, 신선식품",
+        "business": "SFM은 농업용 기계 및 장비를 제조·판매하는 회사입니다. 주로 소규모 농장과 원예 관련 사업자를 대상으로 혁신적인 농기계 솔루션을 제공합니다.",
+        "sector": "산업재/농업기계",
+        "products": "정원용 기계, 야드 정리 장비, 소형 농기계",
         "competitors": [
-          "Whole Foods Market",
-          "Natural Grocers",
-          "The Fresh Market"
+          "Deere & Company",
+          "AGCO Corporation",
+          "Briggs & Stratton"
         ]
       }
     },
@@ -548,9 +548,9 @@
       "pct_above_52w_low_pct": 0.0982,
       "score": 0.6373,
       "profile": {
-        "business": "CRH는 건축자재 및 건설제품 제조·유통 회사입니다. 시멘트, 콘크리트, 골재, 아스팔트 등 건설 관련 제품을 생산하고 판매하며, 유럽과 북미 지역에서 주요 사업을 영위하고 있습니다.",
-        "sector": "건설자재/건설용품",
-        "products": "시멘트, 콘크리트, 골재, 아스팔트, 건축자재",
+        "business": "CRH는 건설자재 및 광물 채취 사업을 영위하는 글로벌 기업입니다. 시멘트, 골재, 준성형 콘크리트 등 건설 관련 제품을 생산·판매하며, 북미, 유럽, 아일랜드 등에서 광범위하게 사업을 운영합니다.",
+        "sector": "건설자재/광물채취",
+        "products": "시멘트, 골재, 준성형 콘크리트, 건설자재",
         "competitors": [
           "Vulcan Materials",
           "Martin Marietta Materials",
@@ -574,13 +574,13 @@
       "pct_above_52w_low_pct": 0.4458,
       "score": 0.6349,
       "profile": {
-        "business": "Atmus Motus는 자동차 산업을 위한 첨단 모션 제어 솔루션과 전동화 기술을 개발 및 공급하는 기업입니다. 전기차 및 하이브리드 차량의 파워트레인 시스템에 필수적인 부품과 기술을 제공합니다.",
-        "sector": "자동차 부품/자동차 전장",
-        "products": "전동 구동계 솔루션, 모션 제어 시스템, 전기차 파워트레인 부품",
+        "business": "Artemis Investment Management는 자산운용사로서 기관투자자 및 개인투자자를 위한 포트폴리오 관리 서비스를 제공합니다. 주로 고정수익, 주식, 멀티에셋 전략을 통해 자산을 운용하고 있습니다.",
+        "sector": "금융/자산운용",
+        "products": "포트폴리오 관리 서비스, 뮤추얼펀드, ETF",
         "competitors": [
-          "Borgwarner",
-          "Dana Incorporated",
-          "Linamar Corporation"
+          "BlackRock",
+          "Vanguard",
+          "Fidelity"
         ]
       }
     },
@@ -600,13 +600,13 @@
       "pct_above_52w_low_pct": 7.0956,
       "score": 0.6335,
       "profile": {
-        "business": "IBOC는 은행 및 금융 서비스를 제공하는 지주회사입니다. 미국 내 커뮤니티 은행 운영을 중심으로 예금, 대출, 투자 등 다양한 금융 상품을 취급합니다.",
-        "sector": "금융/은행",
-        "products": "예금 상품, 대출 상품, 투자 서비스, 재정 자문",
+        "business": "IBOC는 커뮤니티 뱅킹 및 금융 서비스를 제공하는 지역 은행입니다. 대출, 예금, 금융 상품 등 전통적인 뱅킹 서비스를 통해 지역 고객 기반을 대상으로 사업을 영위합니다.",
+        "sector": "금융 서비스 / 지역은행",
+        "products": "예금, 대출, 신용카드, 투자 상품",
         "competitors": [
-          "JPMorgan Chase",
-          "Bank of America",
-          "Wells Fargo"
+          "M&T Bank",
+          "Cullen/Frost Bankers",
+          "Prosperity Bancshares"
         ]
       }
     },
@@ -626,13 +626,13 @@
       "pct_above_52w_low_pct": 0.0,
       "score": 0.6331,
       "profile": {
-        "business": "Cirrus Logic는 음향 및 음성 신호처리 반도체를 설계하고 제조하는 회사입니다. 주로 스마트폰, 태블릿, 노트북 등 모바일 기기의 오디오 코덱과 앰프 칩을 공급합니다.",
-        "sector": "반도체/칩 설계",
-        "products": "오디오 코덱, 디지털 신호처리 칩, 스마트 앰프",
+        "business": "Cirrus Logic는 오디오 및 음성 처리 기술을 중심으로 반도체 솔루션을 개발 및 판매하는 기업입니다. 스마트폰, 태블릿, 노트북 등 소비자 전자기기에 탑재되는 고성능 오디오 칩과 음성 인식 기술을 공급합니다.",
+        "sector": "반도체",
+        "products": "오디오 칩셋, 디지털 신호 처리 칩, 음성 처리 솔루션",
         "competitors": [
           "Qualcomm",
           "Realtek",
-          "Wolfson Microelectronics"
+          "NXP Semiconductors"
         ]
       }
     },
@@ -652,13 +652,13 @@
       "pct_above_52w_low_pct": 2.8629,
       "score": 0.6316,
       "profile": {
-        "business": "FISV(Fiserv)는 금융 서비스 업체를 대상으로 결제, 뱅킹, 보험 솔루션을 제공하는 글로벌 핀테크 기업입니다. 금융기관의 디지털 전환을 지원하는 소프트웨어와 서비스를 통해 수익을 창출합니다.",
-        "sector": "정보기술(IT) / 금융기술(Fintech)",
-        "products": "Fiserv DNA(은행 운영 플랫폼), 결제 처리 솔루션, Core Banking System",
+        "business": "FISV(Fiserv)는 금융기관을 위한 결제 처리, 핀테크 솔루션, 디지털 뱅킹 서비스를 제공하는 기업입니다. 전 세계 은행, 신용조합, 결제 회사 등 금융기관을 대상으로 소프트웨어 및 서비스를 공급합니다.",
+        "sector": "정보기술(Information Technology) / 금융기술(FinTech)",
+        "products": "결제 처리 플랫폼, 디지털 뱅킹 솔루션, 핀테크 서비스, CheckFree",
         "competitors": [
-          "FIS(Fidelity National Information Services)",
+          "FIS",
           "SS&C Technologies",
-          "ACI Worldwide"
+          "Jack Henry & Associates"
         ]
       }
     },
@@ -678,13 +678,13 @@
       "pct_above_52w_low_pct": 0.0,
       "score": 0.6257,
       "profile": {
-        "business": "익스포디아는 여행 예약 및 관광 서비스 플랫폼을 운영하는 회사입니다. 항공편, 호텔, 렌터카, 투어 등 다양한 여행 상품을 온라인으로 예약할 수 있는 통합 플랫폼을 제공합니다.",
-        "sector": "여행/관광 기술(Travel & Tourism Technology)",
+        "business": "익스피디아는 온라인 여행 예약 플랫폼으로 항공편, 호텔, 자동차 렌탈, 투어 및 액티비티 등 다양한 여행 상품을 제공합니다. B2C 및 B2B 채널을 통해 전 세계 고객들에게 여행 서비스를 중개합니다.",
+        "sector": "소비자 주기 / 온라인 여행 및 예약",
         "products": "Expedia.com, Hotels.com, Vrbo, Trivago",
         "competitors": [
-          "Booking Holdings",
-          "Trip.com Group",
-          "Airbnb"
+          "Booking.com",
+          "Airbnb",
+          "Trip.com"
         ]
       }
     },
@@ -704,13 +704,13 @@
       "pct_above_52w_low_pct": 0.0,
       "score": 0.6219,
       "profile": {
-        "business": "CMCSA(Comcast)는 미국 최대 규모의 미디어 및 기술 인프라 회사입니다. 케이블 통신, 인터넷, 비디오 서비스 제공과 함께 엔터테인먼트 콘텐츠 제작 및 배급 사업을 운영합니다.",
-        "sector": "통신 및 미디어",
-        "products": "Xfinity(케이블/인터넷/TV), CNBC, NBC, Sky(유럽 위성방송)",
+        "business": "미국 최대 규모의 미디어 및 통신 기업 중 하나. 케이블 TV, 인터넷, 전화 서비스를 제공하는 통신 사업과 영화, TV 프로그램 제작 및 배급을 담당하는 미디어 사업을 영위합니다.",
+        "sector": "통신/미디어",
+        "products": "Comcast Cable Communications(케이블 서비스), Xfinity(인터넷/TV 브랜드), NBCUniversal(미디어/엔터테인먼트)",
         "competitors": [
           "Charter Communications",
           "AT&T",
-          "Verizon"
+          "Verizon Communications"
         ]
       }
     },
@@ -730,13 +730,13 @@
       "pct_above_52w_low_pct": 4.0291,
       "score": 0.6217,
       "profile": {
-        "business": "BKNG(Booking Holdings)는 전 세계 여행 예약 플랫폼을 운영하는 기업입니다. 호텔, 항공사, 렌터카, 투어 등 다양한 여행 서비스를 온라인으로 중개하며, 광고 및 부킹 수수료를 통해 수익을 창출합니다.",
-        "sector": "소비재/여행/온라인 플랫폼",
-        "products": "Booking.com, Agoda, Kayak, Rentalcars.com",
+        "business": "온라인 여행 예약 플랫폼으로 호텔, 항공권, 렌터카, 관광 액티비티 등 다양한 여행 상품을 제공합니다. 전 세계 고객을 대상으로 여행 관련 서비스를 중개하고 있습니다.",
+        "sector": "온라인 여행 및 관광",
+        "products": "Booking.com, Agoda, Rentalcars.com, Kayak",
         "competitors": [
           "Expedia",
-          "TripAdvisor",
-          "Airbnb"
+          "Airbnb",
+          "Tripadvisor"
         ]
       }
     },
@@ -756,13 +756,13 @@
       "pct_above_52w_low_pct": 2.6296,
       "score": 0.6201,
       "profile": {
-        "business": "CPRT(Carpetright)는 영국 및 유럽을 중심으로 카펫, 바닥재, 윈도우 트리트먼트 등 바닥재 및 인테리어 제품을 소매하는 기업입니다. 오프라인 매장을 통한 직접 판매와 온라인 채널을 운영하고 있습니다.",
-        "sector": "소비재/소매(Consumer Discretionary/Retail)",
-        "products": "카펫, 층재, 비닐타일, 라미네이트, 윈도우 블라인드",
+        "business": "CPRT(Carpetright)는 영국의 대형 카펫 및 바닥재 소매업체입니다. 주택 소유자와 임차인을 대상으로 카펫, 라미네이트, 비닐, 타일 등 다양한 바닥재 제품을 판매하고 설치 서비스를 제공합니다.",
+        "sector": "소비재 / 소매업",
+        "products": "카펫, 라미네이트, 비닐 바닥재, 타일, 바닥재 설치 서비스",
         "competitors": [
-          "Dunelm Group",
-          "Next",
-          "John Lewis"
+          "B&M European Value Retail",
+          "Dunelm",
+          "Wickes"
         ]
       }
     },
@@ -782,13 +782,13 @@
       "pct_above_52w_low_pct": 2.3358,
       "score": 0.6188,
       "profile": {
-        "business": "파이퍼 샌드러(Piper Sandler)는 중형 투자은행 및 증권회사로 인수합병 자문, 자본시장 서비스, 자산운용 등을 제공합니다. 특히 중견기업 및 금융기관 대상 인베스트먼트 뱅킹 서비스에 강점을 가지고 있습니다.",
-        "sector": "금융 서비스/증권",
-        "products": "M&A 자문, 인수합병 중개, 자본시장 서비스, 자산운용",
+        "business": "파이퍼 샌드러 (Piper Sandler)는 중형 투자은행 및 증권사로, 기업금융, 자본시장, 자산관리 등 다양한 금융 서비스를 제공합니다. 특히 중견 기업과 금융기관을 대상으로 M&A 자문, 인수인계 중개, 주식인수 등의 업무를 수행합니다.",
+        "sector": "금융/투자은행",
+        "products": "기업금융 자문, 자본시장 서비스, 자산관리, M&A 중개",
         "competitors": [
-          "Piper Sandler Companies",
           "Raymond James Financial",
-          "Stifel Financial"
+          "Stifel Financial",
+          "Evercore"
         ]
       }
     },
@@ -808,13 +808,13 @@
       "pct_above_52w_low_pct": 2.7283,
       "score": 0.6186,
       "profile": {
-        "business": "BANF(Bancorp Financial Corp)는 미국의 지역 금융기관으로 은행 및 금융 서비스를 제공합니다. 주로 중소기업과 개인고객을 대상으로 대출, 예금, 투자 서비스 등을 영위하고 있습니다.",
+        "business": "BANF(Banco Latinoamericano de Exportaciones)는 라틴아메리카 지역의 수출입 금융 및 무역금융 서비스를 제공하는 국제 개발 금융기관입니다. 라틴아메리카 국가들의 수출업체와 수입업체에 대출, 무역신용, 환전 등의 금융 솔루션을 제공합니다.",
         "sector": "금융/은행",
-        "products": "예금, 대출, 투자상품, 금융 서비스",
+        "products": "수출입금융, 무역금융, 기업대출, 환전 서비스",
         "competitors": [
-          "JPMorgan Chase",
-          "Bank of America",
-          "Wells Fargo"
+          "IDB Invest",
+          "CAF(Corporación Andina de Fomento)",
+          "ICBC"
         ]
       }
     },
@@ -834,13 +834,13 @@
       "pct_above_52w_low_pct": 3.6867,
       "score": 0.6179,
       "profile": {
-        "business": "PODD(Insulet Corporation)는 인슐린 전달 장치를 개발·제조하는 의료기기 회사입니다. 주력 제품인 OmniPod는 튜브 없는 패치형 인슐린 펌프로, 당뇨병 환자들의 혈당 관리를 돕습니다.",
-        "sector": "의료기기(Healthcare - Medical Devices)",
-        "products": "OmniPod(무튜브 인슐린 펌프), OmniPod DASH, OmniPod 5",
+        "business": "인슐린 펌프 및 당뇨병 관리 솔루션을 개발·판매하는 의료기기 회사입니다. 지속적 포도당 모니터링 시스템과 인슐린 주입 펌프를 통해 당뇨병 환자의 치료를 지원합니다.",
+        "sector": "의료기기(Medical Devices)",
+        "products": "Omnipod 인슐린 펌프, Dexcom와의 협력 기반 통합 솔루션",
         "competitors": [
           "Medtronic",
-          "Tandem Diabetes Care",
-          "Abbott"
+          "Abbott",
+          "Tandem Diabetes"
         ]
       }
     },
@@ -860,13 +860,13 @@
       "pct_above_52w_low_pct": 2.6118,
       "score": 0.6172,
       "profile": {
-        "business": "Green Brick Partners는 미국의 주거용 건설 회사로, 단독주택 및 다가구 주택 건설 및 판매를 주요 사업으로 영위하고 있습니다. 텍사스, 애리조나, 콜로라도 등 미국 남서부 지역을 중심으로 사업을 전개하고 있습니다.",
-        "sector": "주거 건설/부동산",
-        "products": "단독주택, 다가구 주택",
+        "business": "GRBK(Greenbrick Homes)는 미국의 주택건설업체입니다. 텍사스와 애리조나 등 주요 지역에서 단독주택과 townhome을 건설 및 판매하며, 주택 구매자들을 위한 금융 서비스도 제공합니다.",
+        "sector": "주택건설/부동산",
+        "products": "단독주택, Townhome, 주택 금융 서비스",
         "competitors": [
           "Lennar Corporation",
-          "D.R. Horton",
-          "KB Home"
+          "PulteGroup",
+          "D.R. Horton"
         ]
       }
     },
@@ -886,13 +886,13 @@
       "pct_above_52w_low_pct": 4.1189,
       "score": 0.6153,
       "profile": {
-        "business": "O Reilly Automotive Inc.(ORI)는 미국 최대 규모의 자동차 부품 소매업체입니다. 자동차 수리 및 유지보수에 필요한 부품, 도구, 용품을 온라인과 오프라인 매장을 통해 판매합니다.",
-        "sector": "Specialty Retail / 자동차 부품 유통",
-        "products": "자동차 부품, 엔진오일, 필터, 배터리, 자동차 액세서리, 공구 및 정비용품",
+        "business": "Old Republic International은 보험 서비스를 제공하는 회사로, 주로 배상책임보험, 근로자보상보험, 기타 일반보험 상품을 취급합니다. 미국 내 주택담보대출 보험 시장에서 주요 업체로 활동하고 있습니다.",
+        "sector": "보험",
+        "products": "배상책임보험, 근로자보상보험, 주택담보대출보험(Title Insurance)",
         "competitors": [
-          "AutoZone Inc.(AZO)",
-          "Advance Auto Parts Inc.(AAP)",
-          "NAPA Auto Parts"
+          "MGIC Investment Corporation",
+          "Radian Group",
+          "Assurant"
         ]
       }
     },
@@ -912,13 +912,13 @@
       "pct_above_52w_low_pct": 2.8515,
       "score": 0.6148,
       "profile": {
-        "business": "Lululemon Athletica는 프리미엄 요가 및 운동 의류 전문 브랜드입니다. 직영점, 온라인, 멀티채널을 통해 고가의 애슬레틱 웨어를 판매합니다.",
-        "sector": "Consumer Discretionary / Apparel & Footwear",
-        "products": "Lululemon 요가복, 운동 바지(Align, On The Fly), 운동복",
+        "business": "LULU는 요가 및 운동복 전문 소매업체입니다. 고급 애슬레저 의류와 라이프스타일 제품을 설계하고 판매하며, 직영점과 온라인 채널을 통해 글로벌 시장에서 사업을 영위하고 있습니다.",
+        "sector": "소비재/의류 및 애슬레저",
+        "products": "Lululemon(요가복, 운동복, 라이프스타일 의류)",
         "competitors": [
           "Nike",
           "Adidas",
-          "Athleta"
+          "Under Armour"
         ]
       }
     },
@@ -938,9 +938,9 @@
       "pct_above_52w_low_pct": 6.3774,
       "score": 0.6108,
       "profile": {
-        "business": "PJT는 투자 은행 및 금융 자문 서비스를 제공하는 회사입니다. 기업 인수합병(M&A), 자본 구조 조정, 재정 자문 등 다양한 금융 컨설팅 서비스를 전문으로 합니다.",
-        "sector": "금융 서비스/투자 은행",
-        "products": "M&A 자문, 리스트럭처링 자문, 캐피탈 마켓 서비스",
+        "business": "PJT는 Perceptron의 이전 명칭인 PJT Partners로, 글로벌 투자은행 및 자문 서비스를 제공하는 기업입니다. M&A 자문, 인수합병 중개, 기업재무 자문 등 다양한 투자은행 서비스를 중점으로 운영합니다.",
+        "sector": "금융 서비스 / 투자은행",
+        "products": "M&A 자문, 기업재무 자문, 인수합병 중개",
         "competitors": [
           "Goldman Sachs",
           "Morgan Stanley",
@@ -964,13 +964,13 @@
       "pct_above_52w_low_pct": 2.0245,
       "score": 0.6106,
       "profile": {
-        "business": "MWA는 미국의 폐수 처리 및 환경 서비스 회사입니다. 산업용 폐수 처리, 물 재활용, 환경 컨설팅 등 다양한 환경 관련 솔루션을 제공합니다.",
-        "sector": "환경 서비스/폐기물 관리",
-        "products": "폐수 처리 시스템, 물 재활용 기술, 환경 컨설팅 서비스",
+        "business": "MWA는 미국의 폐수 처리 및 환경 서비스 기업입니다. 산업 및 상업용 폐수 처리 솔루션을 제공하며, 환경 규제 준수 서비스를 통해 고객사들을 지원합니다.",
+        "sector": "환경/폐기물 관리",
+        "products": "폐수 처리 시스템, 환경 컨설팅 서비스",
         "competitors": [
-          "Veolia",
+          "Veolia Environment",
           "Suez",
-          "Waste Management"
+          "Waste Management Inc."
         ]
       }
     },
@@ -990,13 +990,13 @@
       "pct_above_52w_low_pct": 0.0,
       "score": 0.6095,
       "profile": {
-        "business": "ABG는 다양한 산업 분야에서 사업을 영위하는 다각화된 지주회사입니다. 금융, 에너지, 부동산 등 여러 섹터에서 자산을 보유하고 운영하고 있습니다.",
-        "sector": "지주회사/복합기업",
-        "products": "다양한 자회사 및 투자 자산 포트폴리오",
+        "business": "ABG(Asbury Automotive Group)는 미국 내 자동차 소매 및 서비스를 제공하는 자동차 딜러십 운영 회사입니다. 신차 및 중고차 판매, 정비 및 부품 판매 등 통합적인 자동차 소매 서비스를 영위하고 있습니다.",
+        "sector": "자동차 소매업(Automotive Retail)",
+        "products": "신차 판매, 중고차 판매, 자동차 정비 및 수리 서비스, 자동차 부품",
         "competitors": [
-          "BRK.B",
-          "BAM",
-          "RY"
+          "Lithia Motors",
+          "CarMax",
+          "Cox Automotive"
         ]
       }
     },
@@ -1016,13 +1016,13 @@
       "pct_above_52w_low_pct": 4.976,
       "score": 0.6078,
       "profile": {
-        "business": "Virtus Investment Partners는 글로벌 자산운용 회사로, 기관투자자 및 개인투자자를 위한 다양한 투자상품과 포트폴리오 관리 서비스를 제공합니다. 뮤추얼펀드, ETF, 별도계정 운용 등을 통해 자산관리 솔루션을 주요 사업으로 영위하고 있습니다.",
+        "business": "Virtus Investment Partners는 투자 자산 관리 회사로, 기관투자자 및 개인투자자를 위한 다양한 뮤추얼펀드, ETF, 그리고 맞춤형 포트폴리오 관리 서비스를 제공합니다. 여러 독립적인 투자 자문사들의 자산을 통합하여 관리하는 멀티-매니저 플랫폼을 운영하고 있습니다.",
         "sector": "금융 서비스 / 자산운용",
-        "products": "뮤추얼펀드, ETF, 별도계정운용(Separately Managed Accounts)",
+        "products": "뮤추얼펀드, ETF, 매니지드 포트폴리오, 헤지펀드",
         "competitors": [
-          "BlackRock",
-          "Vanguard",
-          "Fidelity"
+          "Artisan Partners",
+          "Affiliated Managers Group",
+          "Federated Hermes"
         ]
       }
     },
@@ -1042,13 +1042,13 @@
       "pct_above_52w_low_pct": 1.6425,
       "score": 0.6068,
       "profile": {
-        "business": "GenTex Corporation(GNTX)는 자동차 부품 제조사로, 자동조광 거울, 실내 카메라, 조명 제어 시스템 등을 개발 및 생산합니다. 주로 자동차 OEM 업체에 부품을 공급하는 1차 납기업체입니다.",
-        "sector": "자동차 부품/자동차 소재",
-        "products": "자동조광 거울, 실내 비전 시스템, 조명 제어 모듈, 카메라 모듈",
+        "business": "젠텍스(Gentex)는 자동차용 전자 거울 및 조명 제품을 제조하는 회사입니다. 주로 자동차 OEM 및 Tier-1 공급업체를 대상으로 스마트 미러, LED 조명 시스템 등을 공급하고 있습니다.",
+        "sector": "자동차 부품 / Automotive Suppliers",
+        "products": "자동조절 거울(Auto-dimming mirrors), LED 조명 시스템, 전자 거울 기술",
         "competitors": [
-          "Gentex competitor in auto mirrors and camera systems",
           "Magna International",
-          "Valeo"
+          "Visteon",
+          "Aptiv"
         ]
       }
     },
@@ -1068,13 +1068,13 @@
       "pct_above_52w_low_pct": 1.2374,
       "score": 0.6067,
       "profile": {
-        "business": "COLL은 미국의 부동산 관련 기업으로, 주로 부동산 개발 및 운영 사업을 영위합니다. 부동산 포트폴리오 관리 및 임대료 수익을 통해 사업을 운영하고 있습니다.",
-        "sector": "부동산(Real Estate)",
-        "products": "부동산 개발, 임대 부동산, 부동산 운영",
+        "business": "COLL은 미국의 부동산 투자회사(REIT)로 주거용 부동산에 투자하고 임대료 수익을 창출합니다. 주로 단독주택과 소규모 주거시설을 보유하고 운영합니다.",
+        "sector": "부동산(Real Estate) / REIT",
+        "products": "주거용 부동산 임대 서비스",
         "competitors": [
-          "SPG",
-          "PLD",
-          "DLR"
+          "AMH",
+          "INVH",
+          "MGP"
         ]
       }
     },
@@ -1094,13 +1094,13 @@
       "pct_above_52w_low_pct": 0.1109,
       "score": 0.6055,
       "profile": {
-        "business": "Mizuho Financial Group의 자회사로 금융 서비스 및 투자 관리 사업을 영위합니다. 자산관리, 신탁, 증권 관련 금융 서비스를 제공합니다.",
-        "sector": "금융/자산관리",
-        "products": "투자신탁, 자산관리 서비스, 신탁 상품",
+        "business": "의료 기기 및 진단 솔루션을 개발·제조하는 기업입니다. 주로 심혈관 질환 진단 및 치료 관련 의료 기기를 공급합니다.",
+        "sector": "헬스케어 / 의료기기",
+        "products": "심혈관 진단 기기, 의료 영상 솔루션",
         "competitors": [
-          "Nomura Holdings",
-          "Daiwa Securities",
-          "SMBC Nikko Securities"
+          "Philips Healthcare",
+          "GE Healthcare",
+          "Siemens Healthineers"
         ]
       }
     },
@@ -1120,13 +1120,13 @@
       "pct_above_52w_low_pct": 5.5165,
       "score": 0.6046,
       "profile": {
-        "business": "HIG는 재산보험 및 손해보험 사업을 주요 사업으로 영위하는 글로벌 보험회사입니다. 주택보험, 자동차보험, 상업용보험 등 다양한 보험상품을 제공합니다.",
+        "business": "HIG는 미국 최대 규모의 보험회사 중 하나로, 재산보험, 상해보험, 생명보험 등 다양한 보험 상품을 제공합니다. 개인 및 기업 고객을 대상으로 보험 상품 판매 및 보험금 지급 업무를 수행합니다.",
         "sector": "금융/보험",
-        "products": "주택보험(Homeowners Insurance), 자동차보험(Auto Insurance), 상업용보험(Commercial Insurance)",
+        "products": "홈 인슈어런스, 자동차 보험, 상해보험, 생명보험",
         "competitors": [
           "State Farm",
           "Allstate",
-          "Progressive"
+          "GEICO"
         ]
       }
     },
@@ -1146,13 +1146,13 @@
       "pct_above_52w_low_pct": 3.2657,
       "score": 0.6044,
       "profile": {
-        "business": "SR은 강철 및 철강 제품 제조 및 유통을 주요 사업으로 합니다. 건설, 자동차, 에너지 등 다양한 산업에 고품질의 철강재를 공급합니다.",
-        "sector": "소재/철강",
-        "products": "철강재, 강판, 구조용 강재",
+        "business": "SR은 철강 및 금속 제품 제조업체입니다. 주로 자동차, 건설, 에너지 등 산업용 강철 제품을 생산하고 판매합니다.",
+        "sector": "기초금속/철강",
+        "products": "강철 코일, 판재, 구조용 강재",
         "competitors": [
-          "United States Steel (X)",
-          "Nucor (NUE)",
-          "Cleveland-Cliffs (CLF)"
+          "US Steel",
+          "Nucor",
+          "Cleveland-Cliffs"
         ]
       }
     },
@@ -1172,13 +1172,13 @@
       "pct_above_52w_low_pct": 3.3975,
       "score": 0.6042,
       "profile": {
-        "business": "FBK는 Facebook의 모회사인 Meta Platforms의 이전 ティ커명입니다. 현재는 META로 변경되었으며, 소셜 미디어, 광고 플랫폼, 메타버스 기술 개발 등을 주요 사업으로 영위합니다.",
-        "sector": "정보기술/소셜 미디어/광고 기술",
-        "products": "Facebook, Instagram, WhatsApp, Oculus(Meta Quest)",
+        "business": "FBK는 미국의 금융서비스 회사입니다. 주로 은행 및 금융 상품을 제공하는 지역 금융기관입니다.",
+        "sector": "금융/은행",
+        "products": "예금, 대출, 투자상품 등 일반 은행 서비스",
         "competitors": [
-          "Google/Alphabet",
-          "Amazon",
-          "TikTok/ByteDance"
+          "JPMorgan Chase",
+          "Bank of America",
+          "Wells Fargo"
         ]
       }
     },
@@ -1198,13 +1198,13 @@
       "pct_above_52w_low_pct": 8.3633,
       "score": 0.6038,
       "profile": {
-        "business": "AFL은 미국 최대 규모의 보험회사 중 하나로, 재산보험 및 손해보험을 주요 사업으로 영위하고 있습니다. 자동차보험, 주택보험 등 개인용 보험과 상업용 보험을 제공합니다.",
+        "business": "AFL은 미국의 대형 손해보험 회사로, 자동차보험, 주택보험, 상용보험 등 다양한 보험 상품을 제공합니다. 주로 미국 남부와 중서부 지역에서 강한 시장점유율을 유지하고 있습니다.",
         "sector": "금융/보험",
-        "products": "자동차보험, 주택보험, 상업보험, 생명보험",
+        "products": "자동차보험, 주택보험, 상용보험, 생명보험",
         "competitors": [
           "State Farm",
-          "Allstate Corporation",
-          "Progressive Corporation"
+          "Allstate",
+          "Progressive"
         ]
       }
     },
@@ -1224,13 +1224,13 @@
       "pct_above_52w_low_pct": 3.2891,
       "score": 0.6036,
       "profile": {
-        "business": "Lakeland Financial Corporation은 지역 기반의 은행 지주회사로, 인디애나와 인접 지역에서 커뮤니티 은행 서비스를 제공합니다. 개인 및 기업 고객을 대상으로 대출, 예금, 금융 서비스를 영위하고 있습니다.",
+        "business": "Lakeland Financial Corporation은 인디애나 주 기반의 지역 은행 지주회사입니다. 상업용 및 소비자 금융 서비스를 제공하며, 대출, 예금, 투자 상품 등 전통적인 은행 업무를 영위합니다.",
         "sector": "금융/은행",
-        "products": "예금, 대출, 신용카드, 자산관리 서비스",
+        "products": "상업 대출, 소비자 대출, 저축 예금, 투자 서비스",
         "competitors": [
           "Old National Bancorp",
           "German American Bancorp",
-          "First Financial Bancorp"
+          "Horizon Bancorp"
         ]
       }
     },
@@ -1250,13 +1250,13 @@
       "pct_above_52w_low_pct": 0.5365,
       "score": 0.6034,
       "profile": {
-        "business": "펜실베이니아 철도(Pennsylvania Railroad)의 후신으로, 북미 지역의 화물 수송을 주력으로 하는 대형 철도 운송업체입니다. 철도를 통한 화물 운송 서비스로 에너지, 화학, 농산물 등 다양한 산업의 수송 수요를 담당하고 있습니다.",
-        "sector": "운수/물류",
-        "products": "철도 화물 운송 서비스",
+        "business": "항공우주 및 방위산업 부문에서 엔진, 시스템, 부품을 설계 및 제조하는 기업입니다. 상용항공, 군사, 산업용 가스터빈 등 다양한 분야에 제품을 공급하고 있습니다.",
+        "sector": "항공우주 및 방위",
+        "products": "항공엔진, 가스터빈, 항공기 시스템 및 부품",
         "competitors": [
-          "Union Pacific",
-          "CSX Corporation",
-          "Norfolk Southern"
+          "RTX Corporation",
+          "General Electric",
+          "Rolls-Royce"
         ]
       }
     },
@@ -1276,9 +1276,9 @@
       "pct_above_52w_low_pct": 0.4,
       "score": 0.6006,
       "profile": {
-        "business": "LII(Lennox International)는 건물 및 산업용 냉난방, 환기, 에어컨디셔닝(HVAC) 시스템을 제조 및 공급하는 기업입니다. 주거용, 상업용, 산업용 분야에서 에너지 효율적인 온실난방 솔루션을 제공합니다.",
-        "sector": "산업재/기계",
-        "products": "HVAC 시스템, 에어컨디셔닝 장비, 난방 시스템, 환기 솔루션",
+        "business": "LII(Lennox International)는 건물용 HVAC(난방, 환기, 냉방) 시스템, 냉동 장비, 건설용 도구를 제조 및 판매합니다. 주거 및 상업용 에어컨, 보일러, 열펌프 등 실내 환경 제어 솔루션을 공급합니다.",
+        "sector": "산업용 기계 및 장비 제조",
+        "products": "HVAC 시스템, 에어컨, 히트펌프, 제습기, 건설용 전동공구",
         "competitors": [
           "Carrier Global",
           "Trane Technologies",
@@ -1302,13 +1302,13 @@
       "pct_above_52w_low_pct": 0.0,
       "score": 0.5996,
       "profile": {
-        "business": "LCI Industries는 레크리에이션 차량(RV) 및 해양 제품용 부품과 액세서리를 제조 및 공급하는 회사입니다. OEM 및 애프터마켓 고객을 대상으로 다양한 제품을 공급하고 있습니다.",
-        "sector": "산업재/자동차 부품",
-        "products": "RV 부품, 캠핑용 액세서리, 해양 부품, 가구 및 실내 장식용품",
+        "business": "LCI Industries는 레크리에이션 차량(RV) 및 주거용 건설을 위한 부품 및 서비스를 공급하는 기업입니다. RV 제조업체, 해양 및 주거 건설 업계에 다양한 제품을 납품합니다.",
+        "sector": "자동차 부품 / 유통",
+        "products": "RV 부품, 레크리에이션 차량 부품, 주거용 건설 부품",
         "competitors": [
           "Wesco International",
-          "Applied Industrial Technologies",
-          "Anixter International"
+          "ScanSource",
+          "Tech Data"
         ]
       }
     },
@@ -1328,13 +1328,13 @@
       "pct_above_52w_low_pct": 9.2417,
       "score": 0.5985,
       "profile": {
-        "business": "CBU는 미국의 커뮤니티 뱅크입니다. 지역 기반의 금융 서비스를 제공하며 대출, 예금 등 전통적인 은행 업무를 영위하고 있습니다.",
-        "sector": "금융/은행",
-        "products": "예금, 대출, 투자 상품 등 일반 은행 서비스",
+        "business": "CBU(Cincinnati Bell)는 오하이오 주 신시내티를 중심으로 통신 서비스를 제공하는 지역 통신사입니다. 유선 인터넷, TV, 음성 통화 등 브로드밴드 서비스를 주요 사업으로 영위하고 있습니다.",
+        "sector": "통신",
+        "products": "고속 인터넷, 디지털 TV, 지역 음성 통화 서비스",
         "competitors": [
-          "Wells Fargo",
-          "U.S. Bancorp",
-          "Truist Financial"
+          "AT&T",
+          "Comcast",
+          "Charter Communications"
         ]
       }
     }
