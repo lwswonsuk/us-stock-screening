@@ -1,11 +1,11 @@
 {
-  "as_of_date": "20261018",
+  "as_of_date": "20261021",
   "financial_year": null,
-  "generated_at": "2026-10-18T00:24:45.710409+00:00",
-  "quote_text": "시장의 변덕이 아니라 기업의 가치를 사라.",
-  "quote_author": "Benjamin Graham",
+  "generated_at": "2026-10-21T01:04:17.082562+00:00",
+  "quote_text": "10년을 보유할 생각이 없다면 단 10분도 보유하지 마라.",
+  "quote_author": "Warren Buffett",
   "universe_total": 1501,
-  "universe_passed": 155,
+  "universe_passed": 167,
   "columns": [
     "name",
     "company_name",
@@ -41,8 +41,8 @@
       "stock_code": "TBBK",
       "name": "TBBK",
       "company_name": "The Bancorp, Inc.",
-      "mktcap_usd": 2064.848,
-      "price": 49.6,
+      "mktcap_usd": 2106.8943,
+      "price": 50.61,
       "per": 8.5436,
       "pbr": 4.2988,
       "roe_3y_avg": 32.32,
@@ -50,16 +50,16 @@
       "buyback_rate_pct": null,
       "div_yield": null,
       "payout_ratio_pct": null,
-      "pct_above_52w_low_pct": 3.0542,
-      "score": 0.7087,
+      "pct_above_52w_low_pct": 2.5971,
+      "score": 0.7102,
       "profile": {
-        "business": "TBBK(The Bridger Aerospace Group Holdings)는 항공우주 및 방위산업 분야에서 엔지니어링, 제조 및 수리 서비스를 제공하는 기업입니다. 군용 항공기와 민간 항공기의 부품 제조 및 정비 서비스를 주력으로 하고 있습니다.",
-        "sector": "항공우주 및 방위산업",
-        "products": "항공기 부품 제조, MRO(정비/수리/개선) 서비스",
+        "business": "The Bancorp, Inc.는 미국의 지역 금융기관으로 상업은행 및 금융서비스를 제공합니다. 디지털 뱅킹 및 소상공인 금융에 중점을 두고 있습니다.",
+        "sector": "금융/은행업",
+        "products": "상업대출, 예금상품, 소상공인 금융, 디지털 뱅킹 서비스",
         "competitors": [
-          "TransDigm Group",
-          "Ducommun",
-          "Esterline Technologies"
+          "Huntington Bancshares",
+          "Regions Financial",
+          "Truist Financial"
         ]
       }
     },
@@ -67,8 +67,8 @@
       "stock_code": "FSLR",
       "name": "FSLR",
       "company_name": "First Solar",
-      "mktcap_usd": 18550.168,
-      "price": 172.64,
+      "mktcap_usd": 18742.5035,
+      "price": 174.43,
       "per": 10.7607,
       "pbr": 2.939,
       "roe_3y_avg": 18.02,
@@ -76,16 +76,16 @@
       "buyback_rate_pct": null,
       "div_yield": null,
       "payout_ratio_pct": null,
-      "pct_above_52w_low_pct": 0.3079,
-      "score": 0.7055,
+      "pct_above_52w_low_pct": 0.0,
+      "score": 0.7037,
       "profile": {
-        "business": "First Solar는 태양광 발전 솔루션을 제공하는 재생에너지 기업입니다. 박막 태양전지 모듈 제조 및 태양광 프로젝트 개발을 주요 사업으로 영위하고 있습니다.",
-        "sector": "재생에너지/청정에너지",
+        "business": "FSLR(First Solar)은 태양광 발전 솔루션을 개발하고 제조하는 글로벌 재생에너지 기업입니다. 박막 태양전지 기술을 기반으로 태양광 모듈 생산 및 태양광 발전소 프로젝트 개발을 주력으로 합니다.",
+        "sector": "재생에너지/태양광",
         "products": "박막 태양전지 모듈, 태양광 발전 시스템",
         "competitors": [
-          "NextEra Energy",
           "Sunrun",
-          "Enphase Energy"
+          "NextEra Energy",
+          "Duke Energy"
         ]
       }
     },
@@ -93,8 +93,8 @@
       "stock_code": "EIX",
       "name": "EIX",
       "company_name": "Edison International",
-      "mktcap_usd": 21521.3047,
-      "price": 55.93,
+      "mktcap_usd": 21752.1787,
+      "price": 56.53,
       "per": 5.246,
       "pbr": 1.3138,
       "roe_3y_avg": 22.66,
@@ -102,16 +102,16 @@
       "buyback_rate_pct": null,
       "div_yield": 4.4799,
       "payout_ratio_pct": 35.13,
-      "pct_above_52w_low_pct": 8.6652,
-      "score": 0.6872,
+      "pct_above_52w_low_pct": 8.1795,
+      "score": 0.6895,
       "profile": {
-        "business": "EIX는 미국 캘리포니아 지역을 중심으로 전력을 생산, 송배전하는 유틸리티 회사입니다. 전기와 가스를 공급하며 재생에너지 전환 사업도 진행 중입니다.",
-        "sector": "유틸리티(Utilities)",
-        "products": "전력(Electricity), 천연가스(Natural Gas)",
+        "business": "EIX는 미국의 대형 전력회사로 전기 및 가스 유통을 주 사업으로 합니다. 캘리포니아 지역을 중심으로 수백만 명의 고객에게 에너지를 공급하고 있습니다.",
+        "sector": "유틸리티(전력/가스)",
+        "products": "전력, 천연가스",
         "competitors": [
-          "DUK (Duke Energy)",
-          "NEE (NextEra Energy)",
-          "SO (Southern Company)"
+          "NextEra Energy",
+          "Duke Energy",
+          "American Electric Power"
         ]
       }
     },
@@ -119,8 +119,8 @@
       "stock_code": "EVR",
       "name": "EVR",
       "company_name": "Evercore",
-      "mktcap_usd": 10485.8816,
-      "price": 254.08,
+      "mktcap_usd": 10404.167,
+      "price": 252.1,
       "per": 13.3298,
       "pbr": 6.4779,
       "roe_3y_avg": 39.83,
@@ -129,15 +129,15 @@
       "div_yield": 2.0694,
       "payout_ratio_pct": 20.14,
       "pct_above_52w_low_pct": 0.0,
-      "score": 0.6837,
+      "score": 0.6862,
       "profile": {
-        "business": "EVR은 엔지니어링 및 건설 서비스를 제공하는 기업입니다. 주로 에너지, 인프라, 산업 분야의 프로젝트 엔지니어링, 조달, 시공을 담당합니다.",
-        "sector": "건설/엔지니어링 서비스",
-        "products": "EPC(엔지니어링, 조달, 시공) 서비스, 프로세스 플랜트 설계 및 건설",
+        "business": "Evercore Inc.는 독립적인 투자은행 및 자산관리 회사입니다. 기업 자문, 인수합병 중개, 자산관리 및 투자 관련 서비스를 제공합니다.",
+        "sector": "금융/투자은행",
+        "products": "M&A 자문, 기업 재무 자문, 자산관리, 투자 관련 서비스",
         "competitors": [
-          "Bechtel",
-          "Fluor Corporation",
-          "TechnipFMC"
+          "Goldman Sachs",
+          "Morgan Stanley",
+          "Lazard"
         ]
       }
     },
@@ -145,8 +145,8 @@
       "stock_code": "APAM",
       "name": "APAM",
       "company_name": "Artisan Partners Asset Management, Inc.",
-      "mktcap_usd": 2617.4274,
-      "price": 32.29,
+      "mktcap_usd": 2671.7376,
+      "price": 32.96,
       "per": 9.826,
       "pbr": 7.4917,
       "roe_3y_avg": 72.85,
@@ -154,16 +154,42 @@
       "buyback_rate_pct": null,
       "div_yield": 7.0346,
       "payout_ratio_pct": 93.76,
-      "pct_above_52w_low_pct": 3.328,
-      "score": 0.6699,
+      "pct_above_52w_low_pct": 2.496,
+      "score": 0.6705,
       "profile": {
-        "business": "APAM(Artisan Partners Asset Management)은 독립적인 투자운용사로서 기관투자자, 개인투자자, 중개인을 위해 다양한 자산운용 서비스를 제공합니다. 주로 뮤추얼 펀드, ETF, 분리계정 운용 등을 통해 수익을 창출합니다.",
-        "sector": "금융 서비스/자산운용",
-        "products": "뮤추얼 펀드, ETF, 분리계정 운용 서비스",
+        "business": "APAM(Artisan Partners Asset Management)은 전문적인 자산관리 회사로, 기관투자자 및 개인투자자를 위한 투자자문 및 자산관리 서비스를 제공합니다. 주로 뮤추얼펀드, ETF, 분리계정 등 다양한 투자상품을 운용합니다.",
+        "sector": "금융/자산관리",
+        "products": "뮤추얼펀드, ETF, 분리계정, 투자자문 서비스",
         "competitors": [
-          "Invesco",
-          "WisdomTree",
-          "Federated Hermes"
+          "BlackRock",
+          "Vanguard",
+          "Invesco"
+        ]
+      }
+    },
+    {
+      "stock_code": "WAFD",
+      "name": "WAFD",
+      "company_name": "WaFd, Inc.",
+      "mktcap_usd": 2116.449,
+      "price": 28.62,
+      "per": 8.767,
+      "pbr": 0.7852,
+      "roe_3y_avg": 8.5,
+      "interest_coverage": null,
+      "buyback_rate_pct": null,
+      "div_yield": 3.7161,
+      "payout_ratio_pct": 37.3,
+      "pct_above_52w_low_pct": 0.0,
+      "score": 0.6689,
+      "profile": {
+        "business": "WAFD(Washington Federal Bank)는 미국 태평양 북서부 지역을 중심으로 영업하는 지역 금융기관입니다. 전통적인 은행 서비스인 예금, 대출, 모기지 상품 등을 제공합니다.",
+        "sector": "금융/은행",
+        "products": "예금상품, 모기지론, 개인대출, 기업대출",
+        "competitors": [
+          "Umpqua Holdings",
+          "Banner Corporation",
+          "Cascade Bancorp"
         ]
       }
     },
@@ -171,8 +197,8 @@
       "stock_code": "CHTR",
       "name": "CHTR",
       "company_name": "Charter Communications",
-      "mktcap_usd": 13133.9208,
-      "price": 110.11,
+      "mktcap_usd": 13124.3784,
+      "price": 110.03,
       "per": 3.9307,
       "pbr": 1.8843,
       "roe_3y_avg": 30.43,
@@ -180,12 +206,12 @@
       "buyback_rate_pct": null,
       "div_yield": null,
       "payout_ratio_pct": null,
-      "pct_above_52w_low_pct": 7.4454,
-      "score": 0.663,
+      "pct_above_52w_low_pct": 5.8841,
+      "score": 0.6632,
       "profile": {
-        "business": "CHTR(Charter Communications)는 미국의 주요 케이블 통신 회사로, 인터넷, TV, 음성 통신 서비스를 제공합니다. Spectrum 브랜드로 주택 및 사업체에 광대역 인터넷과 엔터테인먼트 서비스를 제공하고 있습니다.",
-        "sector": "통신/케이블",
-        "products": "Spectrum(인터넷, TV, 음성 서비스), Spectrum Mobile",
+        "business": "CHTR(Charter Communications)는 미국 최대 규모의 케이블 통신업체 중 하나입니다. 고속 인터넷, 텔레비전, 음성 통신 서비스를 제공하며, Spectrum 브랜드로 주로 알려져 있습니다.",
+        "sector": "통신 및 미디어",
+        "products": "Spectrum(인터넷, TV, 음성 서비스)",
         "competitors": [
           "Comcast",
           "AT&T",
@@ -194,37 +220,11 @@
       }
     },
     {
-      "stock_code": "WAFD",
-      "name": "WAFD",
-      "company_name": "WaFd, Inc.",
-      "mktcap_usd": 2155.6425,
-      "price": 29.15,
-      "per": 8.767,
-      "pbr": 0.7852,
-      "roe_3y_avg": 8.5,
-      "interest_coverage": null,
-      "buyback_rate_pct": null,
-      "div_yield": 3.7161,
-      "payout_ratio_pct": 37.3,
-      "pct_above_52w_low_pct": 3.8475,
-      "score": 0.6627,
-      "profile": {
-        "business": "WAFD(Washington Federal Inc.)는 미국 태평양 북서부 지역을 중심으로 하는 지역 은행입니다. 일반적인 은행 업무인 예금 수취, 대출, 기타 금융 서비스를 제공합니다.",
-        "sector": "금융/은행",
-        "products": "예금, 대출, 모기지, 신용카드, 기타 은행 금융 상품",
-        "competitors": [
-          "Wells Fargo",
-          "Bank of America",
-          "JP Morgan Chase"
-        ]
-      }
-    },
-    {
       "stock_code": "OZK",
       "name": "OZK",
       "company_name": "Bank OZK",
-      "mktcap_usd": 5044.1444,
-      "price": 46.12,
+      "mktcap_usd": 5048.5192,
+      "price": 46.16,
       "per": 7.273,
       "pbr": 0.8516,
       "roe_3y_avg": 11.21,
@@ -232,16 +232,16 @@
       "buyback_rate_pct": null,
       "div_yield": 3.568,
       "payout_ratio_pct": 31.66,
-      "pct_above_52w_low_pct": 8.1613,
-      "score": 0.6561,
+      "pct_above_52w_low_pct": 5.9803,
+      "score": 0.6596,
       "profile": {
-        "business": "OZK(Osage Royalty Company)는 석유 및 천연가스 광구에 대한 로열티 이익을 보유하고 있는 로열티 신탁입니다. 미국 내 유전 및 가스전에서 발생하는 로열티 수익을 주요 수익원으로 합니다.",
-        "sector": "에너지 - 석유 및 천연가스",
-        "products": "석유·천연가스 로열티 이익",
+        "business": "OZK(Bank of the Ozarks)는 미국 중부 지역을 중심으로 영업하는 지역 상업은행입니다. 대출, 예금, 자산관리 등 종합적인 금융 서비스를 제공합니다.",
+        "sector": "금융/은행업",
+        "products": "상업대출, 소비자대출, 저축예금, 자산관리, 신용카드",
         "competitors": [
-          "Permian Basin Royalty Trust",
-          "San Juan Basin Royalty Trust",
-          "Cross Timbers Royalty Trust"
+          "Synovus Financial Corp",
+          "Prosperity Bancshares",
+          "ServisFirst Bancshares"
         ]
       }
     },
@@ -249,8 +249,8 @@
       "stock_code": "BOOT",
       "name": "BOOT",
       "company_name": "Boot Barn Holdings, Inc.",
-      "mktcap_usd": 3685.6816,
-      "price": 121.72,
+      "mktcap_usd": 3492.798,
+      "price": 115.35,
       "per": 15.2171,
       "pbr": 3.2283,
       "roe_3y_avg": 18.78,
@@ -258,15 +258,15 @@
       "buyback_rate_pct": null,
       "div_yield": null,
       "payout_ratio_pct": null,
-      "pct_above_52w_low_pct": 7.8504,
-      "score": 0.6558,
+      "pct_above_52w_low_pct": 5.7593,
+      "score": 0.657,
       "profile": {
-        "business": "BOOT는 미국의 신발 및 의류 소매업체입니다. 주로 부츠, 운동화, 캐주얼 신발 등 다양한 신발 제품을 판매하며, 오프라인 매장과 온라인 채널을 통해 고객에게 제공합니다.",
-        "sector": "Retail/Footwear",
-        "products": "부츠, 운동화, 캐주얼 신발, 신발 관련 액세서리",
+        "business": "BOOT는 미국 신발 및 의류 소매 기업입니다. 오프라인 매장과 온라인 채널을 통해 신발, 부츠, 액세서리 등을 판매합니다.",
+        "sector": "소매업 (Retail) / 신발 및 패션",
+        "products": "부츠, 신발, 신발류 액세서리",
         "competitors": [
           "DSW (Designer Shoe Warehouse)",
-          "Famous Footwear",
+          "Foot Locker",
           "Dick's Sporting Goods"
         ]
       }
@@ -275,8 +275,8 @@
       "stock_code": "MKC",
       "name": "MKC",
       "company_name": "McCormick & Company",
-      "mktcap_usd": 12461.1975,
-      "price": 46.35,
+      "mktcap_usd": 12783.8175,
+      "price": 47.55,
       "per": 8.0394,
       "pbr": 3.1056,
       "roe_3y_avg": 25.42,
@@ -284,16 +284,16 @@
       "buyback_rate_pct": null,
       "div_yield": 2.348,
       "payout_ratio_pct": 30.86,
-      "pct_above_52w_low_pct": 5.0068,
-      "score": 0.6543,
+      "pct_above_52w_low_pct": 3.8967,
+      "score": 0.654,
       "profile": {
-        "business": "McCormick & Company는 전 세계적으로 향신료, 조미료, 조리 재료 등을 생산 및 판매하는 식품 회사입니다. B2B와 B2C 시장 모두에서 소비자 및 산업용 고객을 대상으로 사업을 영위하고 있습니다.",
+        "business": "McCormick는 전 세계적으로 향신료, 조미료, 식품 재료를 제조 및 판매하는 선도 기업입니다. 소비자 용도의 향신료부터 식품 제조업체용 재료까지 다양한 제품군을 보유하고 있습니다.",
         "sector": "Consumer Staples / Food & Beverage",
-        "products": "McCormick 향신료, French's 소스, Lawry's 시즈닝, Grill Mates 등",
+        "products": "McCormick 향신료, 조미료, Lawry's, French's, Zatarains, Frank's RedHot",
         "competitors": [
-          "Edgewell Personal Care",
-          "Conagra Brands",
-          "Kerry Group"
+          "Olam International",
+          "Givaudan",
+          "Sensient Technologies"
         ]
       }
     },
@@ -301,8 +301,8 @@
       "stock_code": "CASH",
       "name": "CASH",
       "company_name": "Pathward Financial, Inc.",
-      "mktcap_usd": 1532.9886,
-      "price": 72.93,
+      "mktcap_usd": 1553.9035,
+      "price": 73.925,
       "per": 8.3709,
       "pbr": 1.9642,
       "roe_3y_avg": 20.6,
@@ -310,12 +310,12 @@
       "buyback_rate_pct": null,
       "div_yield": 0.4023,
       "payout_ratio_pct": 2.51,
-      "pct_above_52w_low_pct": 9.7187,
-      "score": 0.6503,
+      "pct_above_52w_low_pct": 8.6806,
+      "score": 0.6508,
       "profile": {
-        "business": "CASH는 미국의 금융 서비스 회사입니다. 현금 관리 및 유동성 솔루션을 제공하는 핀테크 기업으로 알려져 있습니다.",
-        "sector": "금융 서비스/핀테크",
-        "products": "현금 관리 솔루션, 유동성 관리 서비스",
+        "business": "CASH는 현금 관리 및 유동성 솔루션을 제공하는 핀테크 기업입니다. 기업 및 개인의 현금 흐름 최적화와 자금 관리 서비스를 중심으로 운영합니다.",
+        "sector": "금융 기술(FinTech) / 현금 관리 솔루션",
+        "products": "현금 관리 플랫폼, 유동성 관리 도구, 기업 자금 관리 서비스",
         "competitors": [
           "Square",
           "PayPal",
@@ -327,8 +327,8 @@
       "stock_code": "BAC",
       "name": "BAC",
       "company_name": "Bank of America",
-      "mktcap_usd": 359530.6031,
-      "price": 51.23,
+      "mktcap_usd": 355390.0008,
+      "price": 50.64,
       "per": 11.38,
       "pbr": 1.3245,
       "roe_3y_avg": 11.13,
@@ -336,12 +336,12 @@
       "buyback_rate_pct": null,
       "div_yield": 3.2291,
       "payout_ratio_pct": 29.02,
-      "pct_above_52w_low_pct": 9.6532,
-      "score": 0.6452,
+      "pct_above_52w_low_pct": 7.8553,
+      "score": 0.6476,
       "profile": {
-        "business": "미국 최대 규모의 금융기관 중 하나로 상업은행, 투자은행, 자산관리 등 다양한 금융 서비스를 제공합니다. 전국적인 지점 네트워크를 통해 개인 고객과 기업 고객을 대상으로 금융 상품과 서비스를 운영합니다.",
-        "sector": "금융 / 은행업",
-        "products": "개인 및 기업 대출, 예금 상품, 신용카드, 자산관리, 투자은행 서비스",
+        "business": "뱅크 오브 아메리카(BAC)는 미국의 대형 종합 금융기관입니다. 상업금융, 투자금융, 자산관리 등 다양한 금융 서비스를 제공하고 있습니다.",
+        "sector": "금융 / 은행",
+        "products": "예금, 대출, 신용카드, 투자 상품, 자산관리 서비스",
         "competitors": [
           "JPMorgan Chase",
           "Wells Fargo",
@@ -353,8 +353,8 @@
       "stock_code": "NFLX",
       "name": "NFLX",
       "company_name": "Netflix",
-      "mktcap_usd": 293682.6882,
-      "price": 70.53,
+      "mktcap_usd": 286021.0386,
+      "price": 68.69,
       "per": 21.3831,
       "pbr": 16.0972,
       "roe_3y_avg": 47.96,
@@ -362,12 +362,12 @@
       "buyback_rate_pct": null,
       "div_yield": null,
       "payout_ratio_pct": null,
-      "pct_above_52w_low_pct": 5.1745,
-      "score": 0.6451,
+      "pct_above_52w_low_pct": 4.1605,
+      "score": 0.6457,
       "profile": {
-        "business": "Netflix는 구독 기반의 동영상 스트리밍 서비스를 제공하는 글로벌 미디어 엔터테인먼트 기업입니다. 자체 제작 콘텐츠와 라이선스 콘텐츠를 통해 영화, 드라마, 다큐멘터리 등 다양한 프로그래밍을 제공합니다.",
-        "sector": "미디어/엔터테인먼트",
-        "products": "Netflix 스트리밍 플랫폼, 오리지널 시리즈/영화",
+        "business": "넷플릭스는 구독 기반의 영상 스트리밍 서비스를 제공하는 엔터테인먼트 기업입니다. 영화, 드라마, 다큐멘터리 등 다양한 콘텐츠를 제공하며, 자체 제작 콘텐츠(오리지널)에 투자하고 있습니다.",
+        "sector": "엔터테인먼트/미디어/통신",
+        "products": "Netflix 스트리밍 플랫폼",
         "competitors": [
           "Disney+",
           "Amazon Prime Video",
@@ -379,8 +379,8 @@
       "stock_code": "IBOC",
       "name": "IBOC",
       "company_name": "Intl Bancshares Corp",
-      "mktcap_usd": 4187.2012,
-      "price": 67.34,
+      "mktcap_usd": 4106.3672,
+      "price": 66.04,
       "per": 10.2906,
       "pbr": 1.2702,
       "roe_3y_avg": 12.67,
@@ -388,42 +388,16 @@
       "buyback_rate_pct": null,
       "div_yield": 2.7644,
       "payout_ratio_pct": 28.01,
-      "pct_above_52w_low_pct": 6.181,
-      "score": 0.6381,
+      "pct_above_52w_low_pct": 4.1312,
+      "score": 0.6436,
       "profile": {
-        "business": "IBOC는 중소형 은행으로 주로 커뮤니티 뱅킹 서비스를 제공합니다. 대출, 예금, 기타 금융 서비스를 통해 지역 고객들에게 금융 솔루션을 제공하고 있습니다.",
-        "sector": "금융 서비스 / 지역 은행",
-        "products": "예금 상품, 대출 상품, 기타 금융 서비스",
-        "competitors": [
-          "보도와 유사 규모의 지역 은행들",
-          "다른 커뮤니티 뱅킹 기관",
-          "대형 글로벌 은행"
-        ]
-      }
-    },
-    {
-      "stock_code": "FHB",
-      "name": "FHB",
-      "company_name": "First Hawaiian, Inc.",
-      "mktcap_usd": 3035.916,
-      "price": 24.95,
-      "per": 10.4949,
-      "pbr": 1.1303,
-      "roe_3y_avg": 10.27,
-      "interest_coverage": null,
-      "buyback_rate_pct": null,
-      "div_yield": 5.445,
-      "payout_ratio_pct": 45.35,
-      "pct_above_52w_low_pct": 7.4042,
-      "score": 0.6371,
-      "profile": {
-        "business": "FHB(Flushing Bank)는 뉴욕 플러싱 지역에 기반을 둔 커뮤니티 은행입니다. 소매 및 상업 금융 서비스를 주요 사업으로 영위하고 있으며, 주로 지역 고객들에게 예금, 대출, 기타 금융 상품을 제공합니다.",
+        "business": "IBOC는 미국의 은행 지주회사로 커뮤니티 뱅킹 서비스를 제공합니다. 지역 중심의 소매 및 상업 금융 사업을 영위하고 있습니다.",
         "sector": "금융/은행",
-        "products": "개인예금, 기업대출, 모기지론, 저축상품",
+        "products": "예금, 대출, 모기지, 신용카드 등 일반 은행 금융 상품",
         "competitors": [
-          "JPMorgan Chase",
-          "Bank of America",
-          "Citigroup"
+          "Umpqua Holdings",
+          "Sunwest Bank",
+          "Local 커뮤니티 뱅크"
         ]
       }
     },
@@ -431,8 +405,8 @@
       "stock_code": "HBAN",
       "name": "HBAN",
       "company_name": "Huntington Bancshares",
-      "mktcap_usd": 30851.6607,
-      "price": 15.27,
+      "mktcap_usd": 31397.1714,
+      "price": 15.54,
       "per": 12.9288,
       "pbr": 1.1225,
       "roe_3y_avg": 8.58,
@@ -440,12 +414,12 @@
       "buyback_rate_pct": null,
       "div_yield": 5.6985,
       "payout_ratio_pct": 48.25,
-      "pct_above_52w_low_pct": 1.6644,
-      "score": 0.6371,
+      "pct_above_52w_low_pct": 1.3981,
+      "score": 0.6379,
       "profile": {
-        "business": "미국 중서부를 중심으로 지역사업을 영위하는 금융지주회사입니다. 상업은행, 소비자금융, 자산관리 등 다양한 금융서비스를 제공합니다.",
-        "sector": "금융/은행",
-        "products": "수표예금, 저축예금, 대출, 신용카드, 투자상담",
+        "business": "HBAN(Huntington Bancshares)은 미국 중서부를 중심으로 한 지역사업을 영위하는 금융회사입니다. 상업은행, 소비자금융, 자산관리 등 다양한 금융서비스를 제공합니다.",
+        "sector": "금융 / 은행업",
+        "products": "예금상품, 대출상품, 신용카드, 자산관리, 투자은행 서비스",
         "competitors": [
           "PNC Financial Services",
           "KeyCorp",
@@ -454,28 +428,28 @@
       }
     },
     {
-      "stock_code": "SFM",
-      "name": "SFM",
-      "company_name": "Sprouts Farmers Market",
-      "mktcap_usd": 6079.9,
-      "price": 65.2,
-      "per": 11.9883,
-      "pbr": 5.599,
-      "roe_3y_avg": 34.84,
-      "interest_coverage": 53.9564,
+      "stock_code": "FHB",
+      "name": "FHB",
+      "company_name": "First Hawaiian, Inc.",
+      "mktcap_usd": 3089.4552,
+      "price": 25.39,
+      "per": 10.4949,
+      "pbr": 1.1303,
+      "roe_3y_avg": 10.27,
+      "interest_coverage": null,
       "buyback_rate_pct": null,
-      "div_yield": null,
-      "payout_ratio_pct": null,
-      "pct_above_52w_low_pct": 4.3367,
-      "score": 0.6366,
+      "div_yield": 5.445,
+      "payout_ratio_pct": 45.35,
+      "pct_above_52w_low_pct": 6.6268,
+      "score": 0.6368,
       "profile": {
-        "business": "SFM(Sprouts Farmers Market)은 미국의 건강식품 및 자연식품 소매 체인입니다. 유기농 상품, 비타민/보충제, 자연식품을 중심으로 하는 식품 소매점을 운영하고 있습니다.",
-        "sector": "소매업 / 식품소매",
-        "products": "유기농 상품, 자연식품, 비타민·보충제, 건강식품",
+        "business": "FHB는 미국의 지역 저축 은행으로, 주로 주택담보대출과 예금 관련 금융 서비스를 제공합니다. 지역사회 기반의 소매 금융 기관으로 운영되고 있습니다.",
+        "sector": "금융/은행",
+        "products": "주택담보대출, 저축예금, 개인대출",
         "competitors": [
-          "Whole Foods Market",
-          "Natural Grocers",
-          "Trader Joe's"
+          "PennyMac Mortgage Investment Trust",
+          "MGIC Investment Corporation",
+          "OceanFirst Financial Corp"
         ]
       }
     },
@@ -483,8 +457,8 @@
       "stock_code": "CRUS",
       "name": "CRUS",
       "company_name": "Cirrus Logic",
-      "mktcap_usd": 5442.0415,
-      "price": 107.87,
+      "mktcap_usd": 5590.3645,
+      "price": 110.81,
       "per": 14.1147,
       "pbr": 3.3157,
       "roe_3y_avg": 20.35,
@@ -492,16 +466,42 @@
       "buyback_rate_pct": null,
       "div_yield": null,
       "payout_ratio_pct": null,
-      "pct_above_52w_low_pct": 1.4483,
-      "score": 0.6358,
+      "pct_above_52w_low_pct": 2.1349,
+      "score": 0.6359,
       "profile": {
-        "business": "Cirrus Logic는 오디오 및 고성능 믹스드 신호 처리 반도체를 설계하고 개발하는 회사입니다. 모바일 기기, 개인용 컴퓨터, 게이밍 등 다양한 소비자 전자제품에 사용되는 칩을 공급합니다.",
-        "sector": "반도체/전자부품",
-        "products": "오디오 코덱, 신호처리 칩, 스마트폰용 음성인식 프로세서",
+        "business": "반도체 설계 및 오디오 칩 개발을 전문으로 하는 회사입니다. 스마트폰, 이어폰, 헤드폰 등 다양한 전자기기의 음성 처리 및 오디오 솔루션을 제공합니다.",
+        "sector": "반도체/전자",
+        "products": "오디오 칩, 디지털 신호 처리(DSP) 솔루션, 음성 인식 기술",
         "competitors": [
           "Qualcomm",
-          "Broadcom",
-          "Texas Instruments"
+          "Realtek",
+          "Broadcom"
+        ]
+      }
+    },
+    {
+      "stock_code": "SFM",
+      "name": "SFM",
+      "company_name": "Sprouts Farmers Market",
+      "mktcap_usd": 6035.14,
+      "price": 64.72,
+      "per": 11.9883,
+      "pbr": 5.599,
+      "roe_3y_avg": 34.84,
+      "interest_coverage": 53.9564,
+      "buyback_rate_pct": null,
+      "div_yield": null,
+      "payout_ratio_pct": null,
+      "pct_above_52w_low_pct": 2.8325,
+      "score": 0.6358,
+      "profile": {
+        "business": "SFM(Sprouts Farmers Market)은 신선한 유기농 및 자연식품을 판매하는 소매업체입니다. 미국 전역에 수백 개의 매장을 운영하며 건강식품 시장에 특화되어 있습니다.",
+        "sector": "소매업 / 식료품소매",
+        "products": "유기농 식품, 자연식품, 건강 보조식품, 신선 농산물, 자체브랜드 상품",
+        "competitors": [
+          "Whole Foods Market",
+          "Trader Joe's",
+          "Natural Grocers"
         ]
       }
     },
@@ -509,8 +509,8 @@
       "stock_code": "CRH",
       "name": "CRH",
       "company_name": "CRH plc",
-      "mktcap_usd": 55881.566,
-      "price": 83.63,
+      "mktcap_usd": 56944.004,
+      "price": 85.22,
       "per": 14.6326,
       "pbr": 2.902,
       "roe_3y_avg": 16.26,
@@ -518,16 +518,68 @@
       "buyback_rate_pct": null,
       "div_yield": 6.9948,
       "payout_ratio_pct": 25.34,
-      "pct_above_52w_low_pct": 5.5934,
-      "score": 0.6331,
+      "pct_above_52w_low_pct": 5.0253,
+      "score": 0.6325,
       "profile": {
-        "business": "CRH는 건설자재 및 골재 생산·공급을 주력으로 하는 글로벌 건설자재 회사입니다. 시멘트, 콘크리트, 벽돌 등 건설 관련 자재를 생산하여 북미, 유럽, 아시아 등 다양한 지역에 공급합니다.",
-        "sector": "건설자재/건설산업",
-        "products": "시멘트, 콘크리트, 골재, 벽돌, 석고보드",
+        "business": "CRH는 아일랜드에 본사를 두고 있는 글로벌 건축자재 및 건설용품 제조·유통 기업입니다. 시멘트, 골재, 콘크리트, 아스팔트 등 건설 관련 원자재와 완성된 건축자재를 생산·판매합니다.",
+        "sector": "건설자재(Building Materials & Construction Products)",
+        "products": "시멘트, 콘크리트, 골재, 아스팔트, 건축자재",
         "competitors": [
-          "Vulcan Materials",
-          "Martin Marietta Materials",
-          "Lafarge"
+          "Lafarge",
+          "Holcim",
+          "Martin Marietta Materials"
+        ]
+      }
+    },
+    {
+      "stock_code": "TFC",
+      "name": "TFC",
+      "company_name": "Truist Financial",
+      "mktcap_usd": 57819.7479,
+      "price": 47.33,
+      "per": 9.7197,
+      "pbr": 0.9657,
+      "roe_3y_avg": 9.01,
+      "interest_coverage": null,
+      "buyback_rate_pct": null,
+      "div_yield": 6.545,
+      "payout_ratio_pct": 49.69,
+      "pct_above_52w_low_pct": 6.2385,
+      "score": 0.6325,
+      "profile": {
+        "business": "TFC(Truist Financial Corporation)는 미국의 주요 금융 지주회사로, 은행업, 자산관리, 보험 등 종합 금융 서비스를 제공합니다. 2019년 BB&T와 SunTrust의 합병으로 설립되어 동부 지역을 중심으로 광범위한 금융 네트워크를 운영하고 있습니다.",
+        "sector": "금융/은행",
+        "products": "개인뱅킹, 기업금융, 자산관리, 신탁, 보험",
+        "competitors": [
+          "Bank of America",
+          "Wells Fargo",
+          "US Bancorp"
+        ]
+      }
+    },
+    {
+      "stock_code": "GRBK",
+      "name": "GRBK",
+      "company_name": "Green Brick Partners, Inc.",
+      "mktcap_usd": 2666.1899,
+      "price": 61.99,
+      "per": 9.9682,
+      "pbr": 1.4684,
+      "roe_3y_avg": 15.42,
+      "interest_coverage": 124.5445,
+      "buyback_rate_pct": null,
+      "div_yield": null,
+      "payout_ratio_pct": 0.99,
+      "pct_above_52w_low_pct": 0.5489,
+      "score": 0.6323,
+      "profile": {
+        "business": "그린 브릭 타우슈(Green Brick Tauscher)는 미국의 홈빌더로, 주로 텍사스와 애리조나 지역에서 주택 건설 및 판매를 진행합니다. 신규 주택 건설 및 부동산 개발 사업을 통해 수익을 창출합니다.",
+        "sector": "주택건설/부동산",
+        "products": "신규 주택, 타운홈, 주택 개발 프로젝트",
+        "competitors": [
+          "Toll Brothers",
+          "Lennar Corporation",
+          "D.R. Horton"
         ]
       }
     },
@@ -535,8 +587,8 @@
       "stock_code": "FISV",
       "name": "FISV",
       "company_name": "Fiserv",
-      "mktcap_usd": 25356.0375,
-      "price": 47.55,
+      "mktcap_usd": 25729.3125,
+      "price": 48.25,
       "per": 8.6182,
       "pbr": 1.4007,
       "roe_3y_avg": 10.77,
@@ -544,12 +596,12 @@
       "buyback_rate_pct": null,
       "div_yield": null,
       "payout_ratio_pct": null,
-      "pct_above_52w_low_pct": 7.1912,
-      "score": 0.6306,
+      "pct_above_52w_low_pct": 7.5068,
+      "score": 0.6304,
       "profile": {
-        "business": "Fiserv는 금융서비스 기업들을 위한 결제 처리, 핀테크 솔루션, 비즈니스 프로세싱 서비스를 제공합니다. 은행, 신용카드사, 보험사 등 금융기관의 IT 아웃소싱과 디지털 트랜스포메이션을 지원합니다.",
-        "sector": "금융 기술 (Fintech) / 금융 서비스 아웃소싱",
-        "products": "결제 처리 플랫폼, 핀테크 솔루션, 코어 뱅킹 시스템, 디지털 뱅킹 서비스",
+        "business": "Fiserv는 금융 서비스 기업을 위한 결제 처리, 핵심 은행 시스템, 자산 관리 솔루션 등을 제공하는 금융 기술 회사입니다. 전 세계 은행, 신용 조합, 보험사 및 기타 금융 기관을 고객으로 하고 있습니다.",
+        "sector": "금융 기술(FinTech) / 결제 처리",
+        "products": "CoreVue, DNA, Lending Center, eMerge 등 은행 소프트웨어 플랫폼 및 결제 처리 솔루션",
         "competitors": [
           "FIS (Fidelity National Information Services)",
           "SS&C Technologies",
@@ -558,37 +610,11 @@
       }
     },
     {
-      "stock_code": "GRBK",
-      "name": "GRBK",
-      "company_name": "Green Brick Partners, Inc.",
-      "mktcap_usd": 2630.9217,
-      "price": 61.17,
-      "per": 9.9682,
-      "pbr": 1.4684,
-      "roe_3y_avg": 15.42,
-      "interest_coverage": 124.5445,
-      "buyback_rate_pct": null,
-      "div_yield": null,
-      "payout_ratio_pct": 0.99,
-      "pct_above_52w_low_pct": 1.7465,
-      "score": 0.6299,
-      "profile": {
-        "business": "Green Brick Partners는 미국의 주택 건설업체입니다. 텍사스 및 애리조나 지역을 중심으로 단독주택 건설 및 판매를 영위하고 있습니다.",
-        "sector": "주택건설/부동산",
-        "products": "단독주택(Single-Family Homes)",
-        "competitors": [
-          "Lennar Corporation",
-          "D.R. Horton",
-          "PulteGroup"
-        ]
-      }
-    },
-    {
       "stock_code": "ATMU",
       "name": "ATMU",
       "company_name": "Atmus Filtration Technologies Inc.",
-      "mktcap_usd": 3623.6979,
-      "price": 44.37,
+      "mktcap_usd": 3654.7325,
+      "price": 44.75,
       "per": 16.6681,
       "pbr": 11.1785,
       "roe_3y_avg": 54.68,
@@ -596,16 +622,16 @@
       "buyback_rate_pct": null,
       "div_yield": null,
       "payout_ratio_pct": 8.37,
-      "pct_above_52w_low_pct": 4.1061,
-      "score": 0.6285,
+      "pct_above_52w_low_pct": 4.0357,
+      "score": 0.6279,
       "profile": {
-        "business": "ATM 및 금융 자동화 솔루션을 제공하는 회사입니다. 현금 자동지급기, 소액결제 단말기 등 금융 기관 및 소매점을 위한 자동화 기기와 서비스를 공급합니다.",
-        "sector": "금융기술(FinTech) / 결제 시스템",
-        "products": "ATM, POS 터미널, 현금 처리 솔루션",
+        "business": "ATM(자동입출금기) 및 현금 자동화 솔루션을 제공하는 금융 기술 기업입니다. ATM 네트워크 운영, 유지보수, 소프트웨어 서비스 등을 통해 금융기관과 소매점에 현금 관리 솔루션을 공급합니다.",
+        "sector": "금융 기술(FinTech) / 결제 시스템",
+        "products": "ATM 기계, 현금 관리 소프트웨어, ATM 네트워크 운영 서비스",
         "competitors": [
-          "NCR Corporation",
           "Diebold Nixdorf",
-          "Euronet Worldwide"
+          "NCR Corporation",
+          "GRG Banking"
         ]
       }
     },
@@ -613,8 +639,8 @@
       "stock_code": "BOH",
       "name": "BOH",
       "company_name": "Bank of Hawaii",
-      "mktcap_usd": 2652.2235,
-      "price": 67.23,
+      "mktcap_usd": 2707.848,
+      "price": 68.64,
       "per": 11.5448,
       "pbr": 1.4694,
       "roe_3y_avg": 12.78,
@@ -622,12 +648,12 @@
       "buyback_rate_pct": null,
       "div_yield": 5.0063,
       "payout_ratio_pct": 56.82,
-      "pct_above_52w_low_pct": 9.9787,
-      "score": 0.6272,
+      "pct_above_52w_low_pct": 9.305,
+      "score": 0.6258,
       "profile": {
-        "business": "BOH는 미국 하와이주에 기반한 지역 금융기관으로, 주로 하와이와 태평양 지역에서 은행 업무를 수행합니다. 개인 및 기업 고객을 대상으로 예금, 대출, 투자 관련 금융서비스를 제공합니다.",
-        "sector": "금융/은행업",
-        "products": "예금상품, 대출상품, 투자자문, 자산관리",
+        "business": "Bank of Hawaii는 하와이 지역을 중심으로 한 지역 금융기관입니다. 상업은행, 소비자금융, 투자 자문 등 다양한 금융 서비스를 제공하고 있습니다.",
+        "sector": "금융/은행",
+        "products": "예금, 대출, 투자 자문, 자산관리",
         "competitors": [
           "First Hawaiian Bank",
           "American Savings Bank",
@@ -636,55 +662,11 @@
       }
     },
     {
-      "stock_code": "NXT",
-      "name": "NXT",
-      "company_name": "Nextpower",
-      "mktcap_usd": 12138.066,
-      "price": 80.04,
-      "per": 20.2568,
-      "pbr": 7.6674,
-      "roe_3y_avg": 26.32,
-      "interest_coverage": 44.994,
-      "buyback_rate_pct": null,
-      "div_yield": null,
-      "payout_ratio_pct": null,
-      "pct_above_52w_low_pct": 2.7076,
-      "score": 0.6211,
-      "profile": null
-    },
-    {
-      "stock_code": "EXP",
-      "name": "EXP",
-      "company_name": "Eagle Materials",
-      "mktcap_usd": 5215.9068,
-      "price": 170.01,
-      "per": 13.2066,
-      "pbr": 4.0376,
-      "roe_3y_avg": 26.87,
-      "interest_coverage": 202.0954,
-      "buyback_rate_pct": null,
-      "div_yield": 0.5577,
-      "payout_ratio_pct": 7.97,
-      "pct_above_52w_low_pct": 4.0835,
-      "score": 0.6197,
-      "profile": {
-        "business": "익스포디아는 온라인 여행 예약 플랫폼으로, 항공권, 호텔, 자동차 렌탈, 투어 등 여행 관련 상품을 한 곳에서 예약할 수 있는 통합 여행 서비스를 제공합니다. 글로벌 여행자들을 위해 다양한 목적지와 서비스 옵션을 비교 및 예약할 수 있는 디지털 플랫폼을 운영합니다.",
-        "sector": "온라인 여행(OTA) / 소비자재량 서비스",
-        "products": "Expedia, Hotels.com, Vrbo, Trivago, Orbitz, Travelocity",
-        "competitors": [
-          "Booking.com",
-          "Airbnb",
-          "Trip.com",
-          "MakeMyTrip"
-        ]
-      }
-    },
-    {
       "stock_code": "PIPR",
       "name": "PIPR",
       "company_name": "Piper Sandler Companies",
-      "mktcap_usd": 4590.6048,
-      "price": 64.62,
+      "mktcap_usd": 4557.216,
+      "price": 64.15,
       "per": 15.1587,
       "pbr": 4.3832,
       "roe_3y_avg": 22.9,
@@ -692,42 +674,68 @@
       "buyback_rate_pct": null,
       "div_yield": 1.5709,
       "payout_ratio_pct": 46.0,
-      "pct_above_52w_low_pct": 1.3011,
-      "score": 0.6196,
+      "pct_above_52w_low_pct": 0.0,
+      "score": 0.6222,
       "profile": {
-        "business": "파이퍼 샌드러는 투자은행, 자본시장, 자산관리 등 종합 금융 서비스를 제공하는 독립 금융기관입니다. 중견 규모의 투자은행으로서 기업 자금조달, M&A 자문, 주식 및 채권 거래 등을 주력으로 합니다.",
-        "sector": "금융/투자은행",
-        "products": "M&A 자문, 투자은행 서비스, 자본시장 솔루션, 자산관리",
+        "business": "파이퍼 샌드러(Piper Sandler)는 중형 투자은행 및 증권회사로 인수합병 자문, 자본시장 서비스, 자산관리 등을 제공합니다. 미국 중소형 기업들을 주요 클라이언트로 하는 부티크 투자은행입니다.",
+        "sector": "금융 서비스 / 투자은행",
+        "products": "인수합병 자문, 증권 인수, 매매중개, 자산관리, 리서치 서비스",
         "competitors": [
-          "Evercore",
-          "Lazard",
-          "Jefferies"
+          "Raymond James Financial",
+          "Robert W. Baird",
+          "Evercore"
         ]
       }
     },
     {
-      "stock_code": "PODD",
-      "name": "PODD",
-      "company_name": "Insulet Corporation",
-      "mktcap_usd": 9772.586,
-      "price": 141.1,
-      "per": 24.2259,
-      "pbr": 13.1965,
-      "roe_3y_avg": 17.37,
-      "interest_coverage": 33.6442,
+      "stock_code": "NXT",
+      "name": "NXT",
+      "company_name": "Nextpower",
+      "mktcap_usd": 11984.8995,
+      "price": 79.03,
+      "per": 20.2568,
+      "pbr": 7.6674,
+      "roe_3y_avg": 26.32,
+      "interest_coverage": 44.994,
       "buyback_rate_pct": null,
       "div_yield": null,
       "payout_ratio_pct": null,
-      "pct_above_52w_low_pct": 8.1475,
-      "score": 0.6173,
+      "pct_above_52w_low_pct": 2.2713,
+      "score": 0.6219,
       "profile": {
-        "business": "PODD(Insulet Corporation)는 당뇨병 관리를 위한 착용형 인슐린 펌프 시스템을 개발·판매하는 의료기기 회사입니다. 자동화된 인슐린 투여 솔루션을 통해 당뇨병 환자들의 혈당 관리를 돕고 있습니다.",
-        "sector": "의료기기(Medical Devices)",
-        "products": "OmniPod 인슐린 펌프 시스템",
+        "business": "NXT는 Nextracker Inc.로, 태양광 발전 시스템의 추적 장치(solar tracker) 및 소프트웨어 솔루션을 개발·판매하는 기업입니다. 태양광 발전 효율을 극대화하기 위한 자동 추적 기술을 제공하며, 글로벌 재생에너지 시장에서 주요 플레이어입니다.",
+        "sector": "청정에너지/재생에너지 장비",
+        "products": "태양광 추적 장치(Solar Tracker), PV 시스템 소프트웨어",
         "competitors": [
-          "Medtronic",
-          "Tandem Diabetes Care",
-          "Dexcom"
+          "Smaes",
+          "GameChange Solar",
+          "Arctech Solar"
+        ]
+      }
+    },
+    {
+      "stock_code": "EXP",
+      "name": "EXP",
+      "company_name": "Eagle Materials",
+      "mktcap_usd": 5298.7428,
+      "price": 172.71,
+      "per": 13.2066,
+      "pbr": 4.0376,
+      "roe_3y_avg": 26.87,
+      "interest_coverage": 202.0954,
+      "buyback_rate_pct": null,
+      "div_yield": 0.5577,
+      "payout_ratio_pct": 7.97,
+      "pct_above_52w_low_pct": 3.8509,
+      "score": 0.6191,
+      "profile": {
+        "business": "익스피디아는 온라인 여행 예약 플랫폼으로, 항공권, 호텔, 자동차 렌탈 등 여행 관련 상품을 통합적으로 제공합니다. 전 세계 여행자들을 위한 디지털 여행 마켓플레이스를 운영하고 있습니다.",
+        "sector": "온라인 여행 및 관광/여행 기술",
+        "products": "Expedia, Hotels.com, Vrbo, Trivago",
+        "competitors": [
+          "Booking Holdings",
+          "Airbnb",
+          "Tripadvisor"
         ]
       }
     },
@@ -735,8 +743,8 @@
       "stock_code": "BKNG",
       "name": "BKNG",
       "company_name": "Booking Holdings",
-      "mktcap_usd": 126654.136,
-      "price": 163.45,
+      "mktcap_usd": 127018.3296,
+      "price": 163.92,
       "per": 16.998,
       "pbr": 28.099,
       "roe_3y_avg": 139.63,
@@ -744,16 +752,16 @@
       "buyback_rate_pct": null,
       "div_yield": null,
       "payout_ratio_pct": 17.77,
-      "pct_above_52w_low_pct": 6.0468,
-      "score": 0.6162,
+      "pct_above_52w_low_pct": 5.4954,
+      "score": 0.6182,
       "profile": {
-        "business": "BKNG(Booking Holdings)는 전 세계 여행 및 관광 예약 플랫폼을 운영하는 회사입니다. 호텔, 항공편, 렌터카, 액티비티 등 다양한 여행 상품의 온라인 예약 중개 서비스를 제공하며, 글로벌 여행 산업의 주요 중개자 역할을 하고 있습니다.",
-        "sector": "소비재/여행 및 관광",
-        "products": "Booking.com, Agoda, Rentalcars.com, Kayak",
+        "business": "온라인 여행 예약 플랫폼으로 호텔, 항공권, 렌터카, 투어 등 다양한 여행 상품을 중개합니다. 전 세계 고객들이 숙박 및 여행 서비스를 검색하고 예약할 수 있는 통합 플랫폼을 제공합니다.",
+        "sector": "온라인 여행사(OTA) / 관광 및 숙박",
+        "products": "Booking.com, Agoda, Priceline, Kayak",
         "competitors": [
-          "Expedia Group (EXPE)",
-          "Airbnb (ABNB)",
-          "Trip Advisor (TRIP)"
+          "Expedia (EXPE)",
+          "Marriott (MAR)",
+          "Airbnb (ABNB)"
         ]
       }
     },
@@ -761,8 +769,8 @@
       "stock_code": "CPRT",
       "name": "CPRT",
       "company_name": "Copart",
-      "mktcap_usd": 25802.3247,
-      "price": 27.87,
+      "mktcap_usd": 25765.2923,
+      "price": 27.83,
       "per": 16.8818,
       "pbr": 2.9635,
       "roe_3y_avg": 15.93,
@@ -770,16 +778,42 @@
       "buyback_rate_pct": null,
       "div_yield": null,
       "payout_ratio_pct": null,
-      "pct_above_52w_low_pct": 6.0906,
-      "score": 0.616,
+      "pct_above_52w_low_pct": 4.7202,
+      "score": 0.6175,
       "profile": {
-        "business": "CPRT(Carpetright)는 영국과 유럽의 카펫, 바닥재, 실내 인테리어 제품을 판매하는 소매업체입니다. 주로 주택 개선 및 인테리어 분야에서 바닥재와 관련 상품을 취급하고 있습니다.",
-        "sector": "소매업 (Retail) / 홈 임프루브먼트 (Home Improvement)",
-        "products": "카펫, 비닐 바닥재, 라미네이트, 목재 바닥재, 커튼, 블라인드 등 인테리어 제품",
+        "business": "CPRT는 미국의 주요 카펫 및 바닥재 제조업체입니다. 주거용, 상업용 카펫과 러그, 타일, 비닐 바닥재 등 다양한 바닥재 제품을 생산 및 판매합니다.",
+        "sector": "소비재(Consumer Discretionary) / 건축·건설재료",
+        "products": "카펫, 러그, 타일, 비닐바닥재, 라미네이트 등 바닥재",
         "competitors": [
-          "Dunelm Group",
-          "Wickes",
-          "Homebase"
+          "Mohawk Industries",
+          "Flooring Corporation",
+          "Shaw Industries"
+        ]
+      }
+    },
+    {
+      "stock_code": "PODD",
+      "name": "PODD",
+      "company_name": "Insulet Corporation",
+      "mktcap_usd": 9879.2464,
+      "price": 142.64,
+      "per": 24.2259,
+      "pbr": 13.1965,
+      "roe_3y_avg": 17.37,
+      "interest_coverage": 33.6442,
+      "buyback_rate_pct": null,
+      "div_yield": null,
+      "payout_ratio_pct": null,
+      "pct_above_52w_low_pct": 8.8066,
+      "score": 0.6173,
+      "profile": {
+        "business": "PODD는 인슐린 펌프와 연속혈당측정(CGM) 시스템 등 당뇨병 관리 의료기기를 개발·제조·판매하는 회사입니다. 디지털 헬스케어 솔루션을 통해 당뇨병 환자들의 치료 효율성을 높이는 것을 주력으로 합니다.",
+        "sector": "의료기기(Medical Devices)",
+        "products": "OmniPod 인슐린 펌프, 혈당측정 시스템",
+        "competitors": [
+          "Medtronic",
+          "Novo Nordisk",
+          "Abbott Diabetes Care"
         ]
       }
     },
@@ -787,8 +821,8 @@
       "stock_code": "LULU",
       "name": "LULU",
       "company_name": "Lululemon Athletica",
-      "mktcap_usd": 11025.705,
-      "price": 97.1,
+      "mktcap_usd": 11348.187,
+      "price": 99.94,
       "per": 7.9283,
       "pbr": 4.2337,
       "roe_3y_avg": 29.73,
@@ -796,12 +830,12 @@
       "buyback_rate_pct": null,
       "div_yield": null,
       "payout_ratio_pct": null,
-      "pct_above_52w_low_pct": 5.6813,
-      "score": 0.6133,
+      "pct_above_52w_low_pct": 6.3997,
+      "score": 0.6137,
       "profile": {
-        "business": "럴루레몬은 요가 및 운동복 중심의 프리미엄 애슬레틱 의류 및 액세서리를 설계, 판매하는 기업입니다. 직영점, 온라인, 백화점 등 다양한 채널을 통해 고급 스포츠웨어를 제공합니다.",
-        "sector": "소비재 - 의류/애슬레틱웨어",
-        "products": "Lululemon 요가복, 운동복, 레깅스, 재킷, 액세서리",
+        "business": "럴루레몬은 요가, 운동, 일상생활용 프리미엄 의류와 액세서리를 설계하고 판매하는 캐나다 출신의 글로벌 라이프스타일 브랜드입니다. 직영점, 온라인, 백화점 등 다양한 채널을 통해 제품을 유통합니다.",
+        "sector": "의류/패션",
+        "products": "요가팬츠, 스포츠 브래, 운동복, 운동화, 백팩 등 애슬레저 의류 및 액세서리",
         "competitors": [
           "Nike",
           "Adidas",
@@ -813,8 +847,8 @@
       "stock_code": "CMCSA",
       "name": "CMCSA",
       "company_name": "Comcast",
-      "mktcap_usd": 77715.216,
-      "price": 21.9,
+      "mktcap_usd": 79347.5904,
+      "price": 22.36,
       "per": 6.9315,
       "pbr": 1.124,
       "roe_3y_avg": 12.04,
@@ -823,11 +857,11 @@
       "div_yield": 2.7243,
       "payout_ratio_pct": 43.43,
       "pct_above_52w_low_pct": 6.0019,
-      "score": 0.612,
+      "score": 0.6117,
       "profile": {
-        "business": "미국의 대형 미디어 및 기술 기업으로, 케이블 텔레비전, 고속인터넷, 음성통화 서비스를 제공하는 통신회사입니다. 콘텐츠 제작 및 배포, 광고 사업도 함께 운영하고 있습니다.",
-        "sector": "통신/미디어 및 엔터테인먼트",
-        "products": "Comcast TV, Xfinity 인터넷, Voice 서비스, CNBC, MSNBC, NBC Universal 콘텐츠",
+        "business": "미국 최대 규모의 케이블 통신 회사로 광대역 인터넷, 텔레비전, 음성 통신 서비스를 제공합니다. 미디어 제작 및 배포 사업도 영위하고 있습니다.",
+        "sector": "통신 및 미디어",
+        "products": "Comcast, Xfinity, NBCUniversal",
         "competitors": [
           "Charter Communications",
           "AT&T",
@@ -839,8 +873,8 @@
       "stock_code": "PJT",
       "name": "PJT",
       "company_name": "PJT Partners, Inc.",
-      "mktcap_usd": 5488.4,
-      "price": 137.21,
+      "mktcap_usd": 5477.6,
+      "price": 136.94,
       "per": 18.2999,
       "pbr": 26.3696,
       "roe_3y_avg": 71.16,
@@ -848,12 +882,12 @@
       "buyback_rate_pct": null,
       "div_yield": 1.1612,
       "payout_ratio_pct": 12.59,
-      "pct_above_52w_low_pct": 6.3231,
+      "pct_above_52w_low_pct": 5.556,
       "score": 0.6107,
       "profile": {
-        "business": "PJT(Piper Sandler Companies)는 미국의 투자은행 및 증권회사입니다. 기업 인수합병(M&A) 자문, 자본시장 서비스, 기관투자자 대상 리서치 등을 제공합니다.",
-        "sector": "금융/투자은행",
-        "products": "M&A 자문, 증권 인수, 리서치 서비스, 자본시장 솔루션",
+        "business": "PJT(Perceptive Justice Technology)는 투자 중심의 기업입니다. 기업 인수합병(M&A) 자문 및 재무 조언 서비스를 주요 사업으로 영위하고 있습니다.",
+        "sector": "금융 서비스 / 투자 은행",
+        "products": "M&A 자문, 리구처링 자문, 자본조달 자문",
         "competitors": [
           "Goldman Sachs",
           "Morgan Stanley",
@@ -865,8 +899,8 @@
       "stock_code": "VRTS",
       "name": "VRTS",
       "company_name": "Virtus Investment Partners, Inc.",
-      "mktcap_usd": 821.1724,
-      "price": 122.93,
+      "mktcap_usd": 802.1344,
+      "price": 120.08,
       "per": 7.3216,
       "pbr": 1.1798,
       "roe_3y_avg": 12.9,
@@ -874,68 +908,16 @@
       "buyback_rate_pct": null,
       "div_yield": 3.8376,
       "payout_ratio_pct": 54.91,
-      "pct_above_52w_low_pct": 0.3674,
-      "score": 0.6104,
+      "pct_above_52w_low_pct": 0.0,
+      "score": 0.61,
       "profile": {
-        "business": "VRTS(Virtus Investment Partners)는 독립적인 자산운용사로서 주식, 채권, 대체투자 등 다양한 자산클래스에 대한 투자관리 서비스를 제공합니다. 기관투자자, 재정자문가, 개인투자자 등을 대상으로 뮤추얼펀드, ETF, 별도 계정 운용 등의 상품을 운영하고 있습니다.",
-        "sector": "금융/자산운용",
-        "products": "뮤추얼펀드, ETF, 별도 계정 운용 서비스",
+        "business": "Virtus Investment Partners는 독립적인 글로벌 자산운용사로서 기관투자자, 중개인, 개인 투자자들을 위해 다양한 투자 전략과 상품을 제공합니다. 액티브 펀드 운용, ETF, 뮤추얼 펀드 등을 통해 자산관리 서비스를 제공하고 있습니다.",
+        "sector": "금융 서비스 - 자산운용",
+        "products": "뮤추얼 펀드, ETF, 액티브 펀드, 고정소득 펀드",
         "competitors": [
           "Invesco",
-          "Charles Schwab",
-          "Janus Henderson"
-        ]
-      }
-    },
-    {
-      "stock_code": "MWA",
-      "name": "MWA",
-      "company_name": "Mueller Water Products",
-      "mktcap_usd": 3406.3519,
-      "price": 21.77,
-      "per": 15.0645,
-      "pbr": 4.0639,
-      "roe_3y_avg": 21.21,
-      "interest_coverage": 39.5152,
-      "buyback_rate_pct": null,
-      "div_yield": 1.919,
-      "payout_ratio_pct": 19.49,
-      "pct_above_52w_low_pct": 2.4953,
-      "score": 0.6083,
-      "profile": {
-        "business": "MWA는 뮤니시팔 본드(지방채) 관련 투자 상품을 다루는 폐쇄형 뮤추얼 펀드입니다. 주로 미국 지방정부와 공공기관이 발행한 채권에 투자하여 세금 우대 이자수익을 투자자에게 제공합니다.",
-        "sector": "금융/펀드/고정수익증권",
-        "products": "뮤니시팔 본드 펀드 (Municipal Bond Fund)",
-        "competitors": [
-          "MUC",
-          "MUI",
-          "MUN"
-        ]
-      }
-    },
-    {
-      "stock_code": "ABG",
-      "name": "ABG",
-      "company_name": "Asbury Automotive Group",
-      "mktcap_usd": 3166.331,
-      "price": 170.05,
-      "per": 6.0263,
-      "pbr": 1.1615,
-      "roe_3y_avg": 13.04,
-      "interest_coverage": 3.376,
-      "buyback_rate_pct": null,
-      "div_yield": null,
-      "payout_ratio_pct": null,
-      "pct_above_52w_low_pct": 4.9886,
-      "score": 0.6077,
-      "profile": {
-        "business": "ABG는 Asbury Automotive Group으로, 미국 내 자동차 판매 및 서비스를 제공하는 자동차 딜러십 운영사입니다. 신차 및 중고차 판매, 정비 서비스, 금융 및 보험 상품을 종합적으로 제공합니다.",
-        "sector": "자동차 소매/자동차 부품",
-        "products": "자동차 소매 및 딜러십 서비스",
-        "competitors": [
-          "Group1 Automotive",
-          "CarMax",
-          "Lithia Motors"
+          "Janus Henderson",
+          "Affiliated Managers Group"
         ]
       }
     },
@@ -943,8 +925,8 @@
       "stock_code": "GNTX",
       "name": "GNTX",
       "company_name": "Gentex",
-      "mktcap_usd": 4474.0795,
-      "price": 21.01,
+      "mktcap_usd": 4527.317,
+      "price": 21.26,
       "per": 11.2517,
       "pbr": 2.0479,
       "roe_3y_avg": 16.24,
@@ -952,12 +934,12 @@
       "buyback_rate_pct": null,
       "div_yield": 1.537,
       "payout_ratio_pct": 25.55,
-      "pct_above_52w_low_pct": 1.4976,
-      "score": 0.607,
+      "pct_above_52w_low_pct": 0.8213,
+      "score": 0.6098,
       "profile": {
-        "business": "Gentex는 자동차용 스마트 미러와 전자 제품을 개발·제조하는 기업입니다. 주로 자동차 OEM 및 1차 부품 공급업체에 제품을 공급하고 있습니다.",
-        "sector": "자동차 부품/전자",
-        "products": "스마트 리어뷰 미러, 선루프 모듈, 카메라 기반 운전자 보조 시스템",
+        "business": "Gentex Corporation은 자동차용 전자 거울과 조명 시스템을 주로 생산합니다. 자동차 OEM 및 애프터마켓용 스마트 미러, 카메라 기반 보안 시스템 등을 공급하는 자동차 부품 제조업체입니다.",
+        "sector": "자동차 부품 / 자동차 전자",
+        "products": "자동조광 거울, 카메라 미러 시스템, 실내 거울, 조명 시스템",
         "competitors": [
           "Magna International",
           "Aptiv",
@@ -966,11 +948,63 @@
       }
     },
     {
+      "stock_code": "MWA",
+      "name": "MWA",
+      "company_name": "Mueller Water Products",
+      "mktcap_usd": 3440.7753,
+      "price": 21.99,
+      "per": 15.0645,
+      "pbr": 4.0639,
+      "roe_3y_avg": 21.21,
+      "interest_coverage": 39.5152,
+      "buyback_rate_pct": null,
+      "div_yield": 1.919,
+      "payout_ratio_pct": 19.49,
+      "pct_above_52w_low_pct": 2.4011,
+      "score": 0.6085,
+      "profile": {
+        "business": "MWA는 미국의 폐수 및 환경 서비스 회사입니다. 산업 및 상업 시설의 폐수 처리, 환경 정화 및 관련 서비스를 제공합니다.",
+        "sector": "환경 서비스/폐수 처리",
+        "products": "폐수 처리 서비스, 환경 정화 솔루션, 산업 폐기물 관리",
+        "competitors": [
+          "Casella Waste Systems",
+          "Advanced Energy United",
+          "Republic Services"
+        ]
+      }
+    },
+    {
+      "stock_code": "ABG",
+      "name": "ABG",
+      "company_name": "Asbury Automotive Group",
+      "mktcap_usd": 3205.0606,
+      "price": 172.13,
+      "per": 6.0263,
+      "pbr": 1.1615,
+      "roe_3y_avg": 13.04,
+      "interest_coverage": 3.376,
+      "buyback_rate_pct": null,
+      "div_yield": null,
+      "payout_ratio_pct": null,
+      "pct_above_52w_low_pct": 4.9207,
+      "score": 0.6074,
+      "profile": {
+        "business": "ABG는 Asbury Automotive Group으로, 미국 전역에서 자동차 판매, 정비, 금융 서비스를 제공하는 자동차 딜러십 회사입니다. 신차 및 중고차 판매, 부품 판매, 정비 서비스 등 종합적인 자동차 관련 서비스를 운영합니다.",
+        "sector": "자동차 소매 및 서비스",
+        "products": "신차 판매, 중고차 판매, 자동차 정비 서비스, 자동차 금융",
+        "competitors": [
+          "CarMax",
+          "Lithia Motors",
+          "Penske Automotive Group"
+        ]
+      }
+    },
+    {
       "stock_code": "FBK",
       "name": "FBK",
       "company_name": "FB Financial Corp.",
-      "mktcap_usd": 2575.9692,
-      "price": 51.54,
+      "mktcap_usd": 2611.455,
+      "price": 52.25,
       "per": 13.1146,
       "pbr": 1.5313,
       "roe_3y_avg": 10.03,
@@ -978,16 +1012,16 @@
       "buyback_rate_pct": null,
       "div_yield": 1.8083,
       "payout_ratio_pct": 21.37,
-      "pct_above_52w_low_pct": 2.3025,
-      "score": 0.6062,
+      "pct_above_52w_low_pct": 2.3819,
+      "score": 0.6071,
       "profile": {
-        "business": "FBK는 Facebook의 모회사인 Meta Platforms의 이전 티커명입니다. 소셜 미디어, 광고, 클라우드 인프라 등 디지털 플랫폼 사업을 영위하고 있습니다.",
-        "sector": "정보기술/통신",
-        "products": "Facebook, Instagram, WhatsApp, Threads, Meta Quest",
+        "business": "FBK는 미국의 금융 서비스 회사입니다. 은행 및 금융 관련 서비스를 제공하는 지역 금융기관입니다.",
+        "sector": "금융/은행",
+        "products": "예금, 대출, 기타 금융 서비스",
         "competitors": [
-          "Alphabet (Google)",
-          "Amazon",
-          "Apple"
+          "JPMorgan Chase",
+          "Bank of America",
+          "Wells Fargo"
         ]
       }
     },
@@ -995,8 +1029,8 @@
       "stock_code": "COLL",
       "name": "COLL",
       "company_name": "Collegium Pharmaceutical, Inc.",
-      "mktcap_usd": 752.0517,
-      "price": 23.19,
+      "mktcap_usd": 753.3489,
+      "price": 23.23,
       "per": 14.9818,
       "pbr": 4.8515,
       "roe_3y_avg": 15.96,
@@ -1004,120 +1038,16 @@
       "buyback_rate_pct": null,
       "div_yield": null,
       "payout_ratio_pct": null,
-      "pct_above_52w_low_pct": 7.7102,
-      "score": 0.6048,
+      "pct_above_52w_low_pct": 6.8741,
+      "score": 0.6057,
       "profile": {
-        "business": "COLL(Colliers International)은 부동산 서비스 회사로 상업용 및 산업용 부동산의 중개, 감정, 자문 서비스를 제공합니다. 전 세계적으로 부동산 거래, 투자 자문, 운영 관리 등 종합적인 부동산 솔루션을 글로벌 고객들에게 제공합니다.",
-        "sector": "부동산 서비스 / 상업용 부동산 중개",
-        "products": "부동산 중개, 감정, 투자 자문, 자산 관리, 시설 관리",
+        "business": "Collegium Pharmaceutical은 의약품 개발 및 상용화에 중점을 두는 바이오의약품 회사입니다. 주로 통증 관리 및 신경계 질환 치료제를 개발하고 있습니다.",
+        "sector": "Healthcare/Pharmaceuticals",
+        "products": "Xtampza ER, Nucynta 등 진통제",
         "competitors": [
-          "CBRE Group",
-          "Jones Lang LaSalle (JLL)",
-          "Cushman & Wakefield"
-        ]
-      }
-    },
-    {
-      "stock_code": "PNR",
-      "name": "PNR",
-      "company_name": "Pentair",
-      "mktcap_usd": 8531.1616,
-      "price": 53.44,
-      "per": 13.0279,
-      "pbr": 4.4044,
-      "roe_3y_avg": 17.13,
-      "interest_coverage": 11.9006,
-      "buyback_rate_pct": null,
-      "div_yield": 1.392,
-      "payout_ratio_pct": 26.01,
-      "pct_above_52w_low_pct": 2.5523,
-      "score": 0.6019,
-      "profile": {
-        "business": "Pentair plc는 물 및 에너지 효율 솔루션을 제공하는 글로벌 기업입니다. 수도, 폐수, 산업용 물 처리 및 냉난방 시스템 등 다양한 제품과 서비스를 통해 물 관리와 에너지 절감 솔루션을 공급합니다.",
-        "sector": "산업장비/환경기술",
-        "products": "수처리 펌프, 수처리 여과 시스템, 수중 펌프, HVAC 솔루션",
-        "competitors": [
-          "Xylem Inc.",
-          "Flowserve Corporation",
-          "Roper Technologies"
-        ]
-      }
-    },
-    {
-      "stock_code": "MZTI",
-      "name": "MZTI",
-      "company_name": "The Marzetti Company",
-      "mktcap_usd": 2864.5674,
-      "price": 104.47,
-      "per": 14.0004,
-      "pbr": 2.9725,
-      "roe_3y_avg": 18.47,
-      "interest_coverage": 111.1365,
-      "buyback_rate_pct": null,
-      "div_yield": null,
-      "payout_ratio_pct": 56.76,
-      "pct_above_52w_low_pct": 5.3231,
-      "score": 0.6004,
-      "profile": {
-        "business": "Mizuho Financial Group의 자회사로 금융 서비스 및 투자 관련 사업을 영위합니다. 일본의 주요 금융그룹 계열사로서 다양한 금융 상품 및 서비스를 제공합니다.",
-        "sector": "금융/금융서비스",
-        "products": "투자 상품, 금융 컨설팅 서비스",
-        "competitors": [
-          "Nomura Holdings",
-          "SMBC Group",
-          "Daiwa Securities"
-        ]
-      }
-    },
-    {
-      "stock_code": "ORI",
-      "name": "ORI",
-      "company_name": "Old Republic International",
-      "mktcap_usd": 9659.193,
-      "price": 39.66,
-      "per": 8.0442,
-      "pbr": 1.9096,
-      "roe_3y_avg": 18.72,
-      "interest_coverage": 13.7862,
-      "buyback_rate_pct": null,
-      "div_yield": 3.384,
-      "payout_ratio_pct": 80.12,
-      "pct_above_52w_low_pct": 8.1833,
-      "score": 0.5983,
-      "profile": {
-        "business": "ORI는 미국의 대형 보험회사로 재산보험, 자동차보험, 건강보험 등 다양한 보험 상품을 제공합니다. 보험료 수입과 투자수익을 통해 수익을 창출하는 전통적인 보험 비즈니스 모델을 운영하고 있습니다.",
-        "sector": "금융/보험",
-        "products": "재산보험, 자동차보험, 건강보험, 기타 손해보험 상품",
-        "competitors": [
-          "Allstate",
-          "Progressive",
-          "Travelers"
-        ]
-      }
-    },
-    {
-      "stock_code": "LII",
-      "name": "LII",
-      "company_name": "Lennox International",
-      "mktcap_usd": 12363.1488,
-      "price": 357.73,
-      "per": 15.5282,
-      "pbr": 14.6425,
-      "roe_3y_avg": 66.95,
-      "interest_coverage": 41.1935,
-      "buyback_rate_pct": null,
-      "div_yield": 1.0566,
-      "payout_ratio_pct": 22.89,
-      "pct_above_52w_low_pct": 2.5485,
-      "score": 0.5976,
-      "profile": {
-        "business": "LII(Lennox International)는 건물용 냉난방 시스템과 온수난방 솔루션을 제조 및 판매하는 회사입니다. 주거용 및 상업용 HVAC 제품, 공기질 제어 시스템, 냉동 장비 등을 공급합니다.",
-        "sector": "산업용 기계 제조업",
-        "products": "에어컨디셔닝 시스템, 난방 장비, 공기질 필터, 냉각 시스템",
-        "competitors": [
-          "Carrier Global",
-          "Trane Technologies",
-          "Rheem Manufacturing"
+          "Purdue Pharma",
+          "Endo Pharmaceuticals",
+          "Mallinckrodt"
         ]
       }
     },
@@ -1125,8 +1055,8 @@
       "stock_code": "SCHW",
       "name": "SCHW",
       "company_name": "Charles Schwab Corporation",
-      "mktcap_usd": 159931.3144,
-      "price": 91.96,
+      "mktcap_usd": 158070.4346,
+      "price": 90.89,
       "per": 16.9148,
       "pbr": 3.592,
       "roe_3y_avg": 20.38,
@@ -1134,16 +1064,120 @@
       "buyback_rate_pct": null,
       "div_yield": 1.7721,
       "payout_ratio_pct": 23.78,
-      "pct_above_52w_low_pct": 7.7446,
-      "score": 0.5964,
+      "pct_above_52w_low_pct": 4.9561,
+      "score": 0.6028,
       "profile": {
-        "business": "Charles Schwab은 미국의 대형 금융 중개회사로, 개인투자자와 기관투자자를 위한 증권 매매, 자산관리, 금융 상담 서비스를 제공합니다. TD Ameritrade 인수(2020년)를 통해 시장 지위를 강화했습니다.",
-        "sector": "금융 서비스 / 증권",
-        "products": "온라인 증권 거래 플랫폼, 자산 관리 서비스, 로보어드바이저, 은행 상품",
+        "business": "Charles Schwab은 미국 최대 규모의 온라인 브로커리지 회사입니다. 개인 투자자를 위한 주식, 펀드, 옵션 거래 서비스와 금융 자문 서비스를 제공합니다. TD Ameritrade 인수를 통해 자산관리 및 종합 금융 서비스로 확장했습니다.",
+        "sector": "금융/온라인 브로커리지",
+        "products": "온라인 거래 플랫폼, 로보 어드바이저(StreetSmart Edge), 자산관리 서비스, 개인투자 상품",
         "competitors": [
-          "Fidelity",
-          "E-TRADE",
+          "Fidelity Investments",
+          "E*TRADE",
           "Interactive Brokers"
+        ]
+      }
+    },
+    {
+      "stock_code": "PNR",
+      "name": "PNR",
+      "company_name": "Pentair",
+      "mktcap_usd": 8441.7632,
+      "price": 52.88,
+      "per": 13.0279,
+      "pbr": 4.4044,
+      "roe_3y_avg": 17.13,
+      "interest_coverage": 11.9006,
+      "buyback_rate_pct": null,
+      "div_yield": 1.392,
+      "payout_ratio_pct": 26.01,
+      "pct_above_52w_low_pct": 1.2282,
+      "score": 0.6019,
+      "profile": {
+        "business": "Pentair는 물 처리, 유체 및 가스 처리 솔루션을 제공하는 산업용 기술 기업입니다. 주거용, 상업용, 산업용 애플리케이션을 위한 펌프, 필터 및 제어 시스템을 설계, 제조합니다.",
+        "sector": "산업용 기계/장비",
+        "products": "펌프, 물 처리 시스템, 필터, 수중 모터, HVAC 솔루션",
+        "competitors": [
+          "Xylem Inc.",
+          "Emerson Electric",
+          "Roper Technologies"
+        ]
+      }
+    },
+    {
+      "stock_code": "ORI",
+      "name": "ORI",
+      "company_name": "Old Republic International",
+      "mktcap_usd": 9664.064,
+      "price": 39.68,
+      "per": 8.0442,
+      "pbr": 1.9096,
+      "roe_3y_avg": 18.72,
+      "interest_coverage": 13.7862,
+      "buyback_rate_pct": null,
+      "div_yield": 3.384,
+      "payout_ratio_pct": 80.12,
+      "pct_above_52w_low_pct": 7.1195,
+      "score": 0.6001,
+      "profile": {
+        "business": "ORI(Old Republic International)는 보험 산업에서 100년 이상의 역사를 가진 종합 보험사입니다. 일반배상, 건설결함, 직원배상, 관리배상 등 다양한 상업 보험 상품을 제공하고 있습니다.",
+        "sector": "금융/보험",
+        "products": "상업배상보험, 건설결함보험, 관리배상보험, 의료배상보험",
+        "competitors": [
+          "Arch Capital Group",
+          "Axis Capital Holdings",
+          "Hallmark Financial Services"
+        ]
+      }
+    },
+    {
+      "stock_code": "MZTI",
+      "name": "MZTI",
+      "company_name": "The Marzetti Company",
+      "mktcap_usd": 2906.7942,
+      "price": 106.01,
+      "per": 14.0004,
+      "pbr": 2.9725,
+      "roe_3y_avg": 18.47,
+      "interest_coverage": 111.1365,
+      "buyback_rate_pct": null,
+      "div_yield": null,
+      "payout_ratio_pct": 56.76,
+      "pct_above_52w_low_pct": 5.7163,
+      "score": 0.5989,
+      "profile": {
+        "business": "미지텍(Mizuho Financial Group의 자회사)은 일본의 금융 서비스 회사입니다. 미국 시장에서 금융 기술 및 핀테크 솔루션을 제공하는 기업입니다.",
+        "sector": "금융 서비스/핀테크",
+        "products": "금융 기술 솔루션, 결제 시스템",
+        "competitors": [
+          "FIS",
+          "FLT",
+          "PYPL"
+        ]
+      }
+    },
+    {
+      "stock_code": "LII",
+      "name": "LII",
+      "company_name": "Lennox International",
+      "mktcap_usd": 12571.8912,
+      "price": 363.77,
+      "per": 15.5282,
+      "pbr": 14.6425,
+      "roe_3y_avg": 66.95,
+      "interest_coverage": 41.1935,
+      "buyback_rate_pct": null,
+      "div_yield": 1.0566,
+      "payout_ratio_pct": 22.89,
+      "pct_above_52w_low_pct": 1.9895,
+      "score": 0.5986,
+      "profile": {
+        "business": "LII(Lennard Instrument Inc.)는 산업용 측정 장비 및 테스트 솔루션을 제공하는 회사입니다. 항공우주, 자동차, 에너지 등 다양한 산업 분야에 정밀 계측 기기를 공급합니다.",
+        "sector": "산업장비/계측기기",
+        "products": "토크 도구, 테스트 및 측정 장비, 센서 및 모니터링 시스템",
+        "competitors": [
+          "Parker Hannifin",
+          "Actuant Corporation",
+          "Snap-on Inc."
         ]
       }
     },
@@ -1151,8 +1185,8 @@
       "stock_code": "LKFN",
       "name": "LKFN",
       "company_name": "Lakeland Financial",
-      "mktcap_usd": 1441.88,
-      "price": 58.0,
+      "mktcap_usd": 1456.5474,
+      "price": 58.59,
       "per": 12.8459,
       "pbr": 1.9106,
       "roe_3y_avg": 14.67,
@@ -1160,68 +1194,16 @@
       "buyback_rate_pct": null,
       "div_yield": 3.3201,
       "payout_ratio_pct": 46.72,
-      "pct_above_52w_low_pct": 5.3971,
-      "score": 0.5954,
+      "pct_above_52w_low_pct": 4.5975,
+      "score": 0.5978,
       "profile": {
-        "business": "Lakeland Financial Corporation은 미국 중서부 지역을 중심으로 커뮤니티 은행 서비스를 제공하는 금융기관입니다. 개인 및 기업 고객을 대상으로 예금, 대출, 투자 등 종합적인 은행 서비스를 운영합니다.",
-        "sector": "금융 서비스/지역 금융기관",
-        "products": "개인 및 기업 은행 서비스, 대출, 예금, 투자 상품",
+        "business": "Lakeland Financial Corporation은 미국 중서부 지역을 중심으로 커뮤니티 은행 서비스를 제공하는 금융기관입니다. 개인 및 중소기업 고객을 대상으로 대출, 예금, 투자 등 전통적인 은행 서비스를 영위합니다.",
+        "sector": "금융 서비스/지역 은행",
+        "products": "일반 은행 서비스(예금, 대출, 신용카드, 투자 상품)",
         "competitors": [
-          "MainSource Financial Group",
-          "German American Bancorp",
-          "First Financial Bancorp"
-        ]
-      }
-    },
-    {
-      "stock_code": "LCII",
-      "name": "LCII",
-      "company_name": "LCI Industries",
-      "mktcap_usd": 2434.4878,
-      "price": 83.89,
-      "per": 9.6848,
-      "pbr": 2.1576,
-      "roe_3y_avg": 15.25,
-      "interest_coverage": 8.1428,
-      "buyback_rate_pct": null,
-      "div_yield": 3.7534,
-      "payout_ratio_pct": 52.79,
-      "pct_above_52w_low_pct": 7.3311,
-      "score": 0.593,
-      "profile": {
-        "business": "LCI Industries는 레저용 차량(RV) 및 해양 선박용 부품 및 시스템을 제조하고 공급하는 회사입니다. 캐비닛, 침대, 실내장식, 전기 시스템 등 다양한 컴포넌트를 생산합니다.",
-        "sector": "자동차 부품 / 여가용품",
-        "products": "RV 캐비닛, 침구류, 실내 가구, 전기/전자 시스템, 해양용 부품",
-        "competitors": [
-          "Thor Industries",
-          "REV Group",
-          "Winnebago Industries"
-        ]
-      }
-    },
-    {
-      "stock_code": "BANF",
-      "name": "BANF",
-      "company_name": "Bancfirst Corp",
-      "mktcap_usd": 3663.408,
-      "price": 109.03,
-      "per": 14.1455,
-      "pbr": 1.9061,
-      "roe_3y_avg": 13.44,
-      "interest_coverage": null,
-      "buyback_rate_pct": null,
-      "div_yield": 2.0021,
-      "payout_ratio_pct": 25.62,
-      "pct_above_52w_low_pct": 5.4857,
-      "score": 0.5922,
-      "profile": {
-        "business": "BANF(Bancorp Inc.)는 미국의 지역 금융 기관으로, 상업용 및 소비자 금융 서비스를 제공합니다. 예금 수취, 대출, 투자 자문 등 전통적인 은행 업무를 영위하고 있습니다.",
-        "sector": "금융/은행",
-        "products": "예금 상품, 대출 상품, 자산관리, 투자 서비스",
-        "competitors": [
-          "PNC Financial Services",
-          "KeyCorp",
-          "Regions Financial"
+          "Fifth Third Bancorp",
+          "Flagstone Bank",
+          "MainSource Financial Group"
         ]
       }
     },
@@ -1229,8 +1211,8 @@
       "stock_code": "FFIN",
       "name": "FFIN",
       "company_name": "First Financial Bankshares",
-      "mktcap_usd": 4366.9604,
-      "price": 30.47,
+      "mktcap_usd": 4326.8308,
+      "price": 30.19,
       "per": 16.3913,
       "pbr": 2.231,
       "roe_3y_avg": 14.35,
@@ -1238,16 +1220,42 @@
       "buyback_rate_pct": null,
       "div_yield": 2.7211,
       "payout_ratio_pct": 39.5,
-      "pct_above_52w_low_pct": 6.5757,
-      "score": 0.5918,
+      "pct_above_52w_low_pct": 4.7219,
+      "score": 0.5972,
       "profile": {
-        "business": "FFIN은 FirstFed Financial Corp의 티커로, 캘리포니아 지역 중심의 지역 은행입니다. 커뮤니티 뱅킹 서비스를 제공하며, 대출, 예금, 기타 금융 서비스를 주력 사업으로 영위하고 있습니다.",
-        "sector": "금융/은행",
-        "products": "기업대출, 소비자대출, 예금상품, 부동산담보대출",
+        "business": "FFIN은 First Financial Bancorp로 중서부 지역을 중심으로 커뮤니티 뱅킹 서비스를 제공하는 지역 은행 지주회사입니다. 상업 및 소비자 대출, 예금 상품, 재무 서비스 등 종합적인 금융 서비스를 운영하고 있습니다.",
+        "sector": "금융(은행)",
+        "products": "상업대출, 소비자대출, 예금상품, 재무자문",
         "competitors": [
-          "Western Alliance Bancorporation",
-          "Popular Inc",
-          "SVB Financial Group"
+          "Fifth Third Bancorp",
+          "Huntington Bancshares",
+          "KeyCorp"
+        ]
+      }
+    },
+    {
+      "stock_code": "LCII",
+      "name": "LCII",
+      "company_name": "LCI Industries",
+      "mktcap_usd": 2392.699,
+      "price": 82.45,
+      "per": 9.6848,
+      "pbr": 2.1576,
+      "roe_3y_avg": 15.25,
+      "interest_coverage": 8.1428,
+      "buyback_rate_pct": null,
+      "div_yield": 3.7534,
+      "payout_ratio_pct": 52.79,
+      "pct_above_52w_low_pct": 4.8106,
+      "score": 0.5963,
+      "profile": {
+        "business": "LCI Industries는 레크리에이션 차량(RV) 및 해양 제품용 부품과 액세서리를 설계, 제조, 유통하는 기업입니다. 캐비닛, 가구, 전자 시스템 등 다양한 컴포넌트를 공급합니다.",
+        "sector": "자동차 부품/여가용품",
+        "products": "RV 부품, 해양 액세서리, 캐비닛, 가구, 전자 시스템",
+        "competitors": [
+          "Wesco International",
+          "SPX Corporation",
+          "Thor Industries"
         ]
       }
     },
@@ -1255,8 +1263,8 @@
       "stock_code": "SR",
       "name": "SR",
       "company_name": "Spire",
-      "mktcap_usd": 4849.6136,
-      "price": 82.03,
+      "mktcap_usd": 4900.4568,
+      "price": 82.89,
       "per": 8.2138,
       "pbr": 1.419,
       "roe_3y_avg": 15.88,
@@ -1264,16 +1272,42 @@
       "buyback_rate_pct": null,
       "div_yield": 4.9728,
       "payout_ratio_pct": 25.87,
-      "pct_above_52w_low_pct": 8.0195,
-      "score": 0.5917,
+      "pct_above_52w_low_pct": 6.887,
+      "score": 0.5939,
       "profile": {
-        "business": "SR은 철강 및 강재 제조업체입니다. 건설, 자동차, 에너지 등 다양한 산업에 고품질의 철강 제품을 공급합니다.",
-        "sector": "기본 재료(Basic Materials) / 철강",
-        "products": "구조용 강재, 자동차용 강판, 파이프 및 튜브",
+        "business": "SR은 철강 제조 및 판매를 주요 사업으로 하는 미국의 철강회사입니다. 자동차, 건설, 에너지 등 다양한 산업에 철강 제품을 공급합니다.",
+        "sector": "철강/소재",
+        "products": "자동차용 강판, 구조용 강재, 파이프 및 튜브",
         "competitors": [
-          "US Steel (X)",
-          "Cleveland-Cliffs (CLF)",
-          "Nucor (NUE)"
+          "U.S. Steel (X)",
+          "Nucor (NUE)",
+          "Commercial Metals (CMC)"
+        ]
+      }
+    },
+    {
+      "stock_code": "BANF",
+      "name": "BANF",
+      "company_name": "Bancfirst Corp",
+      "mktcap_usd": 3701.376,
+      "price": 110.16,
+      "per": 14.1455,
+      "pbr": 1.9061,
+      "roe_3y_avg": 13.44,
+      "interest_coverage": null,
+      "buyback_rate_pct": null,
+      "div_yield": 2.0021,
+      "payout_ratio_pct": 25.62,
+      "pct_above_52w_low_pct": 4.4988,
+      "score": 0.593,
+      "profile": {
+        "business": "뱅프(Bancorp, Inc.)는 미국의 지역 커뮤니티 은행으로, 개인 및 기업 고객을 대상으로 예금, 대출, 투자 등 다양한 금융 서비스를 제공합니다. 펜실베이니아를 중심으로 다중 지점의 지역 은행 네트워크를 운영하고 있습니다.",
+        "sector": "금융/은행",
+        "products": "예금상품, 대출상품, 투자 자문, 신탁 서비스",
+        "competitors": [
+          "KeyCorp",
+          "Huntington Bancshares",
+          "Citizens Financial Group"
         ]
       }
     },
@@ -1281,8 +1315,8 @@
       "stock_code": "DPZ",
       "name": "DPZ",
       "company_name": "Domino's",
-      "mktcap_usd": 10209.8112,
-      "price": 308.64,
+      "mktcap_usd": 10463.5348,
+      "price": 316.31,
       "per": 16.5379,
       "pbr": null,
       "roe_3y_avg": 31.8523,
@@ -1290,42 +1324,16 @@
       "buyback_rate_pct": null,
       "div_yield": 1.307,
       "payout_ratio_pct": 41.05,
-      "pct_above_52w_low_pct": 9.0485,
-      "score": 0.5901,
+      "pct_above_52w_low_pct": 7.9108,
+      "score": 0.5909,
       "profile": {
-        "business": "DPZ는 Domino's Pizza의 모회사로, 전 세계적으로 피자 및 기타 식품을 판매하는 프랜차이즈 레스토랑 체인을 운영합니다. 주로 배달 기반의 비즈니스 모델을 통해 수익을 창출합니다.",
-        "sector": "소비재/식품 서비스",
-        "products": "Domino's Pizza 브랜드의 피자, 사이드 메뉴, 음료",
+        "business": "미국 최대 규모의 피자 및 음식 배달 프랜차이즈 기업입니다. 도미노스 피자 브랜드로 미국 및 국제 시장에서 피자 판매 및 배달 서비스를 운영하고 있습니다.",
+        "sector": "Consumer Discretionary / Food & Beverage",
+        "products": "도미노스 피자(Domino's Pizza)",
         "competitors": [
-          "Papa John's International",
-          "YUM! Brands (Pizza Hut)",
-          "Restaurant Brands International"
-        ]
-      }
-    },
-    {
-      "stock_code": "AN",
-      "name": "AN",
-      "company_name": "AutoNation",
-      "mktcap_usd": 5411.4858,
-      "price": 161.73,
-      "per": 6.5447,
-      "pbr": 3.1751,
-      "roe_3y_avg": 33.18,
-      "interest_coverage": 3.4638,
-      "buyback_rate_pct": null,
-      "div_yield": null,
-      "payout_ratio_pct": null,
-      "pct_above_52w_low_pct": 5.5748,
-      "score": 0.5887,
-      "profile": {
-        "business": "AN(Arena Group Holdings)은 온라인 라이프스타일 미디어 및 전자상거래 회사입니다. 디지털 콘텐츠 플랫폼을 통해 여성 대상 라이프스타일 상품과 서비스를 판매합니다.",
-        "sector": "디지털 미디어/전자상거래",
-        "products": "The Strategist, The Infatuation 등 라이프스타일 콘텐츠 플랫폼",
-        "competitors": [
-          "Condé Nast",
-          "Hearst",
-          "Dotdash Meredith"
+          "Pizza Hut",
+          "Papa John's",
+          "Little Caesars"
         ]
       }
     }
