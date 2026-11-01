@@ -1,7 +1,7 @@
 {
-  "as_of_date": "20261031",
+  "as_of_date": "20261101",
   "financial_year": null,
-  "generated_at": "2026-10-31T02:03:52.149754+00:00",
+  "generated_at": "2026-11-01T01:22:55.503189+00:00",
   "quote_text": "장기적으로 시장을 이기는 유일한 방법은 남들과 다르게 행동하는 것이다.",
   "quote_author": "John Templeton",
   "universe_total": 1501,
@@ -53,13 +53,13 @@
       "pct_above_52w_low_pct": 0.4515,
       "score": 0.7399,
       "profile": {
-        "business": "SLM은 미국의 학자금 대출 서비스 제공 회사입니다. 연방 및 민간 학자금 대출 상품을 제공하며, 대출 관리 및 수금 서비스를 주요 사업으로 합니다.",
+        "business": "SLM은 미국의 주요 학자금 대출 서비스 제공 회사입니다. 연방 학자금 대출 관리 및 민간 학자금 대출을 취급하며, 학생 대출 상환 서비스를 제공합니다.",
         "sector": "금융 서비스/교육금융",
-        "products": "학자금 대출(Federal 및 Private Loans), 대출 관리 서비스",
+        "products": "학자금 대출, 대출 상환 관리 서비스",
         "competitors": [
           "Navient",
-          "Great Lakes Higher Education",
-          "Nelnet"
+          "Nelnet",
+          "Great Lakes Higher Education"
         ]
       }
     },
@@ -79,12 +79,12 @@
       "pct_above_52w_low_pct": 3.7169,
       "score": 0.7101,
       "profile": {
-        "business": "태양광 패널 및 태양전지 제조 전문 기업입니다. 주로 주거용, 상업용, 대규모 태양광 발전소용 박막 태양전지를 생산하고 판매합니다.",
+        "business": "태양광 태양전지 및 태양광 모듈을 설계, 제조, 판매하는 재생에너지 기업입니다. 주로 대규모 태양광 발전소, 상용시설, 주택용 태양광 시스템에 고효율 태양전지를 공급합니다.",
         "sector": "재생에너지/태양광",
-        "products": "박막 태양전지 패널",
+        "products": "고효율 태양광 모듈, 태양전지",
         "competitors": [
-          "Sunpower",
-          "Enphase Energy",
+          "JinkoSolar",
+          "JA Solar",
           "Canadian Solar"
         ]
       }
@@ -103,15 +103,15 @@
       "div_yield": null,
       "payout_ratio_pct": null,
       "pct_above_52w_low_pct": 0.0,
-      "score": 0.7076,
+      "score": 0.7075,
       "profile": {
-        "business": "TBBK는 미국의 커뮤니티 뱅킹 서비스를 제공하는 금융기관입니다. 지역 기반의 소매 및 상업용 금융 서비스를 중심으로 운영합니다.",
+        "business": "TBBK는 커뮤니티 기반의 지역 은행으로, 중소기업과 개인 고객을 대상으로 예금, 대출, 투자 등 전통적인 은행 서비스를 제공합니다. 지역사회 중심의 금융 서비스에 집중하고 있습니다.",
         "sector": "금융/은행",
-        "products": "예금, 대출, 모기지, 상업금융 등 일반 은행 서비스",
+        "products": "예금, 대출, 투자 상품, 자산관리 서비스",
         "competitors": [
-          "SIVB",
-          "WAFD",
-          "BANR"
+          "Wells Fargo",
+          "JPMorgan Chase",
+          "Bank of America"
         ]
       }
     },
@@ -131,13 +131,13 @@
       "pct_above_52w_low_pct": 3.5273,
       "score": 0.6713,
       "profile": {
-        "business": "WAFD(Washington Federal Inc.)는 미국 태평양 북서부를 중심으로 영업하는 지역 금융기관입니다. 소매 및 상업 은행 서비스를 제공하며, 예금 수집과 대출 업무를 주요 사업으로 운영합니다.",
+        "business": "WAFD(Washington Federal Inc.)는 미국 워싱턴주를 중심으로 한 지역 커뮤니티 은행입니다. 주로 소매 및 상업 은행 업무를 통해 개인, 소상공인, 중소기업 고객들에게 금융 서비스를 제공합니다.",
         "sector": "금융/은행",
-        "products": "예금, 대출, 모기지, 신용카드, 자산관리 서비스",
+        "products": "저축 계좌, 당좌 계좌, 대출, 모기지, 신용 상품",
         "competitors": [
-          "Zions Bancorporation",
           "Banner Corporation",
-          "Umpqua Holdings"
+          "Umpqua Holdings",
+          "Columbia Banking System"
         ]
       }
     },
@@ -157,9 +157,9 @@
       "pct_above_52w_low_pct": 7.0419,
       "score": 0.663,
       "profile": {
-        "business": "뱅크 오브 아메리카(BAC)는 미국 최대 규모의 상업은행 중 하나로, 개인 및 기업 고객을 대상으로 다양한 금융 서비스를 제공합니다. 예금, 대출, 투자 자문, 자산 관리, 기업 금융 등 광범위한 금융 상품을 취급하고 있습니다.",
+        "business": "미국 최대 규모의 은행 중 하나로 상업금융, 투자금융, 자산관리 등 종합금융서비스를 제공합니다. 미국 전역에 광범위한 지점과 디지털 뱅킹 플랫폼을 운영하고 있습니다.",
         "sector": "금융/은행",
-        "products": "개인 당좌예금, 저축계좌, 주택담보대출, 신용카드, 투자 상품, 기업 금융 솔루션",
+        "products": "예금, 대출, 신용카드, 투자 및 자산관리 서비스, 부동산금융",
         "competitors": [
           "JPMorgan Chase",
           "Wells Fargo",
@@ -183,13 +183,13 @@
       "pct_above_52w_low_pct": 9.1114,
       "score": 0.6616,
       "profile": {
-        "business": "Charter Communications는 미국 최대 규모의 케이블 통신 회사 중 하나입니다. 인터넷, 텔레비전, 음성 통신 서비스를 제공하며, 광대역 인프라를 통해 주거 및 상업 고객들에게 서비스합니다.",
-        "sector": "통신/케이블",
-        "products": "Spectrum",
+        "business": "Charter Communications는 미국 최대 규모의 케이블 통신 회사 중 하나입니다. 광대역 인터넷, 비디오(케이블 TV), 음성 통신 서비스를 제공하며, Spectrum 브랜드로 주로 알려져 있습니다.",
+        "sector": "통신/미디어",
+        "products": "Spectrum(광대역 인터넷, 케이블 TV, 음성 서비스)",
         "competitors": [
           "Comcast",
-          "Verizon",
-          "AT&T"
+          "Cox Communications",
+          "Dish Network"
         ]
       }
     },
@@ -209,13 +209,13 @@
       "pct_above_52w_low_pct": 0.0,
       "score": 0.6608,
       "profile": {
-        "business": "CDE(Coeur d'Alene Mines Corporation)는 귀금속 채굴 및 생산에 종사하는 광산 회사입니다. 주로 은, 금, 구리, 아연 등을 채굴하며 미국과 국제 시장에서 귀금속을 공급합니다.",
-        "sector": "Materials - Mining",
-        "products": "Silver(은), Gold(금), Copper(구리), Zinc(아연)",
+        "business": "CDE(Coeur d'Alene Mines Corporation)는 귀금속 채굴 및 생산에 중점을 두고 있는 광업 회사입니다. 주로 금, 은, 구리 등의 귀금속을 채굴하여 정제 및 판매합니다.",
+        "sector": "재료/광업",
+        "products": "금, 은, 구리 등 귀금속",
         "competitors": [
-          "Hecla Mining",
-          "Pan American Silver",
-          "First Majestic Silver"
+          "Newmont",
+          "Barrick Gold",
+          "Agnico Eagle Mines"
         ]
       }
     },
@@ -223,8 +223,8 @@
       "stock_code": "IBOC",
       "name": "IBOC",
       "company_name": "Intl Bancshares Corp",
-      "mktcap_usd": 4164.1946,
-      "price": 66.97,
+      "mktcap_usd": 4157.3548,
+      "price": 66.86,
       "per": 10.2906,
       "pbr": 1.2702,
       "roe_3y_avg": 12.67,
@@ -233,15 +233,15 @@
       "div_yield": 2.7644,
       "payout_ratio_pct": 28.01,
       "pct_above_52w_low_pct": 5.4242,
-      "score": 0.6532,
+      "score": 0.6533,
       "profile": {
-        "business": "IBOC(Invitation Homes)는 미국 내 단독주택을 매입하여 임차인에게 임대하는 주택임차사업을 영위합니다. 대규모 주택포트폴리오를 관리하며 부동산 임대료 수익을 주요 수익원으로 합니다.",
-        "sector": "부동산(Real Estate) - 주거용 임대",
-        "products": "주택임차 서비스, 단독주택 포트폴리오",
+        "business": "IBOC는 아이오박스(i-box)라는 자동 보관함 시스템을 개발·운영하는 회사입니다. 소매점, 약국, 편의점 등에 설치되는 자동 픽업 및 반품 솔루션을 제공합니다.",
+        "sector": "Specialty Retail / Logistics Technology",
+        "products": "i-box(자동 보관함 시스템)",
         "competitors": [
-          "American Homes 4 Rent",
-          "Altisource Residential",
-          "Silver Bay Realty Trust"
+          "Amazon Lockers",
+          "Cleveron",
+          "InPost"
         ]
       }
     },
@@ -259,15 +259,15 @@
       "div_yield": 2.348,
       "payout_ratio_pct": 30.86,
       "pct_above_52w_low_pct": 7.1364,
-      "score": 0.6525,
+      "score": 0.6524,
       "profile": {
-        "business": "McCormick & Company는 향신료, 조미료, 식품 재료를 생산 및 유통하는 글로벌 식품 조미료 회사입니다. 소비자용 제품과 산업용 식품 솔루션을 함께 제공하고 있습니다.",
+        "business": "McCormick & Company는 향신료, 조미료, 식품 재료 및 향료를 생산·판매하는 글로벌 식품 재료 기업입니다. 소비자용 제품과 산업용 솔루션을 통해 전 세계 고객에게 공급하고 있습니다.",
         "sector": "Consumer Staples / Food Products",
-        "products": "McCormick 향신료, French's 소스, Lawry's 시즈닝, Zatarain's 식품",
+        "products": "McCormick 향신료, 시즈닝, 추출물, 식품 색소 및 향료 솔루션",
         "competitors": [
+          "Nestlé",
           "Kraft Heinz",
-          "Conagra Brands",
-          "Mondelez International"
+          "Conagra Brands"
         ]
       }
     },
@@ -285,15 +285,15 @@
       "div_yield": 2.51,
       "payout_ratio_pct": 21.93,
       "pct_above_52w_low_pct": 8.7559,
-      "score": 0.6507,
+      "score": 0.6506,
       "profile": {
-        "business": "Perdoceo Education Corporation은 고등교육 및 직업 교육 서비스를 제공하는 교육 회사입니다. 온라인 및 캠퍼스 기반의 학위 프로그램과 직업 자격증 과정을 운영하고 있습니다.",
-        "sector": "교육 서비스",
-        "products": "온라인 학위 프로그램, 직업 교육 과정, 캠퍼스 기반 교육 프로그램",
+        "business": "PRDO(Perdoceo Education Corporation)는 영리 교육 기관을 운영하는 교육 서비스 회사입니다. 온라인 및 캠퍼스 기반의 고등교육 프로그램을 제공하며, 직업 기술 교육에 중점을 두고 있습니다.",
+        "sector": "교육 서비스/고등교육",
+        "products": "온라인 학위 프로그램, 직업 기술 교육, 캠퍼스 기반 교육",
         "competitors": [
-          "Apollo Global Management",
-          "Grand Canyon Education",
-          "Coursera"
+          "2U Inc.",
+          "Coursera Inc.",
+          "Strayer Education"
         ]
       }
     },
@@ -313,13 +313,13 @@
       "pct_above_52w_low_pct": 7.7384,
       "score": 0.6501,
       "profile": {
-        "business": "FHB는 미국의 지역 커뮤니티 은행입니다. 주로 주택담보대출, 예금, 기타 금융 서비스를 제공하는 소규모 금융기관입니다.",
-        "sector": "금융 / 은행",
-        "products": "주택담보대출, 예금상품, 개인대출, 상업대출",
+        "business": "FHB는 플로리다 지역을 중심으로 영업하는 지역사회 은행입니다. 개인 및 중소기업 고객을 대상으로 예금, 대출, 금융 서비스를 제공합니다.",
+        "sector": "금융/은행",
+        "products": "예금상품, 대출상품, 디지털 뱅킹 서비스",
         "competitors": [
-          "WSFS Financial",
-          "First National Corporation",
-          "Flushing Bank"
+          "BankUnited",
+          "TIB Financial Corp",
+          "OFG"
         ]
       }
     },
@@ -337,7 +337,7 @@
       "div_yield": null,
       "payout_ratio_pct": 4.22,
       "pct_above_52w_low_pct": 2.3181,
-      "score": 0.65,
+      "score": 0.6501,
       "profile": null
     },
     {
@@ -355,16 +355,7 @@
       "payout_ratio_pct": 4.22,
       "pct_above_52w_low_pct": 1.8598,
       "score": 0.65,
-      "profile": {
-        "business": "Google은 검색 엔진, 온라인 광고, 클라우드 서비스 등을 제공하는 기술 기업입니다. 광고 사업이 주요 수익원이며, YouTube, Android, Google Cloud 등 다양한 플랫폼과 서비스를 운영합니다.",
-        "sector": "정보기술(IT) / 인터넷 서비스",
-        "products": "Google 검색, YouTube, Gmail, Google Cloud, Android, Pixel, Chrome",
-        "competitors": [
-          "Microsoft",
-          "Amazon",
-          "Meta"
-        ]
-      }
+      "profile": null
     },
     {
       "stock_code": "NFLX",
@@ -382,9 +373,9 @@
       "pct_above_52w_low_pct": 0.1452,
       "score": 0.6493,
       "profile": {
-        "business": "넷플릭스는 구독 기반의 스트리밍 동영상 서비스를 제공하는 글로벌 엔터테인먼트 회사입니다. 영화, TV 드라마, 다큐멘터리 등 다양한 콘텐츠를 인터넷을 통해 온디맨드로 제공합니다.",
-        "sector": "미디어/엔터테인먼트",
-        "products": "Netflix 스트리밍 서비스",
+        "business": "Netflix는 구독 기반의 동영상 스트리밍 서비스를 제공하는 글로벌 엔터테인먼트 플랫폼입니다. 영화, 드라마, 다큐멘터리 등 다양한 콘텐츠를 자체 제작하고 라이센싱을 통해 확보하여 고객에게 제공합니다.",
+        "sector": "Media & Entertainment",
+        "products": "Netflix 스트리밍 플랫폼, 자체제작 시리즈 및 영화",
         "competitors": [
           "Disney+",
           "Amazon Prime Video",
@@ -408,13 +399,14 @@
       "pct_above_52w_low_pct": 5.7799,
       "score": 0.6482,
       "profile": {
-        "business": "데크 스포츠(Deckers Outdoor Corporation)는 야외 활동용 신발, 의류, 액세서리를 설계하고 판매하는 기업입니다. 프리미엄 야외용품 브랜드를 중심으로 글로벌 시장에서 높은 수익성을 유지하고 있습니다.",
-        "sector": "의류/신발/액세서리",
-        "products": "UGG, HOKA, Teva, Sanuk",
+        "business": "Deckers Outdoor Corporation은 프리미엄 야외 및 라이프스타일 의류, 신발, 액세서리를 설계 및 판매하는 회사입니다. 직영점, 온라인, 도매 채널을 통해 전 세계 소비자에게 제품을 공급합니다.",
+        "sector": "소비재/의류 및 신발",
+        "products": "UGG, The North Face, Timberland, HOKA",
         "competitors": [
           "Nike",
           "Adidas",
-          "Lululemon"
+          "Lululemon",
+          "Columbia Sportswear"
         ]
       }
     },
@@ -434,13 +426,13 @@
       "pct_above_52w_low_pct": 3.2822,
       "score": 0.6404,
       "profile": {
-        "business": "반도체 칩 설계 및 개발 회사로, 주로 오디오 및 음성 처리 솔루션을 제공합니다. 모바일 기기, 웨어러블, IoT 등 다양한 전자기기에 탑재되는 음성 신호 처리 칩을 개발합니다.",
-        "sector": "반도체/전자부품",
-        "products": "오디오 코덱, 음성 처리 칩, 스마트 홈 솔루션",
+        "business": "Cirrus Logic는 오디오 및 음성 처리 기술을 전문으로 하는 반도체 회사입니다. 스마트폰, 태블릿, 노트북 등 모바일 기기와 소비자 전자제품용 아날로그 및 디지털 신호 처리 칩을 설계하고 공급합니다.",
+        "sector": "반도체/전자",
+        "products": "오디오 코덱, 음성 처리칩, 전력관리 IC",
         "competitors": [
           "Qualcomm",
-          "Cirrus Logic",
-          "Realtek"
+          "Broadcom",
+          "Analog Devices"
         ]
       }
     },
@@ -460,13 +452,13 @@
       "pct_above_52w_low_pct": 3.5417,
       "score": 0.6385,
       "profile": {
-        "business": "Sprouts Farmers Market은 천연 및 유기농 식품에 중점을 둔 미국의 건강식품 소매 체인입니다. 1천 개 이상의 매장을 통해 신선 농산물, 자연 식품, 영양 보충제 등을 판매하고 있습니다.",
-        "sector": "소매업 / 식품",
-        "products": "자연식품, 유기농 식품, 신선 농산물, 영양 보충제, 자체 브랜드 상품",
+        "business": "SFM(Sprouts Farmers Market)은 신선한 유기농 식품과 자연식 제품을 전문으로 하는 소매 식품점 체인입니다. 건강식품과 자연 제품에 중점을 두고 있으며, 미국 전역에 수백 개의 매장을 운영하고 있습니다.",
+        "sector": "소매 - 식품 및 생활용품",
+        "products": "유기농 식품, 자연식품, 건강식품, 신선 농산물, 건강 보조제",
         "competitors": [
           "Whole Foods Market",
-          "Natural Grocers",
-          "Trader Joe's"
+          "Trader Joe's",
+          "Natural Grocers"
         ]
       }
     },
@@ -486,13 +478,13 @@
       "pct_above_52w_low_pct": 0.1284,
       "score": 0.6359,
       "profile": {
-        "business": "온라인 여행 예약 플랫폼으로 호텔, 항공권, 렌터카 등 여행 관련 서비스를 제공합니다. 전 세계 고객들이 숙박시설과 여행 상품을 검색하고 예약할 수 있는 디지털 마켓플레이스를 운영합니다.",
-        "sector": "온라인 여행 및 관광업(Online Travel)",
-        "products": "Booking.com, Agoda, Rentalcars.com, Kayak, OpenTable",
+        "business": "Booking.com을 비롯한 여행 예약 플랫폼을 운영하는 글로벌 온라인 여행사입니다. 항공편, 숙박시설, 렌터카, 관광 액티비티 등 다양한 여행 관련 서비스를 한 플랫폼에서 예약할 수 있도록 제공합니다.",
+        "sector": "온라인 여행 예약 / 디지털 마켓플레이스",
+        "products": "Booking.com, Agoda, Rentalcars.com, Kayak, Priceline",
         "competitors": [
-          "Expedia Group",
+          "Expedia",
           "Airbnb",
-          "TripAdvisor"
+          "Trip Advisor"
         ]
       }
     },
@@ -512,13 +504,13 @@
       "pct_above_52w_low_pct": 5.0599,
       "score": 0.6354,
       "profile": {
-        "business": "Huntington Bancshares Incorporated(HBAN)는 미국의 지역 은행 지주회사로, 중서부와 동부 지역을 중심으로 소매 및 상업 은행 서비스를 제공합니다. 개인 고객과 기업체를 대상으로 예금, 대출, 투자 관련 금융 서비스를 영위합니다.",
+        "business": "HBAN은 Huntington Bancshares의 티커로, 미국 중서부를 중심으로 영업하는 지역 기반 은행입니다. 상업 및 소비자 금융 서비스를 제공합니다.",
         "sector": "금융/은행",
-        "products": "예금상품, 대출상품, 신용카드, 투자 자문, 자산관리",
+        "products": "개인 및 기업 대출, 예금, 투자 서비스, 자산 관리",
         "competitors": [
-          "PNC Financial Services",
+          "Fifth Third Bancorp",
           "KeyCorp",
-          "Fifth Third Bancorp"
+          "PNC Financial Services"
         ]
       }
     },
@@ -538,13 +530,13 @@
       "pct_above_52w_low_pct": 3.7265,
       "score": 0.6344,
       "profile": {
-        "business": "NXT(Nextracker)는 태양광 발전소용 추적 시스템(Solar Trackers) 제조 및 판매하는 기업입니다. 태양광 패널의 방향을 자동으로 조정하여 발전 효율을 높이는 솔루션을 제공합니다.",
-        "sector": "청정에너지/태양광 에너지",
-        "products": "태양광 추적 시스템(Solar Tracking Systems)",
+        "business": "NextEra Energy의 자회사로 전력 및 가스 유틸리티 사업을 영위하는 기업입니다. 플로리다 주를 중심으로 전기와 천연가스를 공급하며, 재생에너지 사업도 함께 진행하고 있습니다.",
+        "sector": "Utilities (유틸리티)",
+        "products": "전기, 천연가스, 재생에너지",
         "competitors": [
-          "Arctech Solar",
-          "NEXTracker 경쟁사들",
-          "Soltec"
+          "Duke Energy",
+          "American Electric Power",
+          "Dominion Energy"
         ]
       }
     },
@@ -564,13 +556,13 @@
       "pct_above_52w_low_pct": 1.2309,
       "score": 0.6336,
       "profile": {
-        "business": "Greenbrick Capital은 부동산 금융 및 투자 관련 사업을 영위하는 금융 서비스 회사입니다. 주로 주택담보대출 및 부동산 개발 금융을 제공합니다.",
-        "sector": "금융 서비스/부동산 금융",
-        "products": "주택담보대출, 부동산 개발 금융",
+        "business": "Green Brick Partners는 미국 주택 건설업체로서 텍사스를 중심으로 단독주택과 타운홈을 건설 및 판매합니다. 주택 개발, 건설, 판매를 주요 사업으로 영위하고 있습니다.",
+        "sector": "주택건설업(Homebuilders)",
+        "products": "단독주택, 타운홈, 주거용 부동산 개발",
         "competitors": [
-          "Invesco",
-          "Wells Fargo Home Lending",
-          "JPMorgan Chase"
+          "Lennar Corporation",
+          "D.R. Horton",
+          "Toll Brothers"
         ]
       }
     },
@@ -588,15 +580,15 @@
       "div_yield": null,
       "payout_ratio_pct": 8.37,
       "pct_above_52w_low_pct": 7.2032,
-      "score": 0.6313,
+      "score": 0.6314,
       "profile": {
-        "business": "Artisan Acquisition Corp.의 후속 기업으로, 특수 목적 회수 회사(SPAC)입니다. 구체적인 사업 내용에 대해 확인이 필요합니다.",
-        "sector": "특수목적회사(SPAC)/금융",
-        "products": "정보 부족",
+        "business": "Artisan Minerals Acquisition Corp는 특수 광물 및 관련 제품의 개발, 생산, 판매에 관여하는 기업입니다. 산업용 광물 시장에서 주요 제품을 공급합니다.",
+        "sector": "기초자재/광물채굴",
+        "products": "특수 광물, 산업용 광물 제품",
         "competitors": [
-          "정보 부족",
-          "정보 부족",
-          "정보 부족"
+          "Compass Minerals",
+          "Albemarle Corporation",
+          "Arcadium Lithium"
         ]
       }
     },
@@ -616,13 +608,13 @@
       "pct_above_52w_low_pct": 0.5674,
       "score": 0.6239,
       "profile": {
-        "business": "파이퍼 샌드러(Piper Sandler)는 중형 투자은행 및 증권회사로 기업 인수합병, 자본시장 거래, 자산관리 등 종합 금융서비스를 제공합니다. 주로 중견기업과 금융기관을 대상으로 한 투자은행 업무에 특화되어 있습니다.",
-        "sector": "금융 (금융 서비스/투자은행)",
-        "products": "기업금융 자문, M&A 중개, 증권 인수, 자산관리 서비스",
+        "business": "파이퍼 샌드러(Piper Sandler)는 중형 기업과 금융기관을 대상으로 투자은행, 증권거래, 자산관리 등 종합 금융서비스를 제공합니다. 특히 중견기업 자금조달과 인수합병 자문에 특화되어 있습니다.",
+        "sector": "금융/투자은행",
+        "products": "투자은행 서비스, 주식/채권 중개, 자산관리, 기업자금조달 컨설팅",
         "competitors": [
-          "Raymond James Financial",
-          "Stifel Financial",
-          "Jefferies Financial Group"
+          "Raymond James",
+          "Evercore",
+          "Lazard"
         ]
       }
     },
@@ -640,15 +632,15 @@
       "div_yield": 1.4549,
       "payout_ratio_pct": 15.37,
       "pct_above_52w_low_pct": 4.3911,
-      "score": 0.6216,
+      "score": 0.6215,
       "profile": {
-        "business": "MLI(Mueller Industries)는 HVAC, 플럼빙, 수도 및 난방 시스템용 구리 튜브, 피팅, 밸브 등의 부품을 제조 및 판매합니다. 주로 주거용 및 상업용 건설 시장에 공급하는 기업입니다.",
-        "sector": "산업재/기계장비",
-        "products": "구리 튜브, 피팅, 밸브, HVAC 부품",
+        "business": "MLI는 Müller Industries로 배관, 난방, 냉각 시스템 관련 제품을 제조 및 유통하는 기업입니다. 주로 주거 및 상업용 건설 시장을 대상으로 사업을 영위하고 있습니다.",
+        "sector": "산업재/건설자재",
+        "products": "동파이프, 황동피팅, 밸브, 냉난방 부품 등",
         "competitors": [
-          "Worthington Industries",
+          "Viega",
           "Watts Water Technologies",
-          "Xylem Inc."
+          "Rexnord"
         ]
       }
     },
@@ -666,14 +658,14 @@
       "div_yield": 1.7721,
       "payout_ratio_pct": 23.78,
       "pct_above_52w_low_pct": 3.1635,
-      "score": 0.6164,
+      "score": 0.6163,
       "profile": {
-        "business": "Charles Schwab Corporation(SCHW)는 미국 최대 규모의 온라인 증권사로, 개인투자자와 기관투자자를 위한 중개, 자산관리, 금융자문 서비스를 제공합니다. 저비용의 주식거래 혁신으로 업계를 선도해온 금융 플랫폼입니다.",
-        "sector": "금융/증권",
-        "products": "온라인 증권거래 플랫폼, 로봇어드바이저(StreetSmart Edge), 자산관리 서비스",
+        "business": "Charles Schwab은 미국 최대 규모의 온라인 증권사 및 금융 서비스 회사입니다. 개인 투자자, 전문가, 기관투자자를 대상으로 주식 거래, 옵션, 선물 등의 거래 서비스와 자산관리 서비스를 제공합니다.",
+        "sector": "금융서비스 / 증권",
+        "products": "온라인 증권거래 플랫폼, 자산관리(Schwab Advisor Services), 은행 서비스",
         "competitors": [
-          "E-Trade",
           "Fidelity",
+          "E*TRADE",
           "Interactive Brokers"
         ]
       }
@@ -692,11 +684,11 @@
       "div_yield": 1.537,
       "payout_ratio_pct": 25.55,
       "pct_above_52w_low_pct": 0.0,
-      "score": 0.6145,
+      "score": 0.6144,
       "profile": {
-        "business": "GeneTex는 항체, 단백질 및 관련 연구 시약을 개발·생산하는 생명과학 회사입니다. 생명공학 연구, 진단 및 치료 개발에 필요한 고품질의 단백질 기반 제품을 공급합니다.",
-        "sector": "Life Sciences / Biotechnology",
-        "products": "항체, 단백질, 연구용 시약, 진단 시약",
+        "business": "GeneTex는 항체 및 단백질 연구 시약을 개발·제조하는 생명과학 회사입니다. 주로 면역학, 신경생물학, 암 연구 등 다양한 분야의 연구자들을 위한 고품질 항체 제품을 공급합니다.",
+        "sector": "생명과학 / 진단시약",
+        "products": "항체 시약, 단백질 연구 시약",
         "competitors": [
           "Abcam",
           "Cell Signaling Technology",
@@ -720,13 +712,13 @@
       "pct_above_52w_low_pct": 5.0737,
       "score": 0.6138,
       "profile": {
-        "business": "ORI(Old Republic International)는 미국 기반의 보험회사로 일반 배상책임보험, 전문직 배상책임보험, 주택보험 등 다양한 보험상품을 제공합니다. 125년 이상의 역사를 가진 전통적인 보험사입니다.",
-        "sector": "보험업(Insurance)",
-        "products": "배상책임보험, 전문직배상보험, 주택보험, 자동차보험",
+        "business": "ORI는 보험 및 재보험 서비스를 제공하는 금융 회사입니다. 주로 재산보험, 해상보험, 배상책임보험 등 다양한 보험 상품을 취급하고 있습니다.",
+        "sector": "금융/보험",
+        "products": "재산보험, 해상보험, 배상책임보험, 재보험",
         "competitors": [
-          "American Financial Group",
-          "Assured Guaranty Ltd",
-          "Arch Capital Group"
+          "RLI Corp",
+          "Assurant",
+          "Heritage Insurance"
         ]
       }
     },
@@ -746,13 +738,13 @@
       "pct_above_52w_low_pct": 0.4162,
       "score": 0.6094,
       "profile": {
-        "business": "VRTS(Virtus Investment Partners)는 독립적인 글로벌 자산운용사로, 뮤추얼 펀드, ETF, 기타 투자상품을 제공합니다. 여러 투자전략과 자산군에 걸쳐 포트폴리오 관리 및 자산운용 서비스를 제공합니다.",
-        "sector": "금융/자산운용",
-        "products": "뮤추얼 펀드, ETF, 별도 계정 관리 서비스",
+        "business": "VRTS(Virtus Investment Advisors)는 자산운용 및 투자자문 서비스를 제공하는 금융회사입니다. 뮤추얼펀드, ETF, 별도계정관리 등 다양한 투자상품을 운용하며 기관투자자와 개인투자자를 대상으로 서비스합니다.",
+        "sector": "금융 - 자산운용/투자관리",
+        "products": "뮤추얼펀드, ETF, 별도계정관리서비스, 투자자문",
         "competitors": [
-          "Invesco",
-          "Janus Henderson",
-          "AllianceBernstein"
+          "BlackRock",
+          "Vanguard",
+          "Invesco"
         ]
       }
     },
@@ -772,13 +764,13 @@
       "pct_above_52w_low_pct": 8.1627,
       "score": 0.6082,
       "profile": {
-        "business": "Lopez Holdings Corporation은 필리핀의 대형 종합 기업으로, 담배, 주류, 식품 등 소비재 분야에서 다각화된 포트폴리오를 보유하고 있습니다. 필리핀 시장에서 주요 소비재 브랜드들을 생산 및 유통합니다.",
-        "sector": "Consumer Staples / Diversified Consumer Goods",
-        "products": "Mighty, Fortune, Grand Winners 등 담배 및 주류 제품",
+        "business": "트레이딩 카드, 컬렉터 아이템, 스포츠 메모라빌리아 등을 판매하는 온라인 전자상거래 플랫폼을 운영합니다. 주로 중고 및 신규 수집품 판매 시장에서 활동하고 있습니다.",
+        "sector": "소비재/전자상거래",
+        "products": "트레이딩 카드, 스포츠 메모라빌리아, 컬렉터 아이템",
         "competitors": [
-          "Philip Morris International",
-          "Nestle Philippines",
-          "San Miguel Corporation"
+          "eBay",
+          "Mercari",
+          "StockX"
         ]
       }
     },
@@ -798,13 +790,13 @@
       "pct_above_52w_low_pct": 7.2976,
       "score": 0.6062,
       "profile": {
-        "business": "MWA는 미국의 폐수처리 및 환경 서비스 회사입니다. 산업용 폐수 처리, 물 재활용, 환경 솔루션 등을 제공하고 있습니다.",
-        "sector": "환경/유틸리티",
-        "products": "폐수처리 시스템, 물 재활용 기술, 환경 관리 솔루션",
+        "business": "MWA는 미국의 주요 유틸리티 회사입니다. 전기, 가스 등 에너지 공급 사업을 주로 영위하고 있습니다.",
+        "sector": "유틸리티(Utilities)",
+        "products": "전기, 천연가스 공급",
         "competitors": [
-          "Veolia",
-          "Suez",
-          "Ecolab"
+          "Duke Energy",
+          "American Electric Power",
+          "NextEra Energy"
         ]
       }
     },
@@ -824,13 +816,13 @@
       "pct_above_52w_low_pct": 6.3319,
       "score": 0.6062,
       "profile": {
-        "business": "FBK는 미국의 금융 서비스 회사입니다. 은행 및 금융 상품을 중심으로 사업을 영위하고 있습니다.",
-        "sector": "금융/은행",
-        "products": "은행 서비스, 대출 상품, 예금 상품",
+        "business": "FBK는 미국의 금융 서비스 기업입니다. 은행 및 금융 상품을 제공하는 지역 금융기관으로 알려져 있습니다.",
+        "sector": "금융 / 은행업",
+        "products": "예금, 대출, 투자 상품 등 일반 금융 서비스",
         "competitors": [
+          "Wells Fargo",
           "JPMorgan Chase",
-          "Bank of America",
-          "Wells Fargo"
+          "Bank of America"
         ]
       }
     },
@@ -848,11 +840,11 @@
       "div_yield": 2.4056,
       "payout_ratio_pct": 14.8,
       "pct_above_52w_low_pct": 8.3606,
-      "score": 0.6046,
+      "score": 0.6047,
       "profile": {
-        "business": "HIG는 The Hartford Financial Services Group의 티커로, 재산보험, 자동차보험, 생명보험 등 다양한 보험 상품을 제공하는 종합 보험회사입니다. 미국 주요 보험사 중 하나로 개인 및 기업 고객을 대상으로 보험 서비스를 영위하고 있습니다.",
+        "business": "HIG는 손해보험 및 재산보험을 주요 사업으로 영위하는 글로벌 보험회사입니다. 자동차보험, 주택보험, 상업용 재산보험 등 다양한 보험상품을 제공하며, 미국을 중심으로 국제 시장에서 활동하고 있습니다.",
         "sector": "금융/보험",
-        "products": "자동차보험, 주택보험, 생명보험, 손해보험",
+        "products": "자동차보험, 주택보험, 상업용 재산보험",
         "competitors": [
           "State Farm",
           "Allstate",
@@ -876,13 +868,13 @@
       "pct_above_52w_low_pct": 3.4391,
       "score": 0.6013,
       "profile": {
-        "business": "LII(Lennox International)는 냉난방공조(HVAC) 시스템, 냉동 장비, 실내공기질 제품을 제조 및 판매하는 기업입니다. 주거용 및 상업용 건물의 온도 조절과 실내환경 개선 솔루션을 공급합니다.",
-        "sector": "산업제품/건설장비",
-        "products": "에어컨, 히트펌프, 냉동유닛, 제습기, 공기청정기",
+        "business": "LII는 Littelfuse Inc로 전자 부품 및 회로 보호 솔루션을 제조하는 회사입니다. 자동차, 산업, 통신 및 소비자 전자기기 등 다양한 산업에 퓨즈, 센서 및 보호 장치를 공급합니다.",
+        "sector": "전자 부품 및 반도체",
+        "products": "퓨즈, 회로 보호 센서, 자동차 전자 부품",
         "competitors": [
-          "Carrier Global",
-          "Trane Technologies",
-          "Rheem Manufacturing"
+          "Eaton Corporation",
+          "Schneider Electric",
+          "Bourns Inc"
         ]
       }
     },
@@ -900,15 +892,15 @@
       "div_yield": 2.7211,
       "payout_ratio_pct": 39.5,
       "pct_above_52w_low_pct": 6.9955,
-      "score": 0.5977,
+      "score": 0.5978,
       "profile": {
-        "business": "FFIN은 FirstFed Financial Corp의 자회사인 FirstFed Bank를 통해 캘리포니아에서 커뮤니티 은행 서비스를 제공합니다. 주로 중소기업과 개인고객을 대상으로 대출, 예금, 기타 금융 서비스를 영위합니다.",
-        "sector": "금융/은행",
-        "products": "기업대출, 부동산대출, 예금상품, 개인대출",
+        "business": "FFIN은 미국의 지역 금융기관으로, 은행 및 금융 서비스를 제공합니다. 대출, 예금, 투자 자문 등 전통적인 은행 업무를 주 사업으로 영위하고 있습니다.",
+        "sector": "금융 / 은행업",
+        "products": "상업대출, 소비자대출, 예금상품, 투자자문, 재산관리",
         "competitors": [
-          "East West Bancorp",
-          "Mechanics Bank",
-          "SVB Financial Group"
+          "PNC Financial",
+          "KeyCorp",
+          "Regions Financial"
         ]
       }
     },
@@ -926,15 +918,15 @@
       "div_yield": 2.0021,
       "payout_ratio_pct": 25.62,
       "pct_above_52w_low_pct": 6.7241,
-      "score": 0.5958,
+      "score": 0.5959,
       "profile": {
-        "business": "BANF는 미국의 지역 커뮤니티 은행입니다. 전통적인 대출, 예금, 자산관리 등 일반적인 뱅킹 서비스를 제공합니다.",
+        "business": "BANF는 금융 서비스 회사로 은행 및 금융 관련 사업을 영위하고 있습니다. 지역 기반의 금융 서비스를 제공하며 안정적인 배당 정책을 유지하고 있습니다.",
         "sector": "금융/은행",
-        "products": "예금, 대출, 신용카드, 자산관리 서비스",
+        "products": "은행 서비스, 대출, 예금 상품",
         "competitors": [
-          "Wells Fargo",
-          "PNC Financial",
-          "U.S. Bancorp"
+          "JPMorgan Chase",
+          "Bank of America",
+          "Wells Fargo"
         ]
       }
     },
@@ -954,13 +946,13 @@
       "pct_above_52w_low_pct": 2.7169,
       "score": 0.5943,
       "profile": {
-        "business": "VST는 비스타 아웃도어(Vista Outdoor)로, 야외 스포츠 용품과 총기 관련 제품을 제조 및 판매하는 기업입니다. 광학기기, 사냥용품, 탄약 등 다양한 야외활동 관련 제품을 생산합니다.",
-        "sector": "Consumer Discretionary / 스포츠용품 및 방위산업",
-        "products": "사냥용 탄약, 광학기기(조준경), 야외스포츠용품, 사격장비",
+        "business": "VST는 비스타(Vistra)로, 미국의 주요 전력 생산 및 판매 회사입니다. 석탄, 가스, 원자력 등 다양한 에너지원을 통해 전기를 생산하고 도매 전력시장에서 판매하고 있습니다.",
+        "sector": "유틸리티/에너지",
+        "products": "전기 생산 및 판매, 에너지 솔루션",
         "competitors": [
-          "Sturm Ruger",
-          "Smith & Wesson",
-          "Sportsman's Warehouse"
+          "Comanche Peak Nuclear Power Plant 경쟁사",
+          "American Electric Power",
+          "Duke Energy"
         ]
       }
     },
@@ -980,13 +972,13 @@
       "pct_above_52w_low_pct": 2.8859,
       "score": 0.5928,
       "profile": {
-        "business": "INGR(Ingredion)은 전 세계적으로 식품, 음료, 제약, 종이 등 다양한 산업을 위해 식품 성분 및 솔루션을 공급하는 기업입니다. 옥수수, 타피오카, 감자 등 천연 자원을 기반으로 전분, 감미료, 기능성 성분 등을 생산합니다.",
-        "sector": "기초소재/화학",
-        "products": "변성전분, 감미료, 식이섬유, 기능성 성분, 산업용 전분",
+        "business": "식품 재료 및 첨가물을 생산하는 회사입니다. 전 세계 식품 제조업체에 향료, 유화제, 안정제 등 다양한 식품 성분을 공급합니다.",
+        "sector": "소비재 - 식품 첨가물/재료",
+        "products": "향료, 유화제, 안정제, 겔화제 등 식품 첨가물",
         "competitors": [
-          "ADM(Archer Daniels Midland)",
-          "Cargill",
-          "DuPont"
+          "Tate & Lyle",
+          "Kerry Group",
+          "DuPont Nutrition & Biosciences"
         ]
       }
     },
@@ -1006,13 +998,13 @@
       "pct_above_52w_low_pct": 3.9214,
       "score": 0.5918,
       "profile": {
-        "business": "금융 서비스 및 투자 관련 사업을 영위하는 기업입니다. 자산관리, 투자 상담, 금융 상품 제공 등 다양한 금융 서비스를 제공합니다.",
-        "sector": "금융/투자 서비스",
-        "products": "투자 상품, 자산관리 서비스, 금융 상담",
+        "business": "금융 서비스 회사로, 주로 유동성 공급, 자산 관리, 그리고 금융 중개 서비스를 제공합니다. 글로벌 금융시장에서 주요 거래 및 투자 플랫폼 역할을 합니다.",
+        "sector": "금융 서비스",
+        "products": "주식 거래, 채권 거래, 자산 관리, 금융 데이터 및 분석 서비스",
         "competitors": [
-          "Schwab",
-          "Fidelity",
-          "Vanguard"
+          "Citadel",
+          "Virtu Financial",
+          "Balyasny"
         ]
       }
     },
@@ -1030,15 +1022,15 @@
       "div_yield": 3.3038,
       "payout_ratio_pct": 53.26,
       "pct_above_52w_low_pct": 5.17,
-      "score": 0.5915,
+      "score": 0.5916,
       "profile": {
-        "business": "NBHC(National Bank Holdings Corporation)는 미국의 지역 기반 은행 회사입니다. 중소기업과 개인고객을 대상으로 예금, 대출, 투자 등 다양한 금융서비스를 제공합니다.",
-        "sector": "금융/은행",
-        "products": "예금상품, 대출상품, 투자자문, 자산관리",
+        "business": "NBHC(National Bankshares, Inc.)는 미국의 지역 은행 지주회사입니다. 버지니아주를 중심으로 상업금융, 소비자금융, 부동산대출 등 종합 금융서비스를 제공하고 있습니다.",
+        "sector": "금융/은행업",
+        "products": "기업대출, 소비자대출, 예금, 자산관리, 부동산금융",
         "competitors": [
-          "Comerica Inc.",
-          "Texas Capital Bancshares",
-          "Prosperity Bancshares"
+          "Xenith Bankshares",
+          "Cardinal Bank",
+          "OneUnited Bank"
         ]
       }
     },
@@ -1058,13 +1050,13 @@
       "pct_above_52w_low_pct": 2.7596,
       "score": 0.5886,
       "profile": {
-        "business": "BWX Technologies는 정밀 제조 및 방위산업 부품 공급업체입니다. 원자력, 방위, 항공우주, 산업 분야에 고도의 기술이 필요한 제품을 공급합니다.",
-        "sector": "방위산업/정밀제조",
-        "products": "원자력 부품, 방위산업 시스템, 항공우주 부품",
+        "business": "BWXT(Babcock & Wilcox Enterprises)는 에너지 및 환경 솔루션을 제공하는 기업입니다. 원자력, 석탄, 가스 발전소를 위한 보일러, 환경 제어 및 기타 에너지 장비를 제조 및 서비스합니다.",
+        "sector": "산업/에너지 장비",
+        "products": "보일러, 환경 제어 시스템, 원자력 관련 장비",
         "competitors": [
-          "General Dynamics",
-          "Huntington Ingalls Industries",
-          "Northrop Grumman"
+          "Babcock International",
+          "Mitsubishi Heavy Industries",
+          "General Electric"
         ]
       }
     },
@@ -1084,13 +1076,13 @@
       "pct_above_52w_low_pct": 9.195,
       "score": 0.5884,
       "profile": {
-        "business": "LKFN(Lakeland Financial Corporation)은 미국 중서부 지역을 중심으로 금융 서비스를 제공하는 은행 지주회사입니다. 커뮤니티 은행 운영을 통해 개인 및 기업 고객에게 대출, 예금, 금융 상품 등의 서비스를 제공합니다.",
-        "sector": "금융/은행",
-        "products": "Lakeland Bank",
+        "business": "LKFN은 미국의 금융 서비스 회사입니다. 주로 대출, 금융 상품 및 관련 서비스를 제공하는 회사입니다.",
+        "sector": "금융 서비스",
+        "products": "소비자 대출, 금융 상품",
         "competitors": [
-          "CenterState Banking Corporation",
-          "First Merchants Corporation",
-          "The Bancorp, Inc."
+          "LendingClub",
+          "OnDeck",
+          "Elevate Credit"
         ]
       }
     },
@@ -1110,13 +1102,13 @@
       "pct_above_52w_low_pct": 1.3983,
       "score": 0.5843,
       "profile": {
-        "business": "DY는 미국의 건설 및 엔지니어링 서비스 회사입니다. 주로 에너지, 인프라, 산업 부문의 대규모 프로젝트 설계, 엔지니어링, 건설 및 운영 서비스를 제공합니다.",
+        "business": "DY는 미국의 주요 건설 및 엔지니어링 회사입니다. 상업용, 산업용, 인프라 프로젝트를 수행하며 설계, 조달, 시공 서비스를 제공합니다.",
         "sector": "건설/엔지니어링",
-        "products": "엔지니어링 설계, 건설 관리, 프로젝트 개발 및 관리 서비스",
+        "products": "건설 서비스, 엔지니어링 설계, 프로젝트 매니지먼트",
         "competitors": [
           "Bechtel",
           "Fluor Corporation",
-          "HDR"
+          "Jacobs Engineering"
         ]
       }
     },
@@ -1136,13 +1128,13 @@
       "pct_above_52w_low_pct": 9.5823,
       "score": 0.5837,
       "profile": {
-        "business": "PBH(Prestige Consumer Healthcare)는 소비자 건강 관리 제품을 개발, 마케팅, 판매하는 기업입니다. 일반의약품, 비타민, 건강 보조식품 등 자가 치료 제품을 주로 취급하고 있습니다.",
-        "sector": "헬스케어/소비자 건강용품",
-        "products": "토파올(Topol), 네스프레소(Nespresso) 관련 제품, 일반의약품 및 건강 보조식품",
+        "business": "PBH는 Personal Care, Health & Wellness 제품을 제조 및 유통하는 기업입니다. 주로 소비자 건강 및 개인 위생용품 시장에서 사업을 영위하고 있습니다.",
+        "sector": "Consumer Staples / Healthcare Products",
+        "products": "개인위생용품, 건강보조식품, 피부관리용품 등",
         "competitors": [
+          "Colgate-Palmolive",
           "Procter & Gamble",
-          "Church & Dwight",
-          "Haleon"
+          "Reckitt Benckiser"
         ]
       }
     },
@@ -1162,13 +1154,13 @@
       "pct_above_52w_low_pct": 6.7558,
       "score": 0.5828,
       "profile": {
-        "business": "TMUS(T-Mobile US)는 미국 3대 이동통신사 중 하나로 무선 통신 서비스를 제공합니다. 휴대폰 음성, 데이터 통신 서비스와 함께 고정 인터넷(홈 인터넷) 서비스도 제공하고 있습니다.",
-        "sector": "통신(Telecommunications)",
-        "products": "모바일 통신 서비스(음성, 데이터), 고정 인터넷 서비스, 국제 로밍 서비스",
+        "business": "T-Mobile US는 미국 3대 무선통신 사업자 중 하나로, 이동통신 서비스를 제공합니다. 휴대폰 음성·데이터 통신, 가정용 인터넷 서비스 등을 운영합니다.",
+        "sector": "통신",
+        "products": "T-Mobile 무선통신 서비스, Home Internet(가정용 인터넷)",
         "competitors": [
-          "Verizon Communications (VZ)",
-          "AT&T Inc (T)",
-          "Dish Network (DISH)"
+          "Verizon",
+          "AT&T",
+          "United States Cellular"
         ]
       }
     },
@@ -1188,13 +1180,13 @@
       "pct_above_52w_low_pct": 0.0,
       "score": 0.5826,
       "profile": {
-        "business": "온라인 교육 및 학습 플랫폼을 제공하는 기업입니다. K-12 학생들을 대상으로 한 과외 및 학습 서비스를 중심으로 사업을 영위하고 있습니다.",
-        "sector": "교육/에드테크",
-        "products": "Chegg, Chegg Services",
+        "business": "BFAM(Boot Camp)은 온라인 기반의 프로그래밍 및 기술 부트캠프 교육 회사입니다. IT 직업 훈련 과정을 제공하여 학생들의 진로 전환을 돕고 있습니다.",
+        "sector": "교육 기술(EdTech) / 온라인 교육",
+        "products": "Coding Boot Camp 프로그램, 웹개발 과정, 데이터 사이언스 과정",
         "competitors": [
           "Coursera",
-          "Udemy",
-          "2U Inc"
+          "2U Inc.",
+          "Skillshare"
         ]
       }
     },
@@ -1214,13 +1206,13 @@
       "pct_above_52w_low_pct": 9.2154,
       "score": 0.5823,
       "profile": {
-        "business": "IDEXX Laboratories는 반려동물 진단 및 치료 솔루션을 제공하는 회사입니다. 동물 의료용 진단 장비, 소프트웨어, 임상 화학 시약 등을 공급하며 동물병원 및 수의학 시장에 특화되어 있습니다.",
-        "sector": "헬스케어/생명공학",
-        "products": "Catalyst, ProCyte, Neogen 진단장비 및 체인 관리 소프트웨어",
+        "business": "반려동물 진단 및 건강관리 솔루션을 제공하는 기업입니다. 수의학 진단 장비, 소프트웨어, 반려동물 약품 등을 통해 동물병원과 반려동물 소유자를 지원합니다.",
+        "sector": "헬스케어/반려동물 케어",
+        "products": "IDEXX 진단 장비, Vetster 원격진료 플랫폼, 반려동물 약품 및 백신",
         "competitors": [
           "Zoetis",
-          "Henry Schein",
-          "Mars Petcare"
+          "Heska",
+          "Henry Schein"
         ]
       }
     },
@@ -1240,9 +1232,9 @@
       "pct_above_52w_low_pct": 9.1833,
       "score": 0.5812,
       "profile": {
-        "business": "미국 최대 규모의 신용카드 발급사로, 신용카드 결제 서비스 및 여행 관련 서비스를 제공합니다. 카드 발급, 가맹점 수수료, 금융 서비스를 통해 수익을 창출하고 있습니다.",
-        "sector": "금융/결제 서비스",
-        "products": "American Express 신용카드, 여행 및 엔터테인먼트 서비스",
+        "business": "American Express Company(AXP)는 글로벌 결제 및 금융 서비스 회사입니다. 신용카드, 여행 서비스, 상인 획득 및 처리 솔루션을 제공하며, 프리미엄 고객층을 중심으로 사업을 영위하고 있습니다.",
+        "sector": "금융 서비스/결제 처리",
+        "products": "American Express 신용카드, 여행 서비스, 상인 결제 솔루션",
         "competitors": [
           "Visa",
           "Mastercard",
@@ -1266,13 +1258,13 @@
       "pct_above_52w_low_pct": 0.0,
       "score": 0.5758,
       "profile": {
-        "business": "Jack Henry & Associates는 미국의 금융기관을 위한 핵심 처리 시스템, 디지털 뱅킹 솔루션, 결제 처리 서비스를 제공하는 소프트웨어 회사입니다. 커뮤니티 뱅크, 신용협동조합, 보험사 등을 주요 고객으로 하고 있습니다.",
-        "sector": "Information Technology / Financial Services Software",
-        "products": "Core Processing Systems, Digital Banking Solutions, Payment Processing",
+        "business": "JBSS(Judson-Atkinson Bancorp)는 미국의 커뮤니티 뱅킹 서비스를 제공하는 금융회사입니다. 지역 중심의 은행 업무와 금융 서비스를 영위하고 있습니다.",
+        "sector": "금융/은행",
+        "products": "예금, 대출, 신용카드, 투자 및 자산관리 서비스",
         "competitors": [
-          "Fiserv",
-          "FIS (Fidelity National Information Services)",
-          "SS&C Technologies"
+          "PNC Financial Services",
+          "Fifth Third Bancorp",
+          "KeyCorp"
         ]
       }
     },
@@ -1292,13 +1284,13 @@
       "pct_above_52w_low_pct": 2.1379,
       "score": 0.57,
       "profile": {
-        "business": "Wine.com으로 알려진 e-commerce 기반 온라인 와인 판매 기업입니다. 미국 내 소비자들에게 와인, 스피릿, 맥주 등 주류를 온라인으로 판매하고 있습니다.",
-        "sector": "Consumer Discretionary / E-commerce / Beverage Retail",
-        "products": "Wine, Spirits, Beer, Wine Accessories",
+        "business": "WINA는 와인 및 주류 음료 제조 및 유통을 주력 사업으로 영위하는 기업입니다. 미국 및 국제 시장에서 프리미엄 와인 브랜드를 판매하고 있습니다.",
+        "sector": "소비재 / 음료 및 주류",
+        "products": "프리미엄 와인",
         "competitors": [
-          "Drizly",
-          "Total Wine & More",
-          "Vivino"
+          "Constellation Brands",
+          "E & J Gallo Winery",
+          "Beam Suntory"
         ]
       }
     },
@@ -1316,15 +1308,15 @@
       "div_yield": 2.659,
       "payout_ratio_pct": 41.08,
       "pct_above_52w_low_pct": 1.0666,
-      "score": 0.5689,
+      "score": 0.569,
       "profile": {
-        "business": "Stratasys는 3D 프린팅 기술을 기반으로 산업용 3D 프린터와 재료를 개발·제조·판매하는 기업입니다. 항공우주, 자동차, 의료, 제조업 등 다양한 산업 분야에 3D 프린팅 솔루션을 제공합니다.",
-        "sector": "3D 프린팅 / 제조 기술",
-        "products": "FDM 및 PolyJet 3D 프린터, 3D 프린팅 재료 및 소프트웨어",
+        "business": "전략적 성장과 인수합병을 통해 사업을 확장하는 지주회사입니다. 다양한 산업 분야에 투자하여 포트폴리오를 구성하고 있습니다.",
+        "sector": "금융/지주회사",
+        "products": "투자 포트폴리오 관리",
         "competitors": [
-          "3D Systems",
-          "Desktop Metal",
-          "Markforged"
+          "BRK.B",
+          "PSP",
+          "MKL"
         ]
       }
     }

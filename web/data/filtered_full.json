@@ -1,7 +1,7 @@
 {
-  "as_of_date": "20261031",
+  "as_of_date": "20261101",
   "financial_year": null,
-  "generated_at": "2026-10-31T02:03:52.155110+00:00",
+  "generated_at": "2026-11-01T01:22:55.514869+00:00",
   "columns": [
     "name",
     "company_name",
@@ -79,7 +79,7 @@
       "div_yield": null,
       "payout_ratio_pct": null,
       "pct_above_52w_low_pct": 0.0,
-      "score": 0.7076
+      "score": 0.7075
     },
     {
       "stock_code": "WAFD",
@@ -149,8 +149,8 @@
       "stock_code": "IBOC",
       "name": "IBOC",
       "company_name": "Intl Bancshares Corp",
-      "mktcap_usd": 4164.1946,
-      "price": 66.97,
+      "mktcap_usd": 4157.3548,
+      "price": 66.86,
       "per": 10.2906,
       "pbr": 1.2702,
       "roe_3y_avg": 12.67,
@@ -159,7 +159,7 @@
       "div_yield": 2.7644,
       "payout_ratio_pct": 28.01,
       "pct_above_52w_low_pct": 5.4242,
-      "score": 0.6532
+      "score": 0.6533
     },
     {
       "stock_code": "MKC",
@@ -175,7 +175,7 @@
       "div_yield": 2.348,
       "payout_ratio_pct": 30.86,
       "pct_above_52w_low_pct": 7.1364,
-      "score": 0.6525
+      "score": 0.6524
     },
     {
       "stock_code": "PRDO",
@@ -191,7 +191,7 @@
       "div_yield": 2.51,
       "payout_ratio_pct": 21.93,
       "pct_above_52w_low_pct": 8.7559,
-      "score": 0.6507
+      "score": 0.6506
     },
     {
       "stock_code": "FHB",
@@ -223,7 +223,7 @@
       "div_yield": null,
       "payout_ratio_pct": 4.22,
       "pct_above_52w_low_pct": 2.3181,
-      "score": 0.65
+      "score": 0.6501
     },
     {
       "stock_code": "GOOG",
@@ -383,7 +383,7 @@
       "div_yield": null,
       "payout_ratio_pct": 8.37,
       "pct_above_52w_low_pct": 7.2032,
-      "score": 0.6313
+      "score": 0.6314
     },
     {
       "stock_code": "PIPR",
@@ -415,7 +415,7 @@
       "div_yield": 1.4549,
       "payout_ratio_pct": 15.37,
       "pct_above_52w_low_pct": 4.3911,
-      "score": 0.6216
+      "score": 0.6215
     },
     {
       "stock_code": "SCHW",
@@ -431,7 +431,7 @@
       "div_yield": 1.7721,
       "payout_ratio_pct": 23.78,
       "pct_above_52w_low_pct": 3.1635,
-      "score": 0.6164
+      "score": 0.6163
     },
     {
       "stock_code": "GNTX",
@@ -447,7 +447,7 @@
       "div_yield": 1.537,
       "payout_ratio_pct": 25.55,
       "pct_above_52w_low_pct": 0.0,
-      "score": 0.6145
+      "score": 0.6144
     },
     {
       "stock_code": "ORI",
@@ -543,7 +543,7 @@
       "div_yield": 2.4056,
       "payout_ratio_pct": 14.8,
       "pct_above_52w_low_pct": 8.3606,
-      "score": 0.6046
+      "score": 0.6047
     },
     {
       "stock_code": "LII",
@@ -575,7 +575,7 @@
       "div_yield": 2.7211,
       "payout_ratio_pct": 39.5,
       "pct_above_52w_low_pct": 6.9955,
-      "score": 0.5977
+      "score": 0.5978
     },
     {
       "stock_code": "BANF",
@@ -591,7 +591,7 @@
       "div_yield": 2.0021,
       "payout_ratio_pct": 25.62,
       "pct_above_52w_low_pct": 6.7241,
-      "score": 0.5958
+      "score": 0.5959
     },
     {
       "stock_code": "VST",
@@ -655,7 +655,7 @@
       "div_yield": 3.3038,
       "payout_ratio_pct": 53.26,
       "pct_above_52w_low_pct": 5.17,
-      "score": 0.5915
+      "score": 0.5916
     },
     {
       "stock_code": "BWXT",
@@ -831,7 +831,7 @@
       "div_yield": 2.659,
       "payout_ratio_pct": 41.08,
       "pct_above_52w_low_pct": 1.0666,
-      "score": 0.5689
+      "score": 0.569
     },
     {
       "stock_code": "GGG",
@@ -863,7 +863,7 @@
       "div_yield": null,
       "payout_ratio_pct": 25.41,
       "pct_above_52w_low_pct": 3.3664,
-      "score": 0.562
+      "score": 0.5619
     },
     {
       "stock_code": "OSIS",
@@ -879,7 +879,7 @@
       "div_yield": null,
       "payout_ratio_pct": null,
       "pct_above_52w_low_pct": 3.7129,
-      "score": 0.561
+      "score": 0.5609
     },
     {
       "stock_code": "SPXC",
@@ -895,7 +895,23 @@
       "div_yield": null,
       "payout_ratio_pct": null,
       "pct_above_52w_low_pct": 0.0,
-      "score": 0.5607
+      "score": 0.5606
+    },
+    {
+      "stock_code": "HUBB",
+      "name": "HUBB",
+      "company_name": "Hubbell Incorporated",
+      "mktcap_usd": 22317.5052,
+      "price": 422.44,
+      "per": 26.8612,
+      "pbr": 6.1338,
+      "roe_3y_avg": 23.72,
+      "interest_coverage": 18.4587,
+      "buyback_rate_pct": null,
+      "div_yield": 1.6238,
+      "payout_ratio_pct": 32.83,
+      "pct_above_52w_low_pct": 3.7019,
+      "score": 0.5577
     },
     {
       "stock_code": "AAON",
@@ -927,7 +943,7 @@
       "div_yield": 0.5715,
       "payout_ratio_pct": 12.37,
       "pct_above_52w_low_pct": 7.5403,
-      "score": 0.5559
+      "score": 0.556
     },
     {
       "stock_code": "LMAT",
@@ -975,7 +991,7 @@
       "div_yield": null,
       "payout_ratio_pct": 501.61,
       "pct_above_52w_low_pct": 6.5799,
-      "score": 0.5553
+      "score": 0.5554
     },
     {
       "stock_code": "CW",
@@ -1026,22 +1042,6 @@
       "score": 0.5522
     },
     {
-      "stock_code": "HUBB",
-      "name": "HUBB",
-      "company_name": "Hubbell Incorporated",
-      "mktcap_usd": 22317.5052,
-      "price": 422.44,
-      "per": 26.8612,
-      "pbr": 6.1338,
-      "roe_3y_avg": 23.72,
-      "interest_coverage": 18.4587,
-      "buyback_rate_pct": null,
-      "div_yield": 1.6238,
-      "payout_ratio_pct": 32.83,
-      "pct_above_52w_low_pct": 7.5781,
-      "score": 0.5504
-    },
-    {
       "stock_code": "XYL",
       "name": "XYL",
       "company_name": "Xylem Inc.",
@@ -1071,7 +1071,7 @@
       "div_yield": 2.2931,
       "payout_ratio_pct": 37.21,
       "pct_above_52w_low_pct": 6.1367,
-      "score": 0.5461
+      "score": 0.5462
     },
     {
       "stock_code": "NRG",
@@ -1167,7 +1167,7 @@
       "div_yield": 0.4709,
       "payout_ratio_pct": 15.26,
       "pct_above_52w_low_pct": 2.4049,
-      "score": 0.5393
+      "score": 0.5394
     },
     {
       "stock_code": "MTZ",
@@ -1199,23 +1199,7 @@
       "div_yield": 2.7041,
       "payout_ratio_pct": 89.82,
       "pct_above_52w_low_pct": 8.2053,
-      "score": 0.5352
-    },
-    {
-      "stock_code": "ESAB",
-      "name": "ESAB",
-      "company_name": "ESAB",
-      "mktcap_usd": 4246.9888,
-      "price": 69.76,
-      "per": 23.7402,
-      "pbr": 3.1313,
-      "roe_3y_avg": 7.66,
-      "interest_coverage": 4.932,
-      "buyback_rate_pct": null,
-      "div_yield": 0.3008,
-      "payout_ratio_pct": 14.13,
-      "pct_above_52w_low_pct": 8.1383,
-      "score": 0.5316
+      "score": 0.5353
     },
     {
       "stock_code": "MGEE",
@@ -1234,6 +1218,22 @@
       "score": 0.5316
     },
     {
+      "stock_code": "ESAB",
+      "name": "ESAB",
+      "company_name": "ESAB",
+      "mktcap_usd": 4246.9888,
+      "price": 69.76,
+      "per": 23.7402,
+      "pbr": 3.1313,
+      "roe_3y_avg": 7.66,
+      "interest_coverage": 4.932,
+      "buyback_rate_pct": null,
+      "div_yield": 0.3008,
+      "payout_ratio_pct": 14.13,
+      "pct_above_52w_low_pct": 8.1383,
+      "score": 0.5316
+    },
+    {
       "stock_code": "CNM",
       "name": "CNM",
       "company_name": "Core & Main",
@@ -1247,7 +1247,7 @@
       "div_yield": null,
       "payout_ratio_pct": null,
       "pct_above_52w_low_pct": 9.6654,
-      "score": 0.5307
+      "score": 0.5308
     },
     {
       "stock_code": "RPM",
@@ -1263,7 +1263,7 @@
       "div_yield": 1.7977,
       "payout_ratio_pct": 41.08,
       "pct_above_52w_low_pct": 9.8788,
-      "score": 0.5281
+      "score": 0.5282
     },
     {
       "stock_code": "FUL",
@@ -1343,7 +1343,7 @@
       "div_yield": 3.1733,
       "payout_ratio_pct": 104.93,
       "pct_above_52w_low_pct": 8.453,
-      "score": 0.5204
+      "score": 0.5203
     },
     {
       "stock_code": "TT",
@@ -1375,7 +1375,7 @@
       "div_yield": 0.9416,
       "payout_ratio_pct": 25.5,
       "pct_above_52w_low_pct": 2.9885,
-      "score": 0.5151
+      "score": 0.5152
     },
     {
       "stock_code": "NWN",
@@ -1471,7 +1471,7 @@
       "div_yield": 4.4075,
       "payout_ratio_pct": 57.5,
       "pct_above_52w_low_pct": 9.6009,
-      "score": 0.5069
+      "score": 0.507
     },
     {
       "stock_code": "CALM",
@@ -1535,7 +1535,7 @@
       "div_yield": 0.4382,
       "payout_ratio_pct": 15.49,
       "pct_above_52w_low_pct": 7.1925,
-      "score": 0.4814
+      "score": 0.4813
     },
     {
       "stock_code": "AGO",
@@ -1599,7 +1599,7 @@
       "div_yield": 1.0028,
       "payout_ratio_pct": 31.74,
       "pct_above_52w_low_pct": 6.1075,
-      "score": 0.4655
+      "score": 0.4656
     },
     {
       "stock_code": "TR",
@@ -1615,7 +1615,7 @@
       "div_yield": 1.049,
       "payout_ratio_pct": 27.72,
       "pct_above_52w_low_pct": 7.5823,
-      "score": 0.4452
+      "score": 0.4453
     },
     {
       "stock_code": "GBX",
