@@ -1,7 +1,7 @@
 {
-  "as_of_date": "20261121",
+  "as_of_date": "20261122",
   "financial_year": null,
-  "generated_at": "2026-11-21T03:38:57.664041+00:00",
+  "generated_at": "2026-11-22T02:31:29.571708+00:00",
   "columns": [
     "name",
     "company_name",
@@ -815,7 +815,7 @@
       "div_yield": 2.2733,
       "payout_ratio_pct": 28.95,
       "pct_above_52w_low_pct": 7.0825,
-      "score": 0.6351
+      "score": 0.635
     },
     {
       "stock_code": "VST",
@@ -895,7 +895,7 @@
       "div_yield": 1.138,
       "payout_ratio_pct": 13.36,
       "pct_above_52w_low_pct": 0.0,
-      "score": 0.6293
+      "score": 0.6292
     },
     {
       "stock_code": "ORCL",
@@ -928,6 +928,22 @@
       "payout_ratio_pct": 46.0,
       "pct_above_52w_low_pct": 0.0,
       "score": 0.6252
+    },
+    {
+      "stock_code": "TCBI",
+      "name": "TCBI",
+      "company_name": "Texas Capital Bancshares",
+      "mktcap_usd": 4042.7304,
+      "price": 95.28,
+      "per": 12.0465,
+      "pbr": 1.138,
+      "roe_3y_avg": 10.04,
+      "interest_coverage": null,
+      "buyback_rate_pct": 2.3925,
+      "div_yield": null,
+      "payout_ratio_pct": 7.12,
+      "pct_above_52w_low_pct": 0.0,
+      "score": 0.625
     },
     {
       "stock_code": "CRUS",
@@ -976,22 +992,6 @@
       "payout_ratio_pct": null,
       "pct_above_52w_low_pct": 0.0,
       "score": 0.6202
-    },
-    {
-      "stock_code": "TCBI",
-      "name": "TCBI",
-      "company_name": "Texas Capital Bancshares",
-      "mktcap_usd": 4117.8315,
-      "price": 97.05,
-      "per": 12.0465,
-      "pbr": 1.138,
-      "roe_3y_avg": 10.04,
-      "interest_coverage": null,
-      "buyback_rate_pct": 2.3925,
-      "div_yield": null,
-      "payout_ratio_pct": 7.12,
-      "pct_above_52w_low_pct": 0.2376,
-      "score": 0.618
     },
     {
       "stock_code": "ORI",
@@ -1119,7 +1119,7 @@
       "div_yield": 2.6048,
       "payout_ratio_pct": 19.52,
       "pct_above_52w_low_pct": 7.321,
-      "score": 0.6103
+      "score": 0.6102
     },
     {
       "stock_code": "YETI",
@@ -1551,7 +1551,7 @@
       "div_yield": 1.7616,
       "payout_ratio_pct": 22.47,
       "pct_above_52w_low_pct": 4.6223,
-      "score": 0.5802
+      "score": 0.5801
     },
     {
       "stock_code": "OSIS",
@@ -1983,7 +1983,7 @@
       "div_yield": 1.6238,
       "payout_ratio_pct": 33.11,
       "pct_above_52w_low_pct": 0.0,
-      "score": 0.5514
+      "score": 0.5513
     },
     {
       "stock_code": "ESE",
@@ -2207,7 +2207,7 @@
       "div_yield": 1.3126,
       "payout_ratio_pct": 28.63,
       "pct_above_52w_low_pct": 2.6193,
-      "score": 0.5415
+      "score": 0.5414
     },
     {
       "stock_code": "LEN",
@@ -2527,7 +2527,7 @@
       "div_yield": 4.8319,
       "payout_ratio_pct": 124.34,
       "pct_above_52w_low_pct": 0.0,
-      "score": 0.5183
+      "score": 0.5182
     },
     {
       "stock_code": "FUL",
@@ -2623,7 +2623,7 @@
       "div_yield": 0.9416,
       "payout_ratio_pct": 25.29,
       "pct_above_52w_low_pct": 1.1042,
-      "score": 0.513
+      "score": 0.5129
     },
     {
       "stock_code": "CSW",
