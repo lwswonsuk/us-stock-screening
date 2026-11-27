@@ -1,7 +1,7 @@
 {
-  "as_of_date": "20261126",
+  "as_of_date": "20261127",
   "financial_year": null,
-  "generated_at": "2026-11-26T04:37:01.801978+00:00",
+  "generated_at": "2026-11-27T04:35:48.872012+00:00",
   "columns": [
     "name",
     "company_name",
@@ -789,8 +789,8 @@
       "stock_code": "TCBI",
       "name": "TCBI",
       "company_name": "Texas Capital Bancshares",
-      "mktcap_usd": 4041.8818,
-      "price": 95.26,
+      "mktcap_usd": 4065.2183,
+      "price": 95.81,
       "per": 12.0465,
       "pbr": 1.138,
       "roe_3y_avg": 10.04,
